@@ -1,0 +1,90 @@
+---
+// Cognit lead-capture form — POSTs to our Worker endpoint (/api/lead), which
+// emails the lead to contact@zeabyte.co.nz via Amazon SES. Falls back to a
+// pre-filled mailto so a lead is never silently lost.
+---
+
+<form id="lead-form" action="/api/lead" method="POST" class="space-y-5">
+  <input type="hidden" name="source" value="cognitsystem.com" />
+  <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off" />
+
+  <div class="grid gap-5 sm:grid-cols-2">
+    <div>
+      <label class="block text-sm font-semibold text-cog-ink" for="name">Your name</label>
+      <input id="name" name="name" required class="mt-2 w-full rounded-xl border border-slate-300 px-4 py-3 text-cog-ink outline-none transition focus:border-cog-blue focus:ring-2 focus:ring-blue-100" placeholder="Jane Smith" />
+    </div>
+    <div>
+      <label class="block text-sm font-semibold text-cog-ink" for="company">Company</label>
+      <input id="company" name="company" required class="mt-2 w-full rounded-xl border border-slate-300 px-4 py-3 text-cog-ink outline-none transition focus:border-cog-blue focus:ring-2 focus:ring-blue-100" placeholder="Your company" />
+    </div>
+    <div>
+      <label class="block text-sm font-semibold text-cog-ink" for="email">Work email</label>
+      <input id="email" type="email" name="email" required class="mt-2 w-full rounded-xl border border-slate-300 px-4 py-3 text-cog-ink outline-none transition focus:border-cog-blue focus:ring-2 focus:ring-blue-100" placeholder="jane@company.co.nz" />
+    </div>
+    <div>
+      <label class="block text-sm font-semibold text-cog-ink" for="phone">Phone</label>
+      <input id="phone" name="phone" class="mt-2 w-full rounded-xl border border-slate-300 px-4 py-3 text-cog-ink outline-none transition focus:border-cog-blue focus:ring-2 focus:ring-blue-100" placeholder="+64 …" />
+    </div>
+  </div>
+
+  <div>
+    <label class="block text-sm font-semibold text-cog-ink" for="interest">What do you want to do?</label>
+    <select id="interest" name="interest" class="mt-2 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-cog-ink outline-none transition focus:border-cog-blue focus:ring-2 focus:ring-blue-100">
+      <option>Run my whole business on Cognit</option>
+      <option>Add a B2B online store for my customers</option>
+      <option>Replace my current ERP / accounting system</option>
+      <option>Get my inventory & purchasing under control</option>
+      <option>Sort out rebates & claim-backs</option>
+      <option>Integrate Cognit with Xero or another system</option>
+      <option>Not sure yet — show me a demo</option>
+    </select>
+  </div>
+
+  <div>
+    <label class="block text-sm font-semibold text-cog-ink" for="message">Anything we should know?</label>
+    <textarea id="message" name="message" rows="3" class="mt-2 w-full rounded-xl border border-slate-300 px-4 py-3 text-cog-ink outline-none transition focus:border-cog-blue focus:ring-2 focus:ring-blue-100" placeholder="Tell us about your business — what you sell, how many staff, what you run on today…"></textarea>
+  </div>
+
+  <button type="submit" class="btn-grad w-full !py-4 text-base">
+    Book my demo →
+  </button>
+  <p class="text-center text-xs text-slate-400">No obligation. We reply within one business day.</p>
+
+  <div id="lead-success" class="hidden rounded-xl border border-green-200 bg-green-50 p-4 text-center text-sm font-medium text-green-800">
+    🎉 Thanks — your demo request is in. We'll be in touch within one business day.
+  </div>
+</form>
+
+<script is:inline>
+  const form = document.getElementById("lead-form");
+  form?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const success = document.getElementById("lead-success");
+    const data = new FormData(form);
+    let sent = false;
+    try {
+      const payload = Object.fromEntries(data.entries());
+      const res = await fetch(form.action, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      if (res.ok) sent = true;
+    } catch (err) { /* fall through to mailto */ }
+    if (!sent) {
+      const subject = encodeURIComponent("Cognit demo request — " + (data.get("company") || "website enquiry"));
+      const body = encodeURIComponent(
+        "Name: " + (data.get("name") || "") +
+        "\nCompany: " + (data.get("company") || "") +
+        "\nEmail: " + (data.get("email") || "") +
+        "\nPhone: " + (data.get("phone") || "") +
+        "\nInterested in: " + (data.get("interest") || "") +
+        "\n\n" + (data.get("message") || "")
+      );
+      window.location.href = "mailto:contact@zeabyte.co.nz?subject=" + subject + "&body=" + body;
+      if (success) success.textContent = "📧 Your email app should open with your request ready to send. If it didn't, email us directly at contact@zeabyte.co.nz or call +64 22 169 1376.";
+    }
+    form.querySelectorAll("input,select,textarea,button").forEach((el) => (el.style.display = "none"));
+    success?.classList.remove("hidden");
+  });
+</script>

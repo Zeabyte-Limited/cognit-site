@@ -1,0 +1,177 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+const site = "https://www.cognitsystem.com";
+const slug = "all-in-one-erp-with-built-in-online-store";
+const url = `${site}/blog/${slug}/`;
+
+const title = "What Is an All-in-One ERP With a Built-In Online Store? | Cognit";
+const description =
+  "An all-in-one ERP with a built-in online store runs your sales, B2B e-commerce, inventory, purchasing and accounting from one system. Learn why a built-in store beats a bolt-on, and who benefits most.";
+
+const faqs = [
+  {
+    q: "What does \"all-in-one ERP\" actually mean?",
+    a: "An all-in-one ERP is a single system that runs every core part of a product business — sales orders, inventory and warehouse, purchasing, accounting and general ledger, invoicing and reporting — from one shared set of data. Instead of separate apps for stock, accounts and your website, everything reads and writes the same records, so an order placed once updates stock, invoicing and the books at the same time.",
+  },
+  {
+    q: "What is a built-in online store in an ERP?",
+    a: "A built-in online store is a B2B e-commerce website that is part of the ERP itself, not a plugin connected to it. In Cognit, customers log in to a branded storefront that shows their own pricing and live stock, and their orders flow straight into the same system staff use — no sync, no separate web platform.",
+  },
+  {
+    q: "Why is a built-in store better than a bolt-on?",
+    a: "A bolt-on store is a separate website that has to sync stock, prices and orders back to your ERP, usually on a delay. That delay causes overselling, wrong prices and re-keyed orders. A built-in store shares the same live data, so what the customer sees online is exactly what your business has — accurate every time.",
+  },
+  {
+    q: "Who benefits most from an all-in-one ERP with a built-in store?",
+    a: "Wholesalers, distributors, importers and product businesses that take repeat orders, hold stock and want their website, inventory and accounts working as one. It removes double entry, prevents overselling and gives one clear set of numbers across the whole business.",
+  },
+];
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "What is an all-in-one ERP with a built-in online store?",
+  description,
+  author: { "@type": "Organization", name: "Cognit System", url: site },
+  publisher: {
+    "@type": "Organization",
+    name: "Cognit System",
+    logo: { "@type": "ImageObject", url: `${site}/logo.png` },
+  },
+  datePublished: "2026-06-20",
+  dateModified: "2026-06-20",
+  mainEntityOfPage: { "@type": "WebPage", "@id": url },
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+---
+
+<Layout title={title} description={description} path={`/blog/${slug}`} schema={[articleSchema, faqSchema]}>
+  <Header />
+
+  <main class="bg-cog-stone text-cog-slate">
+    <!-- HERO (photographic) -->
+    <section class="orbs relative isolate overflow-hidden">
+      <img src="/images/food-distribution.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" />
+      <div class="absolute inset-0 -z-10 bg-cog-ink/82"></div>
+      <div class="dotgrid absolute inset-0 -z-10 opacity-40"></div>
+      <div class="mx-auto max-w-3xl px-5 pt-20 pb-20 text-center sm:px-8 sm:pt-28 hero-rise">
+        <span class="chip mx-auto border border-white/15 text-slate-200">Insights</span>
+        <h1 class="mt-5 text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl">
+          What is an all-in-one ERP with a built-in online store?
+        </h1>
+        <p class="mt-4 text-lg text-slate-300">
+          The one-system approach explained — and why a store built into your ERP
+          beats bolting a website onto separate accounting and stock.
+        </p>
+      </div>
+    </section>
+
+    <!-- BODY -->
+    <section class="mx-auto max-w-3xl px-5 pb-16 sm:px-8">
+      <article class="article">
+        <p>
+          If you run a wholesale or distribution business, you have probably ended
+          up with a stack of tools that do not talk to each other: a website over
+          here, accounting over there, stock in a spreadsheet, and the same order
+          re-keyed two or three times before it ships. An <strong>all-in-one ERP
+          with a built-in online store</strong> exists to end that. It is one
+          system that runs your whole company — and one of its core parts is a B2B
+          e-commerce store your customers actually order from.
+        </p>
+
+        <h2>What "all-in-one ERP" means</h2>
+        <p>
+          ERP stands for enterprise resource planning, but the plain-English
+          version is simpler: it is the single system that runs the moving parts of
+          a product business. In <a href="/platform">Cognit</a>, that means one
+          login covering:
+        </p>
+        <ul>
+          <li><strong>Sales and customer pricing</strong> — orders, quotes and special pricing per customer or group</li>
+          <li><strong>A built-in B2B online store</strong> — covered below, and the part that makes Cognit different</li>
+          <li><strong>Inventory and warehouse</strong> — live stock on hand, reorder levels and tablet stocktakes</li>
+          <li><strong>Purchasing</strong> — purchase orders, goods receipting and spend by supplier</li>
+          <li><strong>Accounting and general ledger</strong> — a real GL with automatic posting</li>
+          <li><strong>Invoicing and receivables, rebates, and reporting</strong> — the money side, end to end</li>
+        </ul>
+        <p>
+          Because every module reads and writes the same data, an order placed once
+          updates stock, invoicing and the books at the same moment. Nobody re-types
+          it. That single source of truth is the whole point of an ERP.
+        </p>
+
+        <h2>What "built-in online store" means</h2>
+        <p>
+          Most businesses treat their website as a separate thing — a Shopify or
+          WooCommerce site that has to be wired back into the rest of the company.
+          A <a href="/ecommerce">built-in online store</a> flips that around. The
+          store is part of the ERP itself. Your customers log in to a branded
+          storefront, see <a href="/features/customers">their own pricing</a>,
+          reorder from saved pantries, and place orders 24/7 — and those orders are
+          already inside the system staff use. There is nothing to sync, because the
+          store and the back office are the same database.
+        </p>
+
+        <h2>Why built-in beats bolt-on</h2>
+        <p>
+          A bolt-on store is a separate website connected to your ERP or accounting
+          by an integration that copies data back and forth, usually on a delay of
+          minutes or hours. That gap is where the problems live:
+        </p>
+        <ul>
+          <li><strong>Overselling</strong> — the website sells stock you no longer have because it has not synced yet</li>
+          <li><strong>Wrong prices</strong> — a customer's special pricing online drifts out of step with the back office</li>
+          <li><strong>Re-keyed orders</strong> — web orders that do not flow through cleanly get typed in again by hand</li>
+          <li><strong>Two systems to maintain</strong> — every product, price and customer change has to be made twice</li>
+        </ul>
+        <p>
+          With a built-in store, the website shows live stock and live pricing
+          because there is only one set of numbers. It physically cannot oversell
+          what the warehouse does not have, and orders land straight in
+          <a href="/features/invoicing">invoicing</a> and the
+          <a href="/features/accounting">ledger</a> without anyone re-typing them.
+        </p>
+
+        <h2>Who benefits most</h2>
+        <p>
+          An all-in-one ERP with a built-in store is built for businesses that take
+          repeat orders, hold stock and want their website, inventory and accounts
+          working as one. That is the daily reality for:
+        </p>
+        <ul>
+          <li>Wholesalers and food-service distributors with regular trade customers</li>
+          <li>Importers and product businesses managing stock across suppliers</li>
+          <li>Any operation losing hours to double entry between a website and the back office</li>
+        </ul>
+        <p>
+          If you are a single-product retailer with no trade pricing and no stock to
+          speak of, you may not need this. But the moment you are juggling customer
+          pricing, real inventory and accounts at the same time, one connected
+          system pays for itself in saved time and prevented mistakes.
+        </p>
+
+        <h2>Frequently asked questions</h2>
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </article>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

@@ -1,0 +1,47 @@
+---
+import Logo from "./Logo.astro";
+
+const links = [
+  { href: "/platform", label: "Platform" },
+  { href: "/features", label: "Modules" },
+  { href: "/ecommerce", label: "Online Store" },
+  { href: "/industries", label: "Industries" },
+  { href: "/pricing", label: "Pricing" },
+  { href: "/integrations", label: "Integrations" },
+  { href: "/blog", label: "Insights" },
+];
+---
+
+<header class="sticky top-0 z-50 px-3 pt-3 sm:px-4 sm:pt-4">
+  <nav class="glass mx-auto flex h-16 max-w-6xl items-center justify-between rounded-full pl-5 pr-3 sm:pl-6">
+    <a href="/" aria-label="Cognit System home" class="shrink-0"><Logo class="h-9 w-auto sm:h-11" /></a>
+
+    <div class="hidden items-center gap-7 lg:flex">
+      {links.map((l) => (
+        <a href={l.href} class="text-[14.5px] font-medium text-cog-slate transition hover:text-cog-purple">{l.label}</a>
+      ))}
+    </div>
+
+    <div class="flex items-center gap-2">
+      <a href="/contact" class="btn-grad hidden !px-5 !py-2.5 text-sm sm:inline-flex">Book a demo</a>
+      <button id="menu-btn" aria-label="Open menu" class="flex h-10 w-10 items-center justify-center rounded-full text-cog-ink lg:hidden">
+        <svg id="menu-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="4" y1="7" x2="20" y2="7" /><line x1="4" y1="12" x2="20" y2="12" /><line x1="4" y1="17" x2="20" y2="17" />
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <div id="mobile-menu" class="glass mx-auto mt-2 hidden max-w-6xl rounded-3xl px-5 py-3 lg:hidden">
+    {links.map((l) => (
+      <a href={l.href} class="block border-b border-black/5 py-3 text-base font-medium text-cog-slate">{l.label}</a>
+    ))}
+    <a href="/contact" class="btn-grad mt-3 w-full">Book a demo</a>
+  </div>
+</header>
+
+<script is:inline>
+  const btn = document.getElementById("menu-btn");
+  const menu = document.getElementById("mobile-menu");
+  btn?.addEventListener("click", () => menu?.classList.toggle("hidden"));
+</script>

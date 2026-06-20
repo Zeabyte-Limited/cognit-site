@@ -1,0 +1,230 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import Integrations from "../../components/Integrations.astro";
+
+const pains = [
+  {
+    icon: "🚢",
+    pain: "Landed cost you can't see",
+    detail:
+      "Freight, duty and handling pile onto the unit cost, but they land in another system — so you price off the supplier invoice and quietly lose margin.",
+    solve:
+      "Purchasing and goods receipting in one place, so the real cost of bringing stock in is captured against your purchases and your buying picture stays honest.",
+    module: "Purchasing",
+  },
+  {
+    icon: "📦",
+    pain: "Stock spread across the supply chain",
+    detail:
+      "Goods on the water, in the warehouse and out with customers — and no single view of what you actually have to sell.",
+    solve:
+      "One live inventory with full movement history, reorder levels and smart suggestions, so you always know what's on hand and what to bring in next.",
+    module: "Inventory & Warehouse",
+  },
+  {
+    icon: "🛒",
+    pain: "Selling on to trade, the hard way",
+    detail:
+      "Trade customers order by phone and email, your team re-keys it, and there's no easy self-serve channel for them.",
+    solve:
+      "A built-in B2B online store lets your trade customers log in, see their own pricing, reorder in one tap and order 24/7 — straight into your system.",
+    module: "Built-in Online Store",
+  },
+  {
+    icon: "⭐",
+    pain: "Rebates and claim-backs slipping away",
+    detail:
+      "Supplier rebates and claim-backs tracked by hand are the easiest money to lose — thousands a month can quietly go unclaimed.",
+    solve:
+      "Define each rebate agreement once and Cognit calculates what you've earned automatically, then batches and tracks the claims so nothing is left on the table.",
+    module: "Rebates & Claim-Backs",
+  },
+  {
+    icon: "📊",
+    pain: "Financials in a separate world",
+    detail:
+      "Purchasing, sales and accounts each in their own package, glued together at month-end to work out what you really made.",
+    solve:
+      "A real general ledger posts sales, purchasing and stock automatically, so your P&L and margins are right in real time — with a two-way Xero sync if you prefer.",
+    module: "Accounting & GL",
+  },
+];
+
+const faqs = [
+  {
+    q: "Is Cognit a good ERP for importers and distributors?",
+    a: "Yes. Cognit is an all-in-one cloud ERP built for importers who sell on to trade customers. It brings purchasing and goods receipting, inventory across your supply chain, a built-in B2B online store, supplier rebates and claim-backs, invoicing and real accounting into one system — so importing and selling through are joined up rather than stitched together. It starts at NZD $499 per month.",
+  },
+  {
+    q: "Can importers sell to trade customers through Cognit?",
+    a: "Yes. A complete B2B online store is built into Cognit. Your trade customers log in to a branded storefront, see their own pricing, reorder from saved lists and place orders 24/7 — and because the store shares Cognit's live stock and pricing, those orders flow straight through to picking, invoicing and the ledger.",
+  },
+  {
+    q: "Does Cognit handle purchasing and goods receipting?",
+    a: "Yes. You create and send purchase orders, work from reusable templates, and receipt goods against your POs in a couple of taps. A live purchasing dashboard shows what's on order, what's landed and what you're spending by supplier — keeping your buying picture clear as stock moves through the supply chain.",
+  },
+  {
+    q: "Does Cognit calculate supplier rebates and claim-backs?",
+    a: "Yes. You set up each supplier rebate agreement once and Cognit works out what you've earned from your purchases automatically, then batches and tracks the claims. It replaces the manual spreadsheets that quietly cost importers and distributors thousands of dollars a month in missed claims.",
+  },
+  {
+    q: "Does Cognit work with Xero and other systems?",
+    a: "Yes. Cognit has built-in two-way Xero integration that syncs invoices, credit notes, customers and products automatically, plus its own full accounting and general ledger if you'd rather run everything in one place. It can also connect to other systems that have an API or data feed.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
+};
+---
+
+<Layout
+  title="ERP for Importers & Distributors NZ — All-in-One | Cognit"
+  description="Cognit is the all-in-one ERP for importers and distributors — purchasing and landed cost, inventory across the supply chain, a built-in B2B store to sell on to trade, rebates and claim-backs, and real financials in one system. Syncs with Xero. Book a demo."
+  path="/industries/importers"
+  schema={faqSchema}
+>
+  <Header />
+
+  <main class="bg-cog-stone text-cog-slate">
+    <!-- HERO (photographic) -->
+    <section class="orbs relative isolate overflow-hidden">
+      <img src="/images/logistics-truck.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" />
+      <div class="absolute inset-0 -z-10 bg-cog-ink/82"></div>
+      <div class="dotgrid absolute inset-0 -z-10 opacity-40"></div>
+      <div class="mx-auto max-w-4xl px-5 pt-20 pb-20 text-center sm:px-8 sm:pt-28 hero-rise">
+        <span class="chip mx-auto border border-white/15 text-slate-200">
+          <span class="h-2 w-2 rounded-full bg-cog-teal"></span> Import to sell-through, joined up
+        </span>
+        <h1 class="mx-auto mt-7 max-w-3xl text-[2.6rem] font-extrabold leading-[1.05] tracking-tight text-white sm:text-6xl">
+          The all-in-one ERP for
+          <span class="text-gradient-bright"> importers &amp; distributors.</span>
+        </h1>
+        <p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-slate-300 sm:text-xl">
+          From landed cost and purchasing to inventory across the supply chain, selling
+          on to trade through your own store, rebates and claim-backs, and real
+          financials — Cognit connects it all on one platform.
+        </p>
+        <div class="mt-9 flex flex-wrap items-center justify-center gap-3">
+          <a href="/contact" class="btn-grad">Book a demo</a>
+          <a href="/platform" class="btn-ghost !border-white/30 !text-white">See how it works →</a>
+        </div>
+        <div class="mt-7 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-slate-300">
+          <span>✓ Purchasing &amp; receipting</span>
+          <span>✓ Sell on through a B2B store</span>
+          <span>✓ Rebates &amp; claim-backs</span>
+          <span>✓ Syncs with Xero</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAINS → MODULES -->
+    <section class="mx-auto max-w-6xl px-5 py-20 sm:px-8">
+      <div class="mb-12 max-w-2xl">
+        <span class="chip bg-cog-lilac text-cog-purple-600">The job, done</span>
+        <h2 class="mt-5 text-3xl font-extrabold tracking-tight text-cog-ink sm:text-4xl">
+          The importer's headaches — solved by one system
+        </h2>
+        <p class="mt-4 text-lg text-cog-slate">
+          Every challenge below maps to a module that's already built into Cognit and
+          shares the same live data, from purchase order to sell-through.
+        </p>
+      </div>
+
+      <div class="space-y-4">
+        {pains.map((p) => (
+          <div class="card-hairline card-hover grid gap-5 rounded-3xl p-7 sm:grid-cols-[1fr_1fr] sm:items-start">
+            <div>
+              <div class="flex items-center gap-3">
+                <span class="brand-gradient flex h-10 w-10 items-center justify-center rounded-xl text-lg">{p.icon}</span>
+                <h3 class="text-lg font-bold text-cog-ink">{p.pain}</h3>
+              </div>
+              <p class="mt-3 text-cog-slate/80">{p.detail}</p>
+            </div>
+            <div class="rounded-2xl bg-cog-stone/60 p-5">
+              <span class="chip bg-cog-teal/10 text-cog-teal-600">✓ {p.module}</span>
+              <p class="mt-3 leading-relaxed text-cog-slate">{p.solve}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- SELL-ON SLAB -->
+    <section class="px-4 py-10 sm:px-8">
+      <div class="orbs relative mx-auto max-w-6xl overflow-hidden rounded-[2rem] bg-cog-ink px-6 py-16 text-white sm:px-12">
+        <img src="/images/warehouse-worker.jpg" alt="" aria-hidden="true" class="absolute inset-0 h-full w-full object-cover opacity-20" />
+        <div class="dotgrid absolute inset-0 opacity-50"></div>
+        <div class="relative grid items-center gap-10 lg:grid-cols-2">
+          <div>
+            <span class="chip border border-white/15 text-blue-200">🛒 Sell it on, effortlessly</span>
+            <h2 class="mt-5 text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl">
+              Bring it in, then let trade <span class="text-gradient-bright">self-serve.</span>
+            </h2>
+            <p class="mt-5 max-w-lg text-lg text-slate-300">
+              The moment imported stock is receipted, it's live in your built-in B2B store.
+              Trade customers log in, see their own pricing, reorder in one tap and order
+              around the clock — and every order flows straight through to your stock, your
+              invoice and your books, with no re-keying.
+            </p>
+          </div>
+          <div class="grid gap-3 sm:grid-cols-2">
+            {[
+              { icon: "🧾", t: "Receipt landed stock" },
+              { icon: "🛒", t: "Live in your store" },
+              { icon: "💲", t: "Trade-specific pricing" },
+              { icon: "🔁", t: "Straight to invoicing" },
+            ].map((x) => (
+              <div class="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur">
+                <div class="text-2xl">{x.icon}</div>
+                <div class="mt-2 font-semibold text-white">{x.t}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROOF -->
+    <section class="mx-auto max-w-6xl px-5 py-20 sm:px-8">
+      <div class="card-hairline rounded-3xl p-8 sm:p-10">
+        <span class="chip bg-cog-lilac text-cog-purple-600">Proven, not theoretical</span>
+        <h2 class="mt-4 text-2xl font-extrabold tracking-tight text-cog-ink sm:text-3xl">
+          One platform from purchase order to paid invoice
+        </h2>
+        <p class="mt-4 max-w-3xl text-lg leading-relaxed text-cog-slate">
+          Cognit already runs import-and-distribute businesses across New Zealand and
+          Australia — buying, holding stock, selling on to trade through a built-in store,
+          claiming rebates and keeping the books. One connected system, built and supported
+          by a New Zealand team you can call.
+        </p>
+        <a href="/contact" class="btn-grad mt-7">Book a demo</a>
+      </div>
+    </section>
+
+    <!-- INTEGRATIONS -->
+    <Integrations />
+
+    <!-- FAQ -->
+    <section class="mx-auto max-w-3xl px-5 py-24 sm:px-8">
+      <h2 class="text-center text-3xl font-extrabold tracking-tight text-cog-ink sm:text-4xl">Importers &amp; distributors, answered</h2>
+      <div class="mt-10 space-y-3">
+        {faqs.map((f) => (
+          <details class="card-hairline group rounded-2xl p-6 open:shadow-md">
+            <summary class="flex cursor-pointer list-none items-center justify-between text-lg font-bold text-cog-ink">
+              {f.q}
+              <span class="ml-4 text-cog-purple transition group-open:rotate-45">＋</span>
+            </summary>
+            <p class="mt-3 leading-relaxed text-cog-slate">{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

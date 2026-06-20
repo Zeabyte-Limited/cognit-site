@@ -1,0 +1,229 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import Integrations from "../../components/Integrations.astro";
+
+const pains = [
+  {
+    icon: "📦",
+    pain: "Stock you can't quite trust",
+    detail:
+      "When stock lives in a spreadsheet — or two systems that don't agree — you oversell, you over-order, and you waste hours counting to be sure.",
+    solve:
+      "One live source of truth for stock on hand, with full movement history, bin locations and tablet stocktakes your warehouse team runs from the floor.",
+    module: "Inventory & Warehouse",
+  },
+  {
+    icon: "🧾",
+    pain: "Purchasing and goods receipting by hand",
+    detail:
+      "Raising POs in one place, receipting in another, and never quite knowing what's on order or what's landed.",
+    solve:
+      "Create and send purchase orders from templates, receipt goods against them in a couple of taps, and watch a live dashboard of what's on order, landed and spent by supplier.",
+    module: "Purchasing",
+  },
+  {
+    icon: "💲",
+    pain: "Margins leaking through pricing",
+    detail:
+      "Customer deals in spreadsheets, prices that drift, and discounts that quietly erode the margin you thought you had.",
+    solve:
+      "Set customer and group pricing and price lists once, with margins protected, and have the same price used in staff order entry, the online store and the invoice.",
+    module: "Sales & Pricing",
+  },
+  {
+    icon: "🛒",
+    pain: "No easy way for trade customers to order",
+    detail:
+      "Orders come by phone, email and text — then someone re-keys them, and the errors creep in.",
+    solve:
+      "A B2B online store is built in. Trade customers log in, see their own pricing, reorder in one tap and order 24/7 — straight into your system, no re-keying.",
+    module: "Built-in Online Store",
+  },
+  {
+    icon: "📊",
+    pain: "Accounting living somewhere else",
+    detail:
+      "Sales here, stock there, books in another package — and a month-end spent gluing exports together to guess your numbers.",
+    solve:
+      "A real general ledger sits under everything, posting sales, purchasing and stock automatically — so your P&L is right in real time, with a two-way Xero sync if you want it.",
+    module: "Accounting & GL",
+  },
+];
+
+const faqs = [
+  {
+    q: "What is the best wholesale distribution software in New Zealand?",
+    a: "Cognit is an all-in-one cloud ERP built for wholesale distributors — it brings stock, purchasing, pricing, a built-in B2B online store, invoicing, accounting and reporting into one system instead of a patchwork of separate tools. It's proven with wholesale and food distributors across New Zealand and Australia, and starts at NZD $499 per month.",
+  },
+  {
+    q: "Does Cognit replace separate stock, invoicing and accounting tools?",
+    a: "Yes. Cognit is one connected platform: inventory and warehouse, purchasing and goods receipting, sales and pricing, a built-in online store, invoicing and accounts receivable, and a real general ledger all share the same live data. Most wholesalers use it to retire a stack of separate subscriptions that never quite talked to each other.",
+  },
+  {
+    q: "Can my trade customers order online?",
+    a: "Yes. A complete B2B e-commerce store is built into Cognit. Trade customers log in to a branded storefront, see their own pricing, reorder from saved lists and order 24/7 — and because the store shares Cognit's live stock and pricing, orders flow straight through to picking, invoicing and the ledger with no re-keying.",
+  },
+  {
+    q: "How does Cognit keep stock accurate?",
+    a: "Stock updates the instant an order is placed — online or by your team — so there's one live figure everyone works from, with full movement history and audit trail. Reorder levels and smart suggestions tell you what to buy, bin and shelf locations speed up picking, and tablet stocktakes let the warehouse count from the floor.",
+  },
+  {
+    q: "Does Cognit integrate with Xero and other systems?",
+    a: "Yes. Cognit has built-in two-way Xero integration that syncs invoices, credit notes, customers and products automatically, and it has its own full accounting if you'd rather keep everything in one place. It can also connect to other accounting, inventory or e-commerce systems — if a system has an API or data feed, Cognit can integrate with it.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
+};
+---
+
+<Layout
+  title="Wholesale Distribution Software NZ — All-in-One ERP | Cognit"
+  description="Cognit is the all-in-one wholesale distribution ERP for New Zealand — accurate stock, purchasing and goods receipting, protected margins, a built-in B2B online store, invoicing and real accounting in one system. Syncs with Xero. From NZD $499/month. Book a demo."
+  path="/industries/wholesale-distribution"
+  schema={faqSchema}
+>
+  <Header />
+
+  <main class="bg-cog-stone text-cog-slate">
+    <!-- HERO (photographic) -->
+    <section class="orbs relative isolate overflow-hidden">
+      <img src="/images/warehouse-shelves.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" />
+      <div class="absolute inset-0 -z-10 bg-cog-ink/82"></div>
+      <div class="dotgrid absolute inset-0 -z-10 opacity-40"></div>
+      <div class="mx-auto max-w-4xl px-5 pt-20 pb-20 text-center sm:px-8 sm:pt-28 hero-rise">
+        <span class="chip mx-auto border border-white/15 text-slate-200">
+          <span class="h-2 w-2 rounded-full bg-cog-teal"></span> All-in-one for wholesale distribution
+        </span>
+        <h1 class="mx-auto mt-7 max-w-3xl text-[2.6rem] font-extrabold leading-[1.05] tracking-tight text-white sm:text-6xl">
+          Wholesale distribution software that's
+          <span class="text-gradient-bright"> actually one system.</span>
+        </h1>
+        <p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-slate-300 sm:text-xl">
+          Accurate stock, fast purchasing and goods receipting, protected margins and a
+          24/7 B2B online store — with your accounts posting themselves underneath, all
+          on one platform.
+        </p>
+        <div class="mt-9 flex flex-wrap items-center justify-center gap-3">
+          <a href="/contact" class="btn-grad">Book a demo</a>
+          <a href="/platform" class="btn-ghost !border-white/30 !text-white">See how it works →</a>
+        </div>
+        <div class="mt-7 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-slate-300">
+          <span>✓ Accurate live stock</span>
+          <span>✓ Purchasing &amp; receipting</span>
+          <span>✓ Built-in B2B store</span>
+          <span>✓ Real accounting &amp; GL</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAINS → MODULES -->
+    <section class="mx-auto max-w-6xl px-5 py-20 sm:px-8">
+      <div class="mb-12 max-w-2xl">
+        <span class="chip bg-cog-lilac text-cog-purple-600">The job, done</span>
+        <h2 class="mt-5 text-3xl font-extrabold tracking-tight text-cog-ink sm:text-4xl">
+          What slows wholesalers down — and how Cognit fixes it
+        </h2>
+        <p class="mt-4 text-lg text-cog-slate">
+          Each problem below is solved by a module that's already built into Cognit and
+          shares the same live data as the rest of your business.
+        </p>
+      </div>
+
+      <div class="space-y-4">
+        {pains.map((p) => (
+          <div class="card-hairline card-hover grid gap-5 rounded-3xl p-7 sm:grid-cols-[1fr_1fr] sm:items-start">
+            <div>
+              <div class="flex items-center gap-3">
+                <span class="brand-gradient flex h-10 w-10 items-center justify-center rounded-xl text-lg">{p.icon}</span>
+                <h3 class="text-lg font-bold text-cog-ink">{p.pain}</h3>
+              </div>
+              <p class="mt-3 text-cog-slate/80">{p.detail}</p>
+            </div>
+            <div class="rounded-2xl bg-cog-stone/60 p-5">
+              <span class="chip bg-cog-teal/10 text-cog-teal-600">✓ {p.module}</span>
+              <p class="mt-3 leading-relaxed text-cog-slate">{p.solve}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- ONE-PLATFORM SLAB -->
+    <section class="px-4 py-10 sm:px-8">
+      <div class="orbs relative mx-auto max-w-6xl overflow-hidden rounded-[2rem] bg-cog-ink px-6 py-16 text-white sm:px-12">
+        <div class="dotgrid absolute inset-0 opacity-50"></div>
+        <div class="relative grid items-center gap-10 lg:grid-cols-2">
+          <div>
+            <span class="chip border border-white/15 text-blue-200">🔗 One source of truth</span>
+            <h2 class="mt-5 text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl">
+              Enter an order once. It's <span class="text-gradient-bright">everywhere.</span>
+            </h2>
+            <p class="mt-5 max-w-lg text-lg text-slate-300">
+              On separate tools, a single order gets re-keyed three times and the numbers
+              never quite agree. On Cognit, one order updates your stock, your invoice and
+              your ledger at the same moment — so there's nothing to sync and nothing to
+              reconcile.
+            </p>
+          </div>
+          <div class="grid gap-3 sm:grid-cols-2">
+            {[
+              { icon: "🛒", t: "Order in once" },
+              { icon: "📦", t: "Stock reserves itself" },
+              { icon: "💰", t: "Invoice in one click" },
+              { icon: "📊", t: "Books post themselves" },
+            ].map((x) => (
+              <div class="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur">
+                <div class="text-2xl">{x.icon}</div>
+                <div class="mt-2 font-semibold text-white">{x.t}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROOF -->
+    <section class="mx-auto max-w-6xl px-5 py-20 sm:px-8">
+      <div class="card-hairline rounded-3xl p-8 sm:p-10">
+        <span class="chip bg-cog-lilac text-cog-purple-600">Proven, not theoretical</span>
+        <h2 class="mt-4 text-2xl font-extrabold tracking-tight text-cog-ink sm:text-3xl">
+          The system already running real distribution businesses
+        </h2>
+        <p class="mt-4 max-w-3xl text-lg leading-relaxed text-cog-slate">
+          Cognit isn't a promise on a slide — it's the platform running wholesale and food
+          distribution businesses across New Zealand and Australia today, taking online
+          orders, holding stock, invoicing and keeping the books. And it's built and
+          supported by a New Zealand team you can pick up the phone to.
+        </p>
+        <a href="/contact" class="btn-grad mt-7">Book a demo</a>
+      </div>
+    </section>
+
+    <!-- INTEGRATIONS -->
+    <Integrations />
+
+    <!-- FAQ -->
+    <section class="mx-auto max-w-3xl px-5 py-24 sm:px-8">
+      <h2 class="text-center text-3xl font-extrabold tracking-tight text-cog-ink sm:text-4xl">Wholesale distribution, answered</h2>
+      <div class="mt-10 space-y-3">
+        {faqs.map((f) => (
+          <details class="card-hairline group rounded-2xl p-6 open:shadow-md">
+            <summary class="flex cursor-pointer list-none items-center justify-between text-lg font-bold text-cog-ink">
+              {f.q}
+              <span class="ml-4 text-cog-purple transition group-open:rotate-45">＋</span>
+            </summary>
+            <p class="mt-3 leading-relaxed text-cog-slate">{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

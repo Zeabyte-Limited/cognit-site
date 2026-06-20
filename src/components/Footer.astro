@@ -1,0 +1,105 @@
+---
+import Logo from "./Logo.astro";
+const year = 2026;
+const cols = [
+  {
+    title: "Product",
+    links: [
+      { href: "/platform", label: "The platform" },
+      { href: "/features", label: "All modules" },
+      { href: "/ecommerce", label: "Built-in online store" },
+      { href: "/pricing", label: "Pricing" },
+    ],
+  },
+  {
+    title: "Modules",
+    links: [
+      { href: "/features/inventory", label: "Inventory & warehouse" },
+      { href: "/features/purchasing", label: "Purchasing" },
+      { href: "/features/accounting", label: "Accounting & GL" },
+      { href: "/features/rebates", label: "Rebates & claim-backs" },
+    ],
+  },
+  {
+    title: "Company",
+    links: [
+      { href: "/industries", label: "Industries" },
+      { href: "/integrations", label: "Integrations" },
+      { href: "/customers", label: "Customers" },
+      { href: "/blog", label: "Insights" },
+      { href: "/about", label: "About Cognit" },
+      { href: "/contact", label: "Book a demo" },
+    ],
+  },
+  {
+    title: "Resources",
+    links: [
+      { href: "/faq", label: "FAQ" },
+      { href: "/what-is-an-erp", label: "What is an ERP?" },
+      { href: "/security", label: "Security" },
+      { href: "/onboarding", label: "Getting started" },
+      { href: "/support", label: "Support" },
+    ],
+  },
+];
+---
+
+<!-- CTA slab -->
+<section class="px-4 pb-4">
+  <div class="brand-gradient relative mx-auto max-w-6xl overflow-hidden rounded-[2rem] px-6 py-16 text-center sm:px-10">
+    <img src="/images/logistics-truck.jpg" alt="" aria-hidden="true" class="absolute inset-0 h-full w-full object-cover opacity-20 mix-blend-overlay" />
+    <div class="dotgrid absolute inset-0 opacity-40"></div>
+    <div class="relative">
+      <h2 class="mx-auto max-w-2xl text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+        Run your whole business on one system.
+      </h2>
+      <p class="mx-auto mt-4 max-w-xl text-lg text-white/85">
+        Book a 30-minute demo and see Cognit running a business like yours — online store and all.
+      </p>
+      <a href="/contact" class="mt-8 inline-flex items-center justify-center rounded-full bg-white px-8 py-4 font-semibold text-cog-ink shadow-lg transition hover:-translate-y-0.5">
+        Book my demo →
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="relative overflow-hidden bg-cog-ink text-slate-300">
+  <div class="dotgrid absolute inset-0 opacity-50"></div>
+  <div class="relative mx-auto grid max-w-6xl gap-10 px-5 py-16 sm:px-8 md:grid-cols-2 lg:grid-cols-6">
+    <div class="md:col-span-2">
+      <Logo dark={true} class="h-8 w-auto" />
+      <p class="mt-5 max-w-sm text-sm leading-relaxed text-slate-400">
+        Cognit is the all-in-one ERP you run your whole company on — sales, a
+        built-in online store, inventory, purchasing, accounting and reporting in
+        one connected system.
+      </p>
+      <p class="mt-4 text-sm font-medium text-gradient-bright">One business. One system.</p>
+      <p class="mt-5 text-sm text-slate-400">
+        New Zealand &amp; Australia<br />
+        <a href="mailto:contact@zeabyte.co.nz" class="hover:text-white">contact@zeabyte.co.nz</a> · +64 22 169 1376
+      </p>
+    </div>
+
+    {cols.map((c) => (
+      <div>
+        <h3 class="text-sm font-semibold text-white">{c.title}</h3>
+        <ul class="mt-4 space-y-3 text-sm">
+          {c.links.map((l) => (
+            <li><a href={l.href} class="text-slate-400 transition hover:text-white">{l.label}</a></li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </div>
+
+  <div class="relative border-t border-white/10">
+    <div class="mx-auto flex max-w-6xl flex-col gap-2 px-5 py-6 text-xs text-slate-500 sm:flex-row sm:items-center sm:justify-between sm:px-8">
+      <span>
+        © {year} Cognit System · A <a href="https://www.zeabyte.co.nz" class="text-slate-400 hover:text-white">Zeabyte</a> product · NZBN 9429052028748
+        · <a href="/privacy" class="text-slate-500 transition hover:text-white">Privacy</a>
+        · <a href="/terms" class="text-slate-500 transition hover:text-white">Terms</a>
+      </span>
+      <span>Built &amp; supported in New Zealand 🇳🇿</span>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,9 @@
+---
+// Official Cognit System logo (mark + "Cognit System" wordmark).
+// Light header → /logo.png (ink wordmark); dark footer → /logo-white.png (white-out).
+interface Props { dark?: boolean; class?: string }
+const { dark = false, class: cls = "h-10 w-auto" } = Astro.props;
+const src = dark ? "/logo-white.png" : "/logo.png";
+---
+
+<img src={src} alt="Cognit System" class={cls} />

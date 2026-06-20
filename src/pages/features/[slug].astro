@@ -1,0 +1,95 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import { modules } from "../../data/modules.js";
+
+export function getStaticPaths() {
+  return modules.map((m) => ({ params: { slug: m.slug }, props: { m } }));
+}
+
+const { m } = Astro.props;
+const others = modules.filter((x) => x.slug !== m.slug);
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: `${m.name} — Cognit`,
+  description: m.blurb,
+  isPartOf: { "@id": "https://www.cognitsystem.com/#website" },
+  about: { "@id": "https://www.cognitsystem.com/#software" },
+};
+---
+
+<Layout
+  title={`${m.name} | Cognit ERP`}
+  description={`${m.short} ${m.blurb}`.slice(0, 300)}
+  path={`/features/${m.slug}`}
+  schema={schema}
+>
+  <Header />
+
+  <main class="bg-cog-stone text-cog-slate">
+    <!-- HERO (photographic) -->
+    <section class="orbs relative isolate overflow-hidden">
+      <img src="/images/food-distribution.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" />
+      <div class="absolute inset-0 -z-10 bg-cog-ink/82"></div>
+      <div class="dotgrid absolute inset-0 -z-10 opacity-40"></div>
+      <div class="mx-auto max-w-4xl px-5 pt-20 pb-20 text-center sm:px-8 sm:pt-28 hero-rise">
+        <span class="brand-gradient mx-auto flex h-14 w-14 items-center justify-center rounded-2xl text-3xl">{m.icon}</span>
+        <span class="chip mt-5 mx-auto border border-white/15 text-slate-200">Cognit module</span>
+        <h1 class="mt-5 text-4xl font-extrabold tracking-tight text-white sm:text-5xl">{m.name}</h1>
+        <p class="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-slate-300">{m.blurb}</p>
+        <div class="mt-9">
+          <a href="/contact" class="btn-grad">Book a demo</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- KEY POINTS -->
+    <section class="mx-auto max-w-6xl px-5 py-20 sm:px-8">
+      <h2 class="text-center text-2xl font-extrabold tracking-tight text-cog-ink sm:text-3xl">What you get</h2>
+      <div class="mt-12 grid gap-4 sm:grid-cols-2">
+        {m.points.map((p) => (
+          <div class="card-hairline flex items-start gap-4 rounded-3xl p-6">
+            <span class="mt-0.5 flex h-8 w-8 flex-none items-center justify-center rounded-full bg-cog-sky text-cog-blue">✓</span>
+            <span class="text-lg font-semibold text-cog-ink">{p}</span>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- IT'S ALL CONNECTED -->
+    <section class="px-4 py-10 sm:px-8">
+      <div class="orbs relative mx-auto max-w-6xl overflow-hidden rounded-[2rem] bg-cog-ink px-6 py-16 text-white sm:px-12">
+        <div class="dotgrid absolute inset-0 opacity-50"></div>
+        <div class="relative mx-auto max-w-2xl text-center">
+          <h2 class="text-2xl font-extrabold tracking-tight sm:text-3xl">
+            And it's <span class="text-gradient-bright">connected to everything else.</span>
+          </h2>
+          <p class="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-slate-300">
+            {m.name} isn't a standalone app — it's one part of Cognit. Data flows
+            straight through to your online store, your invoices and your general
+            ledger automatically, so you enter things once and they're right everywhere.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- OTHER MODULES -->
+    <section class="mx-auto max-w-6xl px-5 py-20 sm:px-8">
+      <h2 class="text-2xl font-extrabold tracking-tight text-cog-ink sm:text-3xl">Explore the rest of Cognit</h2>
+      <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {others.map((o) => (
+          <a href={`/features/${o.slug}`} class="card-hairline card-hover group rounded-3xl p-6">
+            <span class="brand-gradient flex h-10 w-10 items-center justify-center rounded-xl text-lg">{o.icon}</span>
+            <h3 class="mt-4 font-bold text-cog-ink">{o.name}</h3>
+            <p class="mt-1.5 text-sm text-cog-slate">{o.short}</p>
+          </a>
+        ))}
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

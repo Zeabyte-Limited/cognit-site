@@ -1,0 +1,172 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const pillars = [
+  {
+    icon: "🔒",
+    t: "Your data is safe & private",
+    b: "Cognit keeps your business data protected with modern, industry-standard safeguards. Information is encrypted, access is tightly controlled, and your records stay confidential to your business at all times.",
+  },
+  {
+    icon: "💾",
+    t: "Automatic backups & reliability",
+    b: "Your data is backed up automatically, around the clock, so nothing is riding on a single machine or a USB stick in a drawer. Cognit is built to stay up and keep running, day in and day out.",
+  },
+  {
+    icon: "👥",
+    t: "Role-based access control",
+    b: "Staff only see what they should. You decide who can view pricing, accounts, customers or reports — so the right people have the right access, and sensitive numbers stay with the people who need them.",
+  },
+  {
+    icon: "📤",
+    t: "Your data is yours",
+    b: "It's your business, and it's your data. You can export your information whenever you want — no lock-in, no holding your numbers hostage. What you put into Cognit, you can always get back out.",
+  },
+  {
+    icon: "🏢",
+    t: "Private to your business",
+    b: "Your customers, pricing and accounts are yours alone. Your information is never shared with other businesses, and it's never sold. Cognit is your private system, kept private.",
+  },
+  {
+    icon: "🇳🇿",
+    t: "Built & supported in New Zealand",
+    b: "Cognit is built and supported by a New Zealand team. When you need answers about your data or your account, you reach real people in your timezone who understand your business.",
+  },
+];
+
+const promises = [
+  "Encrypted, access-controlled and confidential to your business",
+  "Backed up automatically, around the clock",
+  "Role-based permissions so staff only see what they should",
+  "Exportable any time — your data is always yours",
+  "Never shared with other businesses, never sold",
+  "Built and supported by a real New Zealand team",
+];
+
+const faqs = [
+  {
+    q: "Is my data backed up?",
+    a: "Yes. Cognit backs up your data automatically, around the clock, on trusted, enterprise-grade infrastructure. You're never relying on a single machine — your information is safely protected and recoverable.",
+  },
+  {
+    q: "Who can see my data?",
+    a: "Only the people you allow. Cognit uses role-based access control, so you decide who in your team can see pricing, accounts, customers or reports. Your data is private to your business and is never shared with other businesses or sold.",
+  },
+  {
+    q: "Can I export my data?",
+    a: "Yes. Your data is yours, and you can export your information whenever you need it. There's no lock-in — what you put into Cognit, you can always get back out.",
+  },
+  {
+    q: "Where is my data stored?",
+    a: "Your data is held securely on trusted, enterprise-grade infrastructure, protected by modern encryption and access controls, and backed up automatically. It stays private to your business at all times.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
+};
+---
+
+<Layout
+  title="Is Cognit Secure? — ERP Data Security, Backups & Privacy | Cognit"
+  description="Cognit keeps your business data safe, private and backed up. Encryption, role-based access, automatic backups, and your data is always yours to export. Built and supported in New Zealand. Book a demo."
+  path="/security"
+  schema={faqSchema}
+>
+  <Header />
+
+  <main class="bg-cog-stone text-cog-slate">
+    <!-- HERO (photographic) -->
+    <section class="orbs relative isolate overflow-hidden">
+      <img src="/images/hero-cranes-night.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" />
+      <div class="absolute inset-0 -z-10 bg-cog-ink/82"></div>
+      <div class="dotgrid absolute inset-0 -z-10 opacity-40"></div>
+      <div class="mx-auto max-w-4xl px-5 pt-20 pb-20 text-center sm:px-8 sm:pt-28 hero-rise">
+        <span class="chip mx-auto border border-white/15 text-slate-200">
+          <span class="h-2 w-2 rounded-full bg-cog-teal"></span> Security &amp; trust
+        </span>
+        <h1 class="mt-5 text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
+          Your business data, <span class="text-gradient-bright">safe and private.</span>
+        </h1>
+        <p class="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-slate-300">
+          Cognit runs your whole business, so we take protecting it seriously. Your
+          data is encrypted, backed up automatically, and confidential to your
+          business — and it's always yours.
+        </p>
+        <div class="mt-9">
+          <a href="/contact" class="btn-grad">Book a demo</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUST PILLARS -->
+    <section class="mx-auto max-w-6xl px-5 py-20 sm:px-8">
+      <div class="mx-auto max-w-2xl text-center">
+        <span class="chip bg-cog-lilac text-cog-purple-600">How we protect you</span>
+        <h2 class="mt-5 text-3xl font-extrabold tracking-tight text-cog-ink sm:text-4xl">
+          Built to keep your data <span class="text-gradient">secure.</span>
+        </h2>
+        <p class="mt-4 text-lg text-cog-slate">The safeguards that protect your business, every day.</p>
+      </div>
+      <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {pillars.map((p) => (
+          <div class="card-hairline card-hover rounded-3xl p-6">
+            <span class="brand-gradient flex h-10 w-10 items-center justify-center rounded-xl text-lg">{p.icon}</span>
+            <h3 class="mt-4 text-lg font-bold text-cog-ink">{p.t}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-cog-slate">{p.b}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- OUR PROMISE (dark slab) -->
+    <section class="px-4 py-10 sm:px-8">
+      <div class="orbs relative mx-auto max-w-6xl overflow-hidden rounded-[2rem] bg-cog-ink px-6 py-16 text-white sm:px-12">
+        <div class="dotgrid absolute inset-0 opacity-50"></div>
+        <div class="relative grid items-center gap-10 lg:grid-cols-2">
+          <div>
+            <span class="chip border border-white/15 text-blue-200">🔐 Our promise</span>
+            <h2 class="mt-5 text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl">
+              Your data is <span class="text-gradient-bright">yours.</span>
+            </h2>
+            <p class="mt-5 max-w-lg text-lg text-slate-300">
+              We protect your information the way we'd want our own protected — kept
+              private, backed up, and ready for you to take with you whenever you like.
+              No lock-in, no surprises.
+            </p>
+          </div>
+          <ul class="grid gap-3">
+            {promises.map((p) => (
+              <li class="flex items-start gap-3 rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur">
+                <span class="text-cog-teal">✓</span>
+                <span class="text-sm font-medium text-slate-200">{p}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="mx-auto max-w-3xl px-5 py-20 sm:px-8">
+      <h2 class="text-center text-3xl font-extrabold tracking-tight text-cog-ink sm:text-4xl">Security questions, answered</h2>
+      <div class="mt-10 space-y-3">
+        {faqs.map((f) => (
+          <details class="card-hairline group rounded-2xl p-6 open:shadow-md">
+            <summary class="flex cursor-pointer list-none items-center justify-between text-lg font-bold text-cog-ink">
+              {f.q}
+              <span class="ml-4 text-cog-purple transition group-open:rotate-45">＋</span>
+            </summary>
+            <p class="mt-3 leading-relaxed text-cog-slate">{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

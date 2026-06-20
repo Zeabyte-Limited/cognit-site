@@ -1,0 +1,205 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const steps = [
+  {
+    n: "1",
+    icon: "🔎",
+    t: "Discovery & scope",
+    b: "We start by understanding how your business actually runs — your products, pricing, customers and the way you trade. We agree exactly what Cognit needs to do for you, so there are no surprises.",
+  },
+  {
+    n: "2",
+    icon: "⚙️",
+    t: "We set up your Cognit",
+    b: "We configure Cognit around your business — your modules, your branded online store, your pricing rules and your way of working. You don't lift a finger on the technical side; we do the build.",
+  },
+  {
+    n: "3",
+    icon: "📦",
+    t: "We migrate your data",
+    b: "Your products, customers, pricing and history are brought across into Cognit, so you're not starting from a blank page. We handle the heavy lifting of getting your data in cleanly.",
+  },
+  {
+    n: "4",
+    icon: "🎓",
+    t: "We train your team",
+    b: "We train your staff on the parts they use, in plain language, until they're comfortable. Hands-on, practical training — not a manual left on a shelf.",
+  },
+  {
+    n: "5",
+    icon: "🚀",
+    t: "Go live",
+    b: "We switch you on with support on hand. Orders flow, stock updates, invoices post — and we're right there with you through the first days of running on one system.",
+  },
+  {
+    n: "6",
+    icon: "🤝",
+    t: "Ongoing local support",
+    b: "After go-live you're not on your own. Our New Zealand team stays with you for support, questions and ongoing improvements as your business grows.",
+  },
+];
+
+const included = [
+  { t: "Setup & configuration", b: "We build Cognit around your business — modules, store, pricing and all." },
+  { t: "Data migration", b: "Your products, customers, pricing and history brought across for you." },
+  { t: "Team training", b: "Hands-on, plain-language training until your staff are confident." },
+  { t: "Ongoing support", b: "Local NZ support after go-live, with no per-user fees." },
+];
+
+const faqs = [
+  {
+    q: "How long does it take?",
+    a: "Most businesses are live on Cognit in weeks, not the months or years a traditional ERP project can take. The exact timeline depends on how much data you're bringing across and how many modules you switch on — we'll give you a clear plan during discovery.",
+  },
+  {
+    q: "Will you move my existing data?",
+    a: "Yes. Data migration is part of getting started. We bring your products, customers, pricing and history across into Cognit so you're not starting from a blank page — and we handle the heavy lifting for you.",
+  },
+  {
+    q: "Is training included?",
+    a: "Yes. We train your team hands-on, in plain language, on the parts of Cognit they actually use — until they're comfortable running it day to day. Training is included, not an extra.",
+  },
+  {
+    q: "What support do I get after go-live?",
+    a: "You get ongoing support from our New Zealand team, in your timezone. We're there for questions, day-to-day help and improvements as your business grows — with no per-user fees.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
+};
+---
+
+<Layout
+  title="Getting Started with Cognit — Setup, Data Migration & Training | Cognit"
+  description="Getting started with Cognit is simple: discovery, setup, data migration, team training and go-live — with ongoing NZ support. Live in weeks, not years. Setup, migration, training and support included. Book a demo."
+  path="/onboarding"
+  schema={faqSchema}
+>
+  <Header />
+
+  <main class="bg-cog-stone text-cog-slate">
+    <!-- HERO (photographic) -->
+    <section class="orbs relative isolate overflow-hidden">
+      <img src="/images/warehouse-aisle.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" />
+      <div class="absolute inset-0 -z-10 bg-cog-ink/82"></div>
+      <div class="dotgrid absolute inset-0 -z-10 opacity-40"></div>
+      <div class="mx-auto max-w-4xl px-5 pt-20 pb-20 text-center sm:px-8 sm:pt-28 hero-rise">
+        <span class="chip mx-auto border border-white/15 text-slate-200">
+          <span class="h-2 w-2 rounded-full bg-cog-teal"></span> Getting started
+        </span>
+        <h1 class="mt-5 text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
+          From first call to <span class="text-gradient-bright">live in weeks.</span>
+        </h1>
+        <p class="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-slate-300">
+          Switching systems sounds daunting — but we make it simple. We set up
+          Cognit, move your data and train your team, so you're running your whole
+          business on one system without the years-long ERP saga.
+        </p>
+        <div class="mt-9">
+          <a href="/contact" class="btn-grad">Book a demo</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP FLOW -->
+    <section class="mx-auto max-w-6xl px-5 py-20 sm:px-8">
+      <div class="mx-auto max-w-2xl text-center">
+        <span class="chip bg-cog-lilac text-cog-purple-600">How it works</span>
+        <h2 class="mt-5 text-3xl font-extrabold tracking-tight text-cog-ink sm:text-4xl">
+          Six steps to <span class="text-gradient">one system.</span>
+        </h2>
+        <p class="mt-4 text-lg text-cog-slate">A clear path from where you are to up and running — with us doing the heavy lifting.</p>
+      </div>
+      <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {steps.map((s) => (
+          <div class="card-hairline card-hover rounded-3xl p-7">
+            <div class="flex items-center gap-3">
+              <span class="brand-gradient flex h-10 w-10 items-center justify-center rounded-xl text-lg">{s.icon}</span>
+              <span class="text-3xl font-extrabold text-cog-lilac">{s.n}</span>
+            </div>
+            <h3 class="mt-4 text-lg font-bold text-cog-ink">{s.t}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-cog-slate">{s.b}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- WHAT'S INCLUDED -->
+    <section class="mx-auto max-w-6xl px-5 pb-8 sm:px-8">
+      <div class="card-grad rounded-3xl p-8 sm:p-10">
+        <div class="grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+          <div>
+            <span class="chip brand-gradient text-white">What's included</span>
+            <h2 class="mt-5 text-3xl font-extrabold leading-tight tracking-tight text-cog-ink sm:text-4xl">
+              Everything to get you going.
+            </h2>
+            <p class="mt-4 text-lg text-cog-slate">
+              Setup, data migration, training and support all come as part of getting
+              started — with <strong class="text-cog-ink">no per-user fees</strong>. One
+              price, every module, the whole team.
+            </p>
+          </div>
+          <div class="grid gap-3 sm:grid-cols-2">
+            {included.map((i) => (
+              <div class="rounded-2xl border border-black/5 bg-white p-5 shadow-sm">
+                <div class="flex items-start gap-2.5">
+                  <span class="text-cog-teal">✓</span>
+                  <div>
+                    <div class="font-bold text-cog-ink">{i.t}</div>
+                    <p class="mt-1 text-sm leading-relaxed text-cog-slate">{i.b}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LIVE IN WEEKS (dark slab) -->
+    <section class="px-4 py-10 sm:px-8">
+      <div class="orbs relative mx-auto max-w-6xl overflow-hidden rounded-[2rem] bg-cog-ink px-6 py-16 text-white sm:px-12">
+        <div class="dotgrid absolute inset-0 opacity-50"></div>
+        <div class="relative mx-auto max-w-2xl text-center">
+          <span class="chip border border-white/15 text-blue-200">⚡ No multi-year saga</span>
+          <h2 class="mt-5 text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl">
+            Live in <span class="text-gradient-bright">weeks, not years.</span>
+          </h2>
+          <p class="mx-auto mt-5 max-w-xl text-lg text-slate-300">
+            Traditional ERP projects can drag on for years and still arrive half-built.
+            Cognit is different — it's already fully built, so getting started is about
+            shaping it to your business and switching you on. Most businesses are up and
+            running in weeks.
+          </p>
+          <div class="mt-9">
+            <a href="/contact" class="btn-grad">Book a demo</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="mx-auto max-w-3xl px-5 py-20 sm:px-8">
+      <h2 class="text-center text-3xl font-extrabold tracking-tight text-cog-ink sm:text-4xl">Getting-started questions, answered</h2>
+      <div class="mt-10 space-y-3">
+        {faqs.map((f) => (
+          <details class="card-hairline group rounded-2xl p-6 open:shadow-md">
+            <summary class="flex cursor-pointer list-none items-center justify-between text-lg font-bold text-cog-ink">
+              {f.q}
+              <span class="ml-4 text-cog-purple transition group-open:rotate-45">＋</span>
+            </summary>
+            <p class="mt-3 leading-relaxed text-cog-slate">{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

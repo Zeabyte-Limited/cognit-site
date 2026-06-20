@@ -1,0 +1,172 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+const site = "https://www.cognitsystem.com";
+const slug = "supplier-rebates-and-claim-backs-software";
+const url = `${site}/blog/${slug}/`;
+
+const title = "How to Stop Losing Money on Supplier Rebates & Claim-Backs | Cognit";
+const description =
+  "Distributors lose thousands a month on supplier rebates tracked in spreadsheets. Learn why claim-backs slip through the cracks and how automated rebate tracking in an ERP recovers the money you've earned.";
+
+const faqs = [
+  {
+    q: "What are supplier rebates and claim-backs?",
+    a: "Supplier rebates and claim-backs are amounts a supplier agrees to pay back to a distributor based on what they buy — for example a percentage off once you purchase a certain volume, or a fixed amount per case on a promoted product. You earn them through your purchasing and then claim them back from the supplier.",
+  },
+  {
+    q: "Why do businesses lose money on rebates?",
+    a: "Most distributors track rebate agreements in spreadsheets that are manual, easy to get wrong and quickly out of date. Claims get missed, miscalculated or never submitted, and the deadline to claim passes. Because rebates are spread across many suppliers and agreements, the losses add up quietly — often thousands of dollars a month.",
+  },
+  {
+    q: "How does automated rebate tracking work in Cognit?",
+    a: "In Cognit you define each supplier rebate agreement once. As you purchase, Cognit automatically calculates what you've earned against those agreements from your actual purchase data, then batches and tracks the claims so nothing is missed. You get claim-back reporting that shows exactly what's owed and what's been recovered.",
+  },
+  {
+    q: "How much can automated rebate tracking recover?",
+    a: "It varies by business, but distributors commonly find they were losing the equivalent of a meaningful slice of monthly margin to missed and miscalculated claims. Because rebate money is profit you've already earned, recovering it goes straight to the bottom line — often paying for the system several times over.",
+  },
+];
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "How to stop losing money on supplier rebates and claim-backs",
+  description,
+  author: { "@type": "Organization", name: "Cognit System", url: site },
+  publisher: {
+    "@type": "Organization",
+    name: "Cognit System",
+    logo: { "@type": "ImageObject", url: `${site}/logo.png` },
+  },
+  datePublished: "2026-06-20",
+  dateModified: "2026-06-20",
+  mainEntityOfPage: { "@type": "WebPage", "@id": url },
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+---
+
+<Layout title={title} description={description} path={`/blog/${slug}`} schema={[articleSchema, faqSchema]}>
+  <Header />
+
+  <main class="bg-cog-stone text-cog-slate">
+    <!-- HERO (photographic) -->
+    <section class="orbs relative isolate overflow-hidden">
+      <img src="/images/food-distribution.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" />
+      <div class="absolute inset-0 -z-10 bg-cog-ink/82"></div>
+      <div class="dotgrid absolute inset-0 -z-10 opacity-40"></div>
+      <div class="mx-auto max-w-3xl px-5 pt-20 pb-20 text-center sm:px-8 sm:pt-28 hero-rise">
+        <span class="chip mx-auto border border-white/15 text-slate-200">Insights</span>
+        <h1 class="mt-5 text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl">
+          How to stop losing money on supplier rebates and claim-backs
+        </h1>
+        <p class="mt-4 text-lg text-slate-300">
+          Why spreadsheets quietly cost distributors thousands a month — and how
+          automated rebate tracking recovers profit you've already earned.
+        </p>
+      </div>
+    </section>
+
+    <!-- BODY -->
+    <section class="mx-auto max-w-3xl px-5 pb-16 sm:px-8">
+      <article class="article">
+        <p>
+          Supplier rebates are one of the most overlooked sources of profit in
+          distribution — and one of the most commonly lost. The money is real, it's
+          already been earned, and yet a huge share of it slips away every month
+          because of how it's tracked. If you're a wholesaler or distributor running
+          rebate agreements on spreadsheets, this is almost certainly costing you more
+          than you think.
+        </p>
+
+        <h2>What rebates and claim-backs actually are</h2>
+        <p>
+          A supplier rebate is an amount your supplier agrees to pay back to you based
+          on what you buy. It might be a percentage discount once you hit a volume
+          threshold, a fixed amount per case on a promoted line, or a marketing
+          contribution tied to a campaign. You earn these through your normal
+          purchasing, then claim them back. A busy distributor can have dozens of these
+          agreements running at once across many suppliers.
+        </p>
+
+        <h2>The spreadsheet problem</h2>
+        <p>
+          Most businesses track all of this by hand in spreadsheets, and that's exactly
+          where the money leaks out:
+        </p>
+        <ul>
+          <li><strong>Missed claims</strong> — an agreement is forgotten, or the deadline to claim passes before anyone submits</li>
+          <li><strong>Miscalculations</strong> — a formula is wrong, a tier is misread, or volumes are out of date</li>
+          <li><strong>No single view</strong> — rebates are scattered across files, so nobody can see the total owed</li>
+          <li><strong>Key-person risk</strong> — it all lives in one person's head and one fragile workbook</li>
+          <li><strong>It's nobody's full-time job</strong> — so it slips to the bottom of the pile every month</li>
+        </ul>
+        <p>
+          Individually each miss is small. Across dozens of agreements, month after
+          month, it adds up to thousands of dollars of pure margin walking out the door.
+        </p>
+
+        <h2>How automated rebate tracking works</h2>
+        <p>
+          The fix is to stop tracking rebates separately from where the purchasing
+          actually happens. In Cognit, <a href="/features/rebates">rebates and
+          claim-backs are a built-in module</a> that works off your real purchase data:
+        </p>
+        <ul>
+          <li><strong>Define each agreement once</strong> — the supplier, the terms, the thresholds and the rates</li>
+          <li><strong>Cognit calculates automatically</strong> — as you purchase, it works out exactly what you've earned against every agreement</li>
+          <li><strong>Claims are batched and tracked</strong> — monthly claim batches mean nothing is forgotten or left unsubmitted</li>
+          <li><strong>Claim-back reporting</strong> — you see at a glance what's owed, what's claimed and what's been recovered</li>
+        </ul>
+        <p>
+          Because the rebate engine reads the same data as your
+          <a href="/features/purchasing">purchasing</a> and
+          <a href="/features/inventory">inventory</a>, the numbers are always current
+          and there's no separate spreadsheet to maintain.
+        </p>
+
+        <h2>What this means for your bottom line</h2>
+        <p>
+          Rebate money is profit you've already earned, so recovering it goes straight
+          to the bottom line — there's no extra cost of goods, no extra sale to make.
+          For many distributors, plugging the rebate leak alone recovers a meaningful
+          slice of monthly margin and pays for the whole system several times over. It
+          also removes the key-person risk of having your rebate process live in one
+          person's spreadsheet.
+        </p>
+
+        <h2>A simple first step</h2>
+        <p>
+          You don't need to overhaul everything to start. List your current supplier
+          rebate agreements, estimate what each one should be worth this year, and
+          compare that to what you actually claimed last year. The gap is your leak. If
+          it's significant — and it usually is — it's worth seeing how an
+          <a href="/platform">all-in-one ERP</a> with built-in rebate tracking closes
+          it. It pairs naturally with consolidating your other systems, which we cover
+          in <a href="/blog/replace-multiple-business-systems-with-one-erp">replacing multiple systems with one ERP</a>.
+        </p>
+
+        <h2>Frequently asked questions</h2>
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </article>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

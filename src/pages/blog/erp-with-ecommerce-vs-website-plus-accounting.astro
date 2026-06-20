@@ -1,0 +1,171 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+const site = "https://www.cognitsystem.com";
+const slug = "erp-with-ecommerce-vs-website-plus-accounting";
+const url = `${site}/blog/${slug}/`;
+
+const title = "ERP With Built-In E-commerce vs Website Plus Accounting | Cognit";
+const description =
+  "Compare running on an ERP with built-in B2B e-commerce against a separate website plus accounting software. The hidden costs, sync problems and double entry of the bolt-on approach — and when one system wins.";
+
+const faqs = [
+  {
+    q: "What is the difference between an ERP with built-in e-commerce and a website plus accounting?",
+    a: "An ERP with built-in e-commerce runs your online store, stock and accounts as one system sharing the same data. A website plus accounting is two or more separate tools connected by integrations that copy data back and forth. The first has one source of truth; the second has to keep multiple systems in sync.",
+  },
+  {
+    q: "What are the hidden costs of a bolt-on website and accounting setup?",
+    a: "Beyond the monthly fees for each tool, hidden costs include staff time spent re-keying orders, lost sales from overselling, errors from prices drifting out of sync, integration or connector subscriptions, and the developer time to keep it all working when one tool updates. These often outweigh the cost of a single connected system.",
+  },
+  {
+    q: "Does a built-in store remove sync problems entirely?",
+    a: "Yes. In Cognit the online store is part of the ERP, not a separate website, so there is no sync between systems. Stock and pricing the customer sees online are the same live records the back office uses, which removes overselling, price mismatches and re-keyed orders.",
+  },
+  {
+    q: "When does a separate website still make sense?",
+    a: "A simple consumer shop with little stock, no trade pricing and no real accounting needs can run fine on a standalone website plus basic bookkeeping. The bolt-on approach struggles once you have real inventory, customer-specific pricing and the need for one accurate set of numbers across the business.",
+  },
+];
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "ERP with built-in e-commerce vs a website plus separate accounting",
+  description,
+  author: { "@type": "Organization", name: "Cognit System", url: site },
+  publisher: {
+    "@type": "Organization",
+    name: "Cognit System",
+    logo: { "@type": "ImageObject", url: `${site}/logo.png` },
+  },
+  datePublished: "2026-06-20",
+  dateModified: "2026-06-20",
+  mainEntityOfPage: { "@type": "WebPage", "@id": url },
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+---
+
+<Layout title={title} description={description} path={`/blog/${slug}`} schema={[articleSchema, faqSchema]}>
+  <Header />
+
+  <main class="bg-cog-stone text-cog-slate">
+    <!-- HERO (photographic) -->
+    <section class="orbs relative isolate overflow-hidden">
+      <img src="/images/food-distribution.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" />
+      <div class="absolute inset-0 -z-10 bg-cog-ink/82"></div>
+      <div class="dotgrid absolute inset-0 -z-10 opacity-40"></div>
+      <div class="mx-auto max-w-3xl px-5 pt-20 pb-20 text-center sm:px-8 sm:pt-28 hero-rise">
+        <span class="chip mx-auto border border-white/15 text-slate-200">Insights</span>
+        <h1 class="mt-5 text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl">
+          ERP with built-in e-commerce vs a website plus separate accounting
+        </h1>
+        <p class="mt-4 text-lg text-slate-300">
+          Two ways to run a product business compared — and the hidden costs and
+          sync problems that come with bolting tools together.
+        </p>
+      </div>
+    </section>
+
+    <!-- BODY -->
+    <section class="mx-auto max-w-3xl px-5 pb-16 sm:px-8">
+      <article class="article">
+        <p>
+          When a product business grows, it usually faces a choice without realising
+          it. One path is to run everything on a single
+          <a href="/platform">all-in-one ERP with a built-in online store</a>. The
+          other is the path most businesses drift into by accident: a separate
+          website, separate accounting software, and a spreadsheet or two holding it
+          all together. They look similar on paper. In daily reality they are very
+          different.
+        </p>
+
+        <h2>The two approaches side by side</h2>
+        <p>
+          A <strong>website plus separate accounting</strong> setup is several tools
+          connected by integrations: an e-commerce platform for the store, an
+          accounting package for the books, maybe a separate inventory app, and
+          connectors copying data between them. An <strong>ERP with built-in
+          e-commerce</strong> is one system where the store, stock and accounts are the
+          same database. The store is not connected to the back office — it <em>is</em>
+          the back office, with a customer-facing front door.
+        </p>
+
+        <h2>The hidden costs of the bolt-on approach</h2>
+        <p>
+          The bolt-on stack looks cheaper because each tool has a modest monthly fee.
+          The real costs hide elsewhere:
+        </p>
+        <ul>
+          <li><strong>Double entry</strong> — orders that don't flow through cleanly get re-keyed by hand, and every product or price change is made in two places</li>
+          <li><strong>Overselling</strong> — the website sells stock you've already shipped because it syncs on a delay</li>
+          <li><strong>Price drift</strong> — customer-specific pricing online slips out of step with the back office</li>
+          <li><strong>Connector fees and fragility</strong> — paid integrations that break whenever one tool updates</li>
+          <li><strong>No single set of numbers</strong> — reporting means stitching exports together and hoping they agree</li>
+        </ul>
+        <p>
+          Add up the staff hours, the lost sales and the developer time and the
+          "cheaper" stack is often the expensive one.
+        </p>
+
+        <h2>The sync problem, explained</h2>
+        <p>
+          Every bolt-on setup depends on syncing — copying stock, prices, customers
+          and orders between systems on a schedule. Sync is never instant and never
+          perfect. A customer orders the last case online; the warehouse already
+          allocated it; the sync hasn't run yet; now you've oversold. Multiply that by
+          thousands of products and dozens of customer price lists and you get a
+          steady drip of errors that erodes trust and margin.
+        </p>
+        <p>
+          A <a href="/ecommerce">built-in store</a> removes the sync entirely. There is
+          one set of stock and one set of prices, and the website reads them live. It
+          cannot oversell what the warehouse doesn't have, and an order placed online
+          is already in <a href="/features/invoicing">invoicing</a> and the
+          <a href="/features/accounting">ledger</a> the moment it lands.
+        </p>
+
+        <h2>What you gain from one system</h2>
+        <ul>
+          <li>One login for the store, stock, purchasing, invoicing and reporting</li>
+          <li>Orders entered once — never re-keyed between systems</li>
+          <li>Always-accurate stock and customer pricing online</li>
+          <li>One clear set of numbers for margin, P&amp;L and stock valuation</li>
+          <li>Less software to pay for, maintain and worry about</li>
+        </ul>
+
+        <h2>When a separate website still makes sense</h2>
+        <p>
+          The bolt-on approach is not always wrong. A simple consumer shop with little
+          stock, no trade pricing and basic bookkeeping can run fine on a standalone
+          website. The one-system case gets stronger the moment you have real
+          inventory, customer-specific pricing and a need for accurate numbers across
+          the business — which is exactly where most wholesalers and distributors sit.
+          If that's you, see how <a href="/blog/replace-multiple-business-systems-with-one-erp">consolidating onto one ERP</a>
+          works in practice.
+        </p>
+
+        <h2>Frequently asked questions</h2>
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </article>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

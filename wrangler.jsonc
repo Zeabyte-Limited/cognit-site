@@ -1,0 +1,11 @@
+{
+  // Cloudflare Workers config — Worker script + built Astro site as static assets.
+  "name": "cognit-site",
+  "main": "src/worker.js",
+  "compatibility_date": "2026-06-01",
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "not_found_handling": "404-page"
+  }
+}

@@ -1,0 +1,177 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+const site = "https://www.cognitsystem.com";
+const slug = "best-erp-for-wholesale-distributors-nz";
+const url = `${site}/blog/${slug}/`;
+
+const title = "The Best ERP for Wholesale Distributors in New Zealand | Cognit";
+const description =
+  "A buyer's guide to choosing an ERP for wholesale distribution in New Zealand and Australia — what distributors need from stock, customer pricing, B2B ordering, supplier rebates and Xero, and how Cognit fits.";
+
+const faqs = [
+  {
+    q: "What should a wholesale distributor look for in an ERP?",
+    a: "A distributor's ERP should handle real-time inventory, customer-specific and group pricing, fast order entry, a B2B online store, purchasing and goods receipting, supplier rebates, invoicing and accounts receivable, and clear reporting on margin and stock. Local New Zealand support and the ability to integrate with Xero are also important.",
+  },
+  {
+    q: "Is Cognit suitable for New Zealand and Australian distributors?",
+    a: "Yes. Cognit is built and supported in New Zealand for wholesalers, distributors and importers across New Zealand and Australia, and is already running real food and wholesale distribution businesses. It handles GST, customer pricing, multi-product stock and Xero sync out of the box.",
+  },
+  {
+    q: "Does Cognit handle supplier rebates and claim-backs?",
+    a: "Yes. Cognit has a dedicated rebates module. You define supplier rebate agreements once and Cognit calculates what you have earned from your purchases automatically, then batches and tracks the claims — replacing the spreadsheets that quietly lose distributors thousands a month.",
+  },
+  {
+    q: "How much does an ERP like Cognit cost?",
+    a: "Cognit starts at NZD $499 per month for the Standard plan, which includes the all-in-one ERP and the built-in B2B online store. The Premium plan adds advanced modules, deeper integrations and priority support. Book a demo for a quote tailored to your business.",
+  },
+];
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "The best ERP for wholesale distributors in New Zealand",
+  description,
+  author: { "@type": "Organization", name: "Cognit System", url: site },
+  publisher: {
+    "@type": "Organization",
+    name: "Cognit System",
+    logo: { "@type": "ImageObject", url: `${site}/logo.png` },
+  },
+  datePublished: "2026-06-20",
+  dateModified: "2026-06-20",
+  mainEntityOfPage: { "@type": "WebPage", "@id": url },
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+---
+
+<Layout title={title} description={description} path={`/blog/${slug}`} schema={[articleSchema, faqSchema]}>
+  <Header />
+
+  <main class="bg-cog-stone text-cog-slate">
+    <!-- HERO (photographic) -->
+    <section class="orbs relative isolate overflow-hidden">
+      <img src="/images/food-distribution.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" />
+      <div class="absolute inset-0 -z-10 bg-cog-ink/82"></div>
+      <div class="dotgrid absolute inset-0 -z-10 opacity-40"></div>
+      <div class="mx-auto max-w-3xl px-5 pt-20 pb-20 text-center sm:px-8 sm:pt-28 hero-rise">
+        <span class="chip mx-auto border border-white/15 text-slate-200">Insights</span>
+        <h1 class="mt-5 text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl">
+          The best ERP for wholesale distributors in New Zealand
+        </h1>
+        <p class="mt-4 text-lg text-slate-300">
+          A practical buyer's guide — what distributors actually need from stock,
+          pricing, B2B ordering and rebates, and how to choose well.
+        </p>
+      </div>
+    </section>
+
+    <!-- BODY -->
+    <section class="mx-auto max-w-3xl px-5 pb-16 sm:px-8">
+      <article class="article">
+        <p>
+          Choosing an ERP is one of the biggest decisions a distribution business
+          makes, and the wrong choice can cost years. Generic ERPs are built for
+          manufacturers or large enterprises; many are heavy, slow to set up and
+          missing the things distributors live and die by. This guide covers what to
+          look for, in plain terms, and where <a href="/platform">Cognit</a> fits for
+          New Zealand and Australian wholesalers.
+        </p>
+
+        <h2>What wholesale distributors actually need</h2>
+        <p>
+          Distribution is a high-volume, low-margin business. The right system has to
+          protect margin, keep stock accurate and make ordering effortless for trade
+          customers. The non-negotiables are:
+        </p>
+        <ul>
+          <li><strong>Real-time inventory</strong> — live stock on hand, reorder levels, and stocktakes your warehouse can run from a tablet</li>
+          <li><strong>Customer and group pricing</strong> — every trade customer has their own prices, and the system must honour them everywhere</li>
+          <li><strong>Fast order entry and a B2B online store</strong> — so reps and customers can place repeat orders in seconds</li>
+          <li><strong>Purchasing and goods receipting</strong> — purchase orders, receipting against POs and spend by supplier</li>
+          <li><strong>Supplier rebates and claim-backs</strong> — automatic calculation of what you have earned, not a spreadsheet</li>
+          <li><strong>Invoicing, receivables and reporting</strong> — one-click invoices and clear margin and P&amp;L numbers</li>
+        </ul>
+
+        <h2>Why a built-in online store matters for distributors</h2>
+        <p>
+          Trade customers reorder constantly, and every phone or email order is a
+          chance for an error and an hour of someone's time. A built-in
+          <a href="/ecommerce">B2B online store</a> lets customers log in, see their
+          own pricing, reorder from saved pantries and order 24/7 — with those orders
+          flowing straight into the same system. Because the store is part of the ERP
+          and not a bolt-on website, the stock and prices online are always the real
+          ones, so you never oversell and never re-key.
+        </p>
+
+        <h2>Don't overlook supplier rebates</h2>
+        <p>
+          Rebates are where distributors quietly leak profit. Most still track
+          supplier rebate agreements in spreadsheets, miss claims and lose thousands a
+          month. A proper <a href="/features/rebates">rebates module</a> lets you
+          define agreements once and calculates earnings automatically from your
+          purchases, then batches and tracks the claims. If an ERP can't do this, it
+          is leaving money on your table — see our guide on
+          <a href="/blog/supplier-rebates-and-claim-backs-software">stopping rebate losses</a>.
+        </p>
+
+        <h2>Accounting: keep Xero or run a real ledger</h2>
+        <p>
+          Plenty of distributors run on Xero and want to keep it. The right ERP should
+          give you both options. <a href="/features/accounting">Cognit</a> has a real
+          general ledger underneath everything — chart of accounts, journals, trial
+          balance and automatic GL posting — so it can run your accounts on its own.
+          It also syncs two-way with Xero, so you can keep your accountant happy either
+          way. We cover the trade-offs in
+          <a href="/blog/do-i-still-need-xero-with-an-erp">do I still need Xero?</a>
+        </p>
+
+        <h2>Local support and a fast setup</h2>
+        <p>
+          A big-name global ERP can mean a multi-year rollout and offshore support that
+          does not understand your business. Look for a system that is set up fast,
+          where your data is migrated and your team is trained, and where real people
+          in your timezone answer the phone. Cognit is built and supported in New
+          Zealand and goes live in weeks, not years.
+        </p>
+
+        <h2>How to evaluate your options</h2>
+        <ul>
+          <li>Make a checklist of your must-haves — stock, pricing, B2B store, rebates, Xero</li>
+          <li>Ask each vendor to demo your actual workflow, not a generic tour</li>
+          <li>Confirm the online store is built in, not a bolt-on that syncs</li>
+          <li>Ask how long setup takes and who supports you afterwards</li>
+          <li>Check the pricing model — beware per-seat fees that punish growth</li>
+        </ul>
+        <p>
+          Cognit ticks these boxes for distribution specifically, which is why it
+          already runs real food and wholesale businesses across New Zealand and
+          Australia. See <a href="/pricing">pricing</a> or compare the full
+          <a href="/features">module list</a>.
+        </p>
+
+        <h2>Frequently asked questions</h2>
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </article>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

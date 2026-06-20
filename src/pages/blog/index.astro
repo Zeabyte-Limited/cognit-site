@@ -1,0 +1,108 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+const site = "https://www.cognitsystem.com";
+
+const posts = [
+  {
+    title: "What is an all-in-one ERP with a built-in online store?",
+    dek: "The concept explained — and why a store built into your ERP beats bolting a website onto separate systems.",
+    slug: "all-in-one-erp-with-built-in-online-store",
+    tag: "Guide",
+  },
+  {
+    title: "The best ERP for wholesale distributors in New Zealand",
+    dek: "A buyer's guide to what distributors actually need — stock, customer pricing, B2B ordering, rebates and Xero — and how to choose.",
+    slug: "best-erp-for-wholesale-distributors-nz",
+    tag: "Buyer's guide",
+  },
+  {
+    title: "ERP with built-in e-commerce vs a website plus separate accounting",
+    dek: "Two ways to run a product business compared — and the hidden costs and sync problems of the bolt-on approach.",
+    slug: "erp-with-ecommerce-vs-website-plus-accounting",
+    tag: "Comparison",
+  },
+  {
+    title: "Do I still need Xero if I have an ERP?",
+    dek: "Cognit has a real general ledger of its own and also syncs two-way with Xero. Here's when each option makes sense.",
+    slug: "do-i-still-need-xero-with-an-erp",
+    tag: "Accounting",
+  },
+  {
+    title: "How to stop losing money on supplier rebates and claim-backs",
+    dek: "Why spreadsheets quietly cost distributors thousands a month — and how automated rebate tracking recovers it.",
+    slug: "supplier-rebates-and-claim-backs-software",
+    tag: "Rebates",
+  },
+  {
+    title: "How to replace multiple disconnected business systems with one ERP",
+    dek: "The patchwork problem, a sensible migration approach, and exactly what to consolidate first.",
+    slug: "replace-multiple-business-systems-with-one-erp",
+    tag: "Migration",
+  },
+];
+
+const collectionSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "@id": `${site}/blog/`,
+  name: "Cognit Insights",
+  description:
+    "Insights on running a wholesale or distribution business on one connected ERP — built-in B2B e-commerce, inventory, accounting, supplier rebates and reporting.",
+  url: `${site}/blog/`,
+  isPartOf: { "@id": `${site}/#website` },
+  hasPart: posts.map((p) => ({
+    "@type": "Article",
+    headline: p.title,
+    description: p.dek,
+    url: `${site}/blog/${p.slug}/`,
+  })),
+};
+---
+
+<Layout
+  title="Insights — ERP, B2B E-commerce & Distribution | Cognit"
+  description="Practical insights for NZ and Australian wholesalers, distributors and product businesses — all-in-one ERP, built-in B2B e-commerce, supplier rebates, inventory, accounting and how to run everything on one system."
+  path="/blog"
+  schema={collectionSchema}
+>
+  <Header />
+
+  <main class="bg-cog-stone text-cog-slate">
+    <!-- HERO (photographic) -->
+    <section class="orbs relative isolate overflow-hidden">
+      <img src="/images/warehouse-shelves.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" />
+      <div class="absolute inset-0 -z-10 bg-cog-ink/82"></div>
+      <div class="dotgrid absolute inset-0 -z-10 opacity-40"></div>
+      <div class="mx-auto max-w-3xl px-5 pt-20 pb-20 text-center sm:px-8 sm:pt-28 hero-rise">
+        <span class="chip mx-auto border border-white/15 text-slate-200">Insights</span>
+        <h1 class="mt-5 text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl">
+          Running your business on <span class="text-gradient-bright">one system.</span>
+        </h1>
+        <p class="mt-4 text-lg text-slate-300">
+          Clear, practical thinking for wholesalers, distributors and product
+          businesses — on B2B e-commerce, inventory, accounting, supplier rebates
+          and what it really takes to run everything as one connected system.
+        </p>
+      </div>
+    </section>
+
+    <!-- POST GRID -->
+    <section class="mx-auto max-w-6xl px-5 pb-20 pt-8 sm:px-8">
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {posts.map((p) => (
+          <a href={`/blog/${p.slug}`} class="card-hairline card-hover group flex flex-col rounded-3xl p-7">
+            <span class="chip w-fit bg-cog-sky text-cog-blue-700">{p.tag}</span>
+            <h2 class="mt-4 text-lg font-bold leading-snug text-cog-ink">{p.title}</h2>
+            <p class="mt-2 flex-1 text-sm leading-relaxed text-cog-slate">{p.dek}</p>
+            <span class="mt-5 inline-block text-sm font-semibold text-cog-purple">Read →</span>
+          </a>
+        ))}
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

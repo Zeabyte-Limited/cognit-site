@@ -1,0 +1,186 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import Integrations from "../components/Integrations.astro";
+
+const xero = [
+  { icon: "🧾", t: "Invoices flow both ways", b: "Raise an invoice in Cognit and it lands in Xero automatically — no double entry, no end-of-day export, no copy-paste." },
+  { icon: "↩️", t: "Credit notes stay in step", b: "Refunds and credit notes sync across both systems, so your accounts always match what really happened." },
+  { icon: "👥", t: "Customers in sync", b: "New accounts and changes update on both sides, so your sales team and your accountant see the same customer." },
+  { icon: "📦", t: "Products line up", b: "Your product list and pricing stay consistent between Cognit and Xero — no mystery codes or mismatched items." },
+];
+
+const keep = [
+  { icon: "🏦", t: "Run accounting inside Cognit", b: "Cognit has a real general ledger built in — chart of accounts, journals, trial balance and reporting. Plenty of businesses run their whole books here and never look back." },
+  { icon: "🔄", t: "Or keep Xero & MYOB", b: "Love your accounting software? Keep it. Cognit syncs to it automatically, so you get the all-in-one system without changing what your accountant already trusts." },
+  { icon: "🤝", t: "Your call, not ours", b: "Switch your books over now, later, or never. Cognit works the same either way — the choice stays yours." },
+];
+
+const connect = [
+  { icon: "📒", t: "Accounting systems", b: "Xero, MYOB and the other tools your finance team relies on." },
+  { icon: "💳", t: "Payments", b: "Take card and online payments and have them tie back to the right invoice." },
+  { icon: "🚚", t: "Couriers & freight", b: "Push orders to your delivery providers and keep tracking in one place." },
+  { icon: "🏛️", t: "Bank feeds", b: "Bring transactions in automatically so reconciliation isn't a manual chore." },
+  { icon: "🛒", t: "E-commerce & marketplaces", b: "Connect other storefronts and channels alongside your built-in store." },
+  { icon: "🔌", t: "Almost anything else", b: "If a system offers an API or a data feed, Cognit can connect to it." },
+];
+
+const faqs = [
+  {
+    q: "Does Cognit work with Xero?",
+    a: "Yes. Cognit has first-class, two-way Xero integration built in. Invoices, credit notes, customers and products sync automatically between Cognit and Xero, so you never re-key the same information twice and your accounts always match your sales.",
+  },
+  {
+    q: "Do I still need separate accounting software?",
+    a: "No — but you can keep it if you want to. Cognit has a real general ledger underneath everything, so it can run your accounts on its own. Many businesses use Cognit as their single system. If you'd rather keep Xero, MYOB or another package, Cognit simply syncs to it automatically.",
+  },
+  {
+    q: "Can Cognit connect to my other systems?",
+    a: "Almost certainly. Beyond accounting, Cognit can connect to payments, couriers, bank feeds, e-commerce platforms and more. The rule of thumb is simple: if a system has an API or a data feed, Cognit can connect to it. Tell us what you run and we'll confirm in your demo.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+---
+
+<Layout
+  title="ERP That Integrates With Xero | Cognit — Xero ERP for Distributors NZ"
+  description="Cognit is the all-in-one ERP that integrates with Xero — two-way sync of invoices, credit notes, customers and products. Run accounting inside Cognit or keep Xero, MYOB and more. If it has an API or data feed, Cognit can connect it. Book a demo."
+  path="/integrations"
+  schema={faqSchema}
+>
+  <Header />
+
+  <main class="bg-cog-stone text-cog-slate">
+    <!-- HERO (photographic) -->
+    <section class="orbs relative isolate overflow-hidden">
+      <img src="/images/hero-highway-night.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" />
+      <div class="absolute inset-0 -z-10 bg-cog-ink/82"></div>
+      <div class="dotgrid absolute inset-0 -z-10 opacity-40"></div>
+      <div class="mx-auto max-w-4xl px-5 pb-20 pt-20 text-center sm:px-8 sm:pt-28 hero-rise">
+        <span class="chip mx-auto border border-white/15 text-slate-200">
+          <span class="h-2 w-2 rounded-full bg-cog-teal"></span> Integrations
+        </span>
+        <h1 class="mx-auto mt-7 max-w-3xl text-[2.6rem] font-extrabold leading-[1.04] tracking-tight text-white sm:text-6xl">
+          Runs on its own.
+          <span class="text-gradient-bright"> Connects to everything.</span>
+        </h1>
+        <p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-slate-300">
+          Cognit is a complete ERP — you don't <strong class="text-white">need</strong>
+          anything else to run your business. But when you want to connect the tools
+          you already use, it's ready. <strong class="text-white">Two-way Xero sync</strong>
+          is built in, and if a system has an API or data feed, Cognit can talk to it.
+        </p>
+        <div class="mt-9 flex flex-wrap items-center justify-center gap-3">
+          <a href="/contact" class="btn-grad">Book a demo</a>
+          <a href="#xero" class="btn-ghost !border-white/30 !text-white">See how Xero sync works →</a>
+        </div>
+        <div class="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-slate-300">
+          <span class="flex items-center gap-2"><span class="text-cog-teal">✓</span> Built-in two-way Xero sync</span>
+          <span class="flex items-center gap-2"><span class="text-cog-teal">✓</span> Keep your accounting software</span>
+          <span class="flex items-center gap-2"><span class="text-cog-teal">✓</span> Connects to anything with an API</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- FIRST-CLASS XERO SYNC -->
+    <section id="xero" class="mx-auto max-w-6xl px-5 py-20 sm:px-8">
+      <div class="mx-auto max-w-2xl text-center">
+        <span class="chip bg-cog-sky text-cog-blue-700">First-class Xero integration</span>
+        <h2 class="mt-5 text-3xl font-extrabold tracking-tight text-cog-ink sm:text-4xl">
+          The ERP that integrates with Xero — <span class="text-gradient">properly.</span>
+        </h2>
+        <p class="mt-4 text-lg text-cog-slate">
+          Not a nightly export. Not a fragile bolt-on. Cognit and Xero stay in step
+          both ways, so the numbers your team sees and the numbers your accountant
+          sees are always the same.
+        </p>
+      </div>
+      <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {xero.map((x) => (
+          <div class="card-hairline card-hover rounded-3xl p-6">
+            <span class="brand-gradient flex h-10 w-10 items-center justify-center rounded-xl text-lg">{x.icon}</span>
+            <h3 class="mt-4 text-lg font-bold text-cog-ink">{x.t}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-cog-slate">{x.b}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- KEEP WHAT YOU'VE GOT -->
+    <section class="mx-auto max-w-6xl px-5 py-20 sm:px-8">
+      <div class="mx-auto max-w-2xl text-center">
+        <span class="chip bg-cog-lilac text-cog-purple-600">Keep what you've got</span>
+        <h2 class="mt-5 text-3xl font-extrabold tracking-tight text-cog-ink sm:text-4xl">
+          Run accounting in Cognit — or keep Xero, MYOB and the rest.
+        </h2>
+        <p class="mt-4 text-lg text-cog-slate">
+          Cognit can be your single system, or the hub that keeps your existing
+          accounting software perfectly fed. Either way, nothing gets re-typed.
+        </p>
+      </div>
+      <div class="mt-12 grid gap-4 lg:grid-cols-3">
+        {keep.map((k) => (
+          <div class="card-hairline card-hover rounded-3xl p-6">
+            <span class="brand-gradient flex h-10 w-10 items-center justify-center rounded-xl text-lg">{k.icon}</span>
+            <h3 class="mt-4 text-lg font-bold text-cog-ink">{k.t}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-cog-slate">{k.b}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- IF IT HAS AN API, COGNIT CAN CONNECT IT -->
+    <section class="mx-auto max-w-6xl px-5 py-20 sm:px-8">
+      <div class="mx-auto max-w-2xl text-center">
+        <span class="chip bg-cog-sky text-cog-blue-700">Connect everything</span>
+        <h2 class="mt-5 text-3xl font-extrabold tracking-tight text-cog-ink sm:text-4xl">
+          If it has an API or a data feed, <span class="text-gradient">Cognit can connect it.</span>
+        </h2>
+        <p class="mt-4 text-lg text-cog-slate">
+          Your accounting, your payments, your couriers, your bank, your storefronts —
+          Cognit can bring them together so your business works as one.
+        </p>
+      </div>
+      <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {connect.map((c) => (
+          <div class="card-hairline card-hover rounded-3xl p-6">
+            <span class="brand-gradient flex h-10 w-10 items-center justify-center rounded-xl text-lg">{c.icon}</span>
+            <h3 class="mt-4 text-lg font-bold text-cog-ink">{c.t}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-cog-slate">{c.b}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- INTEGRATIONS MARQUEE -->
+    <Integrations />
+
+    <!-- FAQ -->
+    <section class="mx-auto max-w-3xl px-5 py-20 sm:px-8">
+      <h2 class="text-center text-3xl font-extrabold tracking-tight text-cog-ink sm:text-4xl">Integration questions, answered</h2>
+      <div class="mt-10 space-y-3">
+        {faqs.map((f) => (
+          <details class="card-hairline group rounded-2xl p-6 open:shadow-md">
+            <summary class="flex cursor-pointer list-none items-center justify-between text-lg font-bold text-cog-ink">
+              {f.q}
+              <span class="ml-4 text-cog-purple transition group-open:rotate-45">＋</span>
+            </summary>
+            <p class="mt-3 leading-relaxed text-cog-slate">{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

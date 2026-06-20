@@ -1,0 +1,65 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import LeadForm from "../components/LeadForm.astro";
+
+const points = [
+  "A live walkthrough of Cognit running a business like yours — online store and all",
+  "Honest advice on which modules to switch on first",
+  "A clear sense of setup, timeline and cost — no obligation",
+];
+---
+
+<Layout
+  title="Book a Cognit Demo — See the All-in-One ERP in Action"
+  description="Book a free 30-minute demo of Cognit, the all-in-one ERP with a built-in online store. See it running a business like yours. New Zealand based, no obligation."
+  path="/contact"
+>
+  <Header />
+
+  <main class="bg-cog-stone text-cog-slate">
+    <!-- HERO (photographic) -->
+    <section class="orbs relative isolate overflow-hidden">
+      <img src="/images/hero-port-night.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" />
+      <div class="absolute inset-0 -z-10 bg-cog-ink/82"></div>
+      <div class="dotgrid absolute inset-0 -z-10 opacity-40"></div>
+      <div class="mx-auto grid max-w-6xl gap-12 px-5 py-20 sm:px-8 lg:grid-cols-2 lg:py-28">
+        <div class="hero-rise">
+          <span class="chip border border-white/15 text-slate-200">
+            <span class="h-2 w-2 rounded-full bg-cog-teal"></span> Book a demo
+          </span>
+          <h1 class="mt-7 text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl">
+            See your whole business <span class="text-gradient-bright">in one system.</span>
+          </h1>
+          <p class="mt-5 max-w-md text-lg leading-relaxed text-slate-300">
+            Tell us a little about your business and we'll show you Cognit in action —
+            the online store, the stock, the accounts, all working together.
+            30 minutes, no obligation.
+          </p>
+
+          <ul class="mt-8 space-y-4">
+            {points.map((p) => (
+              <li class="flex gap-3 text-slate-300">
+                <span class="mt-0.5 flex h-6 w-6 flex-none items-center justify-center rounded-full bg-cog-sky text-sm font-bold text-cog-blue">✓</span>
+                {p}
+              </li>
+            ))}
+          </ul>
+
+          <div class="mt-10 rounded-2xl border border-white/15 bg-white/10 p-6 backdrop-blur">
+            <p class="text-sm text-slate-300">Prefer to talk now?</p>
+            <a href="tel:+64221691376" class="mt-1 block text-lg font-bold text-white hover:text-cog-teal">+64 22 169 1376</a>
+            <a href="mailto:contact@zeabyte.co.nz" class="text-sm font-medium text-slate-200 hover:underline">contact@zeabyte.co.nz</a>
+          </div>
+        </div>
+
+        <div class="card-grad rounded-3xl p-7 sm:p-9">
+          <LeadForm />
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

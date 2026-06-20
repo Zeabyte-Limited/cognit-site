@@ -1,0 +1,239 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import Integrations from "../../components/Integrations.astro";
+
+const pains = [
+  {
+    icon: "🥬",
+    pain: "Perishable stock that won't wait",
+    detail:
+      "Short shelf life means overselling spoils margin and underselling loses sales. You need stock that's right to the moment.",
+    solve:
+      "Live inventory drops the instant an order lands — online or entered by your team — so the store can't oversell, and reorder suggestions tell you what to buy before you run out.",
+    module: "Inventory & Warehouse",
+  },
+  {
+    icon: "💲",
+    pain: "Different price for every customer",
+    detail:
+      "Every account is on its own deal. Pricing lives in spreadsheets, gets pasted into the website, and quietly drifts out of date.",
+    solve:
+      "Set customer-specific and group pricing once. It's used everywhere — staff order entry, the online store, the invoice — so every customer always sees the right price.",
+    module: "Sales & Pricing",
+  },
+  {
+    icon: "🚚",
+    pain: "Reps and runs to keep straight",
+    detail:
+      "Orders come from reps on the road, drivers need their runs, and the office re-keys it all to keep up.",
+    solve:
+      "Reps and customers order from the same system, drivers get their own view with assigned routes and orders, and nothing gets re-typed between the road and the office.",
+    module: "Customers & CRM",
+  },
+  {
+    icon: "⭐",
+    pain: "Supplier rebates lost in spreadsheets",
+    detail:
+      "Claim-backs from suppliers are tracked by hand — and the ones that slip through can be thousands of dollars a month gone.",
+    solve:
+      "Define each rebate agreement once and Cognit calculates what you've earned from your purchases automatically, then batches and tracks the claims for you.",
+    module: "Rebates & Claim-Backs",
+  },
+  {
+    icon: "🏬",
+    pain: "Multiple branches, one true picture",
+    detail:
+      "Several sites or shops, each with its own stock and sales — and a head office trying to see the whole business at once.",
+    solve:
+      "Run every branch on the one platform with a real general ledger underneath, so sales, stock and P&L roll up across the business in real time.",
+    module: "Accounting & Reporting",
+  },
+];
+
+const faqs = [
+  {
+    q: "Is Cognit a good ERP for food distributors in New Zealand?",
+    a: "Yes. Cognit is an all-in-one cloud ERP proven with food and wholesale distributors across New Zealand and Australia. It handles the things food distribution actually runs on — perishable stock, customer-specific pricing, reps and delivery routes, supplier rebates and claim-backs, and multiple branches — with a built-in B2B online store so your customers can order 24/7. It starts at NZD $499 per month.",
+  },
+  {
+    q: "Can my customers order online?",
+    a: "Yes. A complete B2B e-commerce store is built into Cognit — not a bolt-on. Your customers log in to a branded storefront, see their own pricing, reorder from saved pantries and place orders any time of day. Because the store shares the same live stock and pricing as the rest of Cognit, orders flow straight through to picking, invoicing and your books.",
+  },
+  {
+    q: "Does Cognit handle supplier rebates and claim-backs?",
+    a: "Yes. You define your supplier rebate agreements once and Cognit calculates what you've earned from your purchases automatically, then batches and tracks the claims. It replaces the manual spreadsheets that quietly cost food distributors thousands of dollars a month in missed claims.",
+  },
+  {
+    q: "Can Cognit run multiple branches?",
+    a: "Yes. You can run several branches or sites on the one platform, with a real general ledger underneath so sales, stock and profit roll up across the whole business in real time — while each branch still sees what it needs day to day.",
+  },
+  {
+    q: "Does Cognit work with Xero?",
+    a: "Yes. Cognit has built-in two-way Xero integration that syncs invoices, credit notes, customers and products automatically. It also has its own full accounting and general ledger, so you can run your books entirely in Cognit if you prefer — and it can integrate with other systems that have an API or data feed.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
+};
+---
+
+<Layout
+  title="ERP for Food Distributors NZ — All-in-One With Online Ordering | Cognit"
+  description="Cognit is the all-in-one ERP for food distributors in New Zealand — perishable stock, customer-specific pricing, reps & routes, supplier rebates, multi-branch and a built-in B2B online store in one system. Syncs with Xero. Proven in NZ food distribution. Book a demo."
+  path="/industries/food-distribution"
+  schema={faqSchema}
+>
+  <Header />
+
+  <main class="bg-cog-stone text-cog-slate">
+    <!-- HERO (photographic) -->
+    <section class="orbs relative isolate overflow-hidden">
+      <img src="/images/food-distribution.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" />
+      <div class="absolute inset-0 -z-10 bg-cog-ink/82"></div>
+      <div class="dotgrid absolute inset-0 -z-10 opacity-40"></div>
+      <div class="mx-auto max-w-4xl px-5 pt-20 pb-20 text-center sm:px-8 sm:pt-28 hero-rise">
+        <span class="chip mx-auto border border-white/15 text-slate-200">
+          <span class="h-2 w-2 rounded-full bg-cog-teal"></span> Proven in NZ food distribution
+        </span>
+        <h1 class="mx-auto mt-7 max-w-3xl text-[2.6rem] font-extrabold leading-[1.05] tracking-tight text-white sm:text-6xl">
+          The all-in-one ERP for
+          <span class="text-gradient-bright"> food distributors.</span>
+        </h1>
+        <p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-slate-300 sm:text-xl">
+          Perishable stock, customer-specific pricing, reps on the road, supplier
+          rebates and multiple branches — Cognit runs the lot on one system, with a
+          built-in online store so your customers order 24/7.
+        </p>
+        <div class="mt-9 flex flex-wrap items-center justify-center gap-3">
+          <a href="/contact" class="btn-grad">Book a demo</a>
+          <a href="/platform" class="btn-ghost !border-white/30 !text-white">See how it works →</a>
+        </div>
+        <div class="mt-7 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-slate-300">
+          <span>✓ Built-in B2B store</span>
+          <span>✓ Rebates &amp; claim-backs</span>
+          <span>✓ Multi-branch</span>
+          <span>✓ Syncs with Xero</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAINS → MODULES -->
+    <section class="mx-auto max-w-6xl px-5 py-20 sm:px-8">
+      <div class="mb-12 max-w-2xl">
+        <span class="chip bg-cog-lilac text-cog-purple-600">The job, done</span>
+        <h2 class="mt-5 text-3xl font-extrabold tracking-tight text-cog-ink sm:text-4xl">
+          The pains of food distribution — solved by one system
+        </h2>
+        <p class="mt-4 text-lg text-cog-slate">
+          Every challenge below maps to a module that's already built into Cognit and
+          shares the same live data.
+        </p>
+      </div>
+
+      <div class="space-y-4">
+        {pains.map((p) => (
+          <div class="card-hairline card-hover grid gap-5 rounded-3xl p-7 sm:grid-cols-[1fr_1fr] sm:items-start">
+            <div>
+              <div class="flex items-center gap-3">
+                <span class="brand-gradient flex h-10 w-10 items-center justify-center rounded-xl text-lg">{p.icon}</span>
+                <h3 class="text-lg font-bold text-cog-ink">{p.pain}</h3>
+              </div>
+              <p class="mt-3 text-cog-slate/80">{p.detail}</p>
+            </div>
+            <div class="rounded-2xl bg-cog-stone/60 p-5">
+              <span class="chip bg-cog-teal/10 text-cog-teal-600">✓ {p.module}</span>
+              <p class="mt-3 leading-relaxed text-cog-slate">{p.solve}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- BUILT-IN ORDERING (dark slab) -->
+    <section class="px-4 py-10 sm:px-8">
+      <div class="orbs relative mx-auto max-w-6xl overflow-hidden rounded-[2rem] bg-cog-ink px-6 py-16 text-white sm:px-12">
+        <img src="/images/warehouse-worker.jpg" alt="" aria-hidden="true" class="absolute inset-0 h-full w-full object-cover opacity-20" />
+        <div class="dotgrid absolute inset-0 opacity-50"></div>
+        <div class="relative grid items-center gap-10 lg:grid-cols-2">
+          <div>
+            <span class="chip border border-white/15 text-blue-200">🛒 Built-in ordering</span>
+            <h2 class="mt-5 text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl">
+              Your customers order while you <span class="text-gradient-bright">sleep.</span>
+            </h2>
+            <p class="mt-5 max-w-lg text-lg text-slate-300">
+              A branded B2B store is built into Cognit. Cafés, restaurants and trade
+              customers log in, see their own pricing, reorder last week's pantry in one
+              tap and place orders 24/7 — and every order flows straight through to your
+              stock, your invoice and your books. No phone tag, no re-keying.
+            </p>
+          </div>
+          <div class="grid gap-3 sm:grid-cols-2">
+            {[
+              { icon: "🕑", t: "Order 24/7" },
+              { icon: "🗂️", t: "Saved pantries & reorder" },
+              { icon: "💲", t: "Their own pricing" },
+              { icon: "🔁", t: "Straight to invoicing" },
+            ].map((x) => (
+              <div class="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur">
+                <div class="text-2xl">{x.icon}</div>
+                <div class="mt-2 font-semibold text-white">{x.t}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- XERO + PROOF -->
+    <section class="mx-auto max-w-6xl px-5 py-20 sm:px-8">
+      <div class="grid items-stretch gap-5 lg:grid-cols-2">
+        <div class="card-grad rounded-3xl p-8">
+          <span class="chip bg-cog-sky text-cog-blue-700">Keep your accountant happy</span>
+          <h3 class="mt-4 text-xl font-bold text-cog-ink">Built-in accounting, or a clean Xero sync</h3>
+          <p class="mt-3 leading-relaxed text-cog-slate">
+            Cognit has a real general ledger underneath everything, so it can run your
+            books on its own. Prefer to keep Xero? Cognit syncs two-way — invoices,
+            credit notes, customers and products — automatically, so month-end stops
+            being a re-typing marathon.
+          </p>
+        </div>
+        <div class="card-hairline rounded-3xl p-8">
+          <span class="chip bg-cog-lilac text-cog-purple-600">Proven, not theoretical</span>
+          <h3 class="mt-4 text-xl font-bold text-cog-ink">Trusted by NZ food &amp; wholesale distributors</h3>
+          <p class="mt-3 leading-relaxed text-cog-slate">
+            Cognit is already the system running real food and wholesale distribution
+            businesses across New Zealand and Australia — taking online orders, holding
+            perishable stock, claiming rebates and keeping the books. It's built for how
+            you actually trade, by a New Zealand team you can call.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTEGRATIONS -->
+    <Integrations />
+
+    <!-- FAQ -->
+    <section class="mx-auto max-w-3xl px-5 py-24 sm:px-8">
+      <h2 class="text-center text-3xl font-extrabold tracking-tight text-cog-ink sm:text-4xl">Food distribution, answered</h2>
+      <div class="mt-10 space-y-3">
+        {faqs.map((f) => (
+          <details class="card-hairline group rounded-2xl p-6 open:shadow-md">
+            <summary class="flex cursor-pointer list-none items-center justify-between text-lg font-bold text-cog-ink">
+              {f.q}
+              <span class="ml-4 text-cog-purple transition group-open:rotate-45">＋</span>
+            </summary>
+            <p class="mt-3 leading-relaxed text-cog-slate">{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

@@ -1,0 +1,63 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const links = [
+  { href: "/", icon: "🏠", t: "Home", b: "Back to the start" },
+  { href: "/platform", icon: "🧩", t: "Platform", b: "How Cognit works" },
+  { href: "/features", icon: "📦", t: "Modules", b: "Everything inside" },
+  { href: "/pricing", icon: "💲", t: "Pricing", b: "From $499/month" },
+  { href: "/contact", icon: "✨", t: "Book a demo", b: "See it on your business" },
+];
+---
+
+<Layout title="Page not found — Cognit" description="Sorry, we couldn't find that page. Here are some quick links to get you back on track with Cognit, the all-in-one ERP with a built-in online store." path="/404">
+  <Header />
+
+  <main class="bg-cog-stone text-cog-slate">
+    <!-- HERO (photographic) -->
+    <section class="orbs relative isolate overflow-hidden">
+      <img src="/images/warehouse-worker.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" />
+      <div class="absolute inset-0 -z-10 bg-cog-ink/82"></div>
+      <div class="dotgrid absolute inset-0 -z-10 opacity-40"></div>
+      <div class="mx-auto max-w-4xl px-5 pb-20 pt-20 text-center sm:px-8 sm:pt-28 hero-rise">
+        <span class="chip mx-auto border border-white/15 text-slate-200">
+          <span class="h-2 w-2 rounded-full bg-cog-teal"></span> Page not found
+        </span>
+        <h1 class="mx-auto mt-7 text-7xl font-extrabold leading-none tracking-tight text-white sm:text-[9rem]">
+          <span class="text-gradient-bright">404</span>
+        </h1>
+        <p class="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-slate-300 sm:text-xl">
+          We couldn't find that page — it may have moved or never existed. Let's get
+          you back to something useful.
+        </p>
+        <div class="mt-9 flex flex-wrap items-center justify-center gap-3">
+          <a href="/" class="btn-grad">Back to home</a>
+          <a href="/contact" class="btn-ghost !border-white/30 !text-white">Book a demo →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUICK LINKS -->
+    <section class="mx-auto max-w-6xl px-5 py-20 sm:px-8">
+      <div class="mx-auto max-w-2xl text-center">
+        <span class="chip bg-cog-sky text-cog-blue-700">Quick links</span>
+        <h2 class="mt-5 text-3xl font-extrabold tracking-tight text-cog-ink sm:text-4xl">
+          Try one of <span class="text-gradient">these instead.</span>
+        </h2>
+      </div>
+      <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+        {links.map((l) => (
+          <a href={l.href} class="card-hairline card-hover group flex flex-col rounded-3xl p-6">
+            <span class="brand-gradient flex h-10 w-10 items-center justify-center rounded-xl text-lg">{l.icon}</span>
+            <h3 class="mt-4 font-bold text-cog-ink">{l.t}</h3>
+            <p class="mt-1.5 text-sm leading-relaxed text-cog-slate">{l.b}</p>
+          </a>
+        ))}
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

@@ -1,0 +1,164 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+const site = "https://www.cognitsystem.com";
+const slug = "replace-multiple-business-systems-with-one-erp";
+const url = `${site}/blog/${slug}/`;
+
+const title = "How to Replace Multiple Disconnected Systems With One ERP | Cognit";
+const description =
+  "A practical guide to consolidating your website, inventory, accounting and spreadsheets into one ERP. The patchwork problem, a sensible migration approach, and exactly what to consolidate first.";
+
+const faqs = [
+  {
+    q: "What does it mean to replace multiple systems with one ERP?",
+    a: "It means moving the work that's currently spread across a separate website, inventory app, accounting package and spreadsheets into a single connected system. Instead of syncing data between tools, everything — sales, stock, purchasing, invoicing and reporting — runs from one shared set of records in the ERP.",
+  },
+  {
+    q: "How long does it take to move onto one ERP like Cognit?",
+    a: "Cognit is designed to go live in weeks, not the years a big enterprise ERP can take. We set it up, migrate your products, customers and opening balances, train your team, and switch you over once everything is verified — usually module by module so the business keeps running throughout.",
+  },
+  {
+    q: "What should I consolidate first?",
+    a: "Start with the core that causes the most double entry — usually sales orders, inventory and the online store, because that's where data gets re-keyed and overselling happens. Once that's running cleanly, bring across purchasing, invoicing, rebates and accounting. Reporting then comes for free because all the data is finally in one place.",
+  },
+  {
+    q: "Will I lose my data when I migrate?",
+    a: "No. A proper migration brings your existing products, customers, pricing and opening balances across, and they're checked against your current systems before you go live. Nothing is thrown away — the point is to bring your real data into one place where it stays consistent.",
+  },
+];
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "How to replace multiple disconnected business systems with one ERP",
+  description,
+  author: { "@type": "Organization", name: "Cognit System", url: site },
+  publisher: {
+    "@type": "Organization",
+    name: "Cognit System",
+    logo: { "@type": "ImageObject", url: `${site}/logo.png` },
+  },
+  datePublished: "2026-06-20",
+  dateModified: "2026-06-20",
+  mainEntityOfPage: { "@type": "WebPage", "@id": url },
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+---
+
+<Layout title={title} description={description} path={`/blog/${slug}`} schema={[articleSchema, faqSchema]}>
+  <Header />
+
+  <main class="bg-cog-stone text-cog-slate">
+    <!-- HERO (photographic) -->
+    <section class="orbs relative isolate overflow-hidden">
+      <img src="/images/food-distribution.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" />
+      <div class="absolute inset-0 -z-10 bg-cog-ink/82"></div>
+      <div class="dotgrid absolute inset-0 -z-10 opacity-40"></div>
+      <div class="mx-auto max-w-3xl px-5 pt-20 pb-20 text-center sm:px-8 sm:pt-28 hero-rise">
+        <span class="chip mx-auto border border-white/15 text-slate-200">Insights</span>
+        <h1 class="mt-5 text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl">
+          How to replace multiple disconnected business systems with one ERP
+        </h1>
+        <p class="mt-4 text-lg text-slate-300">
+          The patchwork problem, a sensible migration approach, and exactly what to
+          consolidate first — without the multi-year ERP nightmare.
+        </p>
+      </div>
+    </section>
+
+    <!-- BODY -->
+    <section class="mx-auto max-w-3xl px-5 pb-16 sm:px-8">
+      <article class="article">
+        <p>
+          Almost no business sets out to run on five disconnected systems. It happens
+          gradually — a website here, accounting there, an inventory app, and
+          spreadsheets filling every gap. Each tool made sense on its own day. Together
+          they create a patchwork that's slow, error-prone and exhausting to maintain.
+          This guide explains how to untangle it and move onto a single
+          <a href="/platform">all-in-one ERP</a> without bringing the business to a halt.
+        </p>
+
+        <h2>The patchwork problem</h2>
+        <p>
+          The tell-tale signs of a patchwork are easy to spot once you know them:
+        </p>
+        <ul>
+          <li>The same order is typed in two or three times before it ships</li>
+          <li>Stock on the website doesn't match the warehouse, so you oversell</li>
+          <li>Reporting means exporting from several tools and stitching them together</li>
+          <li>Customer pricing lives in one system but the store uses another</li>
+          <li>Critical processes live in one person's spreadsheet — and their head</li>
+        </ul>
+        <p>
+          Every one of these is a symptom of the same root cause: your data lives in
+          separate places that don't agree with each other. No amount of extra
+          integrations truly fixes that. The fix is one source of truth.
+        </p>
+
+        <h2>What to consolidate, and in what order</h2>
+        <p>
+          You don't move everything at once. The smart approach is to consolidate the
+          parts that cause the most double entry first, then work outward:
+        </p>
+        <ul>
+          <li><strong>1. Sales, inventory and the online store</strong> — start here, because this is where orders get re-keyed and overselling happens. A <a href="/ecommerce">built-in store</a> with live <a href="/features/inventory">stock</a> ends both problems immediately.</li>
+          <li><strong>2. Purchasing and goods receipting</strong> — bring buying into the same system so stock and spend stay accurate.</li>
+          <li><strong>3. Invoicing, receivables and rebates</strong> — orders already in the system become <a href="/features/invoicing">invoices</a> in one click, and <a href="/features/rebates">rebate claims</a> calculate themselves.</li>
+          <li><strong>4. Accounting</strong> — with everything posting to one ledger, your books are a by-product. Keep Xero via sync or move fully onto Cognit's general ledger.</li>
+          <li><strong>5. Reporting</strong> — this comes almost for free, because all the data is finally in one place.</li>
+        </ul>
+
+        <h2>A sensible migration approach</h2>
+        <p>
+          The fear with ERP projects is the multi-year, business-stopping rollout. That
+          comes from heavy enterprise software and big-bang switchovers. A sensible
+          migration looks nothing like that:
+        </p>
+        <ul>
+          <li><strong>Set up and configure</strong> the system around how your business actually works</li>
+          <li><strong>Migrate your real data</strong> — products, customers, pricing and opening balances — and check it against your current systems</li>
+          <li><strong>Go live module by module</strong> so the business keeps running while you switch over</li>
+          <li><strong>Train your team</strong> on the parts they use, with support on hand</li>
+          <li><strong>Verify, then retire</strong> each old tool only once its replacement is proven</li>
+        </ul>
+        <p>
+          Done this way, the move happens in weeks and nobody is left stranded. The old
+          systems get switched off one at a time, not all at once.
+        </p>
+
+        <h2>What you're left with</h2>
+        <p>
+          Once the dust settles, your whole business runs from one login. An order
+          placed online updates stock, invoicing and the books the moment it lands. Your
+          customer pricing is right everywhere. Your reports agree because there's only
+          one set of numbers. And the spreadsheets that held everything together quietly
+          disappear. That's the difference between software you fight and software that
+          works for you — the same theme we cover in
+          <a href="/blog/erp-with-ecommerce-vs-website-plus-accounting">ERP vs website plus accounting</a>.
+        </p>
+
+        <h2>Frequently asked questions</h2>
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </article>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

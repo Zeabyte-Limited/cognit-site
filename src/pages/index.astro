@@ -1,0 +1,340 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import Integrations from "../components/Integrations.astro";
+import { modules } from "../data/modules.js";
+
+const store = modules.find((m) => m.slug === "ecommerce");
+const rest = modules.filter((m) => m.slug !== "ecommerce");
+
+const navModules = [
+  { icon: "🛒", name: "Online Store" },
+  { icon: "💲", name: "Sales" },
+  { icon: "📦", name: "Inventory" },
+  { icon: "🧾", name: "Purchasing" },
+  { icon: "📊", name: "Accounting" },
+  { icon: "💰", name: "Invoicing" },
+  { icon: "⭐", name: "Rebates" },
+  { icon: "📈", name: "Reports" },
+];
+
+const faqs = [
+  {
+    q: "What is Cognit?",
+    a: "Cognit is an all-in-one cloud ERP system that runs your entire business from one place — sales orders, a built-in B2B e-commerce online store, inventory and warehouse management, purchasing, accounting and general ledger, invoicing, supplier rebates and full business reporting. Instead of paying for and stitching together separate systems for your website, stock, accounts and reporting, you run everything on Cognit.",
+  },
+  {
+    q: "Does Cognit include an online store?",
+    a: "Yes. A complete B2B e-commerce storefront is built into Cognit — not a bolt-on plugin. Your customers log in to a branded online store, see their own pricing, reorder from saved pantries, and place orders 24/7. Because the store is part of the ERP, stock levels and prices are always accurate and orders flow straight through to invoicing and the ledger.",
+  },
+  {
+    q: "Can Cognit replace my current accounting or ERP system?",
+    a: "Yes. Cognit has a real general ledger underneath everything — chart of accounts, journals, trial balance, balance sheet and automatic GL posting — so it can run your accounts on its own. Many businesses use Cognit to replace a patchwork of separate systems. If you prefer to keep your accounting software, Cognit also syncs two-way with Xero.",
+  },
+  {
+    q: "Does Cognit integrate with Xero?",
+    a: "Yes. Cognit has built-in two-way Xero integration, syncing invoices, credit notes, customers and products automatically. Cognit can also integrate with other accounting, inventory and e-commerce systems — if a system has an API or data feed, Cognit can connect to it.",
+  },
+  {
+    q: "Who is Cognit for?",
+    a: "Cognit is built for wholesalers, distributors, importers and product-based businesses that take orders, hold stock and want their website, inventory and accounts working as one system. It is proven in food and wholesale distribution across New Zealand and Australia.",
+  },
+  {
+    q: "How much does Cognit cost?",
+    a: "Cognit starts at NZD $499 per month for the Standard plan, which includes the all-in-one ERP and built-in online store. The Premium plan is NZD $1,400 per month and adds advanced modules, deeper integrations and priority support. Book a demo for a quote tailored to your business.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
+};
+---
+
+<Layout
+  title="Cognit — The All-in-One ERP With a Built-In Online Store | NZ"
+  description="Cognit is the all-in-one cloud ERP you run your whole company on — sales, a built-in B2B online store, inventory, purchasing, accounting, invoicing and reporting in one system. Integrates with Xero. Built in New Zealand. Book a demo."
+  schema={faqSchema}
+>
+  <Header />
+
+  <main class="bg-cog-stone text-cog-slate">
+    <!-- HERO (photographic) -->
+    <section class="orbs relative isolate overflow-hidden">
+      <img src="/images/hero-warehouse-dark.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" />
+      <div class="absolute inset-0 -z-10 bg-cog-ink/82"></div>
+      <div class="dotgrid absolute inset-0 -z-10 opacity-40"></div>
+      <div class="mx-auto max-w-5xl px-5 pt-20 pb-36 text-center sm:px-8 sm:pt-28 hero-rise">
+        <span class="chip mx-auto border border-white/15 text-slate-200">
+          <span class="h-2 w-2 rounded-full bg-cog-teal"></span> All-in-one ERP · Made in New Zealand 🇳🇿
+        </span>
+        <h1 class="mx-auto mt-7 max-w-4xl text-[2.6rem] font-extrabold leading-[1.04] tracking-tight text-white sm:text-7xl">
+          One system to run
+          <span class="text-gradient-bright"> your whole business.</span>
+        </h1>
+        <p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-slate-300 sm:text-xl">
+          Cognit brings your online store, sales, inventory, purchasing, accounting
+          and reporting into a single platform — so an order placed online updates
+          your stock, your invoice and your books the moment it lands.
+        </p>
+        <div class="mt-9 flex flex-wrap items-center justify-center gap-3">
+          <a href="/contact" class="btn-grad">Book a demo</a>
+          <a href="/platform" class="btn-ghost !border-white/30 !text-white">See how it works →</a>
+        </div>
+        <div class="mt-7 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-slate-300">
+          <span>✓ Built-in online store</span>
+          <span>✓ Real accounting &amp; GL</span>
+          <span>✓ Syncs with Xero</span>
+          <span>✓ Live in weeks</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Product window overlapping into the canvas -->
+    <section class="relative z-10 -mt-24">
+      <div class="mx-auto max-w-6xl px-4 pb-20 sm:px-8">
+        <div class="cog-float card-grad overflow-hidden rounded-[1.6rem] p-2 shadow-2xl shadow-cog-purple/20">
+          <div class="overflow-hidden rounded-[1.2rem] border border-black/5 bg-white">
+            <!-- window bar -->
+            <div class="flex items-center gap-2 border-b border-black/5 bg-cog-stone/70 px-4 py-3">
+              <span class="h-3 w-3 rounded-full bg-red-300"></span>
+              <span class="h-3 w-3 rounded-full bg-amber-300"></span>
+              <span class="h-3 w-3 rounded-full bg-green-300"></span>
+              <span class="ml-3 rounded-md bg-white px-3 py-1 text-xs font-medium text-slate-400">app.cognitsystem.com</span>
+            </div>
+            <div class="grid sm:grid-cols-[180px_1fr]">
+              <!-- sidebar of modules -->
+              <aside class="hidden border-r border-black/5 bg-cog-stone/40 p-4 sm:block">
+                <div class="px-2 text-[11px] font-semibold uppercase tracking-wider text-slate-400">Modules</div>
+                <nav class="mt-3 space-y-1">
+                  {navModules.map((m, i) => (
+                    <span class={"flex items-center gap-2.5 rounded-lg px-2.5 py-2 text-sm font-medium " + (i === 0 ? "bg-white text-cog-ink shadow-sm" : "text-slate-500")}>
+                      <span>{m.icon}</span> {m.name}
+                    </span>
+                  ))}
+                </nav>
+              </aside>
+              <!-- main -->
+              <div class="p-5">
+                <div class="grid grid-cols-2 gap-3 sm:grid-cols-4">
+                  {[
+                    { l: "Online orders", v: "38", c: "text-cog-blue" },
+                    { l: "To invoice", v: "12", c: "text-cog-purple" },
+                    { l: "Low stock", v: "5", c: "text-amber-600" },
+                    { l: "Sales today", v: "$18.4k", c: "text-cog-teal-600" },
+                  ].map((s) => (
+                    <div class="rounded-xl border border-black/5 bg-cog-stone/50 px-3 py-3 text-center">
+                      <div class={"text-2xl font-extrabold " + s.c}>{s.v}</div>
+                      <div class="mt-0.5 text-[11px] font-medium text-slate-400">{s.l}</div>
+                    </div>
+                  ))}
+                </div>
+                <div class="mt-4 space-y-2.5">
+                  {[
+                    { c: "Harbour Café Group", v: "$4,210", s: "Store order", color: "text-cog-teal-600" },
+                    { c: "Coastal Catering Co.", v: "$1,860", s: "Invoiced ✓", color: "text-cog-blue" },
+                    { c: "Metro Foods Ltd", v: "$960", s: "Picking", color: "text-amber-600" },
+                  ].map((r) => (
+                    <div class="flex items-center justify-between rounded-xl border border-black/5 bg-white px-4 py-3 shadow-sm">
+                      <span class="text-sm font-semibold text-cog-ink">{r.c}</span>
+                      <span class="text-right">
+                        <span class="text-sm font-bold text-cog-ink">{r.v}</span>
+                        <span class={"ml-3 text-[11px] font-semibold " + r.color}>{r.s}</span>
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- proof row -->
+        <p class="mt-12 text-center text-sm font-medium uppercase tracking-wider text-slate-400">
+          The system already running real wholesale &amp; distribution businesses
+        </p>
+        <div class="mt-6 flex flex-wrap items-center justify-center gap-3">
+          {[
+            { name: "No Bull Foodservice", logo: "/logos/clients/nobull.png" },
+            { name: "Stevos", logo: "/logos/clients/stevos.png" },
+            { name: "Starfoods", logo: "/logos/clients/starfoods.png" },
+            { name: "Firstlight", logo: "/logos/clients/firstlight.png" },
+            { name: "Hamilton Foods", logo: "/logos/clients/hamilton.png" },
+            { name: "FoodFirst", logo: "/logos/clients/foodfirst.png" },
+          ].map((c) => (
+            <span class="inline-flex items-center gap-2.5 rounded-full border border-black/8 bg-white px-5 py-2.5 text-sm font-bold tracking-tight text-slate-600 shadow-sm">
+              <img src={c.logo} alt={c.name + " logo"} class="h-6 w-auto max-w-20 object-contain" loading="lazy" /> {c.name}
+            </span>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT IS COGNIT -->
+    <section class="mx-auto max-w-6xl px-5 py-20 sm:px-8">
+      <div class="grid items-start gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+        <div>
+          <span class="chip bg-cog-lilac text-cog-purple-600">What is Cognit?</span>
+          <h2 class="mt-5 text-3xl font-extrabold leading-tight tracking-tight text-cog-ink sm:text-4xl">
+            An ERP you can actually <span class="text-gradient">run your company on.</span>
+          </h2>
+        </div>
+        <div class="space-y-5 text-lg leading-relaxed text-cog-slate">
+          <p>
+            <strong class="text-cog-ink">Cognit is an all-in-one business system.</strong>
+            It replaces the tangle of separate tools most businesses limp along on —
+            a website here, stock in a spreadsheet, accounting somewhere else — with
+            one connected platform.
+          </p>
+          <p>
+            Your customers order from a <strong class="text-cog-ink">built-in online
+            store</strong>. Those orders flow straight into <strong class="text-cog-ink">inventory,
+            invoicing and a real general ledger</strong> — automatically. You see your
+            whole business, in real time, in one login.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- BENTO MODULES -->
+    <section class="mx-auto max-w-6xl px-5 pb-8 sm:px-8">
+      <div class="mb-10 max-w-2xl">
+        <span class="chip bg-cog-sky text-cog-blue-700">Everything in one place</span>
+        <h2 class="mt-5 text-3xl font-extrabold tracking-tight text-cog-ink sm:text-4xl">One login. Every part of your business.</h2>
+        <p class="mt-4 text-lg text-cog-slate">Each module is fully built and ready — switch on what you need.</p>
+      </div>
+
+      <div class="grid auto-rows-[minmax(150px,auto)] grid-cols-2 gap-4 lg:grid-cols-4">
+        <!-- BIG TILE: Online Store -->
+        <a href={`/features/${store.slug}`} class="card-grad card-hover group col-span-2 row-span-2 flex flex-col justify-between overflow-hidden rounded-3xl p-7">
+          <div>
+            <div class="flex items-center gap-3">
+              <span class="brand-gradient flex h-11 w-11 items-center justify-center rounded-xl text-xl">{store.icon}</span>
+              <span class="chip bg-cog-lilac text-cog-purple-600">Headline feature</span>
+            </div>
+            <h3 class="mt-5 text-2xl font-extrabold tracking-tight text-cog-ink">{store.name}</h3>
+            <p class="mt-3 max-w-md text-cog-slate">{store.short} Your customers order 24/7 from a branded storefront that shares the same live stock and pricing as the rest of Cognit.</p>
+          </div>
+          <div class="mt-6 rounded-2xl border border-black/5 bg-white p-4 shadow-sm">
+            <div class="flex items-center justify-between border-b border-black/5 pb-2.5">
+              <span class="text-xs font-bold text-cog-ink">Your Store</span>
+              <span class="chip bg-cog-teal/10 !py-1 text-xs text-cog-teal-600">● Open 24/7</span>
+            </div>
+            <div class="mt-3 grid grid-cols-3 gap-2 text-center">
+              {["Milk 2L · $3.20", "Bacon 1kg · $14.90", "Eggs ×10 · $9.80"].map((p) => (
+                <div class="rounded-lg bg-cog-stone/60 px-2 py-2 text-[11px] font-semibold text-cog-ink">{p}</div>
+              ))}
+            </div>
+            <div class="brand-gradient mt-3 rounded-lg py-2 text-center text-xs font-bold text-white">Reorder my pantry · $612.40 →</div>
+          </div>
+        </a>
+
+        <!-- SMALL TILES -->
+        {rest.map((m) => (
+          <a href={`/features/${m.slug}`} class="card-hairline card-hover group flex flex-col rounded-3xl p-6">
+            <span class="brand-gradient flex h-10 w-10 items-center justify-center rounded-xl text-lg">{m.icon}</span>
+            <h3 class="mt-4 font-bold text-cog-ink">{m.name}</h3>
+            <p class="mt-1.5 text-sm leading-relaxed text-cog-slate">{m.short}</p>
+          </a>
+        ))}
+      </div>
+
+      <div class="mt-10">
+        <a href="/features" class="btn-ghost">Explore all modules →</a>
+      </div>
+    </section>
+
+    <!-- WHY YOU NEED IT -->
+    <section class="mx-auto max-w-6xl px-5 py-20 sm:px-8">
+      <div class="grid items-stretch gap-5 lg:grid-cols-2">
+        <div class="card-hairline rounded-3xl p-8">
+          <span class="chip bg-red-50 text-red-500">Without Cognit</span>
+          <h3 class="mt-4 text-xl font-bold text-cog-ink">Five systems, none talking</h3>
+          <ul class="mt-5 space-y-3 text-cog-slate">
+            <li class="flex gap-3"><span class="text-red-400">✕</span> Re-keying the same order into 3 places</li>
+            <li class="flex gap-3"><span class="text-red-400">✕</span> Website stock that's always slightly wrong</li>
+            <li class="flex gap-3"><span class="text-red-400">✕</span> Month-end spent reconciling spreadsheets</li>
+            <li class="flex gap-3"><span class="text-red-400">✕</span> Rebates and claim-backs quietly lost</li>
+            <li class="flex gap-3"><span class="text-red-400">✕</span> Paying for 5 subscriptions that don't fit</li>
+          </ul>
+        </div>
+        <div class="card-grad rounded-3xl p-8">
+          <span class="chip brand-gradient text-white">With Cognit</span>
+          <h3 class="mt-4 text-xl font-bold text-cog-ink">One system, working as one</h3>
+          <ul class="mt-5 space-y-3 text-cog-slate">
+            <li class="flex gap-3"><span class="text-cog-teal">✓</span> Enter an order once — it's everywhere</li>
+            <li class="flex gap-3"><span class="text-cog-teal">✓</span> Live, accurate stock the store can't oversell</li>
+            <li class="flex gap-3"><span class="text-cog-teal">✓</span> Books that post themselves as you trade</li>
+            <li class="flex gap-3"><span class="text-cog-teal">✓</span> Rebates calculated and claimed automatically</li>
+            <li class="flex gap-3"><span class="text-cog-teal">✓</span> One platform, one price, built to fit</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- AI BAND -->
+    <section class="px-4 py-10 sm:px-8">
+      <div class="orbs relative mx-auto max-w-6xl overflow-hidden rounded-[2rem] bg-cog-ink px-6 py-16 text-white sm:px-12">
+        <img src="/images/warehouse-worker.jpg" alt="" aria-hidden="true" class="absolute inset-0 h-full w-full object-cover opacity-20" />
+        <div class="dotgrid absolute inset-0 opacity-50"></div>
+        <div class="relative grid items-center gap-10 lg:grid-cols-2">
+          <div>
+            <span class="chip border border-white/15 text-blue-200">✨ Smart by default</span>
+            <h2 class="mt-5 text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl">
+              AI that does the <span class="text-gradient-bright">busywork.</span>
+            </h2>
+            <p class="mt-5 max-w-lg text-lg text-slate-300">
+              Cognit doesn't just store your data — it works it. Reorder suggestions
+              before you run out. Rebates that calculate themselves. Invoices that
+              post automatically. The repetitive jobs just… happen.
+            </p>
+          </div>
+          <div class="grid gap-3 sm:grid-cols-2">
+            {[
+              { icon: "🔮", t: "AI reorder suggestions" },
+              { icon: "⭐", t: "Automatic rebate claims" },
+              { icon: "🧾", t: "Auto invoice posting" },
+              { icon: "📊", t: "Real-time P&L" },
+            ].map((x) => (
+              <div class="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur">
+                <div class="text-2xl">{x.icon}</div>
+                <div class="mt-2 font-semibold text-white">{x.t}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTEGRATIONS -->
+    <Integrations />
+
+    <!-- PRICING TEASER -->
+    <section class="mx-auto max-w-4xl px-5 py-24 text-center sm:px-8">
+      <span class="chip bg-cog-sky text-cog-blue-700">Simple pricing</span>
+      <h2 class="mt-5 text-3xl font-extrabold tracking-tight text-cog-ink sm:text-5xl">One price. Every module. No per-seat games.</h2>
+      <p class="mx-auto mt-5 max-w-xl text-lg text-cog-slate">From <strong class="text-cog-ink">$499/month</strong> for the all-in-one ERP and built-in online store — setup, training and NZ support included.</p>
+      <a href="/pricing" class="btn-grad mt-8">See pricing</a>
+    </section>
+
+    <!-- FAQ -->
+    <section class="mx-auto max-w-3xl px-5 pb-24 sm:px-8">
+      <h2 class="text-center text-3xl font-extrabold tracking-tight text-cog-ink sm:text-4xl">Questions, answered</h2>
+      <div class="mt-10 space-y-3">
+        {faqs.map((f) => (
+          <details class="card-hairline group rounded-2xl p-6 open:shadow-md">
+            <summary class="flex cursor-pointer list-none items-center justify-between text-lg font-bold text-cog-ink">
+              {f.q}
+              <span class="ml-4 text-cog-purple transition group-open:rotate-45">＋</span>
+            </summary>
+            <p class="mt-3 leading-relaxed text-cog-slate">{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

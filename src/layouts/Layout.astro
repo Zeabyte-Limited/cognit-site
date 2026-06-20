@@ -1,0 +1,183 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+  /** path-only canonical, e.g. "/pricing" */
+  path?: string;
+  /** optional per-page structured data injected into <head> */
+  schema?: object | object[];
+}
+
+const {
+  title = "Cognit — The All-in-One ERP With a Built-In Online Store",
+  description = "Cognit is an all-in-one cloud ERP that runs your whole company — sales, a built-in B2B e-commerce store, inventory, purchasing, accounting, invoicing and reporting in one system. Integrates with Xero and any system. Built in New Zealand for wholesalers, distributors and product businesses.",
+  path = "/",
+  schema,
+} = Astro.props;
+
+const site = "https://www.cognitsystem.com";
+
+let cpath = path;
+if (cpath !== "/" && !cpath.endsWith("/")) cpath += "/";
+const canonical = new URL(cpath, site).href;
+const ogImage = `${site}/og.png`;
+
+// --- Organization (Cognit, a Zeabyte product) -----------------------------
+const orgSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": `${site}/#org`,
+  name: "Cognit System",
+  alternateName: "Cognit ERP",
+  url: site,
+  logo: `${site}/logo.png`,
+  description,
+  email: "contact@zeabyte.co.nz",
+  telephone: "+64 22 169 1376",
+  parentOrganization: { "@type": "Organization", name: "Zeabyte Limited", url: "https://www.zeabyte.co.nz" },
+  areaServed: ["New Zealand", "Australia"],
+  slogan: "One business. One system.",
+};
+
+// --- SoftwareApplication / Product — the schema AI engines quote ----------
+const appSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "@id": `${site}/#software`,
+  name: "Cognit",
+  applicationCategory: "BusinessApplication",
+  applicationSubCategory: "ERP",
+  operatingSystem: "Web-based (cloud) — any device with a browser",
+  url: site,
+  description,
+  publisher: { "@id": `${site}/#org` },
+  featureList: [
+    "Built-in B2B e-commerce online store",
+    "Sales orders & customer-specific pricing",
+    "Inventory & warehouse management",
+    "Purchasing & purchase orders",
+    "Goods receipting",
+    "Accounting & general ledger",
+    "Invoicing & accounts receivable",
+    "Credit notes",
+    "Supplier rebates & claim-backs",
+    "Tablet stocktakes",
+    "Business reporting & P&L",
+    "AI reorder suggestions",
+    "Xero integration",
+    "Role-based access control",
+  ],
+  offers: [
+    { "@type": "Offer", name: "Standard", price: "499", priceCurrency: "NZD", description: "Per month. All-in-one ERP with built-in online store." },
+    { "@type": "Offer", name: "Premium", price: "1400", priceCurrency: "NZD", description: "Per month. Advanced modules, integrations and priority support." },
+  ],
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${site}/#website`,
+  name: "Cognit System",
+  url: site,
+  publisher: { "@id": `${site}/#org` },
+};
+
+// Breadcrumbs from the path.
+const segs = path.split("/").filter(Boolean);
+let acc = "";
+const crumbItems = [{ name: "Home", url: `${site}/` }];
+for (const s of segs) {
+  acc += `/${s}`;
+  const name = s.replace(/-/g, " ").replace(/\b\w/g, (m) => m.toUpperCase());
+  crumbItems.push({ name, url: `${site}${acc}/` });
+}
+const breadcrumbSchema = segs.length
+  ? {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: crumbItems.map((c, i) => ({
+        "@type": "ListItem", position: i + 1, name: c.name, item: c.url,
+      })),
+    }
+  : null;
+
+const extraSchemas = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
+---
+
+<!doctype html>
+<html lang="en-NZ">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+
+    <!-- Favicons / app icons (Cognit brand pack) -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#4F8FE0" />
+
+    <!-- Open Graph / social -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Cognit System" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:locale" content="en_NZ" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Inter font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <script type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(appSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+    {breadcrumbSchema && <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />}
+    {extraSchemas.map((s) => (
+      <script type="application/ld+json" set:html={JSON.stringify(s)} />
+    ))}
+  </head>
+  <body class="bg-white text-cog-slate antialiased">
+    <slot />
+
+    <script is:inline>
+      const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (!reduce && "IntersectionObserver" in window) {
+        const sections = document.querySelectorAll("main section");
+        sections.forEach((s, i) => { if (i !== 0) s.classList.add("reveal-pending"); });
+        const io = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((e) => {
+              if (e.isIntersecting) {
+                e.target.classList.remove("reveal-pending");
+                e.target.classList.add("reveal-in");
+                io.unobserve(e.target);
+              }
+            });
+          },
+          { threshold: 0.12 }
+        );
+        document.querySelectorAll("main section.reveal-pending").forEach((s) => io.observe(s));
+      }
+    </script>
+  </body>
+</html>

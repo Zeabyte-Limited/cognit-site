@@ -1,0 +1,60 @@
+---
+// Cognit runs your whole business on its own — and connects to what you use.
+// Xero is first-class; anything with an API can plug in.
+const systems = [
+  { name: "Xero", logo: "/logos/xero.png" },
+  { name: "MYOB", logo: "/logos/myob.png" },
+  { name: "QuickBooks", logo: "/logos/quickbooks.png" },
+  { name: "Reckon", logo: "/logos/reckon.png" },
+  { name: "Sage", logo: "/logos/sage.png" },
+  { name: "Accredo", logo: "/logos/accredo.png" },
+  { name: "Dynamics 365", logo: "/logos/dynamics365.png" },
+  { name: "NetSuite", logo: "/logos/netsuite.png" },
+  { name: "SAP", logo: "/logos/sap.svg" },
+  { name: "Unleashed", logo: "/logos/unleashed.png" },
+  { name: "Cin7", logo: "/logos/cin7.png" },
+  { name: "Shopify", logo: null },
+  { name: "Stripe", logo: null },
+  { name: "Your bank feed", logo: null },
+  { name: "Your courier", logo: null },
+];
+const rowA = systems.filter((_, i) => i % 2 === 0);
+const rowB = systems.filter((_, i) => i % 2 === 1);
+const chip = "border-white/12 bg-white/5 text-slate-100 backdrop-blur";
+---
+
+<section id="integrations" class="orbs relative isolate overflow-hidden bg-cog-ink text-white">
+  <img src="/images/hero-highway-night.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover opacity-15" />
+  <div class="dotgrid absolute inset-0 -z-10 opacity-60"></div>
+
+  <div class="mx-auto max-w-3xl px-5 pt-24 pb-10 text-center sm:px-8">
+    <span class="chip brand-gradient text-white">Integrations</span>
+    <h2 class="mt-5 text-3xl font-extrabold tracking-tight sm:text-5xl">
+      Runs on its own.<br /><span class="text-gradient-bright">Connects to everything.</span>
+    </h2>
+    <p class="mx-auto mt-5 max-w-xl text-lg text-slate-300">
+      Cognit is a complete system — you don't <em>need</em> anything else to run
+      your business. But when you want to, it connects: <strong class="text-white">two-way
+      Xero sync</strong> is built in, and if a system has an API or a data feed,
+      Cognit can talk to it.
+    </p>
+  </div>
+
+  <div class="space-y-5 pb-20">
+    {[rowA, rowB].map((row, r) => (
+      <div class="marquee">
+        <div class={"marquee-track" + (r === 1 ? " marquee-slow" : "")}>
+          {[...row, ...row].map((s) => (
+            <span class={"mx-2.5 inline-flex shrink-0 items-center gap-3 rounded-2xl border px-6 py-3.5 text-[15px] font-semibold tracking-tight transition hover:scale-105 " + chip}>
+              {s.logo
+                ? <img src={s.logo} alt={s.name + " logo"} class="h-6 w-6 rounded object-contain" loading="lazy" />
+                : <span class="brand-gradient flex h-6 w-6 items-center justify-center rounded text-[11px] font-extrabold text-white">{s.name[0]}</span>}
+              {s.name}
+            </span>
+          ))}
+        </div>
+      </div>
+    ))}
+    <p class="pt-3 text-center text-sm text-slate-400">Already on Xero or MYOB? Keep it — Cognit syncs to it automatically.</p>
+  </div>
+</section>

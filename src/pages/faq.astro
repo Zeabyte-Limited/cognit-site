@@ -1,0 +1,213 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const title = "Cognit FAQ — Answers About the All-in-One ERP & Online Store | NZ";
+const description =
+  "Frequently asked questions about Cognit: what the all-in-one cloud ERP includes, pricing from NZD $499/month, the built-in B2B online store, modules, Xero and accounting, data security, and how to get started. Built in New Zealand.";
+
+// Grouped FAQ. Each group renders a visible <h2> and the questions below it.
+const groups = [
+  {
+    heading: "About Cognit",
+    faqs: [
+      {
+        q: "What is Cognit?",
+        a: "Cognit is an all-in-one cloud ERP system that runs your entire business from one place — sales orders, a built-in B2B e-commerce online store, inventory and warehouse management, purchasing, accounting and general ledger, invoicing, supplier rebates and claim-backs, sales and pricing, CRM, and full business reporting. Instead of paying for and stitching together separate systems for your website, stock, accounts and reporting, you run everything on one connected platform. The idea is simple: one business, one system.",
+      },
+      {
+        q: "Who is Cognit for?",
+        a: "Cognit is built for wholesalers, distributors, importers, food-service suppliers and product-based businesses that take orders, hold stock, and want their website, inventory and accounts working as one system. It is proven running real wholesale and food-distribution businesses across New Zealand. See the industries we serve at /industries.",
+      },
+      {
+        q: "Is Cognit a New Zealand product?",
+        a: "Yes. Cognit is built and supported in New Zealand by Zeabyte Limited. Setup, training and support all come from a local team that understands NZ distribution, GST and the way Kiwi food and wholesale businesses actually trade.",
+      },
+      {
+        q: "How is Cognit different from other ERP or inventory systems?",
+        a: "Most tools do one job — a website, a stock app, or accounting — and you glue them together. Cognit is genuinely all-in-one: the online store, inventory, purchasing, invoicing and a real general ledger are part of the same system and share the same live data. Enter an order once and it updates stock, the invoice and your books automatically. There is no syncing chain to break.",
+      },
+    ],
+  },
+  {
+    heading: "Pricing & plans",
+    faqs: [
+      {
+        q: "How much does Cognit cost?",
+        a: "Cognit starts at NZD $499 per month for the Standard plan, which includes the all-in-one ERP and the built-in online store. The Premium plan is NZD $1,400 per month and adds advanced modules, deeper integrations and priority support. There are no per-seat games — you get the modules in your plan for one monthly price. See full details at /pricing.",
+      },
+      {
+        q: "Is there a setup or onboarding fee?",
+        a: "Setup, data migration help, training and New Zealand support are included as part of getting you live. We tailor onboarding to your business during the demo, so book a demo and we'll give you a clear, all-in quote with no surprises.",
+      },
+      {
+        q: "Are there per-user or per-seat charges?",
+        a: "No. Cognit is priced as one monthly subscription for your business rather than charging per login. Adding team members doesn't change your price, so your whole team can work in one system without the cost climbing every time you hire.",
+      },
+      {
+        q: "Is there a long contract?",
+        a: "Cognit is a monthly subscription. We'd rather earn your business every month by being the system you run on, not lock you into a long term you regret. Talk to us on a demo about terms that suit you.",
+      },
+    ],
+  },
+  {
+    heading: "The built-in online store",
+    faqs: [
+      {
+        q: "Does Cognit include an online store?",
+        a: "Yes. A complete B2B e-commerce storefront is built into Cognit — not a bolt-on plugin or a separate website you maintain. Your customers log in to a branded online store, see their own pricing, reorder from saved pantries, and place orders 24/7. Because the store is part of the ERP, stock levels and prices are always accurate and orders flow straight through to invoicing and the ledger. Learn more at /ecommerce.",
+      },
+      {
+        q: "Can my customers see their own pricing in the store?",
+        a: "Yes. Customers log in and see the prices that apply to them — contract pricing, price levels and special deals — not a generic public price list. The store uses the same sales and pricing rules as the rest of Cognit, so what a customer sees online is exactly what they're invoiced.",
+      },
+      {
+        q: "Will the online store oversell stock?",
+        a: "No. The store shares the same live inventory as the rest of Cognit, so it can't sell stock you don't have. When an order is placed online, stock is committed immediately and the same numbers your warehouse sees are the numbers your customers see.",
+      },
+    ],
+  },
+  {
+    heading: "Modules & features",
+    faqs: [
+      {
+        q: "What modules does Cognit include?",
+        a: "Cognit includes a built-in online store, sales and customer-specific pricing, inventory and warehouse management, purchasing and goods receipting, invoicing and accounts receivable, accounting and general ledger, supplier rebates and claim-backs, CRM, and business reporting. Each module is fully built — you switch on what you need. Explore them all at /features.",
+      },
+      {
+        q: "Does Cognit handle supplier rebates and claim-backs?",
+        a: "Yes. Cognit calculates supplier rebates and claim-backs automatically as you trade, so money you're owed isn't quietly lost in spreadsheets. This is one of the biggest hidden wins for distributors who currently track rebates by hand.",
+      },
+      {
+        q: "Can Cognit do warehouse stocktakes?",
+        a: "Yes. Cognit supports tablet stocktakes and full inventory and warehouse management, including goods receipting against purchase orders, so counts and stock movements feed straight into your live stock figures and your accounts.",
+      },
+      {
+        q: "What reporting does Cognit provide?",
+        a: "Cognit reports in real time across sales, stock, purchasing and finance — including profit and loss, P&L by month, customer and product performance, and margin. Because everything runs on one set of data, your reports reflect what's happening now rather than a stale export.",
+      },
+    ],
+  },
+  {
+    heading: "Accounting & Xero",
+    faqs: [
+      {
+        q: "Does Cognit do real accounting?",
+        a: "Yes. Cognit has a real general ledger underneath everything — chart of accounts, journals, trial balance, balance sheet and automatic GL posting from sales, purchasing and stock movements. That means Cognit can run your accounts on its own, with your books staying current without anyone keying journals by hand.",
+      },
+      {
+        q: "Does Cognit integrate with Xero?",
+        a: "Yes. Cognit has built-in two-way Xero integration, syncing invoices, credit notes, customers and products automatically. You can keep Xero for your accountant's workflow while running sales, stock and the store in Cognit, and nothing gets re-typed between the two.",
+      },
+      {
+        q: "Can Cognit replace Xero or my current accounting system?",
+        a: "Yes, if you want it to. Because Cognit posts to its own general ledger automatically and produces a trial balance and balance sheet, many businesses use it as their single accounting system and retire their old one. Others keep Xero purely for their accountant. Both options are valid — read more at /blog/do-i-still-need-xero-with-an-erp.",
+      },
+      {
+        q: "Can Cognit connect to my other systems?",
+        a: "Yes. Beyond Xero, Cognit can integrate with other accounting, inventory and e-commerce systems. If a system has an API or data feed, Cognit can connect to it, so you don't have to throw away tools that still work for you.",
+      },
+    ],
+  },
+  {
+    heading: "Your data & security",
+    faqs: [
+      {
+        q: "Where is my data stored?",
+        a: "Cognit is a secure cloud system — your data lives in one place and is accessible from any device with a browser. Access is controlled with role-based permissions, so each team member only sees what they should. Your business data is yours; we don't sell it or share it.",
+      },
+      {
+        q: "Can I control what my staff can see and do?",
+        a: "Yes. Cognit uses role-based access control, so you decide which modules and actions each person can use. A warehouse user, a sales rep and a finance user can all work in the same system while only seeing the parts relevant to their job.",
+      },
+      {
+        q: "Is my data backed up?",
+        a: "Yes. As a managed cloud system, Cognit handles backups and security for you, so you don't need an IT team to keep your business data safe. We'll cover the specifics for your business on a demo.",
+      },
+    ],
+  },
+  {
+    heading: "Getting started & support",
+    faqs: [
+      {
+        q: "How long does it take to get live on Cognit?",
+        a: "Most businesses are up and running in weeks, not months, because the modules are already built and the data migration and training are guided by our team. The exact timeline depends on how much data you're bringing across, and we'll map it out for you during the demo.",
+      },
+      {
+        q: "Can you migrate my existing data?",
+        a: "Yes. As part of onboarding we help bring across your products, customers, pricing and opening balances so you start with your real business, not an empty system. Bring your current setup to a demo and we'll talk through exactly what moves.",
+      },
+      {
+        q: "What support do I get?",
+        a: "You get New Zealand-based setup, training and ongoing support included with your subscription, with priority support on the Premium plan. Because Cognit is one system rather than several, support is straightforward — there's one team that knows your whole setup.",
+      },
+      {
+        q: "How do I see Cognit in action?",
+        a: "Book a demo and we'll show you Cognit running with your kind of business in mind — the online store, stock, invoicing and accounts working as one. Get in touch at /contact, email contact@zeabyte.co.nz, or call +64 22 169 1376.",
+      },
+    ],
+  },
+];
+
+// Flatten every Q/A into a single FAQPage schema covering the whole page.
+const allFaqs = groups.flatMap((g) => g.faqs);
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: allFaqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+---
+
+<Layout title={title} description={description} path="/faq" schema={faqSchema}>
+  <Header />
+
+  <main class="bg-cog-stone text-cog-slate">
+    <!-- HERO (photographic) -->
+    <section class="orbs relative isolate overflow-hidden">
+      <img src="/images/warehouse-shelves.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" />
+      <div class="absolute inset-0 -z-10 bg-cog-ink/82"></div>
+      <div class="dotgrid absolute inset-0 -z-10 opacity-40"></div>
+      <div class="mx-auto max-w-4xl px-5 pt-20 pb-20 text-center sm:px-8 sm:pt-28 hero-rise">
+        <span class="chip mx-auto border border-white/15 text-slate-200">Frequently asked questions</span>
+        <h1 class="mx-auto mt-7 max-w-3xl text-[2.4rem] font-extrabold leading-[1.06] tracking-tight text-white sm:text-6xl">
+          Everything you need to know about
+          <span class="text-gradient-bright"> Cognit.</span>
+        </h1>
+        <p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-slate-300">
+          Honest answers about the all-in-one cloud ERP with a built-in online store —
+          what it includes, what it costs, how it handles accounting and Xero, and how
+          you get started. Still wondering something? <a href="/contact" class="font-semibold text-white underline underline-offset-4">Book a demo.</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- FAQ GROUPS -->
+    <section class="mx-auto max-w-3xl px-5 py-20 sm:px-8">
+      <div class="space-y-16">
+        {groups.map((group) => (
+          <div>
+            <h2 class="text-2xl font-extrabold tracking-tight text-cog-ink sm:text-3xl">{group.heading}</h2>
+            <div class="mt-6 space-y-3">
+              {group.faqs.map((f) => (
+                <details class="card-hairline group rounded-2xl p-6 open:shadow-md">
+                  <summary class="flex cursor-pointer list-none items-center justify-between text-lg font-bold text-cog-ink">
+                    {f.q}
+                    <span class="ml-4 text-cog-purple transition group-open:rotate-45">＋</span>
+                  </summary>
+                  <p class="mt-3 leading-relaxed text-cog-slate">{f.a}</p>
+                </details>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

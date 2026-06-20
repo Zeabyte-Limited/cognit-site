@@ -1,0 +1,168 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+const site = "https://www.cognitsystem.com";
+const slug = "do-i-still-need-xero-with-an-erp";
+const url = `${site}/blog/${slug}/`;
+
+const title = "Do I Still Need Xero If I Have an ERP? | Cognit";
+const description =
+  "Cognit has a real general ledger of its own and also syncs two-way with Xero. Learn whether you still need Xero with an ERP, how the two work together, and which option suits your business.";
+
+const faqs = [
+  {
+    q: "Do I still need Xero if I have Cognit?",
+    a: "Not necessarily. Cognit has a real general ledger of its own — chart of accounts, journals, trial balance, balance sheet and automatic GL posting — so it can run your accounts without Xero. If you prefer to keep Xero, Cognit also syncs two-way with it. Both options are valid; it comes down to your accountant and your preference.",
+  },
+  {
+    q: "How does Cognit sync with Xero?",
+    a: "Cognit has built-in two-way Xero integration that syncs invoices, credit notes, customers and products automatically. Sales and adjustments made in Cognit flow to Xero so your accountant keeps working in the tool they know, while you run sales, stock and the store in Cognit.",
+  },
+  {
+    q: "Can Cognit replace Xero completely?",
+    a: "Yes, if you want it to. Because Cognit posts sales, purchasing and stock movements to its own general ledger automatically and produces a trial balance and balance sheet, many businesses use it as their single accounting system and retire Xero. Others keep Xero purely for their accountant's workflow.",
+  },
+  {
+    q: "Will my accountant be happy if I use Cognit's ledger?",
+    a: "Most are, because Cognit produces standard outputs — chart of accounts, journals, trial balance and reports they can work from. If your accountant strongly prefers Xero, the two-way sync means you lose nothing by keeping it. We're happy to walk your accountant through it on a demo.",
+  },
+];
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "Do I still need Xero if I have an ERP?",
+  description,
+  author: { "@type": "Organization", name: "Cognit System", url: site },
+  publisher: {
+    "@type": "Organization",
+    name: "Cognit System",
+    logo: { "@type": "ImageObject", url: `${site}/logo.png` },
+  },
+  datePublished: "2026-06-20",
+  dateModified: "2026-06-20",
+  mainEntityOfPage: { "@type": "WebPage", "@id": url },
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+---
+
+<Layout title={title} description={description} path={`/blog/${slug}`} schema={[articleSchema, faqSchema]}>
+  <Header />
+
+  <main class="bg-cog-stone text-cog-slate">
+    <!-- HERO (photographic) -->
+    <section class="orbs relative isolate overflow-hidden">
+      <img src="/images/food-distribution.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" />
+      <div class="absolute inset-0 -z-10 bg-cog-ink/82"></div>
+      <div class="dotgrid absolute inset-0 -z-10 opacity-40"></div>
+      <div class="mx-auto max-w-3xl px-5 pt-20 pb-20 text-center sm:px-8 sm:pt-28 hero-rise">
+        <span class="chip mx-auto border border-white/15 text-slate-200">Insights</span>
+        <h1 class="mt-5 text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl">
+          Do I still need Xero if I have an ERP?
+        </h1>
+        <p class="mt-4 text-lg text-slate-300">
+          Cognit has a real general ledger of its own — and also syncs two-way with
+          Xero. Here's how to decide which option fits your business.
+        </p>
+      </div>
+    </section>
+
+    <!-- BODY -->
+    <section class="mx-auto max-w-3xl px-5 pb-16 sm:px-8">
+      <article class="article">
+        <p>
+          It's one of the first questions distributors ask when they look at an ERP:
+          "I already run on Xero — do I have to give it up?" The short answer is no, you
+          don't have to. Cognit is designed to work both ways. It has a complete
+          accounting engine of its own, and it also syncs with Xero. The right choice
+          depends on how you and your accountant prefer to work.
+        </p>
+
+        <h2>Cognit has a real general ledger</h2>
+        <p>
+          A lot of so-called ERPs and inventory tools don't actually do accounting —
+          they push everything to Xero and rely on it for the books.
+          <a href="/features/accounting">Cognit is different.</a> It has a real general
+          ledger underneath everything:
+        </p>
+        <ul>
+          <li>A full chart of accounts and journals</li>
+          <li>Automatic GL posting from sales, purchasing and stock movements</li>
+          <li>Trial balance and balance sheet</li>
+          <li>P&amp;L summary and P&amp;L by month in <a href="/features/reporting">reporting</a></li>
+        </ul>
+        <p>
+          That means Cognit can run your accounts entirely on its own. Every invoice,
+          credit note and stock adjustment posts to the ledger automatically, so your
+          books are always current without anyone keying journals by hand.
+        </p>
+
+        <h2>Or keep Xero — Cognit syncs two-way</h2>
+        <p>
+          Plenty of businesses love Xero, and their accountant works in it every day.
+          You don't have to change that. Cognit has built-in <strong>two-way Xero
+          integration</strong> that syncs invoices, credit notes, customers and products
+          automatically. You run sales, stock and the
+          <a href="/ecommerce">built-in online store</a> in Cognit, and the financial
+          side flows through to Xero so your accountant keeps working in the tool they
+          know. Nothing is re-typed; nothing falls through the cracks.
+        </p>
+
+        <h2>So which should you choose?</h2>
+        <p>
+          Both options are valid. Here's a simple way to decide:
+        </p>
+        <ul>
+          <li><strong>Keep Xero</strong> if your accountant strongly prefers it, you're happy with your current workflow, and you just want sales and stock to flow into it cleanly</li>
+          <li><strong>Use Cognit's ledger</strong> if you'd rather have one system for everything, cut a monthly Xero subscription, and have your accounts, stock and store all in one place</li>
+        </ul>
+        <p>
+          Many businesses start by keeping Xero during their first months on Cognit,
+          then move fully onto the Cognit ledger once they trust it. There's no wrong
+          order — and switching later is straightforward.
+        </p>
+
+        <h2>What about my accountant?</h2>
+        <p>
+          This is usually the real question behind the question. Most accountants are
+          comfortable either way, because Cognit produces the standard outputs they need
+          — chart of accounts, journals, trial balance and reports — and the Xero sync
+          means they can keep their existing process if they'd rather. We're happy to
+          jump on a call with your accountant during a demo so everyone's confident
+          before you decide.
+        </p>
+
+        <h2>The bigger picture</h2>
+        <p>
+          Whether you keep Xero or not, the win is the same: your
+          <a href="/features/sales">sales</a>, <a href="/features/inventory">inventory</a>,
+          <a href="/features/purchasing">purchasing</a> and store all run as one
+          connected system instead of a patchwork. Accounting stops being a separate
+          chore you reconcile after the fact and becomes a by-product of the work you're
+          already doing. Xero then becomes a choice, not a dependency.
+        </p>
+
+        <h2>Frequently asked questions</h2>
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </article>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

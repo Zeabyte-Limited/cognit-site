@@ -1,0 +1,224 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const site = "https://www.cognitsystem.com";
+const url = `${site}/what-is-an-erp/`;
+
+const title = "What Is an ERP System? A Plain-English Guide for Businesses | Cognit";
+const description =
+  "What is an ERP system, what does it include, and when does a business need one? A clear guide to ERP vs accounting software, all-in-one vs bolted-together systems, and what makes a modern cloud ERP — with examples for wholesalers and distributors.";
+
+const faqs = [
+  {
+    q: "What is an ERP in simple terms?",
+    a: "An ERP (Enterprise Resource Planning) system is one piece of software that runs the core parts of a business — sales, inventory, purchasing, invoicing and accounting — from a single set of data. Enter information once and every part of the business that needs it is updated automatically, instead of re-keying the same order into several disconnected tools.",
+  },
+  {
+    q: "What is the difference between ERP and accounting software?",
+    a: "Accounting software like Xero handles your books — invoices, bank reconciliation and reports. An ERP covers the whole operation that creates those numbers: taking orders, managing stock, purchasing, and selling online, with accounting built in underneath. In short, accounting software records the result; an ERP runs the business that produces it.",
+  },
+  {
+    q: "Do small businesses need an ERP?",
+    a: "Not every small business does, but many outgrow spreadsheets and separate apps sooner than they expect. If you're re-keying orders between a website, a stock sheet and your accounts, or losing time at month-end reconciling systems that don't talk, an ERP usually pays for itself by removing that double-handling.",
+  },
+  {
+    q: "What is a cloud ERP?",
+    a: "A cloud ERP runs in your web browser rather than on a server in your office, so it's available from anywhere on any device, stays updated automatically, and is backed up and secured for you. Cognit is a cloud ERP with a built-in B2B online store, so your customers and your team work in the same live system.",
+  },
+];
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "What is an ERP system? A plain-English guide for businesses",
+  description,
+  author: { "@type": "Organization", name: "Cognit System", url: site },
+  publisher: {
+    "@type": "Organization",
+    name: "Cognit System",
+    logo: { "@type": "ImageObject", url: `${site}/logo.png` },
+  },
+  datePublished: "2026-06-20",
+  dateModified: "2026-06-20",
+  mainEntityOfPage: { "@type": "WebPage", "@id": url },
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+---
+
+<Layout title={title} description={description} path="/what-is-an-erp" schema={[articleSchema, faqSchema]}>
+  <Header />
+
+  <main class="bg-cog-stone text-cog-slate">
+    <!-- HERO (photographic) -->
+    <section class="orbs relative isolate overflow-hidden">
+      <img src="/images/hero-highway-night.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" />
+      <div class="absolute inset-0 -z-10 bg-cog-ink/82"></div>
+      <div class="dotgrid absolute inset-0 -z-10 opacity-40"></div>
+      <div class="mx-auto max-w-3xl px-5 pt-20 pb-20 text-center sm:px-8 sm:pt-28 hero-rise">
+        <span class="chip mx-auto border border-white/15 text-slate-200">ERP, explained</span>
+        <h1 class="mt-7 text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl">
+          What is an <span class="text-gradient-bright">ERP system?</span>
+        </h1>
+        <p class="mt-5 text-lg text-slate-300">
+          A plain-English guide to what an ERP is, what it includes, and how to tell
+          when your business has outgrown spreadsheets and separate apps.
+        </p>
+      </div>
+    </section>
+
+    <!-- BODY -->
+    <section class="mx-auto max-w-3xl px-5 pb-16 sm:px-8">
+      <article class="article">
+        <p>
+          If you run a business that takes orders and holds stock, you've probably heard
+          the term <strong>ERP</strong> and wondered whether it's something you actually
+          need — or just expensive jargon. This guide explains what an ERP system is in
+          plain English, what it includes, and how to tell when it's time to move on from
+          spreadsheets and a tangle of separate apps.
+        </p>
+
+        <h2>What is an ERP system?</h2>
+        <p>
+          ERP stands for <strong>Enterprise Resource Planning</strong>. Despite the
+          mouthful of a name, the idea is simple: it's one system that runs the core parts
+          of your business from a single set of data. Instead of a website here, stock in
+          a spreadsheet, invoices in one app and accounts in another, an ERP brings sales,
+          inventory, purchasing, invoicing and accounting together so they work as one.
+        </p>
+        <p>
+          The real power is that you enter information <strong>once</strong>. When an order
+          comes in, an ERP updates your stock, raises the invoice and posts the accounting
+          entry automatically — no re-keying, no copy-paste between systems, no version of
+          the truth that's slightly out of date. Everyone is looking at the same live
+          numbers.
+        </p>
+
+        <h2>What does an ERP include?</h2>
+        <p>
+          A capable ERP covers the everyday functions that keep a product business running.
+          A modern one like <a href="/platform">Cognit</a> brings these together:
+        </p>
+        <ul>
+          <li><strong>Sales and pricing</strong> — orders, quotes and customer-specific pricing</li>
+          <li><strong>A built-in online store</strong> — a B2B <a href="/ecommerce">e-commerce storefront</a> your customers order from 24/7</li>
+          <li><strong>Inventory and warehouse management</strong> — live stock, stocktakes and movements</li>
+          <li><strong>Purchasing and goods receipting</strong> — purchase orders and receiving against them</li>
+          <li><strong>Invoicing and accounts receivable</strong> — invoices, credit notes and what you're owed</li>
+          <li><strong>Accounting and general ledger</strong> — a real set of books underneath everything</li>
+          <li><strong>Rebates and claim-backs</strong> — supplier money calculated automatically</li>
+          <li><strong>Reporting</strong> — real-time profit and loss, sales and margin</li>
+          <li><strong>CRM</strong> — your customers and their history in one place</li>
+        </ul>
+        <p>
+          You can <a href="/features">explore each of these modules</a> in detail, but the
+          point of an ERP is that they aren't separate products — they share the same data
+          and work together by default.
+        </p>
+
+        <h2>Signs your business has outgrown spreadsheets and separate apps</h2>
+        <p>
+          Most businesses don't start with an ERP. They start with a spreadsheet, add a
+          website, bolt on an accounting package, and carry on until the cracks show. You've
+          likely outgrown that setup if you recognise a few of these:
+        </p>
+        <ul>
+          <li>You re-key the same order into two or three different systems</li>
+          <li>Your website shows stock that's always slightly wrong</li>
+          <li>Month-end is spent reconciling spreadsheets that don't agree</li>
+          <li>Supplier rebates and claim-backs get lost because nobody has time to track them</li>
+          <li>You're paying for several subscriptions that still don't quite fit together</li>
+          <li>Nobody can give you a straight answer on real-time profit or stock value</li>
+        </ul>
+        <p>
+          Each of these is a symptom of the same problem: your systems don't talk to each
+          other, so people fill the gaps by hand. That's slow, error-prone, and it hides
+          money — in lost rebates, oversells and time.
+        </p>
+
+        <h2>ERP vs accounting software (for example, vs Xero alone)</h2>
+        <p>
+          A common question is how an ERP differs from accounting software like
+          <strong>Xero</strong>. Accounting software is excellent at what it does — invoices,
+          bank reconciliation and financial reports. But it records the <em>result</em> of
+          your business; it doesn't run the operation that creates that result. It doesn't
+          manage your stock on the shelf, take orders through a branded store, raise purchase
+          orders, or stop your website overselling.
+        </p>
+        <p>
+          An ERP covers all of that and has accounting built in underneath. With Cognit you
+          don't have to choose: it has a <a href="/features/accounting">real general
+          ledger</a> of its own and also <a href="/blog/do-i-still-need-xero-with-an-erp">syncs
+          two-way with Xero</a>, so you can run accounts inside Cognit or keep Xero for your
+          accountant — whichever suits you.
+        </p>
+
+        <h2>All-in-one ERP vs modular, bolted-together systems</h2>
+        <p>
+          Not every system that calls itself an ERP is truly joined up. Some are really a
+          collection of separate products — a store plugin, a stock add-on, an accounting
+          connector — wired together with integrations. That can work, but every join is a
+          place data can fall out of sync, and every vendor is someone else to call when
+          something breaks.
+        </p>
+        <p>
+          An <strong>all-in-one ERP</strong> is built as a single system from the start. The
+          store, stock, purchasing, invoicing and ledger are the same product sharing the
+          same live data, so there's no syncing chain to break and one team that knows your
+          whole setup. For a growing distributor, that difference shows up as fewer errors,
+          faster month-ends and far less double-handling.
+        </p>
+
+        <h2>What makes a modern ERP</h2>
+        <p>
+          Older ERPs had a reputation for being slow, expensive and locked to a server in the
+          back office. A modern ERP is different in a few important ways:
+        </p>
+        <ul>
+          <li><strong>Cloud-based</strong> — it runs in your browser, on any device, and is updated, backed up and secured for you</li>
+          <li><strong>Built-in e-commerce</strong> — a B2B online store is part of the system, not a separate website to maintain</li>
+          <li><strong>Real-time</strong> — orders, stock and accounts update the moment something happens, so reports reflect now</li>
+          <li><strong>Smart by default</strong> — it does busywork like reorder suggestions, rebate calculations and automatic invoice posting</li>
+          <li><strong>Quick to go live</strong> — a modern ERP can be running in weeks, not the multi-year projects of the past</li>
+        </ul>
+
+        <h2>How Cognit fits</h2>
+        <p>
+          <a href="/platform">Cognit</a> is an all-in-one cloud ERP with a built-in B2B online
+          store, made in New Zealand for wholesalers, distributors, importers and product
+          businesses. It brings your store, sales, inventory, purchasing, invoicing,
+          accounting and reporting into one system — so an order placed online updates your
+          stock, your invoice and your books the moment it lands. It's proven running real
+          wholesale and food-distribution businesses across New Zealand, starts from NZD
+          $499/month, and integrates with Xero and any system that has an API.
+        </p>
+        <p>
+          If you've outgrown spreadsheets and separate apps, the best way to understand an
+          ERP is to see one running with your kind of business in mind.
+          <a href="/contact">Book a demo</a> and we'll show you exactly how it would work for
+          you.
+        </p>
+
+        <h2>Frequently asked questions</h2>
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </article>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

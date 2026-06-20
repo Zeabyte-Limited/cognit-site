@@ -1,0 +1,258 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const benefits = [
+  { icon: "📦", t: "Always-accurate stock", b: "The store reads your live inventory, so it can't oversell. No overnight sync, no apologising to customers for items that were never really in stock." },
+  { icon: "💲", t: "Customer-specific pricing", b: "Every customer logs in to see their own agreed pricing and price lists — automatically, with no spreadsheets emailed around or pasted into a website." },
+  { icon: "🔁", t: "Saved pantries & quick reorder", b: "Regulars rebuild last week's order in a tap. Saved pantries and full order history turn a 20-minute job into 20 seconds — so they order more, more often." },
+  { icon: "🕓", t: "Ordering 24/7", b: "Your customers place orders any time, day or night, without tying up your phone lines or your team. The store is open even when the office isn't." },
+  { icon: "🧾", t: "Orders flow straight through", b: "Every online order lands in the ERP ready to pick, invoice and post to the ledger — no re-keying, no copy-paste between a website and your accounts." },
+  { icon: "🎨", t: "Branded as yours", b: "It's your store, in your branding — customers experience it as part of your business, not a generic third-party portal bolted on the side." },
+];
+
+const audience = [
+  { icon: "🥩", t: "Food & foodservice distributors", b: "Cafés, restaurants and retailers reorder from a live catalogue with their own pricing — proven across New Zealand and Australian food distribution." },
+  { icon: "📦", t: "Wholesalers & importers", b: "Trade customers self-serve their ordering while your team focuses on selling, not taking orders down the phone." },
+  { icon: "🏭", t: "Product & supply businesses", b: "Anyone who holds stock and takes repeat B2B orders gets a storefront that's always in step with real inventory and accounts." },
+];
+
+const faqs = [
+  {
+    q: "Is the online store really built into the ERP?",
+    a: "Yes — and that's the whole point. The B2B e-commerce store isn't a plugin or a separate website wired up to your ERP. It's part of Cognit, reading and writing the same live data as your inventory, pricing, invoicing and ledger. That's why stock and prices on the store are always right, and why orders need no re-keying.",
+  },
+  {
+    q: "Why is a built-in store better than a bolt-on website plus separate accounting?",
+    a: "A bolt-on website keeps its own copy of products, stock and prices and has to sync with your other systems — which means delays, mismatches and overselling, plus re-typing orders into your accounts. With Cognit there's nothing to sync: the store, the stock, the pricing and the books are one system. Orders flow straight through to picking, invoicing and the general ledger automatically.",
+  },
+  {
+    q: "Can each customer see their own pricing?",
+    a: "Yes. Customers log in to their own account and see their agreed pricing, price lists and order history. You set special pricing per customer or customer group once, and it's applied everywhere — on the store, on staff-entered orders and on invoices.",
+  },
+  {
+    q: "What happens to an order after a customer places it?",
+    a: "It lands directly in Cognit as a sales order, reserves live stock, and flows to the warehouse to be picked and delivered. From there it's one click to a branded invoice, with accounts receivable and the general ledger updating automatically. Nobody re-keys anything.",
+  },
+  {
+    q: "Can customers reorder quickly?",
+    a: "Yes. Saved pantries let regulars rebuild a standard order in a tap, and full order history means they can repeat any past order instantly. Faster reordering means customers order more often.",
+  },
+  {
+    q: "Is this suitable for wholesale and distribution businesses in New Zealand?",
+    a: "Absolutely. Cognit's built-in B2B online store is proven in food and wholesale distribution across New Zealand and Australia, and is built for wholesalers, distributors, importers and product businesses that take repeat trade orders.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+---
+
+<Layout
+  title="ERP With a Built-In B2B Online Store | Wholesale E-Commerce NZ — Cognit"
+  description="Cognit gives distributors and wholesalers a B2B online store built right into the ERP — live stock, customer-specific pricing, saved pantries and 24/7 ordering, with orders flowing straight to invoicing and the ledger. The wholesale e-commerce platform proven in NZ. Book a demo."
+  path="/ecommerce"
+  schema={faqSchema}
+>
+  <Header />
+
+  <main class="bg-cog-stone text-cog-slate">
+    <!-- HERO (photographic) -->
+    <section class="orbs relative isolate overflow-hidden">
+      <img src="/images/warehouse-shelves.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" />
+      <div class="absolute inset-0 -z-10 bg-cog-ink/82"></div>
+      <div class="dotgrid absolute inset-0 -z-10 opacity-40"></div>
+      <div class="mx-auto grid max-w-6xl items-center gap-12 px-5 pb-20 pt-20 sm:px-8 sm:pt-28 lg:grid-cols-[1.05fr_1fr]">
+        <div class="hero-rise">
+          <span class="chip border border-white/15 text-slate-200">
+            <span class="h-2 w-2 rounded-full bg-cog-teal"></span> 🛒 The built-in online store
+          </span>
+          <h1 class="mt-7 max-w-2xl text-[2.6rem] font-extrabold leading-[1.05] tracking-tight text-white sm:text-6xl">
+            A B2B online store,
+            <span class="text-gradient-bright"> built into your ERP.</span>
+          </h1>
+          <p class="mt-6 max-w-xl text-lg leading-relaxed text-slate-300 sm:text-xl">
+            Give your trade customers a branded ordering website that shares the
+            <strong class="text-white"> same live stock and pricing</strong> as the rest of
+            your business. No bolt-on website, no separate accounting, no overnight sync
+            that's always slightly wrong — just orders that flow straight through.
+          </p>
+          <div class="mt-9 flex flex-wrap items-center gap-3">
+            <a href="/contact" class="btn-grad">Book a demo</a>
+            <a href="/platform" class="btn-ghost !border-white/30 !text-white">See the whole platform →</a>
+          </div>
+          <div class="mt-7 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-slate-300">
+            <span>✓ Always-accurate stock</span>
+            <span>✓ Customer-specific pricing</span>
+            <span>✓ 24/7 ordering</span>
+            <span>✓ No re-keying</span>
+          </div>
+        </div>
+
+        <!-- Store UI mock -->
+        <div class="relative hidden lg:block">
+          <div class="cog-float card-grad rounded-3xl p-2 shadow-2xl shadow-cog-purple/20">
+            <div class="rounded-[1.4rem] border border-black/5 bg-white p-5">
+              <div class="flex items-center justify-between border-b border-black/5 pb-3">
+                <span class="text-sm font-bold text-cog-ink">Your Store · order online</span>
+                <span class="chip bg-cog-teal/10 !py-1 text-[11px] text-cog-teal-600">● Open 24/7</span>
+              </div>
+              <div class="mt-4 grid grid-cols-2 gap-3">
+                {[
+                  { n: "Whole Milk 2L", p: "$3.20", q: "× 24" },
+                  { n: "Streaky Bacon 1kg", p: "$14.90", q: "× 6" },
+                  { n: "Sourdough Loaf", p: "$5.50", q: "× 12" },
+                  { n: "Free-Range Eggs", p: "$9.80", q: "× 10" },
+                ].map((p) => (
+                  <div class="rounded-xl border border-black/5 bg-cog-stone/50 p-3">
+                    <div class="text-sm font-semibold text-cog-ink">{p.n}</div>
+                    <div class="mt-1 flex items-center justify-between">
+                      <span class="text-sm font-bold text-cog-blue">{p.p}</span>
+                      <span class="text-xs text-slate-400">{p.q}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div class="brand-gradient mt-4 w-full rounded-xl py-3 text-center text-sm font-bold text-white">Reorder my pantry · $612.40 →</div>
+            </div>
+          </div>
+
+          <div class="cog-float card-hairline absolute -bottom-5 -left-6 rounded-2xl px-4 py-3 shadow-xl" style="animation-delay:1.2s">
+            <div class="flex items-center gap-2">
+              <span class="text-lg">🧾</span>
+              <div>
+                <div class="text-xs font-semibold text-cog-ink">Order → invoice → ledger</div>
+                <div class="text-xs text-slate-400">automatically, no re-keying</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY BUILT-IN BEATS BOLT-ON -->
+    <section class="mx-auto max-w-6xl px-5 py-24 sm:px-8">
+      <div class="grid items-start gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+        <div>
+          <span class="chip bg-cog-lilac text-cog-purple-600">Built in, not bolted on</span>
+          <h2 class="mt-5 text-3xl font-extrabold leading-tight tracking-tight text-cog-ink sm:text-4xl">
+            A bolt-on website and separate accounting
+            <span class="text-gradient"> will always be slightly out of sync.</span>
+          </h2>
+        </div>
+        <p class="text-lg leading-relaxed text-cog-slate">
+          Most distributors run a website that keeps its own copy of products, stock and
+          prices — then sync it overnight and re-type orders into their accounts. Cognit's
+          store is <strong class="text-cog-ink">part of the ERP</strong>, so there's nothing to
+          sync and nothing to re-key. The store, the stock, the pricing and the books are
+          one system.
+        </p>
+      </div>
+    </section>
+
+    <!-- BENEFITS GRID -->
+    <section class="mx-auto max-w-6xl px-5 pb-8 sm:px-8">
+      <div class="mb-10 max-w-2xl">
+        <span class="chip bg-cog-sky text-cog-blue-700">Why it works</span>
+        <h2 class="mt-5 text-3xl font-extrabold tracking-tight text-cog-ink sm:text-4xl">Everything a B2B store should do — and nothing it shouldn't</h2>
+        <p class="mt-4 text-lg text-cog-slate">Because it's part of the ERP, your store does things a bolt-on never can.</p>
+      </div>
+      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {benefits.map((m) => (
+          <div class="card-hairline card-hover flex flex-col rounded-3xl p-6">
+            <span class="brand-gradient flex h-10 w-10 items-center justify-center rounded-xl text-lg">{m.icon}</span>
+            <h3 class="mt-4 font-bold text-cog-ink">{m.t}</h3>
+            <p class="mt-1.5 text-sm leading-relaxed text-cog-slate">{m.b}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- ORDERS FLOW STRAIGHT THROUGH -->
+    <section class="mx-auto max-w-6xl px-5 py-24 sm:px-8">
+      <div class="grid items-center gap-12 lg:grid-cols-2">
+        <div>
+          <span class="chip bg-cog-sky text-cog-blue-700">🧾 Straight through</span>
+          <h2 class="mt-5 text-3xl font-extrabold leading-tight tracking-tight text-cog-ink sm:text-4xl">
+            From the store to your ledger, <span class="text-gradient">in one flow.</span>
+          </h2>
+          <p class="mt-5 max-w-xl text-lg leading-relaxed text-cog-slate">
+            When a customer checks out, the order doesn't sit in a website waiting to be
+            re-typed. It lands in Cognit ready to pick, invoice and post — so your team
+            does the work once, and your numbers are right immediately.
+          </p>
+          <ul class="mt-8 space-y-3 text-cog-slate">
+            <li class="flex gap-3"><span class="text-cog-teal">✓</span> Order reserves live stock the moment it lands</li>
+            <li class="flex gap-3"><span class="text-cog-teal">✓</span> Flows to the warehouse to pick, pack &amp; route</li>
+            <li class="flex gap-3"><span class="text-cog-teal">✓</span> One click to a branded invoice, emailed to the customer</li>
+            <li class="flex gap-3"><span class="text-cog-teal">✓</span> Accounts receivable &amp; the ledger update automatically</li>
+          </ul>
+          <a href="/platform" class="btn-grad mt-9">See the whole platform</a>
+        </div>
+        <div class="card-grad rounded-3xl p-6">
+          <div class="space-y-3">
+            {[
+              { icon: "🛒", t: "Customer places order", s: "on your store", c: "text-cog-teal" },
+              { icon: "📦", t: "Live stock reserved", s: "no overselling", c: "text-cog-blue" },
+              { icon: "🚚", t: "Picked & delivered", s: "to the right route", c: "text-amber-600" },
+              { icon: "💰", t: "Invoice & ledger", s: "posted automatically", c: "text-cog-purple" },
+            ].map((r) => (
+              <div class="flex items-center gap-4 rounded-2xl border border-black/5 bg-white px-4 py-3.5 shadow-sm">
+                <span class="text-2xl">{r.icon}</span>
+                <div class="flex-1">
+                  <div class="text-sm font-bold text-cog-ink">{r.t}</div>
+                  <div class={"text-[12px] font-semibold " + r.c}>{r.s}</div>
+                </div>
+                <span class="text-cog-teal">✓</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHO IT'S FOR -->
+    <section class="mx-auto max-w-6xl px-5 py-20 sm:px-8">
+      <div class="mb-12 max-w-2xl">
+        <span class="chip bg-cog-lilac text-cog-purple-600">Who it's for</span>
+        <h2 class="mt-5 text-3xl font-extrabold tracking-tight text-cog-ink sm:text-4xl">Built for businesses that take repeat trade orders</h2>
+        <p class="mt-4 text-lg text-cog-slate">If you hold stock and your customers reorder, the built-in store earns its keep fast.</p>
+      </div>
+      <div class="grid gap-4 sm:grid-cols-3">
+        {audience.map((a) => (
+          <div class="card-hairline card-hover flex flex-col rounded-3xl p-6">
+            <span class="brand-gradient flex h-10 w-10 items-center justify-center rounded-xl text-lg">{a.icon}</span>
+            <h3 class="mt-4 font-bold text-cog-ink">{a.t}</h3>
+            <p class="mt-1.5 text-sm leading-relaxed text-cog-slate">{a.b}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="mx-auto max-w-3xl px-5 py-24 sm:px-8">
+      <h2 class="text-center text-3xl font-extrabold tracking-tight text-cog-ink sm:text-4xl">Online store questions, answered</h2>
+      <div class="mt-10 space-y-3">
+        {faqs.map((f) => (
+          <details class="card-hairline group rounded-2xl p-6 open:shadow-md">
+            <summary class="flex cursor-pointer list-none items-center justify-between text-lg font-bold text-cog-ink">
+              {f.q}
+              <span class="ml-4 text-cog-purple transition group-open:rotate-45">＋</span>
+            </summary>
+            <p class="mt-3 leading-relaxed text-cog-slate">{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

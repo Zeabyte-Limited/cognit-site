@@ -1,0 +1,228 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import Integrations from "../components/Integrations.astro";
+import { modules } from "../data/modules.js";
+
+const flow = [
+  { icon: "🛒", t: "Order comes in", b: "A customer places an order on your built-in online store — or your team enters it in seconds. Their own pricing, their saved pantry." },
+  { icon: "📦", t: "Stock reserves itself", b: "Live inventory drops the moment the order lands. No overselling, no double-checking a separate spreadsheet." },
+  { icon: "🚚", t: "Pick & deliver", b: "The order flows to the warehouse to be picked, packed and routed to the right driver — all from the same system." },
+  { icon: "💰", t: "Invoice in one click", b: "Turn the order into a branded invoice and email it straight to the customer. Accounts receivable updates instantly." },
+  { icon: "📊", t: "Books update themselves", b: "Sales, stock and purchasing post to the general ledger automatically — so your P&L is right in real time." },
+];
+
+const patchwork = [
+  { area: "Online ordering", patch: "A separate website that syncs overnight — and is always slightly wrong", cognit: "A B2B store built in, sharing live stock & pricing" },
+  { area: "Stock levels", patch: "Re-keyed between systems, or kept in someone's head", cognit: "One live source of truth, updated the instant an order lands" },
+  { area: "Pricing", patch: "Spreadsheets emailed around and pasted into the website", cognit: "Customer-specific pricing set once, used everywhere" },
+  { area: "Invoicing", patch: "Manually re-typed from orders into accounting software", cognit: "One click from order to branded invoice, posted to the ledger" },
+  { area: "Reporting", patch: "Exports glued together at month-end to guess your margin", cognit: "Real-time P&L, sales and stock reports out of one system" },
+  { area: "Support", patch: "Five vendors pointing fingers when something breaks", cognit: "One New Zealand team that knows your whole setup" },
+];
+
+const faqs = [
+  {
+    q: "What does the Cognit platform actually include?",
+    a: "Cognit is one connected platform covering your entire business: a built-in B2B e-commerce online store, sales orders and customer-specific pricing, inventory and warehouse management, purchasing and goods receipting, accounting and a real general ledger, invoicing and accounts receivable, supplier rebates and claim-backs, business reporting and P&L, and customer and CRM tools. Every module shares the same live data, so an online order updates your stock, your invoice and your books at the same moment.",
+  },
+  {
+    q: "Do I have to use every module?",
+    a: "No. Every module is fully built and ready, and you turn on what your business needs. Most businesses start with the online store, sales, inventory and invoicing, then switch on accounting, purchasing, rebates and reporting as they go. Because it's all one platform, adding a module is a setting — never another integration project.",
+  },
+  {
+    q: "How is one platform better than separate best-of-breed tools?",
+    a: "Separate tools each work on their own copy of your data and have to be synced — which means re-keying, overnight delays and numbers that never quite agree. On Cognit every part of the business reads and writes the same live data, so there's nothing to sync and nothing to reconcile. One login, one source of truth, one team to call.",
+  },
+  {
+    q: "Can Cognit replace my current ERP or accounting system?",
+    a: "Yes. Cognit has a real general ledger underneath everything — chart of accounts, journals, trial balance and balance sheet, with automatic posting — so it can run your accounts on its own and replace a patchwork of separate systems. If you'd rather keep your accounting software, Cognit also syncs two-way with Xero.",
+  },
+  {
+    q: "How long does it take to get up and running?",
+    a: "Weeks, not the multi-year roll-out you might expect from an ERP. We set Cognit up for you, move your data across and train your team — then support you in your own timezone once you're live.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+---
+
+<Layout
+  title="The Cognit Platform — One System to Run Your Entire Business | NZ"
+  description="Cognit is one connected platform for your whole business — a built-in B2B online store, inventory, purchasing, accounting, invoicing, rebates and reporting in one system. See how a single order flows from store to stock to invoice to ledger. Book a demo."
+  path="/platform"
+  schema={faqSchema}
+>
+  <Header />
+
+  <main class="bg-cog-stone text-cog-slate">
+    <!-- HERO (photographic) -->
+    <section class="orbs relative isolate overflow-hidden">
+      <img src="/images/hero-port-night.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" />
+      <div class="absolute inset-0 -z-10 bg-cog-ink/82"></div>
+      <div class="dotgrid absolute inset-0 -z-10 opacity-40"></div>
+      <div class="mx-auto max-w-5xl px-5 pb-20 pt-20 text-center sm:px-8 sm:pt-28 hero-rise">
+        <span class="chip mx-auto border border-white/15 text-slate-200">
+          <span class="h-2 w-2 rounded-full bg-cog-teal"></span> One business. One system.
+        </span>
+        <h1 class="mx-auto mt-7 max-w-4xl text-[2.6rem] font-extrabold leading-[1.05] tracking-tight text-white sm:text-6xl">
+          One platform to run your
+          <span class="text-gradient-bright"> entire business.</span>
+        </h1>
+        <p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-slate-300 sm:text-xl">
+          Cognit brings your <strong class="text-white">online store, sales, inventory,
+          purchasing, accounting, invoicing and reporting</strong> onto a single
+          connected platform — where one order flows through your whole business
+          automatically, and every number is right in real time.
+        </p>
+        <div class="mt-9 flex flex-wrap items-center justify-center gap-3">
+          <a href="/contact" class="btn-grad">Book a demo</a>
+          <a href="#flow" class="btn-ghost !border-white/30 !text-white">See how it works →</a>
+        </div>
+        <div class="mt-7 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-slate-300">
+          <span>✓ Built-in online store</span>
+          <span>✓ Real general ledger</span>
+          <span>✓ Syncs with Xero</span>
+          <span>✓ Live in weeks</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ONE ORDER FLOW (STEPPER) -->
+    <section id="flow" class="mx-auto max-w-6xl px-5 py-24 sm:px-8">
+      <div class="mb-14 max-w-2xl">
+        <span class="chip bg-cog-sky text-cog-blue-700">How it all connects</span>
+        <h2 class="mt-5 text-3xl font-extrabold tracking-tight text-cog-ink sm:text-4xl">
+          Follow a single order through your whole business
+        </h2>
+        <p class="mt-4 text-lg text-cog-slate">
+          On five separate systems this is five jobs and a lot of re-keying. On Cognit
+          it's one flow that just happens.
+        </p>
+      </div>
+
+      <div class="grid gap-4 lg:grid-cols-5">
+        {flow.map((s, i) => (
+          <div class="card-hairline card-hover flex flex-col rounded-3xl p-6">
+            <div class="flex items-center justify-between">
+              <span class="brand-gradient flex h-10 w-10 items-center justify-center rounded-xl text-lg">{s.icon}</span>
+              <span class="text-sm font-extrabold text-cog-purple/30">0{i + 1}</span>
+            </div>
+            <h3 class="mt-4 font-bold text-cog-ink">{s.t}</h3>
+            <p class="mt-1.5 text-sm leading-relaxed text-cog-slate">{s.b}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- MODULES GRID -->
+    <section class="mx-auto max-w-6xl px-5 pb-8 sm:px-8">
+      <div class="mb-10 max-w-2xl">
+        <span class="chip bg-cog-lilac text-cog-purple-600">Everything, in one place</span>
+        <h2 class="mt-5 text-3xl font-extrabold tracking-tight text-cog-ink sm:text-4xl">Every part of your business, one login</h2>
+        <p class="mt-4 text-lg text-cog-slate">Each module is fully built and ready — turn on what you need.</p>
+      </div>
+      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {modules.map((m) => (
+          <a href={`/features/${m.slug}`} class="card-hairline card-hover group flex flex-col rounded-3xl p-6">
+            <span class="brand-gradient flex h-10 w-10 items-center justify-center rounded-xl text-lg">{m.icon}</span>
+            <h3 class="mt-4 font-bold text-cog-ink">{m.name}</h3>
+            <p class="mt-1.5 text-sm leading-relaxed text-cog-slate">{m.short}</p>
+            <span class="mt-4 inline-block text-sm font-semibold text-cog-purple opacity-0 transition group-hover:opacity-100">Explore →</span>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <!-- ALL-IN-ONE VS PATCHWORK -->
+    <section class="mx-auto max-w-6xl px-5 py-24 sm:px-8">
+      <div class="mb-12 max-w-2xl">
+        <span class="chip bg-cog-sky text-cog-blue-700">All-in-one vs patchwork</span>
+        <h2 class="mt-5 text-3xl font-extrabold tracking-tight text-cog-ink sm:text-4xl">
+          One platform, or five tools and a lot of glue
+        </h2>
+        <p class="mt-4 text-lg text-cog-slate">
+          The same job, two very different ways of running it.
+        </p>
+      </div>
+
+      <div class="space-y-3">
+        {patchwork.map((row) => (
+          <div class="card-hairline grid gap-3 rounded-2xl p-5 sm:grid-cols-[0.7fr_1.15fr_1.15fr] sm:items-center sm:p-6">
+            <div class="text-sm font-bold text-cog-ink">{row.area}</div>
+            <div class="flex gap-2.5 text-sm leading-relaxed text-cog-slate/70">
+              <span class="flex-none text-red-400">✕</span> {row.patch}
+            </div>
+            <div class="flex gap-2.5 rounded-xl bg-cog-stone/60 p-3 text-sm leading-relaxed text-cog-slate sm:bg-transparent sm:p-0">
+              <span class="flex-none text-cog-teal">✓</span> {row.cognit}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- AI BAND -->
+    <section class="px-4 py-10 sm:px-8">
+      <div class="orbs relative mx-auto max-w-6xl overflow-hidden rounded-[2rem] bg-cog-ink px-6 py-16 text-white sm:px-12">
+        <div class="dotgrid absolute inset-0 opacity-50"></div>
+        <div class="relative grid items-center gap-10 lg:grid-cols-2">
+          <div>
+            <span class="chip border border-white/15 text-blue-200">✨ Smart by default</span>
+            <h2 class="mt-5 text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl">
+              A platform that does the <span class="text-gradient-bright">busywork.</span>
+            </h2>
+            <p class="mt-5 max-w-lg text-lg text-slate-300">
+              Because everything lives in one place, Cognit can act on it. Reorder
+              suggestions tell you what to buy before you run out. Rebates calculate
+              themselves. Invoices post automatically. The repetitive jobs that eat your
+              team's day just… happen.
+            </p>
+          </div>
+          <div class="grid gap-3 sm:grid-cols-2">
+            {[
+              { icon: "🔮", t: "AI reorder suggestions" },
+              { icon: "⭐", t: "Automatic rebate claims" },
+              { icon: "🧾", t: "Auto invoice posting" },
+              { icon: "📊", t: "Real-time P&L" },
+            ].map((x) => (
+              <div class="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur">
+                <div class="text-2xl">{x.icon}</div>
+                <div class="mt-2 font-semibold text-white">{x.t}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTEGRATIONS -->
+    <Integrations />
+
+    <!-- FAQ -->
+    <section class="mx-auto max-w-3xl px-5 py-24 sm:px-8">
+      <h2 class="text-center text-3xl font-extrabold tracking-tight text-cog-ink sm:text-4xl">Platform questions, answered</h2>
+      <div class="mt-10 space-y-3">
+        {faqs.map((f) => (
+          <details class="card-hairline group rounded-2xl p-6 open:shadow-md">
+            <summary class="flex cursor-pointer list-none items-center justify-between text-lg font-bold text-cog-ink">
+              {f.q}
+              <span class="ml-4 text-cog-purple transition group-open:rotate-45">＋</span>
+            </summary>
+            <p class="mt-3 leading-relaxed text-cog-slate">{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

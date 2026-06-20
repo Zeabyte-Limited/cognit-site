@@ -1,0 +1,206 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+const syncs = [
+  { icon: "🧾", t: "Invoices", b: "Raise an invoice in Cognit and it appears in Xero automatically — no end-of-day export, no copy-paste. Edits and payments stay in step both ways." },
+  { icon: "↩️", t: "Credit notes", b: "Refunds and credit notes sync across both systems, so your accounts always match what actually happened on the sales side." },
+  { icon: "👥", t: "Customers", b: "New accounts and customer changes update on both sides — your sales team and your accountant always see the same record." },
+  { icon: "📦", t: "Products", b: "Your product list and pricing stay consistent between Cognit and Xero. No mystery codes, no mismatched items, no manual fixes." },
+];
+
+const options = [
+  {
+    icon: "🔄",
+    chip: "Option A",
+    t: "Keep Xero — Cognit feeds it",
+    b: "Love Xero? Keep it. Cognit becomes the system your whole team works in — orders, the online store, stock and invoicing — and every invoice, credit note, customer and product flows into Xero automatically. Your accountant carries on exactly as they do today, just without the re-keying.",
+    points: ["Two-way sync, always current", "No double entry, ever", "Your accountant keeps Xero"],
+  },
+  {
+    icon: "🏦",
+    chip: "Option B",
+    t: "Run accounting inside Cognit",
+    b: "Cognit has a real general ledger built in — chart of accounts, journals, trial balance, balance sheet and automatic GL posting. Plenty of businesses run their entire books in Cognit and never look back, so the whole company lives in one login.",
+    points: ["Real general ledger included", "Books post themselves as you trade", "One system, one source of truth"],
+  },
+];
+
+const steps = [
+  { n: "1", t: "Connect once", b: "Securely link your Xero organisation to Cognit in a few clicks. We set it up with you during onboarding — there's nothing technical for you to wire up." },
+  { n: "2", t: "Work in Cognit", b: "Take orders, run your online store, raise invoices and credit notes as normal. You only ever enter the information once, in one place." },
+  { n: "3", t: "Xero stays in step", b: "Invoices, credit notes, customers and products flow to Xero automatically, both ways — so the numbers always match without anyone reconciling by hand." },
+];
+
+const faqs = [
+  {
+    q: "Does Cognit sync with Xero?",
+    a: "Yes. Cognit has built-in, two-way Xero integration. Invoices, credit notes, customers and products sync automatically between Cognit and Xero, so you never re-key the same information and your accounts always match your sales.",
+  },
+  {
+    q: "What syncs to Xero?",
+    a: "Four core records sync both ways: invoices, credit notes, customers and products. Raise an invoice or a credit note in Cognit and it lands in Xero automatically; add or change a customer or product and both sides stay consistent. No exports, no copy-paste, no double entry.",
+  },
+  {
+    q: "Do I still need Xero?",
+    a: "No — but you can keep it if you want to. Cognit has a real general ledger underneath everything, so it can run your accounts on its own. Many businesses use Cognit as their single system. If you'd rather keep Xero, Cognit simply syncs to it automatically — the choice stays yours.",
+  },
+  {
+    q: "Is the Xero integration two-way?",
+    a: "Yes. Cognit's Xero sync runs both ways, so changes flow in both directions and the two systems stay aligned in near real time. It's not a fragile nightly export or a one-way bolt-on — the numbers your team sees and the numbers your accountant sees are always the same.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+---
+
+<Layout
+  title="Cognit Xero Integration | ERP That Syncs With Xero — NZ"
+  description="Cognit is the all-in-one ERP that syncs with Xero — built-in two-way sync of invoices, credit notes, customers and products. Keep Xero or run accounting inside Cognit's real general ledger. No double entry. Built in New Zealand. Book a demo."
+  path="/integrations/xero"
+  schema={faqSchema}
+>
+  <Header />
+
+  <main class="bg-cog-stone text-cog-slate">
+    <!-- HERO (photographic) -->
+    <section class="orbs relative isolate overflow-hidden">
+      <img src="/images/hero-highway-night.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" />
+      <div class="absolute inset-0 -z-10 bg-cog-ink/82"></div>
+      <div class="dotgrid absolute inset-0 -z-10 opacity-40"></div>
+      <div class="mx-auto max-w-4xl px-5 pb-20 pt-20 text-center sm:px-8 sm:pt-28 hero-rise">
+        <span class="chip mx-auto border border-white/15 text-slate-200">
+          <img src="/logos/xero.png" alt="Xero" class="h-4 w-auto" loading="lazy" /> Cognit Xero integration
+        </span>
+        <h1 class="mx-auto mt-7 max-w-3xl text-[2.6rem] font-extrabold leading-[1.04] tracking-tight text-white sm:text-6xl">
+          The ERP that
+          <span class="text-gradient-bright"> syncs with Xero.</span>
+        </h1>
+        <p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-slate-300">
+          Cognit runs your whole business — online store, sales, stock and invoicing —
+          and keeps <strong class="text-white">Xero in step automatically</strong>. Built-in
+          <strong class="text-white"> two-way sync</strong> of invoices, credit notes,
+          customers and products. No exports. No double entry.
+        </p>
+        <div class="mt-9 flex flex-wrap items-center justify-center gap-3">
+          <a href="/contact" class="btn-grad">Book a demo</a>
+          <a href="#syncs" class="btn-ghost !border-white/30 !text-white">See what syncs →</a>
+        </div>
+        <div class="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-slate-300">
+          <span class="flex items-center gap-2"><span class="text-cog-teal">✓</span> Built-in two-way sync</span>
+          <span class="flex items-center gap-2"><span class="text-cog-teal">✓</span> Keep Xero or run books in Cognit</span>
+          <span class="flex items-center gap-2"><span class="text-cog-teal">✓</span> No re-keying, ever</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT SYNCS TWO-WAY -->
+    <section id="syncs" class="mx-auto max-w-6xl px-5 py-20 sm:px-8">
+      <div class="mx-auto max-w-2xl text-center">
+        <span class="chip bg-cog-sky text-cog-blue-700">Built-in two-way sync</span>
+        <h2 class="mt-5 text-3xl font-extrabold tracking-tight text-cog-ink sm:text-4xl">
+          What syncs between Cognit and Xero — <span class="text-gradient">both ways.</span>
+        </h2>
+        <p class="mt-4 text-lg text-cog-slate">
+          Four core records stay aligned automatically, so the numbers your team sees
+          and the numbers your accountant sees are always the same.
+        </p>
+      </div>
+      <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {syncs.map((x) => (
+          <div class="card-hairline card-hover rounded-3xl p-6">
+            <span class="brand-gradient flex h-10 w-10 items-center justify-center rounded-xl text-lg">{x.icon}</span>
+            <h3 class="mt-4 text-lg font-bold text-cog-ink">{x.t}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-cog-slate">{x.b}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- KEEP XERO OR RUN ACCOUNTING IN COGNIT -->
+    <section class="mx-auto max-w-6xl px-5 py-20 sm:px-8">
+      <div class="mx-auto max-w-2xl text-center">
+        <span class="chip bg-cog-lilac text-cog-purple-600">Your call</span>
+        <h2 class="mt-5 text-3xl font-extrabold tracking-tight text-cog-ink sm:text-4xl">
+          Keep Xero, or run accounting in Cognit.
+        </h2>
+        <p class="mt-4 text-lg text-cog-slate">
+          Cognit works the same either way — as the system that feeds your existing
+          Xero, or as the single system that runs your books itself.
+        </p>
+      </div>
+      <div class="mt-12 grid gap-5 lg:grid-cols-2">
+        {options.map((o) => (
+          <div class="card-hairline card-hover flex flex-col rounded-3xl p-8">
+            <div class="flex items-center gap-3">
+              <span class="brand-gradient flex h-11 w-11 items-center justify-center rounded-xl text-xl">{o.icon}</span>
+              <span class="chip bg-cog-sky text-cog-blue-700">{o.chip}</span>
+            </div>
+            <h3 class="mt-5 text-xl font-bold text-cog-ink">{o.t}</h3>
+            <p class="mt-3 leading-relaxed text-cog-slate">{o.b}</p>
+            <ul class="mt-5 space-y-2.5 text-cog-slate">
+              {o.points.map((p) => (
+                <li class="flex gap-3"><span class="text-cog-teal">✓</span> {p}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS (dark slab) -->
+    <section class="px-4 py-10 sm:px-8">
+      <div class="orbs relative mx-auto max-w-6xl overflow-hidden rounded-[2rem] bg-cog-ink px-6 py-16 text-white sm:px-12">
+        <div class="dotgrid absolute inset-0 opacity-50"></div>
+        <div class="relative">
+          <div class="mx-auto max-w-2xl text-center">
+            <span class="chip border border-white/15 text-blue-200">How it works</span>
+            <h2 class="mt-5 text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl">
+              Enter it once. <span class="text-gradient-bright">Xero keeps up.</span>
+            </h2>
+            <p class="mt-5 text-lg text-slate-300">
+              No double entry, no manual export, no month-end copy-paste. You work in
+              Cognit, and Xero stays current on its own.
+            </p>
+          </div>
+          <div class="mt-12 grid gap-4 sm:grid-cols-3">
+            {steps.map((s) => (
+              <div class="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur">
+                <div class="brand-gradient flex h-10 w-10 items-center justify-center rounded-xl text-lg font-extrabold text-white">{s.n}</div>
+                <h3 class="mt-4 font-semibold text-white">{s.t}</h3>
+                <p class="mt-2 text-sm leading-relaxed text-slate-300">{s.b}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="mx-auto max-w-3xl px-5 py-20 sm:px-8">
+      <h2 class="text-center text-3xl font-extrabold tracking-tight text-cog-ink sm:text-4xl">Cognit &amp; Xero — questions answered</h2>
+      <div class="mt-10 space-y-3">
+        {faqs.map((f) => (
+          <details class="card-hairline group rounded-2xl p-6 open:shadow-md">
+            <summary class="flex cursor-pointer list-none items-center justify-between text-lg font-bold text-cog-ink">
+              {f.q}
+              <span class="ml-4 text-cog-purple transition group-open:rotate-45">＋</span>
+            </summary>
+            <p class="mt-3 leading-relaxed text-cog-slate">{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

@@ -1,0 +1,200 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const title = "Who Runs on Cognit — Real NZ Wholesale & Distribution Businesses";
+const description =
+  "Cognit is proven running real wholesale and food-distribution businesses across New Zealand. See the kinds of businesses that run their whole operation — online store, stock, invoicing and accounts — on one all-in-one cloud ERP.";
+
+const clients = [
+  { name: "No Bull Foodservice", logo: "/logos/clients/nobull.png" },
+  { name: "Stevos", logo: "/logos/clients/stevos.png" },
+  { name: "Starfoods", logo: "/logos/clients/starfoods.png" },
+  { name: "Firstlight", logo: "/logos/clients/firstlight.png" },
+  { name: "Hamilton Foods", logo: "/logos/clients/hamilton.png" },
+  { name: "FoodFirst", logo: "/logos/clients/foodfirst.png" },
+];
+
+const fits = [
+  {
+    icon: "📦",
+    name: "Wholesalers",
+    short: "Accurate stock, fast purchasing and a 24/7 B2B store — with the books posting themselves underneath.",
+  },
+  {
+    icon: "🚚",
+    name: "Distributors",
+    short: "Customer-specific pricing, reps on the road, supplier rebates and multiple branches on one system.",
+  },
+  {
+    icon: "🚢",
+    name: "Importers",
+    short: "Landed costs, inventory across the supply chain, and selling on to trade customers through your own store.",
+  },
+  {
+    icon: "🍎",
+    name: "Food service",
+    short: "Perishable stock, daily ordering and claim-backs — built for the pace of food distribution.",
+  },
+  {
+    icon: "🏷️",
+    name: "Product businesses",
+    short: "Any business that takes orders and holds stock, with the website, inventory and accounts working as one.",
+  },
+];
+
+const faqs = [
+  {
+    q: "What kinds of businesses run on Cognit?",
+    a: "Cognit runs real wholesale and food-distribution businesses across New Zealand — wholesalers, distributors, importers, food-service suppliers and product-based businesses that take orders, hold stock, and want their online store, inventory and accounts working as one system.",
+  },
+  {
+    q: "Is Cognit proven, or new?",
+    a: "Cognit is proven in production. It already runs the day-to-day operations of established New Zealand wholesale and food-distribution businesses — taking real orders, managing real stock and posting real accounts — not a demo or a pilot.",
+  },
+  {
+    q: "Can Cognit handle my industry?",
+    a: "If your business takes orders and holds stock, Cognit is likely a strong fit. It's especially suited to food and wholesale distribution. See the industries we serve at /industries, or book a demo and we'll show you how it would work for your business.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+---
+
+<Layout title={title} description={description} path="/customers" schema={faqSchema}>
+  <Header />
+
+  <main class="bg-cog-stone text-cog-slate">
+    <!-- HERO (photographic) -->
+    <section class="orbs relative isolate overflow-hidden">
+      <img src="/images/food-distribution.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" />
+      <div class="absolute inset-0 -z-10 bg-cog-ink/82"></div>
+      <div class="dotgrid absolute inset-0 -z-10 opacity-40"></div>
+      <div class="mx-auto max-w-4xl px-5 pt-20 pb-20 text-center sm:px-8 sm:pt-28 hero-rise">
+        <span class="chip mx-auto border border-white/15 text-slate-200">
+          <span class="h-2 w-2 rounded-full bg-cog-teal"></span> Proven in production
+        </span>
+        <h1 class="mx-auto mt-7 max-w-3xl text-[2.4rem] font-extrabold leading-[1.06] tracking-tight text-white sm:text-6xl">
+          Who runs on
+          <span class="text-gradient-bright"> Cognit.</span>
+        </h1>
+        <p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-slate-300">
+          Cognit isn't a concept — it's the system already running real wholesale and
+          food-distribution businesses across New Zealand, every single day.
+        </p>
+      </div>
+    </section>
+
+    <!-- LOGO WALL -->
+    <section class="mx-auto max-w-6xl px-5 py-20 sm:px-8">
+      <div class="mx-auto max-w-2xl text-center">
+        <span class="chip bg-cog-lilac text-cog-purple-600">Trusted in the field</span>
+        <h2 class="mt-5 text-3xl font-extrabold tracking-tight text-cog-ink sm:text-4xl">
+          Real businesses run their day on Cognit
+        </h2>
+        <p class="mt-4 text-lg text-cog-slate">
+          From taking orders to managing stock to posting the accounts — these New Zealand
+          wholesale and food-distribution businesses run their operation on one system.
+        </p>
+      </div>
+
+      <div class="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3">
+        {clients.map((c) => (
+          <div class="card-hairline card-hover flex items-center justify-center rounded-3xl p-8">
+            <img src={c.logo} alt={c.name + " logo"} class="h-12 w-auto max-w-[150px] object-contain" loading="lazy" />
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- BUILT FOR BUSINESSES THAT MOVE PRODUCT -->
+    <section class="mx-auto max-w-6xl px-5 pb-8 sm:px-8">
+      <div class="card-grad rounded-[2rem] p-8 sm:p-12">
+        <div class="grid items-center gap-8 lg:grid-cols-[1.1fr_0.9fr]">
+          <div>
+            <span class="chip bg-cog-sky text-cog-blue-700">Built for businesses that move product</span>
+            <h2 class="mt-5 text-3xl font-extrabold leading-tight tracking-tight text-cog-ink sm:text-4xl">
+              If you take orders and hold stock, Cognit was built for you.
+            </h2>
+            <p class="mt-5 text-lg leading-relaxed text-cog-slate">
+              Cognit is purpose-built for the realities of distribution — live stock,
+              customer-specific pricing, purchasing, supplier rebates and a built-in B2B
+              online store, all on one system with real accounting underneath. It's proven
+              in New Zealand food and wholesale distribution.
+            </p>
+            <div class="mt-7">
+              <a href="/industries" class="btn-ghost">See the industries we serve →</a>
+            </div>
+          </div>
+          <div class="space-y-3">
+            {[
+              "One system for store, stock, invoicing and accounts",
+              "Live, accurate stock the store can't oversell",
+              "Supplier rebates and claim-backs, calculated automatically",
+              "New Zealand setup, training and support",
+            ].map((t) => (
+              <div class="flex items-start gap-3 rounded-2xl border border-black/5 bg-white p-4 shadow-sm">
+                <span class="text-cog-teal">✓</span>
+                <span class="font-semibold text-cog-ink">{t}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- KINDS OF BUSINESSES IT SUITS -->
+    <section class="mx-auto max-w-6xl px-5 py-20 sm:px-8">
+      <div class="mb-10 max-w-2xl">
+        <span class="chip bg-cog-lilac text-cog-purple-600">Who it suits</span>
+        <h2 class="mt-5 text-3xl font-extrabold tracking-tight text-cog-ink sm:text-4xl">
+          The kinds of businesses that thrive on Cognit
+        </h2>
+        <p class="mt-4 text-lg text-cog-slate">
+          If your business runs on product moving in and out the door, you'll feel at home.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {fits.map((f) => (
+          <div class="card-hairline card-hover flex flex-col rounded-3xl p-6">
+            <span class="brand-gradient flex h-10 w-10 items-center justify-center rounded-xl text-lg">{f.icon}</span>
+            <h3 class="mt-4 font-bold text-cog-ink">{f.name}</h3>
+            <p class="mt-1.5 text-sm leading-relaxed text-cog-slate">{f.short}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-10">
+        <a href="/industries" class="btn-ghost">Explore industries →</a>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="mx-auto max-w-3xl px-5 pb-24 sm:px-8">
+      <h2 class="text-center text-3xl font-extrabold tracking-tight text-cog-ink sm:text-4xl">Questions, answered</h2>
+      <div class="mt-10 space-y-3">
+        {faqs.map((f) => (
+          <details class="card-hairline group rounded-2xl p-6 open:shadow-md">
+            <summary class="flex cursor-pointer list-none items-center justify-between text-lg font-bold text-cog-ink">
+              {f.q}
+              <span class="ml-4 text-cog-purple transition group-open:rotate-45">＋</span>
+            </summary>
+            <p class="mt-3 leading-relaxed text-cog-slate">{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
