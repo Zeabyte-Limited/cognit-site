@@ -1,0 +1,200 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+const site = "https://cognitsystem.com";
+const slug = "free-b2b-ordering-software-nz";
+const url = `${site}/blog/${slug}/`;
+
+const title = "Free B2B Ordering Software for Wholesalers (NZ) | Cognit";
+const description =
+  "Looking for free B2B ordering software or a free wholesale ordering system in New Zealand? Learn what a B2B ordering portal is, why distributors start free, and exactly what Cognit's Free plan includes.";
+
+const faqs = [
+  {
+    q: "Is there genuinely free B2B ordering software in New Zealand?",
+    a: "Yes. Cognit has a Free plan that costs $0 per month, forever — no credit card required. It includes a built-in B2B online store and order management for up to 100 products, 25 customer accounts and 1 user. Your trade customers log in, see their pricing and place orders online, and those orders land in one place for you to process.",
+  },
+  {
+    q: "What is a B2B ordering portal?",
+    a: "A B2B ordering portal is a private online store where your trade customers log in to see their own catalogue and pricing and place repeat orders themselves, 24/7. Unlike a public retail website, it is account-based — each customer sees only what applies to them — and every order flows straight to you instead of arriving by phone, email or text.",
+  },
+  {
+    q: "What's the catch with Cognit's Free plan?",
+    a: "There isn't a catch. The Free plan is genuinely free and yours to keep. It is limited to 100 products, 25 customers and 1 user, which suits a smaller distributor or a business getting started online. When you outgrow those limits or want inventory, purchasing, invoicing and reporting, you upgrade to the Standard plan, which has a 14-day free trial with no credit card.",
+  },
+  {
+    q: "When should I upgrade from the Free plan?",
+    a: "Upgrade when you pass 100 products or 25 customers, need more than one user, or want the full ERP — live inventory, purchasing, invoicing, customer pricing tiers, stocktakes and reporting. The Standard plan at NZD $499 per month covers all of that, and you can try it free for 14 days before you pay anything.",
+  },
+];
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "Free B2B ordering software for wholesalers in New Zealand",
+  description,
+  author: { "@type": "Organization", name: "Cognit System", url: site },
+  publisher: {
+    "@type": "Organization",
+    name: "Cognit System",
+    logo: { "@type": "ImageObject", url: `${site}/logo.png` },
+  },
+  datePublished: "2026-06-20",
+  dateModified: "2026-06-20",
+  mainEntityOfPage: { "@type": "WebPage", "@id": url },
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+---
+
+<Layout title={title} description={description} path={`/blog/${slug}`} schema={[articleSchema, faqSchema]}>
+  <Header />
+
+  <main class="bg-cog-stone text-cog-slate">
+    <!-- HERO (photographic) -->
+    <section class="orbs relative isolate overflow-hidden">
+      <img src="/images/food-distribution.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" />
+      <div class="absolute inset-0 -z-10 bg-cog-ink/82"></div>
+      <div class="dotgrid absolute inset-0 -z-10 opacity-40"></div>
+      <div class="mx-auto max-w-3xl px-5 pt-20 pb-20 text-center sm:px-8 sm:pt-28 hero-rise">
+        <span class="chip mx-auto border border-white/15 text-slate-200">Insights</span>
+        <h1 class="mt-5 text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl">
+          Free B2B ordering software for wholesalers
+        </h1>
+        <p class="mt-4 text-lg text-slate-300">
+          You can put your trade customers online without spending a cent. Here's
+          what a free B2B ordering system gives you — and exactly what Cognit's
+          Free plan includes.
+        </p>
+      </div>
+    </section>
+
+    <!-- BODY -->
+    <section class="mx-auto max-w-3xl px-5 pb-16 sm:px-8">
+      <article class="article">
+        <p>
+          If you run a wholesale or distribution business, you already know how much
+          time disappears into taking orders by phone, email and text. Every order
+          someone keys in by hand is a chance for an error, a wrong price or a missed
+          line. The good news is you don't need a big budget — or even any budget — to
+          fix it. <a href="/platform">Cognit</a> now has a <strong>Free plan</strong>
+          that lets you take wholesale orders online for $0 a month, forever.
+        </p>
+
+        <h2>What is free B2B ordering software?</h2>
+        <p>
+          B2B ordering software is a private online store for your trade customers —
+          sometimes called a B2B ordering portal or a wholesale ordering system. It is
+          not a public retail website. Instead, each customer logs in to an account,
+          sees the products and prices that apply to them, and places their own orders
+          whenever it suits — including outside your business hours. Every order flows
+          straight back to you in one place, ready to process.
+        </p>
+        <p>
+          "Free" means the software itself costs nothing to run. With Cognit's Free
+          plan there is no monthly fee and no credit card required — you set up your
+          <a href="/ecommerce">B2B online store</a>, invite your customers and start
+          taking orders online.
+        </p>
+
+        <h2>Why would a distributor start free?</h2>
+        <p>
+          Starting free is the lowest-risk way to move your customers off phone and
+          email. You prove the idea works with real orders before you commit to
+          anything. The wins show up quickly:
+        </p>
+        <ul>
+          <li><strong>Fewer order errors</strong> — customers pick their own products, so nothing gets mis-keyed at your end</li>
+          <li><strong>Time back</strong> — orders arrive ready to process instead of as voicemails and emails to transcribe</li>
+          <li><strong>24/7 ordering</strong> — customers order when it suits them, not only when someone is at the desk</li>
+          <li><strong>A more professional front</strong> — a clean online portal makes a small distributor look as sharp as a big one</li>
+          <li><strong>No financial risk</strong> — there's nothing to lose by trying it, because it's free</li>
+        </ul>
+
+        <h2>What Cognit's Free plan includes</h2>
+        <p>
+          The Free plan is built to get a smaller distributor — or anyone testing the
+          waters — online and taking orders. It includes:
+        </p>
+        <ul>
+          <li>The built-in <a href="/ecommerce">B2B online store</a> with customer logins</li>
+          <li>Order management — every online order lands in one place for you to action</li>
+          <li>Up to <strong>100 products</strong> in your catalogue</li>
+          <li>Up to <strong>25 customer accounts</strong></li>
+          <li>1 user (you)</li>
+        </ul>
+        <p>
+          It is genuinely free and yours to keep — there is no trial clock on it and no
+          card on file. For a lot of small wholesalers, that's enough to run their
+          online ordering indefinitely.
+        </p>
+
+        <h2>When to upgrade — and what you get</h2>
+        <p>
+          The Free plan handles ordering. The moment you want to run the rest of the
+          business in the same system — live stock, buying, invoicing, customer pricing
+          tiers and reporting — you move up to the <a href="/pricing">Standard plan</a>
+          at NZD $499 a month. It adds:
+        </p>
+        <ul>
+          <li><a href="/features/inventory">Inventory</a> with live stock on hand and reorder levels</li>
+          <li><a href="/features/purchasing">Purchasing</a> and goods receipting</li>
+          <li><a href="/features/invoicing">Invoicing</a> and accounts receivable</li>
+          <li>Customer-specific and group <a href="/features/sales">pricing</a></li>
+          <li>Tablet stocktakes and full <a href="/features/reporting">reporting</a></li>
+          <li>Unlimited products and customers, plus multiple users</li>
+        </ul>
+        <p>
+          The best part: Standard comes with a <strong>14-day free trial and no credit
+          card</strong>, so you can try the full ERP before you decide. And because it's
+          the same Cognit, upgrading is a switch you flip — your products, customers and
+          orders carry straight over. Nothing to rebuild.
+        </p>
+
+        <h2>Getting started this week</h2>
+        <p>
+          You can be live in days, not months. Create your free account, load your
+          products, set your customer prices, invite your accounts and turn the store
+          on. We walk through the practical steps in our guide to
+          <a href="/blog/take-wholesale-orders-online-free">taking wholesale orders
+          online for free</a>. Made in New Zealand and supported here, Cognit is built
+          for exactly this — see the full <a href="/features">module list</a> when
+          you're ready to grow into it.
+        </p>
+
+        <h2>Frequently asked questions</h2>
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </article>
+
+      <!-- CTA -->
+      <div class="card-hairline mt-12 rounded-3xl bg-white p-8 text-center sm:p-10">
+        <h2 class="text-2xl font-extrabold tracking-tight text-cog-ink sm:text-3xl">Put your customers online for free</h2>
+        <p class="mx-auto mt-3 max-w-xl text-cog-slate">
+          Start on the Free plan in minutes — built-in B2B store and order management,
+          no credit card. Upgrade to the full ERP whenever you're ready.
+        </p>
+        <div class="mt-7 flex flex-wrap items-center justify-center gap-3">
+          <a href="/start" class="btn-grad">Start free</a>
+          <a href="/pricing" class="btn-ghost">See pricing</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

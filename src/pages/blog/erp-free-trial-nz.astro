@@ -1,0 +1,189 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+const site = "https://cognitsystem.com";
+const slug = "erp-free-trial-nz";
+const url = `${site}/blog/${slug}/`;
+
+const title = "ERP Free Trial — Try an ERP Before You Buy (NZ) | Cognit";
+const description =
+  "Most ERPs won't let you trial them before you buy — and that's a real risk. Learn what a proper ERP free trial should let you do, and how Cognit's Free plan plus 14-day Standard and Premium trials de-risk the switch.";
+
+const faqs = [
+  {
+    q: "Do ERPs offer a free trial?",
+    a: "Most don't. Traditional ERPs are sold through a sales process with demos, scoping and an implementation fee, so you commit money and months before you ever use the real system. Cognit is different — it offers a Free plan you can start today and a 14-day free trial of the full Standard and Premium plans, with no credit card on Standard.",
+  },
+  {
+    q: "How long is Cognit's free trial?",
+    a: "Cognit's Standard and Premium plans each come with a 14-day free trial. Standard requires no credit card. You also get the Free plan, which is free forever, so you can run real B2B ordering before you ever start a paid trial.",
+  },
+  {
+    q: "What should I test during an ERP free trial?",
+    a: "Use the trial to run your own workflow with your own data — load real products, set customer pricing, place orders through the B2B store, receive stock, raise an invoice and check the reports. The point is to confirm the system fits how you actually work, not to watch a generic demo.",
+  },
+  {
+    q: "Is it risky to buy an ERP without trying it first?",
+    a: "Yes. Committing to an ERP you've only seen demoed is one of the most expensive mistakes a distributor can make, because switching later costs time and money. A free trial — and a free plan you can keep — lets you prove the fit before you pay, which removes most of that risk.",
+  },
+];
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "ERP free trial: try an ERP before you buy",
+  description,
+  author: { "@type": "Organization", name: "Cognit System", url: site },
+  publisher: {
+    "@type": "Organization",
+    name: "Cognit System",
+    logo: { "@type": "ImageObject", url: `${site}/logo.png` },
+  },
+  datePublished: "2026-06-20",
+  dateModified: "2026-06-20",
+  mainEntityOfPage: { "@type": "WebPage", "@id": url },
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+---
+
+<Layout title={title} description={description} path={`/blog/${slug}`} schema={[articleSchema, faqSchema]}>
+  <Header />
+
+  <main class="bg-cog-stone text-cog-slate">
+    <!-- HERO (photographic) -->
+    <section class="orbs relative isolate overflow-hidden">
+      <img src="/images/warehouse-worker.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" />
+      <div class="absolute inset-0 -z-10 bg-cog-ink/82"></div>
+      <div class="dotgrid absolute inset-0 -z-10 opacity-40"></div>
+      <div class="mx-auto max-w-3xl px-5 pt-20 pb-20 text-center sm:px-8 sm:pt-28 hero-rise">
+        <span class="chip mx-auto border border-white/15 text-slate-200">Insights</span>
+        <h1 class="mt-5 text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl">
+          Why you should try an ERP before you buy
+        </h1>
+        <p class="mt-4 text-lg text-slate-300">
+          Most ERPs won't let you. Here's why that's a risk, what a real free trial
+          should let you do, and how Cognit lets you prove the fit first.
+        </p>
+      </div>
+    </section>
+
+    <!-- BODY -->
+    <section class="mx-auto max-w-3xl px-5 pb-16 sm:px-8">
+      <article class="article">
+        <p>
+          Choosing an ERP is one of the biggest decisions a distribution business
+          makes — and yet most vendors expect you to commit before you've ever used the
+          real thing. You see a polished demo, sign a contract, pay an implementation
+          fee, and only then find out whether it actually fits how you work. That's
+          backwards. This article explains why ERP trials are rare, why that's risky,
+          and how <a href="/platform">Cognit</a> lets you try before you buy.
+        </p>
+
+        <h2>Why most ERPs don't offer a free trial</h2>
+        <p>
+          Traditional ERPs are sold, not signed up for. The typical path is a sales
+          call, a scoped demo, a quote and a paid implementation project that can run
+          for months. There's rarely a "click here to try it" button, for a few
+          reasons:
+        </p>
+        <ul>
+          <li><strong>They're heavy to set up</strong> — a generic enterprise ERP can't be switched on in an afternoon, so there's nothing to trial</li>
+          <li><strong>The business model relies on lock-in</strong> — long contracts and migration costs make leaving hard, which weakens the incentive to let you test first</li>
+          <li><strong>Implementation is where they earn</strong> — the configuration is bespoke, so there's no standard product to hand you for free</li>
+        </ul>
+        <p>
+          None of that is in your interest. It means you carry all the risk of finding
+          out — after you've paid — that the system doesn't suit a distribution
+          business.
+        </p>
+
+        <h2>Why "no trial" is a real risk</h2>
+        <p>
+          An ERP touches everything: ordering, stock, pricing, invoicing, accounts. If
+          it's the wrong fit, you don't just lose the licence fee — you lose the
+          implementation cost, the time your team spent, and the months it takes to
+          unwind and switch again. Buying on the strength of a demo alone is one of the
+          most expensive mistakes a distributor can make. A demo shows you the system at
+          its best, in someone else's hands. A trial shows you the system in <em>your</em>
+          hands, with <em>your</em> data.
+        </p>
+
+        <h2>What a proper ERP free trial should let you do</h2>
+        <p>
+          A trial is only worth something if you can run your real workflow through it.
+          Before you commit, you should be able to:
+        </p>
+        <ul>
+          <li>Load your own products and set your own customer pricing</li>
+          <li>Place real orders through the <a href="/ecommerce">B2B online store</a> the way a customer would</li>
+          <li>Receive stock, raise an <a href="/features/invoicing">invoice</a> and watch it flow through</li>
+          <li>Check that the <a href="/features/reporting">reports</a> tell you what you need to know</li>
+          <li>Get a feel for whether your team will actually use it day to day</li>
+        </ul>
+        <p>
+          If a "trial" is really just a sales demo on a screen-share, it doesn't count.
+          You need hands on the real product.
+        </p>
+
+        <h2>How Cognit de-risks the switch</h2>
+        <p>
+          Cognit is designed to be tried, not just pitched. There are two ways to prove
+          the fit before you pay a cent:
+        </p>
+        <ul>
+          <li><strong>The Free plan</strong> — $0 a month, forever, with the built-in B2B store and order management for up to 100 products, 25 customers and 1 user. Run real ordering with real customers and see it work.</li>
+          <li><strong>A 14-day free trial of Standard</strong> — the full all-in-one ERP with <a href="/features/inventory">inventory</a>, <a href="/features/purchasing">purchasing</a>, invoicing, pricing, stocktakes and reporting. No credit card required.</li>
+          <li><strong>A 14-day free trial of Premium</strong> — everything in Standard plus <a href="/features/accounting">accounting and the general ledger</a>, supplier rebates, Xero and other integrations, API access and AI reorder.</li>
+        </ul>
+        <p>
+          Because it's all the same Cognit, anything you set up while testing carries
+          straight over when you upgrade. There's nothing to rebuild and no migration
+          tax for trying it properly first.
+        </p>
+
+        <h2>Try before you buy — the way it should be</h2>
+        <p>
+          You wouldn't buy a vehicle for your fleet without driving it. An ERP runs your
+          whole business, so it deserves at least the same scrutiny. Start on the Free
+          plan today, or start a 14-day trial of the full platform, and decide with
+          evidence instead of a sales promise. See <a href="/pricing">pricing</a> or
+          browse the full <a href="/features">module list</a> to plan what you'll test.
+        </p>
+
+        <h2>Frequently asked questions</h2>
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </article>
+
+      <!-- CTA -->
+      <div class="card-hairline mt-12 rounded-3xl bg-white p-8 text-center sm:p-10">
+        <h2 class="text-2xl font-extrabold tracking-tight text-cog-ink sm:text-3xl">Prove the fit before you pay</h2>
+        <p class="mx-auto mt-3 max-w-xl text-cog-slate">
+          Start on the Free plan, or take a 14-day free trial of the full ERP — no
+          credit card on Standard. Decide with your own data, not a demo.
+        </p>
+        <div class="mt-7 flex flex-wrap items-center justify-center gap-3">
+          <a href="/start" class="btn-grad">Start free</a>
+          <a href="/pricing" class="btn-ghost">See pricing</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

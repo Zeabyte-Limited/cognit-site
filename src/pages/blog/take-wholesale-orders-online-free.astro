@@ -1,0 +1,193 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+const site = "https://cognitsystem.com";
+const slug = "take-wholesale-orders-online-free";
+const url = `${site}/blog/${slug}/`;
+
+const title = "How to Take Wholesale Orders Online for Free (NZ) | Cognit";
+const description =
+  "A practical, step-by-step guide to selling wholesale online in New Zealand for free — set up your catalogue, customer logins and pricing, go live this week, then grow into the full ERP with Cognit.";
+
+const faqs = [
+  {
+    q: "How can I take wholesale orders online for free?",
+    a: "Create a free Cognit account, load your products, set your customer prices, invite your trade customers to log in, and turn on the B2B online store. The Free plan costs $0 a month and supports up to 100 products, 25 customers and 1 user, with no credit card required, so you can be taking online orders this week without spending anything.",
+  },
+  {
+    q: "What's the difference between a wholesale online store and a retail one?",
+    a: "A wholesale (B2B) store is account-based: customers log in and see only the products and prices that apply to them, often with trade-specific minimums and reorder lists. A retail store is public, shows one price to everyone and takes card payments. Cognit's built-in store is built for B2B, so each trade customer sees their own catalogue and pricing.",
+  },
+  {
+    q: "Do my customers need their own logins and pricing?",
+    a: "Yes, and that's the point of a B2B store. Each customer gets their own login and sees their own agreed pricing, so they can reorder confidently without checking prices with you. You set this up once when you add each customer, and Cognit applies it automatically every time they order.",
+  },
+  {
+    q: "What happens when I outgrow the free wholesale store?",
+    a: "When you pass 100 products or 25 customers, need more users, or want live inventory, purchasing, invoicing and reporting, you upgrade to the Standard plan at NZD $499 per month. It has a 14-day free trial with no credit card, and everything you set up on the Free plan carries straight over.",
+  },
+];
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "How to take wholesale orders online for free",
+  description,
+  author: { "@type": "Organization", name: "Cognit System", url: site },
+  publisher: {
+    "@type": "Organization",
+    name: "Cognit System",
+    logo: { "@type": "ImageObject", url: `${site}/logo.png` },
+  },
+  datePublished: "2026-06-20",
+  dateModified: "2026-06-20",
+  mainEntityOfPage: { "@type": "WebPage", "@id": url },
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+---
+
+<Layout title={title} description={description} path={`/blog/${slug}`} schema={[articleSchema, faqSchema]}>
+  <Header />
+
+  <main class="bg-cog-stone text-cog-slate">
+    <!-- HERO (photographic) -->
+    <section class="orbs relative isolate overflow-hidden">
+      <img src="/images/warehouse-shelves.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" />
+      <div class="absolute inset-0 -z-10 bg-cog-ink/82"></div>
+      <div class="dotgrid absolute inset-0 -z-10 opacity-40"></div>
+      <div class="mx-auto max-w-3xl px-5 pt-20 pb-20 text-center sm:px-8 sm:pt-28 hero-rise">
+        <span class="chip mx-auto border border-white/15 text-slate-200">Insights</span>
+        <h1 class="mt-5 text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl">
+          How to take wholesale orders online — for free
+        </h1>
+        <p class="mt-4 text-lg text-slate-300">
+          A practical, do-it-this-week guide to getting your trade customers ordering
+          online at no cost, then growing into the full ERP when you're ready.
+        </p>
+      </div>
+    </section>
+
+    <!-- BODY -->
+    <section class="mx-auto max-w-3xl px-5 pb-16 sm:px-8">
+      <article class="article">
+        <p>
+          If your trade customers still order by phone, email and text, you're spending
+          hours re-keying orders and risking a mistake on every one. Moving them online
+          is simpler — and cheaper — than most distributors think. With
+          <a href="/platform">Cognit's</a> Free plan you can sell wholesale online for
+          $0 a month, with no credit card. Here's exactly how to do it this week.
+        </p>
+
+        <h2>What "selling wholesale online" actually means</h2>
+        <p>
+          A wholesale, or B2B, online store is different from a retail website. It's
+          account-based: each trade customer logs in and sees only the products and the
+          prices that apply to them. They reorder from their own list, you receive the
+          order ready to process, and nobody has to check a price or transcribe a
+          voicemail. The <a href="/ecommerce">built-in store</a> in Cognit is designed
+          for exactly this.
+        </p>
+
+        <h2>Step 1 — Create your free account</h2>
+        <p>
+          Start by signing up for the <a href="/pricing">Free plan</a>. It's free
+          forever, needs no credit card, and gives you the B2B store and order
+          management for up to 100 products, 25 customers and 1 user. That's enough to
+          get a smaller distributor fully online, and you can keep it free for as long
+          as it fits.
+        </p>
+
+        <h2>Step 2 — Build your catalogue</h2>
+        <p>
+          Add the products your customers reorder most often — name, code, pack size,
+          unit and a price. You don't need all 100 on day one; start with your core
+          range so you can go live fast, then add the rest as you go. Clear product
+          names and pack sizes make it easy for customers to order the right thing
+          without ringing you to check.
+        </p>
+
+        <h2>Step 3 — Set your customer pricing</h2>
+        <p>
+          This is what makes it a real wholesale store. As you add each customer, set
+          the prices they've been agreed — so when they log in, they see their numbers,
+          not a public list. Getting this right means customers can reorder with
+          complete confidence, which is what gets them to actually use the portal. On
+          the Standard plan this extends to full <a href="/features/sales">customer and
+          group pricing</a> tiers as you grow.
+        </p>
+
+        <h2>Step 4 — Invite your customers</h2>
+        <p>
+          Add your trade accounts and send them their logins. Start with a handful of
+          your most regular, most willing customers — the ones who'll appreciate
+          ordering on their own schedule. Once they're ordering online smoothly, roll
+          the rest out. A short note explaining the benefit ("order anytime, see your
+          own prices, no more phone tag") goes a long way.
+        </p>
+
+        <h2>Step 5 — Go live and manage orders in one place</h2>
+        <p>
+          Turn the store on. From here, every order your customers place lands in
+          Cognit's order management, ready for you to pick, pack and dispatch — no
+          re-keying, no transcribing. You'll feel the time saving in the first week, and
+          your customers get a tidy, professional way to do business with you.
+        </p>
+
+        <h2>Step 6 — Grow into the full ERP when you're ready</h2>
+        <p>
+          The Free plan gets your customers ordering online. When you want to run the
+          rest of the business in the same system, upgrade to the
+          <a href="/pricing">Standard plan</a> at NZD $499 a month, which adds:
+        </p>
+        <ul>
+          <li><a href="/features/inventory">Live inventory</a> — stock on hand, reorder levels and tablet stocktakes</li>
+          <li><a href="/features/purchasing">Purchasing</a> and goods receipting</li>
+          <li><a href="/features/invoicing">Invoicing</a> and accounts receivable</li>
+          <li>Full <a href="/features/reporting">reporting</a> on sales and margin</li>
+          <li>Unlimited products and customers, plus multiple users</li>
+        </ul>
+        <p>
+          Standard comes with a <strong>14-day free trial and no credit card</strong>,
+          and because it's the same Cognit, everything you built on the Free plan — your
+          catalogue, customers and pricing — carries straight over. Nothing to rebuild.
+          For the bigger picture on starting free, see our guide to
+          <a href="/blog/free-b2b-ordering-software-nz">free B2B ordering software</a>.
+        </p>
+
+        <h2>Frequently asked questions</h2>
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </article>
+
+      <!-- CTA -->
+      <div class="card-hairline mt-12 rounded-3xl bg-white p-8 text-center sm:p-10">
+        <h2 class="text-2xl font-extrabold tracking-tight text-cog-ink sm:text-3xl">Take your first online order this week</h2>
+        <p class="mx-auto mt-3 max-w-xl text-cog-slate">
+          Set up your catalogue, customer logins and pricing for free — no credit card.
+          Grow into the full ERP whenever you're ready.
+        </p>
+        <div class="mt-7 flex flex-wrap items-center justify-center gap-3">
+          <a href="/start" class="btn-grad">Start free</a>
+          <a href="/pricing" class="btn-ghost">See pricing</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
