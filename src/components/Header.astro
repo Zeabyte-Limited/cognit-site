@@ -23,7 +23,8 @@ const links = [
     </div>
 
     <div class="flex items-center gap-2">
-      <a href="/contact" class="btn-grad hidden !px-5 !py-2.5 text-sm sm:inline-flex">Book a demo</a>
+      <a href="/contact" class="hidden text-[14.5px] font-medium text-cog-slate transition hover:text-cog-purple sm:inline-flex">Book a demo</a>
+      <a href="/start" class="btn-grad hidden !px-5 !py-2.5 text-sm sm:inline-flex">Start free</a>
       <button id="menu-btn" aria-label="Open menu" class="flex h-10 w-10 items-center justify-center rounded-full text-cog-ink lg:hidden">
         <svg id="menu-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
           <line x1="4" y1="7" x2="20" y2="7" /><line x1="4" y1="12" x2="20" y2="12" /><line x1="4" y1="17" x2="20" y2="17" />
@@ -36,7 +37,8 @@ const links = [
     {links.map((l) => (
       <a href={l.href} class="block border-b border-black/5 py-3 text-base font-medium text-cog-slate">{l.label}</a>
     ))}
-    <a href="/contact" class="btn-grad mt-3 w-full">Book a demo</a>
+    <a href="/start" class="btn-grad mt-3 w-full">Start free</a>
+    <a href="/contact" class="btn-ghost mt-2 w-full">Book a demo</a>
   </div>
 </header>
 

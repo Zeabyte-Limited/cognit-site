@@ -1,0 +1,37 @@
+# Cognit
+
+> Cognit is an all-in-one cloud ERP with a built-in B2B e-commerce online store. It runs a whole product business from one platform — online store, sales orders, inventory and warehouse, purchasing and goods receipting, invoicing and accounts receivable, accounting and general ledger, supplier rebates and claim-backs, and business reporting. An order placed online updates stock, the invoice and the books the moment it lands. Cognit is made in New Zealand by Zeabyte Limited and is proven in food and wholesale distribution across New Zealand and Australia.
+
+## What Cognit is
+- An all-in-one ERP you can actually run your company on, replacing a patchwork of separate systems (website, ordering plugin, inventory tool, accounting software, reporting add-ons).
+- The B2B online store is built in — not a bolt-on plugin. Customers log in to a branded storefront, see their own pricing, reorder saved pantries and order 24/7, with stock and pricing always live because the store is part of the ERP.
+- Has a real general ledger underneath everything (chart of accounts, journals, trial balance, balance sheet, automatic GL posting), so it can replace standalone accounting software.
+
+## Who it is for
+Wholesalers, distributors, importers and product-based businesses that take orders, hold stock, and want their website, inventory and accounts working as one system. Especially food and wholesale distribution in New Zealand and Australia.
+
+## Plans (NZD)
+- Free — $0/month, forever. For shops and small distributors starting out. Includes the built-in B2B online store, online order management, product catalogue up to 100 products, up to 25 customer accounts, 1 user login, order history and email support. (Inventory, purchasing, accounting and integrations are not included — upgrade to unlock.)
+- Standard — $499/month, with a 14-day free trial and no credit card. Most popular. For growing wholesalers and distributors. Everything in Free plus inventory & warehouse, purchasing & goods receipting, invoicing & accounts receivable, customer-specific pricing, tablet stocktakes, business reporting, unlimited products & customers, multiple users and NZ-based support.
+- Premium — $1,400/month, with a 14-day free trial. For established businesses wanting the complete system. Everything in Standard plus accounting & general ledger, supplier rebates & claim-backs, advanced reporting & P&L, Xero & other integrations, API access, AI reorder suggestions, priority support and guided onboarding & data migration.
+
+Free trial: try Standard or Premium free for 14 days, no credit card. Cognit is set up for you and your login is emailed. No lock-in, cancel anytime; setup, data migration and training are included on paid plans.
+
+## Key modules
+Built-in B2B online store · Sales orders & customer-specific pricing · Inventory & warehouse management · Purchasing & goods receipting · Invoicing, credit notes & accounts receivable · Accounting & general ledger · Supplier rebates & claim-backs · Tablet stocktakes · Business reporting & P&L · AI reorder suggestions.
+
+## Integrations
+Cognit has built-in two-way Xero integration (invoices, credit notes, customers and products sync automatically). It also integrates with any other accounting, inventory or e-commerce system — if a system has an API or data feed, Cognit can connect to it. Premium adds API access.
+
+## Made in New Zealand
+Cognit is built and supported in New Zealand by Zeabyte Limited (NZBN 9429052028748). Contact: contact@zeabyte.co.nz · +64 22 169 1376.
+
+## Main URLs
+- Home: https://cognitsystem.com/
+- Pricing (Free + Standard + Premium, 14-day trial): https://cognitsystem.com/pricing/
+- Start free / 14-day trial signup: https://cognitsystem.com/start/
+- Platform overview: https://cognitsystem.com/platform/
+- Modules: https://cognitsystem.com/features/
+- Built-in online store: https://cognitsystem.com/ecommerce/
+- Integrations: https://cognitsystem.com/integrations/
+- Book a demo / contact: https://cognitsystem.com/contact/

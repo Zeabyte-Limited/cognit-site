@@ -26,6 +26,7 @@ async function handleLead(request, env) {
   const email = esc(data.email);
   const phone = esc(data.phone);
   const interest = esc(data.interest);
+  const plan = esc(data.plan);
   const message = esc(data.message);
 
   if (!name || !email) {
@@ -40,18 +41,26 @@ async function handleLead(request, env) {
     region,
   });
 
+  const isSignup = !!plan;
   const body = [
-    "New demo request from cognitsystem.com",
+    isSignup
+      ? `New free-trial signup from cognitsystem.com/start`
+      : "New demo request from cognitsystem.com",
     "",
+    plan ? `Plan:       ${plan}` : null,
     `Name:       ${name}`,
     `Company:    ${company}`,
     `Email:      ${email}`,
     `Phone:      ${phone}`,
-    `Interested: ${interest}`,
+    interest ? `Interested: ${interest}` : null,
     "",
-    "Message:",
+    isSignup ? "What they sell / notes:" : "Message:",
     message || "(none)",
-  ].join("\n");
+  ].filter((l) => l !== null).join("\n");
+
+  const subject = isSignup
+    ? `🟢 Cognit ${plan} trial signup — ${company || name}`
+    : `🟢 Cognit demo request — ${company || name}`;
 
   const res = await aws.fetch(
     `https://email.${region}.amazonaws.com/v2/email/outbound-emails`,
@@ -64,7 +73,7 @@ async function handleLead(request, env) {
         ReplyToAddresses: email ? [email] : [],
         Content: {
           Simple: {
-            Subject: { Data: `🟢 Cognit demo request — ${company || name}` },
+            Subject: { Data: subject },
             Body: { Text: { Data: body } },
           },
         },

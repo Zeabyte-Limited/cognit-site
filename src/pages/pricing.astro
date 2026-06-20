@@ -5,77 +5,116 @@ import Footer from "../components/Footer.astro";
 
 const plans = [
   {
-    name: "Standard",
-    price: "499",
-    tagline: "The all-in-one ERP with a built-in online store.",
-    cta: "Book a demo",
+    name: "Free",
+    slug: "free",
+    price: "0",
+    unit: "forever",
+    tagline: "For shops & small distributors getting started — your own B2B online store, free.",
+    cta: "Get started free",
+    href: "/start?plan=free",
     popular: false,
     features: [
-      "Built-in B2B e-commerce online store",
-      "Sales orders & customer-specific pricing",
+      "Built-in B2B online store",
+      "Online order management",
+      "Product catalogue (up to 100 products)",
+      "Up to 25 customer accounts",
+      "1 user login",
+      "Order history",
+      "Email support",
+    ],
+    footnote: "Inventory, purchasing, accounting & integrations are not included — upgrade to unlock.",
+  },
+  {
+    name: "Standard",
+    slug: "standard",
+    price: "499",
+    unit: "NZD / month",
+    trial: "14-day free trial · no credit card",
+    tagline: "For growing wholesalers & distributors ready to run everything as one system.",
+    cta: "Start 14-day free trial",
+    href: "/start?plan=standard",
+    popular: true,
+    features: [
+      "Everything in Free, plus:",
       "Inventory & warehouse management",
       "Purchasing & goods receipting",
-      "Invoicing, credit notes & accounts receivable",
-      "Accounting & real general ledger",
-      "Core business reporting & P&L",
-      "Two-way Xero sync",
-      "New Zealand based support",
+      "Invoicing & accounts receivable",
+      "Customer-specific pricing",
+      "Tablet stocktakes",
+      "Business reporting",
+      "Unlimited products & customers",
+      "Multiple users",
+      "NZ-based support",
     ],
   },
   {
     name: "Premium",
+    slug: "premium",
     price: "1,400",
-    tagline: "Everything in Standard, plus the advanced modules and white-glove care.",
-    cta: "Talk to us",
-    popular: true,
+    unit: "NZD / month",
+    trial: "14-day free trial",
+    tagline: "For established businesses that want the complete system, end to end.",
+    cta: "Start 14-day free trial",
+    href: "/start?plan=premium",
+    popular: false,
     features: [
-      "Everything in Standard",
+      "Everything in Standard, plus:",
+      "Accounting & general ledger",
       "Supplier rebates & claim-backs",
-      "Advanced reporting & insights",
-      "Tablet stocktakes & AI reorder suggestions",
-      "Deeper integrations to your other systems",
+      "Advanced reporting & P&L",
+      "Xero & other integrations",
+      "API access",
+      "AI reorder suggestions",
       "Priority support",
       "Guided onboarding & data migration",
-      "Hands-on team training",
     ],
   },
 ];
 
 const compare = [
-  { f: "Built-in B2B online store", s: true, p: true },
-  { f: "Sales, inventory, purchasing & invoicing", s: true, p: true },
-  { f: "Accounting & general ledger", s: true, p: true },
-  { f: "Two-way Xero sync", s: true, p: true },
-  { f: "Core reporting & P&L", s: true, p: true },
-  { f: "NZ-based support", s: true, p: true },
-  { f: "Supplier rebates & claim-backs", s: false, p: true },
-  { f: "Advanced reporting & insights", s: false, p: true },
-  { f: "Tablet stocktakes & AI reorder suggestions", s: false, p: true },
-  { f: "Deeper integrations to your other systems", s: false, p: true },
-  { f: "Priority support", s: false, p: true },
-  { f: "Guided onboarding, data migration & training", s: false, p: true },
+  { f: "Built-in B2B online store", free: true, s: true, p: true },
+  { f: "Online order management", free: true, s: true, p: true },
+  { f: "Order history", free: true, s: true, p: true },
+  { f: "Product catalogue", free: "Up to 100", s: "Unlimited", p: "Unlimited" },
+  { f: "Customer accounts", free: "Up to 25", s: "Unlimited", p: "Unlimited" },
+  { f: "User logins", free: "1", s: "Multiple", p: "Multiple" },
+  { f: "Inventory & warehouse", free: false, s: true, p: true },
+  { f: "Purchasing & goods receipting", free: false, s: true, p: true },
+  { f: "Invoicing & accounts receivable", free: false, s: true, p: true },
+  { f: "Customer-specific pricing", free: false, s: true, p: true },
+  { f: "Tablet stocktakes", free: false, s: true, p: true },
+  { f: "Business reporting", free: false, s: true, p: true },
+  { f: "Accounting & general ledger", free: false, s: false, p: true },
+  { f: "Supplier rebates & claim-backs", free: false, s: false, p: true },
+  { f: "Advanced reporting & P&L", free: false, s: false, p: true },
+  { f: "Xero & other integrations", free: false, s: false, p: true },
+  { f: "API access", free: false, s: false, p: true },
+  { f: "AI reorder suggestions", free: false, s: false, p: true },
+  { f: "Priority support", free: false, s: false, p: true },
+  { f: "Guided onboarding & data migration", free: false, s: false, p: true },
+  { f: "Support", free: "Email", s: "NZ-based", p: "Priority" },
 ];
 
 const faqs = [
   {
-    q: "Is there a setup fee?",
-    a: "No surprise setup fees. Your plan includes setup and training — we move your data across, configure Cognit for how your business works and train your team, then support you once you're live. Book a demo and we'll give you a clear picture of timeline and cost for your business.",
+    q: "Is there really a free plan?",
+    a: "Yes — genuinely free, forever. The Free plan gives shops and small distributors their own built-in B2B online store with order management, a catalogue of up to 100 products, up to 25 customer accounts and one login, at no cost. There's no card required and no time limit. When you're ready for inventory, purchasing, accounting and the rest, you simply upgrade.",
   },
   {
-    q: "Can I add modules later?",
-    a: "Yes. Every module is already built into Cognit, so adding one is a setting, not another integration project. Most businesses start on Standard with the online store, sales, inventory, invoicing and accounting, then move to Premium when they want rebates, advanced reporting and the extras. You're never locked out of a feature — you simply turn it on.",
+    q: "What happens after the 14 days?",
+    a: "On Standard or Premium you get the full system free for 14 days. Near the end of your trial we'll check in. If Cognit is working for you, you continue on your chosen plan; if it isn't the right fit, you simply stop — there's no lock-in and nothing to cancel if you never started paying.",
   },
   {
-    q: "Do I need separate accounting software?",
-    a: "No. Cognit has a real general ledger underneath everything — chart of accounts, journals, trial balance and balance sheet, with automatic posting — so it can run your accounts on its own and replace separate accounting software. If you'd rather keep your accounting system, Cognit syncs two-way with Xero, so you can do that too.",
+    q: "Do I need a credit card?",
+    a: "No. You can start your 14-day Standard or Premium trial without entering any card details, and the Free plan never needs one. We set Cognit up for you and email your login — you only arrange payment if you decide to continue on a paid plan.",
+  },
+  {
+    q: "Can I change plans?",
+    a: "Any time. Start free, move up to Standard when you want inventory, purchasing and invoicing, then step up to Premium for accounting, rebates, integrations and AI. Every module is already built into Cognit, so changing plan is a setting we switch on — not another project. You can move down again too. No lock-in, cancel anytime.",
   },
   {
     q: "Is my data mine?",
-    a: "Always. Your business data is yours — your customers, products, orders, invoices and accounts. You can export your reports and records to Excel or PDF at any time, and if you ever leave, you take your data with you.",
-  },
-  {
-    q: "Are there per-user licence fees?",
-    a: "No. Cognit is one flat monthly price — no per-seat games and no charging you more every time your team grows. Add as many users as your business needs.",
+    a: "Always. Your customers, products, orders, invoices and accounts are yours. You can export your records to Excel or PDF whenever you like, and if you ever leave, you take your data with you. On paid plans your data can also run on your own server.",
   },
 ];
 
@@ -84,15 +123,24 @@ const offerSchema = {
   "@type": "Product",
   name: "Cognit ERP",
   description:
-    "Cognit is an all-in-one cloud ERP with a built-in B2B e-commerce online store — sales, inventory, purchasing, accounting, invoicing, rebates and reporting in one system.",
+    "Cognit is an all-in-one cloud ERP with a built-in B2B e-commerce online store. Start free, or try Standard or Premium free for 14 days — sales, inventory, purchasing, accounting, invoicing, rebates and reporting in one system.",
   brand: { "@type": "Brand", name: "Cognit" },
   offers: [
+    {
+      "@type": "Offer",
+      name: "Free",
+      price: "0",
+      priceCurrency: "NZD",
+      description: "Free forever. Built-in B2B online store, order management, up to 100 products and 25 customer accounts, 1 user, email support.",
+      availability: "https://schema.org/InStock",
+      url: "https://cognitsystem.com/pricing/",
+    },
     {
       "@type": "Offer",
       name: "Standard",
       price: "499",
       priceCurrency: "NZD",
-      description: "Per month. All-in-one ERP with built-in online store, core modules, Xero sync and NZ support. No per-user licences.",
+      description: "Per month, with a 14-day free trial and no credit card. Everything in Free plus inventory, purchasing, invoicing, customer pricing, tablet stocktakes, reporting, unlimited products & customers, multiple users and NZ-based support.",
       availability: "https://schema.org/InStock",
       url: "https://cognitsystem.com/pricing/",
     },
@@ -101,7 +149,7 @@ const offerSchema = {
       name: "Premium",
       price: "1400",
       priceCurrency: "NZD",
-      description: "Per month. Everything in Standard plus rebates & claim-backs, advanced reporting, deeper integrations, priority support and guided onboarding.",
+      description: "Per month, with a 14-day free trial. Everything in Standard plus accounting & general ledger, supplier rebates & claim-backs, advanced reporting & P&L, Xero & other integrations, API access, AI reorder suggestions, priority support and guided onboarding.",
       availability: "https://schema.org/InStock",
       url: "https://cognitsystem.com/pricing/",
     },
@@ -120,8 +168,8 @@ const faqSchema = {
 ---
 
 <Layout
-  title="Cognit Pricing — All-in-One ERP & Online Store From $499/mo NZD"
-  description="Simple Cognit pricing: Standard NZD $499/month for the all-in-one ERP with built-in online store, or Premium NZD $1,400/month with advanced modules, deeper integrations and priority support. One price, all modules, no per-user licences. Book a demo."
+  title="Cognit Pricing — Free Plan + Standard & Premium, 14-Day Free Trial"
+  description="Cognit pricing: a free-forever plan with a built-in B2B online store, plus Standard (NZD $499/mo) and Premium (NZD $1,400/mo) — each with a 14-day free trial, no credit card. No lock-in. Setup, data migration and training included on paid plans."
   path="/pricing"
   schema={[offerSchema, faqSchema]}
 >
@@ -135,53 +183,70 @@ const faqSchema = {
       <div class="dotgrid absolute inset-0 -z-10 opacity-40"></div>
       <div class="mx-auto max-w-5xl px-5 pb-20 pt-20 text-center sm:px-8 sm:pt-28 hero-rise">
         <span class="chip mx-auto border border-white/15 text-slate-200">
-          <span class="h-2 w-2 rounded-full bg-cog-teal"></span> Simple, honest pricing
+          <span class="h-2 w-2 rounded-full bg-cog-teal"></span> Start free · upgrade when you're ready
         </span>
         <h1 class="mx-auto mt-7 max-w-4xl text-[2.6rem] font-extrabold leading-[1.05] tracking-tight text-white sm:text-6xl">
-          One price. Every module.
-          <span class="text-gradient-bright"> No per-seat games.</span>
+          Start free. Grow into
+          <span class="text-gradient-bright"> the whole system.</span>
         </h1>
         <p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-slate-300 sm:text-xl">
-          Run your whole business — including the built-in online store — from a single
-          flat monthly price. No per-user licences, no nasty surprises, setup and
-          training included.
+          Get your own built-in B2B online store free, forever — or try the full
+          Standard or Premium system free for 14 days, no credit card. We set it up
+          for you and email your login.
         </p>
       </div>
     </section>
 
+    <!-- 14-DAY TRIAL BANNER -->
+    <section class="mx-auto -mt-10 max-w-5xl px-5 sm:px-8">
+      <div class="card-grad relative z-10 flex flex-col items-center justify-between gap-4 rounded-2xl px-6 py-5 text-center shadow-xl shadow-cog-purple/15 sm:flex-row sm:text-left">
+        <p class="text-cog-ink">
+          <strong class="font-extrabold">Try Standard or Premium free for 14 days</strong>
+          — no credit card. We set it up for you and email your login.
+        </p>
+        <a href="/start?plan=standard" class="btn-grad !px-6 !py-3 text-sm">Start 14-day free trial →</a>
+      </div>
+    </section>
+
     <!-- PLAN CARDS -->
-    <section class="mx-auto max-w-5xl px-5 pb-20 sm:px-8">
-      <div class="grid gap-5 lg:grid-cols-2">
+    <section class="mx-auto max-w-6xl px-5 pb-12 pt-16 sm:px-8">
+      <div class="grid items-start gap-5 lg:grid-cols-3">
         {plans.map((plan) => (
-          <div class={"card-hover relative flex flex-col rounded-3xl p-8 sm:p-9 " + (plan.popular ? "card-grad" : "card-hairline")}>
+          <div class={"card-hover relative flex flex-col rounded-3xl p-8 " + (plan.popular ? "card-grad shadow-xl shadow-cog-purple/15 lg:-mt-4 lg:pb-10" : "card-hairline")}>
             {plan.popular && (
               <span class="brand-gradient absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-white shadow-lg shadow-cog-purple/30">
                 Most popular
               </span>
             )}
             <h2 class="text-xl font-extrabold tracking-tight text-cog-ink">{plan.name}</h2>
-            <p class="mt-2 text-sm leading-relaxed text-cog-slate">{plan.tagline}</p>
-            <div class="mt-6 flex items-end gap-1.5">
+            <p class="mt-2 min-h-[3.5rem] text-sm leading-relaxed text-cog-slate">{plan.tagline}</p>
+            <div class="mt-5 flex items-end gap-1.5">
               <span class="text-5xl font-extrabold tracking-tight text-cog-ink">${plan.price}</span>
-              <span class="mb-1.5 text-sm font-medium text-slate-500">NZD / month</span>
+              <span class="mb-1.5 text-sm font-medium text-slate-500">{plan.unit}</span>
             </div>
-            <a href="/contact" class={"mt-7 " + (plan.popular ? "btn-grad" : "btn-ghost")}>
+            {plan.trial && (
+              <p class="mt-2 text-sm font-semibold text-cog-teal-600">{plan.trial}</p>
+            )}
+            <a href={plan.href} class={"mt-6 " + (plan.popular ? "btn-grad" : "btn-ghost")}>
               {plan.cta}
             </a>
-            <ul class="mt-8 space-y-3 text-sm text-cog-slate">
-              {plan.features.map((f) => (
-                <li class="flex gap-3">
+            <ul class="mt-7 space-y-3 text-sm text-cog-slate">
+              {plan.features.map((f, i) => (
+                <li class={"flex gap-3 " + (i === 0 && f.includes("Everything in") ? "font-semibold text-cog-ink" : "")}>
                   <span class="mt-0.5 flex-none text-cog-teal">✓</span>
                   {f}
                 </li>
               ))}
             </ul>
+            {plan.footnote && (
+              <p class="mt-6 border-t border-black/5 pt-4 text-xs leading-relaxed text-slate-400">{plan.footnote}</p>
+            )}
           </div>
         ))}
       </div>
 
       <p class="mt-10 text-center text-sm font-medium text-slate-500">
-        No per-user licences. Cancel anytime. Setup &amp; training included.
+        No lock-in. Cancel anytime. Setup, data migration &amp; training included on paid plans.
       </p>
     </section>
 
@@ -190,26 +255,41 @@ const faqSchema = {
       <div class="mb-12 max-w-2xl">
         <span class="chip bg-cog-sky text-cog-blue-700">Compare plans</span>
         <h2 class="mt-5 text-3xl font-extrabold tracking-tight text-cog-ink sm:text-4xl">What's in each plan</h2>
-        <p class="mt-4 text-lg text-cog-slate">Both run your whole business. Premium adds the advanced modules and white-glove care.</p>
+        <p class="mt-4 text-lg text-cog-slate">Start with a free online store, then switch on inventory, accounting and the advanced modules as you grow.</p>
       </div>
 
       <div class="card-hairline overflow-hidden rounded-3xl">
-        <div class="grid grid-cols-[1.6fr_1fr_1fr] bg-cog-ink text-white">
-          <div class="px-5 py-4 text-sm font-bold sm:px-7">Feature</div>
-          <div class="px-3 py-4 text-center text-sm font-bold text-slate-200">Standard</div>
-          <div class="px-3 py-4 text-center text-sm font-bold text-cog-teal">Premium</div>
+        <div class="grid grid-cols-[1.6fr_0.8fr_0.8fr_0.8fr] bg-cog-ink text-white">
+          <div class="px-4 py-4 text-sm font-bold sm:px-7">Feature</div>
+          <div class="px-2 py-4 text-center text-sm font-bold text-slate-200">Free</div>
+          <div class="px-2 py-4 text-center text-sm font-bold text-cog-teal">Standard</div>
+          <div class="px-2 py-4 text-center text-sm font-bold text-slate-200">Premium</div>
         </div>
         {compare.map((row, i) => (
-          <div class={"grid grid-cols-[1.6fr_1fr_1fr] " + (i % 2 === 0 ? "bg-white" : "bg-cog-stone")}>
-            <div class="px-5 py-4 text-sm font-medium text-cog-ink sm:px-7">{row.f}</div>
-            <div class="px-3 py-4 text-center text-sm">
-              {row.s ? <span class="font-bold text-cog-teal">✓</span> : <span class="text-slate-300">—</span>}
+          <div class={"grid grid-cols-[1.6fr_0.8fr_0.8fr_0.8fr] " + (i % 2 === 0 ? "bg-white" : "bg-cog-stone")}>
+            <div class="px-4 py-4 text-sm font-medium text-cog-ink sm:px-7">{row.f}</div>
+            <div class="px-2 py-4 text-center text-sm">
+              {row.free === true ? <span class="font-bold text-cog-teal">✓</span>
+                : row.free === false ? <span class="text-slate-300">—</span>
+                : <span class="text-xs font-medium text-cog-slate">{row.free}</span>}
             </div>
-            <div class="px-3 py-4 text-center text-sm">
-              {row.p ? <span class="font-bold text-cog-teal">✓</span> : <span class="text-slate-300">—</span>}
+            <div class="px-2 py-4 text-center text-sm">
+              {row.s === true ? <span class="font-bold text-cog-teal">✓</span>
+                : row.s === false ? <span class="text-slate-300">—</span>
+                : <span class="text-xs font-medium text-cog-slate">{row.s}</span>}
+            </div>
+            <div class="px-2 py-4 text-center text-sm">
+              {row.p === true ? <span class="font-bold text-cog-teal">✓</span>
+                : row.p === false ? <span class="text-slate-300">—</span>
+                : <span class="text-xs font-medium text-cog-slate">{row.p}</span>}
             </div>
           </div>
         ))}
+      </div>
+
+      <div class="mt-10 flex flex-wrap justify-center gap-3">
+        <a href="/start?plan=free" class="btn-ghost">Get started free</a>
+        <a href="/start?plan=standard" class="btn-grad">Start 14-day free trial →</a>
       </div>
     </section>
 
