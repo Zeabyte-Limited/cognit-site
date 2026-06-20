@@ -5,7 +5,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://www.cognitsystem.com',
+  site: 'https://cognitsystem.com',
   trailingSlash: 'always',
   integrations: [
     sitemap({
