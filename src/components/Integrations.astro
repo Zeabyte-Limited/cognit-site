@@ -1,6 +1,10 @@
 ---
-// Cognit runs your whole business on its own — and connects to what you use.
-// Xero is first-class; anything with an API can plug in.
+// Cognit is a platform — it connects to your whole stack. Xero is just one of
+// many integrations; this section is about breadth, not any single provider.
+const categories = [
+  "Accounting", "Payments", "E-commerce", "Shipping & couriers",
+  "Bank feeds", "CRM & marketing", "Spreadsheets", "Custom API",
+];
 const systems = [
   { name: "Xero", logo: "/logos/xero.png" },
   { name: "MYOB", logo: "/logos/myob.png" },
@@ -14,9 +18,18 @@ const systems = [
   { name: "Unleashed", logo: "/logos/unleashed.png" },
   { name: "Cin7", logo: "/logos/cin7.png" },
   { name: "Shopify", logo: null },
+  { name: "WooCommerce", logo: null },
+  { name: "BigCommerce", logo: null },
   { name: "Stripe", logo: null },
-  { name: "Your bank feed", logo: null },
-  { name: "Your courier", logo: null },
+  { name: "Square", logo: null },
+  { name: "PayPal", logo: null },
+  { name: "NZ Post", logo: null },
+  { name: "GoSweetSpot", logo: null },
+  { name: "Bank feeds", logo: null },
+  { name: "Google Sheets", logo: null },
+  { name: "Slack", logo: null },
+  { name: "Zapier", logo: null },
+  { name: "Any system via API", logo: null },
 ];
 const rowA = systems.filter((_, i) => i % 2 === 0);
 const rowB = systems.filter((_, i) => i % 2 === 1);
@@ -27,20 +40,25 @@ const chip = "border-white/12 bg-white/5 text-slate-100 backdrop-blur";
   <img src="/images/hero-highway-night.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover opacity-15" />
   <div class="dotgrid absolute inset-0 -z-10 opacity-60"></div>
 
-  <div class="mx-auto max-w-3xl px-5 pt-24 pb-10 text-center sm:px-8">
-    <span class="chip brand-gradient text-white">Integrations</span>
+  <div class="mx-auto max-w-3xl px-5 pt-24 pb-8 text-center sm:px-8">
+    <span class="chip brand-gradient text-white">One platform, fully connected</span>
     <h2 class="mt-5 text-3xl font-extrabold tracking-tight sm:text-5xl">
       Runs on its own.<br /><span class="text-gradient-bright">Connects to everything.</span>
     </h2>
     <p class="mx-auto mt-5 max-w-xl text-lg text-slate-300">
-      Cognit is a complete system — you don't <em>need</em> anything else to run
-      your business. But when you want to, it connects: <strong class="text-white">two-way
-      Xero sync</strong> is built in, and if a system has an API or a data feed,
-      Cognit can talk to it.
+      Cognit is a complete system on its own — but it plugs into your whole stack.
+      Accounting, payments, e-commerce, shipping, bank feeds and more — a growing
+      library of integrations, with new ones added all the time. If a system has an
+      API or a data feed, Cognit connects to it.
     </p>
+    <div class="mt-7 flex flex-wrap items-center justify-center gap-2">
+      {categories.map((c) => (
+        <span class="chip border border-white/12 bg-white/5 text-slate-200">{c}</span>
+      ))}
+    </div>
   </div>
 
-  <div class="space-y-5 pb-20">
+  <div class="space-y-5 pt-8 pb-20">
     {[rowA, rowB].map((row, r) => (
       <div class="marquee">
         <div class={"marquee-track" + (r === 1 ? " marquee-slow" : "")}>
@@ -55,6 +73,6 @@ const chip = "border-white/12 bg-white/5 text-slate-100 backdrop-blur";
         </div>
       </div>
     ))}
-    <p class="pt-3 text-center text-sm text-slate-400">Already on Xero or MYOB? Keep it — Cognit syncs to it automatically.</p>
+    <p class="pt-3 text-center text-sm text-slate-400">Run something else? If it has an API or a data feed, we'll connect it.</p>
   </div>
 </section>
