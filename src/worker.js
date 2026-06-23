@@ -3,7 +3,7 @@
 // ap-southeast-2). AWS creds live in Worker secrets, never in code.
 import { AwsClient } from "aws4fetch";
 
-const TO_ADDRESS = "contact@zeabyte.co.nz";
+const TO_ADDRESS = "zeabyte@zeabyte.co.nz";
 const FROM_ADDRESS = "noreply@zeabyte.co.nz";
 
 function esc(s) {

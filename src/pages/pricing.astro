@@ -27,7 +27,7 @@ const plans = [
   {
     name: "Standard",
     slug: "standard",
-    price: "499",
+    price: "599",
     unit: "NZD / month",
     trial: "14-day free trial · no credit card",
     tagline: "For growing wholesalers & distributors ready to run everything as one system.",
@@ -50,7 +50,7 @@ const plans = [
   {
     name: "Premium",
     slug: "premium",
-    price: "1,400",
+    price: "1,499",
     unit: "NZD / month",
     trial: "14-day free trial",
     tagline: "For established businesses that want the complete system, end to end.",
@@ -63,10 +63,33 @@ const plans = [
       "Supplier rebates & claim-backs",
       "Advanced reporting & P&L",
       "Xero & other integrations",
-      "API access",
+      "API access & data export",
+      "Rep intelligence (Customer 360)",
+      "Mobile apps (storefront + driver)",
+      "One-click Backup & Restore",
       "AI reorder suggestions",
       "Priority support",
       "Guided onboarding & data migration",
+    ],
+  },
+  {
+    name: "Enterprise",
+    slug: "enterprise",
+    price: "Let's talk",
+    custom: true,
+    unit: "custom pricing",
+    tagline: "For multi-branch and larger operations that need a bespoke fit and dedicated support.",
+    cta: "Talk to our team",
+    href: "/contact",
+    popular: false,
+    features: [
+      "Everything in Premium, plus:",
+      "Multi-branch & multi-location",
+      "Per-user granular permissions",
+      "Dedicated infrastructure & SLA",
+      "Custom integrations",
+      "White-glove onboarding & migration",
+      "Dedicated account manager",
     ],
   },
 ];
@@ -88,7 +111,10 @@ const compare = [
   { f: "Supplier rebates & claim-backs", free: false, s: false, p: true },
   { f: "Advanced reporting & P&L", free: false, s: false, p: true },
   { f: "Xero & other integrations", free: false, s: false, p: true },
-  { f: "API access", free: false, s: false, p: true },
+  { f: "API access & data export", free: false, s: false, p: true },
+  { f: "Rep intelligence (Customer 360)", free: false, s: false, p: true },
+  { f: "Mobile apps (storefront + driver)", free: false, s: false, p: true },
+  { f: "One-click Backup & Restore", free: false, s: false, p: true },
   { f: "AI reorder suggestions", free: false, s: false, p: true },
   { f: "Priority support", free: false, s: false, p: true },
   { f: "Guided onboarding & data migration", free: false, s: false, p: true },
@@ -138,7 +164,7 @@ const offerSchema = {
     {
       "@type": "Offer",
       name: "Standard",
-      price: "499",
+      price: "599",
       priceCurrency: "NZD",
       description: "Per month, with a 14-day free trial and no credit card. Everything in Free plus inventory, purchasing, invoicing, customer pricing, tablet stocktakes, reporting, unlimited products & customers, multiple users and NZ-based support.",
       availability: "https://schema.org/InStock",
@@ -147,7 +173,7 @@ const offerSchema = {
     {
       "@type": "Offer",
       name: "Premium",
-      price: "1400",
+      price: "1499",
       priceCurrency: "NZD",
       description: "Per month, with a 14-day free trial. Everything in Standard plus accounting & general ledger, supplier rebates & claim-backs, advanced reporting & P&L, Xero & other integrations, API access, AI reorder suggestions, priority support and guided onboarding.",
       availability: "https://schema.org/InStock",
@@ -168,8 +194,8 @@ const faqSchema = {
 ---
 
 <Layout
-  title="Cognit Pricing — Free Plan + Standard & Premium, 14-Day Free Trial"
-  description="Cognit pricing: a free-forever plan with a built-in B2B online store, plus Standard (NZD $499/mo) and Premium (NZD $1,400/mo) — each with a 14-day free trial, no credit card. No lock-in. Setup, data migration and training included on paid plans."
+  title="Cognit Pricing — Free, Standard, Premium & Enterprise · 14-Day Free Trial"
+  description="Cognit pricing: a free-forever plan with a built-in B2B online store, plus Standard (NZD $599/mo) and Premium (NZD $1,499/mo) — each with a 14-day free trial, no credit card. No lock-in. Setup, data migration and training included on paid plans."
   path="/pricing"
   schema={[offerSchema, faqSchema]}
 >
@@ -210,7 +236,7 @@ const faqSchema = {
 
     <!-- PLAN CARDS -->
     <section class="mx-auto max-w-6xl px-5 pb-12 pt-16 sm:px-8">
-      <div class="grid items-start gap-5 lg:grid-cols-3">
+      <div class="grid items-start gap-5 sm:grid-cols-2 lg:grid-cols-4">
         {plans.map((plan) => (
           <div class={"card-hover relative flex flex-col rounded-3xl p-8 " + (plan.popular ? "card-grad shadow-xl shadow-cog-purple/15 lg:-mt-4 lg:pb-10" : "card-hairline")}>
             {plan.popular && (
@@ -221,7 +247,11 @@ const faqSchema = {
             <h2 class="text-xl font-extrabold tracking-tight text-cog-ink">{plan.name}</h2>
             <p class="mt-2 min-h-[3.5rem] text-sm leading-relaxed text-cog-slate">{plan.tagline}</p>
             <div class="mt-5 flex items-end gap-1.5">
-              <span class="text-5xl font-extrabold tracking-tight text-cog-ink">${plan.price}</span>
+              {plan.custom ? (
+                <span class="text-4xl font-extrabold tracking-tight text-cog-ink">{plan.price}</span>
+              ) : (
+                <span class="text-5xl font-extrabold tracking-tight text-cog-ink">${plan.price}</span>
+              )}
               <span class="mb-1.5 text-sm font-medium text-slate-500">{plan.unit}</span>
             </div>
             {plan.trial && (
