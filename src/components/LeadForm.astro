@@ -62,8 +62,20 @@
     const success = document.getElementById("lead-success");
     const data = new FormData(form);
     let sent = false;
+    const payload = Object.fromEntries(data.entries());
+    // Record the lead in Cognit Control (fire-and-forget; also emails the owner).
     try {
-      const payload = Object.fromEntries(data.entries());
+      fetch("https://api.cognitsystem.co.nz/api/control/ingest/signup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: payload.name, email: payload.email, company: payload.company,
+          phone: payload.phone, plan: payload.plan || "", source: "lead-form",
+          message: (payload.message || "") + (payload.interest ? (" | Interest: " + payload.interest) : ""),
+        }),
+      }).catch(() => {});
+    } catch (err) { /* never block the form */ }
+    try {
       const res = await fetch(form.action, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
