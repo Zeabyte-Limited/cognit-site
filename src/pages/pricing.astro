@@ -5,71 +5,62 @@ import Footer from "../components/Footer.astro";
 
 const plans = [
   {
-    name: "Free",
-    slug: "free",
+    name: "Free trial",
+    slug: "trial",
     price: "0",
-    unit: "forever",
-    tagline: "For shops & small distributors getting started — your own B2B online store, free.",
-    cta: "Get started free",
-    href: "/start?plan=free",
+    unit: "for 7 days",
+    tagline: "Try the whole system — every feature unlocked — free for 7 days.",
+    cta: "Start free trial",
+    href: "/start?plan=trial",
     popular: false,
     features: [
-      "Built-in B2B online store",
-      "Online order management",
-      "Product catalogue (up to 100 products)",
-      "Up to 25 customer accounts",
-      "1 user login",
-      "Order history",
-      "Email support",
+      "Everything unlocked for 7 days",
+      "The full ERP + built-in online store",
+      "Loaded with your data, set up for you",
+      "No credit card to start",
+      "Choose a plan when you're ready",
     ],
-    footnote: "Inventory, purchasing, accounting & integrations are not included — upgrade to unlock.",
+    footnote: "After 7 days, pick Standard, Premium or Enterprise to keep going — it's a trial, not free forever.",
   },
   {
     name: "Standard",
     slug: "standard",
     price: "599",
     unit: "NZD / month",
-    trial: "14-day free trial · no credit card",
-    tagline: "For growing wholesalers & distributors ready to run everything as one system.",
-    cta: "Start 14-day free trial",
+    tagline: "A B2B online store with your products and customers — take orders online.",
+    cta: "Start free trial",
     href: "/start?plan=standard",
     popular: true,
     features: [
-      "Everything in Free, plus:",
-      "Inventory & warehouse management",
-      "Purchasing & goods receipting",
-      "Invoicing & accounts receivable",
-      "Customer-specific pricing",
-      "Tablet stocktakes",
-      "Business reporting",
-      "Unlimited products & customers",
+      "Built-in B2B online store",
+      "Your product catalogue",
+      "Your customer accounts",
+      "Online order management & history",
       "Multiple users",
       "NZ-based support",
     ],
+    footnote: "Inventory, purchasing, accounting and the rest are on Premium.",
   },
   {
     name: "Premium",
     slug: "premium",
-    price: "1,499",
+    price: "1,699",
     unit: "NZD / month",
-    trial: "14-day free trial",
-    tagline: "For established businesses that want the complete system, end to end.",
-    cta: "Start 14-day free trial",
+    tagline: "The complete ERP — run your whole operation in one system.",
+    cta: "Start free trial",
     href: "/start?plan=premium",
     popular: false,
     features: [
       "Everything in Standard, plus:",
+      "Inventory & warehouse management",
+      "Purchasing, goods receipting & supplier bills",
       "Accounting & general ledger",
+      "Invoicing, statements & customer pricing",
       "Supplier rebates & claim-backs",
-      "Advanced reporting & P&L",
-      "Xero & other integrations",
-      "API access & data export",
-      "Rep intelligence (Customer 360)",
-      "Mobile apps (storefront + driver)",
+      "Quotes, pick sheets & missed opportunities",
+      "Xero integration, API & data export",
       "One-click Backup & Restore",
-      "AI reorder suggestions",
-      "Priority support",
-      "Guided onboarding & data migration",
+      "Advanced reporting & P&L",
     ],
   },
   {
@@ -78,65 +69,64 @@ const plans = [
     price: "Let's talk",
     custom: true,
     unit: "custom pricing",
-    tagline: "For multi-branch and larger operations that need a bespoke fit and dedicated support.",
+    tagline: "For multi-branch operations that want AI, intelligence and a bespoke fit.",
     cta: "Talk to our team",
     href: "/contact",
     popular: false,
     features: [
       "Everything in Premium, plus:",
+      "AI invoice processing — reads supplier invoices & books stock in",
+      "Rep intelligence / Customer 360",
       "Multi-branch & multi-location",
       "Per-user granular permissions",
       "Dedicated infrastructure & SLA",
-      "Custom integrations",
-      "White-glove onboarding & migration",
-      "Dedicated account manager",
+      "White-glove onboarding & a dedicated account manager",
     ],
   },
 ];
 
+// 'free' column = the 7-day Trial (everything unlocked). 's' = Standard (online
+// store + products + customers only). 'p' = Premium (full ERP). Enterprise adds
+// AI invoice processing, rep intelligence, multi-branch & permissions on top.
 const compare = [
   { f: "Built-in B2B online store", free: true, s: true, p: true },
   { f: "Online order management", free: true, s: true, p: true },
   { f: "Order history", free: true, s: true, p: true },
-  { f: "Product catalogue", free: "Up to 100", s: "Unlimited", p: "Unlimited" },
-  { f: "Customer accounts", free: "Up to 25", s: "Unlimited", p: "Unlimited" },
-  { f: "User logins", free: "1", s: "Multiple", p: "Multiple" },
-  { f: "Inventory & warehouse", free: false, s: true, p: true },
-  { f: "Purchasing & goods receipting", free: false, s: true, p: true },
-  { f: "Invoicing & accounts receivable", free: false, s: true, p: true },
-  { f: "Customer-specific pricing", free: false, s: true, p: true },
-  { f: "Tablet stocktakes", free: false, s: true, p: true },
-  { f: "Business reporting", free: false, s: true, p: true },
-  { f: "Accounting & general ledger", free: false, s: false, p: true },
-  { f: "Supplier rebates & claim-backs", free: false, s: false, p: true },
-  { f: "Advanced reporting & P&L", free: false, s: false, p: true },
-  { f: "Xero & other integrations", free: false, s: false, p: true },
-  { f: "API access & data export", free: false, s: false, p: true },
-  { f: "Rep intelligence (Customer 360)", free: false, s: false, p: true },
-  { f: "Mobile apps (storefront + driver)", free: false, s: false, p: true },
-  { f: "One-click Backup & Restore", free: false, s: false, p: true },
-  { f: "AI reorder suggestions", free: false, s: false, p: true },
-  { f: "Priority support", free: false, s: false, p: true },
-  { f: "Guided onboarding & data migration", free: false, s: false, p: true },
-  { f: "Support", free: "Email", s: "NZ-based", p: "Priority" },
+  { f: "Product catalogue", free: "Unlimited", s: "Unlimited", p: "Unlimited" },
+  { f: "Customer accounts", free: "Unlimited", s: "Unlimited", p: "Unlimited" },
+  { f: "User logins", free: "Multiple", s: "Multiple", p: "Multiple" },
+  { f: "Inventory & warehouse", free: true, s: false, p: true },
+  { f: "Purchasing, goods receipts & supplier bills", free: true, s: false, p: true },
+  { f: "Invoicing, statements & customer pricing", free: true, s: false, p: true },
+  { f: "Accounting & general ledger", free: true, s: false, p: true },
+  { f: "Supplier rebates & claim-backs", free: true, s: false, p: true },
+  { f: "Quotes & pick sheets", free: true, s: false, p: true },
+  { f: "Advanced reporting & P&L", free: true, s: false, p: true },
+  { f: "Xero integration, API & data export", free: true, s: false, p: true },
+  { f: "One-click Backup & Restore", free: true, s: false, p: true },
+  { f: "AI invoice processing", free: true, s: false, p: "Enterprise" },
+  { f: "Rep intelligence / Customer 360", free: true, s: false, p: "Enterprise" },
+  { f: "Multi-branch & multi-location", free: true, s: false, p: "Enterprise" },
+  { f: "Per-user granular permissions", free: true, s: false, p: "Enterprise" },
+  { f: "Support", free: "Full", s: "NZ-based", p: "Priority" },
 ];
 
 const faqs = [
   {
-    q: "Is there really a free plan?",
-    a: "Yes — genuinely free, forever. The Free plan gives shops and small distributors their own built-in B2B online store with order management, a catalogue of up to 100 products, up to 25 customer accounts and one login, at no cost. There's no card required and no time limit. When you're ready for inventory, purchasing, accounting and the rest, you simply upgrade.",
+    q: "How does the free trial work?",
+    a: "You start with a 7-day free trial of the whole system — every feature unlocked, loaded with data and set up for you, no credit card. It's a trial, not free forever. At the end of the 7 days you pick a plan to continue: Standard for a B2B online store with your products and customers, Premium for the full ERP, or Enterprise for AI, multi-branch and more.",
   },
   {
-    q: "What happens after the 14 days?",
-    a: "On Standard or Premium you get the full system free for 14 days. Near the end of your trial we'll check in. If Cognit is working for you, you continue on your chosen plan; if it isn't the right fit, you simply stop — there's no lock-in and nothing to cancel if you never started paying.",
+    q: "What happens after the 7 days?",
+    a: "On Standard or Premium you get the full system free for 7 days. Near the end of your trial we'll check in. If Cognit is working for you, you continue on your chosen plan; if it isn't the right fit, you simply stop — there's no lock-in and nothing to cancel if you never started paying.",
   },
   {
     q: "Do I need a credit card?",
-    a: "No. You can start your 14-day Standard or Premium trial without entering any card details, and the Free plan never needs one. We set Cognit up for you and email your login — you only arrange payment if you decide to continue on a paid plan.",
+    a: "No. You can start your 7-day free trial without entering any card details. We set Cognit up for you and email your login — you only arrange payment if you decide to continue on a paid plan after the trial.",
   },
   {
     q: "Can I change plans?",
-    a: "Any time. Start free, move up to Standard when you want inventory, purchasing and invoicing, then step up to Premium for accounting, rebates, integrations and AI. Every module is already built into Cognit, so changing plan is a setting we switch on — not another project. You can move down again too. No lock-in, cancel anytime.",
+    a: "Any time. Start Standard for a B2B online store with your products and customers, step up to Premium for the full ERP (inventory, purchasing, accounting, invoicing, rebates, reporting), and to Enterprise for AI invoice processing, rep intelligence, multi-branch and per-user permissions. Every module is already built into Cognit, so changing plan is a setting we switch on — not another project. You can move down again too. No lock-in, cancel anytime.",
   },
   {
     q: "Is my data mine?",
@@ -149,15 +139,15 @@ const offerSchema = {
   "@type": "Product",
   name: "Cognit ERP",
   description:
-    "Cognit is an all-in-one cloud ERP with a built-in B2B e-commerce online store. Start free, or try Standard or Premium free for 14 days — sales, inventory, purchasing, accounting, invoicing, rebates and reporting in one system.",
+    "Cognit is an all-in-one cloud ERP with a built-in B2B e-commerce online store. Start free, or try Standard or Premium free for 7 days — sales, inventory, purchasing, accounting, invoicing, rebates and reporting in one system.",
   brand: { "@type": "Brand", name: "Cognit" },
   offers: [
     {
       "@type": "Offer",
-      name: "Free",
+      name: "Free trial",
       price: "0",
       priceCurrency: "NZD",
-      description: "Free forever. Built-in B2B online store, order management, up to 100 products and 25 customer accounts, 1 user, email support.",
+      description: "A 7-day free trial of the entire system — every feature unlocked, no credit card. After 7 days, choose Standard, Premium or Enterprise to continue.",
       availability: "https://schema.org/InStock",
       url: "https://cognitsystem.com/pricing/",
     },
@@ -166,16 +156,16 @@ const offerSchema = {
       name: "Standard",
       price: "599",
       priceCurrency: "NZD",
-      description: "Per month, with a 14-day free trial and no credit card. Everything in Free plus inventory, purchasing, invoicing, customer pricing, tablet stocktakes, reporting, unlimited products & customers, multiple users and NZ-based support.",
+      description: "Per month, after a 7-day free trial. A B2B online store with your products and customers — online order management & history, multiple users, NZ-based support. Inventory, purchasing and accounting are on Premium.",
       availability: "https://schema.org/InStock",
       url: "https://cognitsystem.com/pricing/",
     },
     {
       "@type": "Offer",
       name: "Premium",
-      price: "1499",
+      price: "1699",
       priceCurrency: "NZD",
-      description: "Per month, with a 14-day free trial. Everything in Standard plus accounting & general ledger, supplier rebates & claim-backs, advanced reporting & P&L, Xero & other integrations, API access, AI reorder suggestions, priority support and guided onboarding.",
+      description: "Per month, with a 7-day free trial. Everything in Standard plus accounting & general ledger, supplier rebates & claim-backs, advanced reporting & P&L, Xero & other integrations, API access, AI reorder suggestions, priority support and guided onboarding.",
       availability: "https://schema.org/InStock",
       url: "https://cognitsystem.com/pricing/",
     },
@@ -194,8 +184,8 @@ const faqSchema = {
 ---
 
 <Layout
-  title="Cognit Pricing — Free, Standard, Premium & Enterprise · 14-Day Free Trial"
-  description="Cognit pricing: a free-forever plan with a built-in B2B online store, plus Standard (NZD $599/mo) and Premium (NZD $1,499/mo) — each with a 14-day free trial, no credit card. No lock-in. Setup, data migration and training included on paid plans."
+  title="Cognit Pricing — 7-Day Free Trial, then Standard, Premium & Enterprise"
+  description="Cognit pricing: a 7-day free trial of the whole system, plus paid plans Standard (NZD $599/mo) and Premium (NZD $1,699/mo) — each with a 7-day free trial, no credit card. No lock-in. Setup, data migration and training included on paid plans."
   path="/pricing"
   schema={[offerSchema, faqSchema]}
 >
@@ -217,7 +207,7 @@ const faqSchema = {
         </h1>
         <p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-slate-300 sm:text-xl">
           Get your own built-in B2B online store free, forever — or try the full
-          Standard or Premium system free for 14 days, no credit card. We set it up
+          Standard or Premium system free for 7 days, no credit card. We set it up
           for you and email your login.
         </p>
       </div>
@@ -227,10 +217,10 @@ const faqSchema = {
     <section class="mx-auto -mt-10 max-w-5xl px-5 sm:px-8">
       <div class="card-grad relative z-10 flex flex-col items-center justify-between gap-4 rounded-2xl px-6 py-5 text-center shadow-xl shadow-cog-purple/15 sm:flex-row sm:text-left">
         <p class="text-cog-ink">
-          <strong class="font-extrabold">Try Standard or Premium free for 14 days</strong>
+          <strong class="font-extrabold">Try Standard or Premium free for 7 days</strong>
           — no credit card. We set it up for you and email your login.
         </p>
-        <a href="/start?plan=standard" class="btn-grad !px-6 !py-3 text-sm">Start 14-day free trial →</a>
+        <a href="/start?plan=standard" class="btn-grad !px-6 !py-3 text-sm">Start 7-day free trial →</a>
       </div>
     </section>
 
@@ -291,7 +281,7 @@ const faqSchema = {
       <div class="card-hairline overflow-hidden rounded-3xl">
         <div class="grid grid-cols-[1.6fr_0.8fr_0.8fr_0.8fr] bg-cog-ink text-white">
           <div class="px-4 py-4 text-sm font-bold sm:px-7">Feature</div>
-          <div class="px-2 py-4 text-center text-sm font-bold text-slate-200">Free</div>
+          <div class="px-2 py-4 text-center text-sm font-bold text-slate-200">Trial</div>
           <div class="px-2 py-4 text-center text-sm font-bold text-cog-teal">Standard</div>
           <div class="px-2 py-4 text-center text-sm font-bold text-slate-200">Premium</div>
         </div>
@@ -319,7 +309,7 @@ const faqSchema = {
 
       <div class="mt-10 flex flex-wrap justify-center gap-3">
         <a href="/start?plan=free" class="btn-ghost">Get started free</a>
-        <a href="/start?plan=standard" class="btn-grad">Start 14-day free trial →</a>
+        <a href="/start?plan=standard" class="btn-grad">Start 7-day free trial →</a>
       </div>
     </section>
 
