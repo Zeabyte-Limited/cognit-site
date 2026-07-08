@@ -8,13 +8,13 @@ const plans = [
     name: "Free trial",
     slug: "trial",
     price: "0",
-    unit: "for 7 days",
-    tagline: "Try the whole system — every feature unlocked — free for 7 days.",
+    unit: "for 14 days",
+    tagline: "Try the whole system — every feature unlocked — free for 14 days.",
     cta: "Start free trial",
     href: "/start?plan=trial",
     popular: false,
     features: [
-      "Everything unlocked for 7 days",
+      "Everything unlocked for 14 days",
       "The full ERP + built-in online store",
       "Loaded with your data, set up for you",
       "No credit card to start",
@@ -25,7 +25,7 @@ const plans = [
   {
     name: "Standard",
     slug: "standard",
-    price: "599",
+    price: "899",
     unit: "NZD / month",
     tagline: "A B2B online store with your products and customers — take orders online.",
     cta: "Start free trial",
@@ -44,7 +44,7 @@ const plans = [
   {
     name: "Premium",
     slug: "premium",
-    price: "1,699",
+    price: "1,999",
     unit: "NZD / month",
     tagline: "The complete ERP — run your whole operation in one system.",
     cta: "Start free trial",
@@ -65,9 +65,8 @@ const plans = [
   {
     name: "Enterprise",
     slug: "enterprise",
-    price: "Let's talk",
-    custom: true,
-    unit: "custom pricing",
+    price: "3,999",
+    unit: "NZD / month · custom quote",
     tagline: "For multi-branch operations that want AI, intelligence and a bespoke fit.",
     cta: "Talk to our team",
     href: "/contact",
@@ -86,7 +85,7 @@ const plans = [
   },
 ];
 
-// 'free' column = the 7-day Trial (everything unlocked). 's' = Standard (online
+// 'free' column = the 14-day Trial (everything unlocked). 's' = Standard (online
 // store + products + customers only). 'p' = Premium (full ERP). Enterprise adds
 // AI invoice processing, rep intelligence, multi-branch & permissions on top.
 const compare = [
@@ -115,15 +114,15 @@ const compare = [
 const faqs = [
   {
     q: "How does the free trial work?",
-    a: "You start with a 7-day free trial of the whole system — every feature unlocked, loaded with data and set up for you, no credit card. At the end of the 7 days you pick the plan that fits: Standard for a B2B online store with your products and customers, Premium for the full ERP, or Enterprise for AI, multi-branch and more.",
+    a: "You start with a 14-day free trial of the whole system — every feature unlocked, loaded with data and set up for you, no credit card. At the end of the 14 days you pick the plan that fits: Standard for a B2B online store with your products and customers, Premium for the full ERP, or Enterprise for AI, multi-branch and more.",
   },
   {
-    q: "What happens after the 7 days?",
-    a: "On Standard or Premium you get the full system free for 7 days. Near the end of your trial we'll check in. If Cognit is working for you, you continue on your chosen plan; if it isn't the right fit, you simply stop — there's no lock-in and nothing to cancel if you never started paying.",
+    q: "What happens after the 14 days?",
+    a: "On Standard or Premium you get the full system free for 14 days. Near the end of your trial we'll check in. If Cognit is working for you, you continue on your chosen plan; if it isn't the right fit, you simply stop — there's no lock-in and nothing to cancel if you never started paying.",
   },
   {
     q: "Do I need a credit card?",
-    a: "No. You can start your 7-day free trial without entering any card details. We set Cognit up for you and email your login — you only arrange payment if you decide to continue on a paid plan after the trial.",
+    a: "No. You can start your 14-day free trial without entering any card details. We set Cognit up for you and email your login — you only arrange payment if you decide to continue on a paid plan after the trial.",
   },
   {
     q: "Can I change plans?",
@@ -140,7 +139,7 @@ const offerSchema = {
   "@type": "Product",
   name: "Cognit ERP",
   description:
-    "Cognit is an all-in-one cloud ERP with a built-in B2B e-commerce online store. Start free, or try Standard or Premium free for 7 days — sales, inventory, purchasing, accounting, invoicing, rebates and reporting in one system.",
+    "Cognit is an all-in-one cloud ERP with a built-in B2B e-commerce online store. Start free, or try Standard or Premium free for 14 days — sales, inventory, purchasing, accounting, invoicing, rebates and reporting in one system.",
   brand: { "@type": "Brand", name: "Cognit" },
   offers: [
     {
@@ -148,25 +147,25 @@ const offerSchema = {
       name: "Free trial",
       price: "0",
       priceCurrency: "NZD",
-      description: "A 7-day free trial of the entire system — every feature unlocked, no credit card. After 7 days, choose Standard, Premium or Enterprise to continue.",
+      description: "A 14-day free trial of the entire system — every feature unlocked, no credit card. After 14 days, choose Standard, Premium or Enterprise to continue.",
       availability: "https://schema.org/InStock",
       url: "https://cognitsystem.com/pricing/",
     },
     {
       "@type": "Offer",
       name: "Standard",
-      price: "599",
+      price: "899",
       priceCurrency: "NZD",
-      description: "Per month, after a 7-day free trial. A B2B online store with your products and customers — online order management & history, multiple users, NZ-based support. Inventory, purchasing and accounting are on Premium.",
+      description: "Per month, after a 14-day free trial. A B2B online store with your products and customers — online order management & history, multiple users, NZ-based support. Inventory, purchasing and accounting are on Premium.",
       availability: "https://schema.org/InStock",
       url: "https://cognitsystem.com/pricing/",
     },
     {
       "@type": "Offer",
       name: "Premium",
-      price: "1699",
+      price: "1999",
       priceCurrency: "NZD",
-      description: "Per month, with a 7-day free trial. Everything in Standard plus accounting & general ledger, supplier rebates & claim-backs, advanced reporting & P&L, Xero & other integrations, API access, AI reorder suggestions, priority support and guided onboarding.",
+      description: "Per month, with a 14-day free trial. Everything in Standard plus accounting & general ledger, supplier rebates & claim-backs, advanced reporting & P&L, Xero & other integrations, API access, AI reorder suggestions, priority support and guided onboarding.",
       availability: "https://schema.org/InStock",
       url: "https://cognitsystem.com/pricing/",
     },
@@ -185,8 +184,8 @@ const faqSchema = {
 ---
 
 <Layout
-  title="Cognit Pricing — 7-Day Free Trial, then Standard, Premium & Enterprise"
-  description="Cognit pricing: a 7-day free trial of the whole system, plus paid plans Standard (NZD $599/mo) and Premium (NZD $1,699/mo) — each with a 7-day free trial, no credit card. No lock-in. Setup, data migration and training included on paid plans."
+  title="Cognit Pricing — 14-Day Free Trial, then Standard, Premium & Enterprise"
+  description="Cognit pricing: a 14-day free trial of the whole system, plus paid plans Standard (NZD $899/mo) and Premium (NZD $1,999/mo) — each with a 14-day free trial, no credit card. No lock-in. Setup, data migration and training included on paid plans."
   path="/pricing"
   schema={[offerSchema, faqSchema]}
 >
@@ -208,7 +207,7 @@ const faqSchema = {
         </h1>
         <p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-slate-300 sm:text-xl">
           Get your own built-in B2B online store free, forever — or try the full
-          Standard or Premium system free for 7 days, no credit card. We set it up
+          Standard or Premium system free for 14 days, no credit card. We set it up
           for you and email your login.
         </p>
       </div>
@@ -218,10 +217,10 @@ const faqSchema = {
     <section class="mx-auto -mt-10 max-w-5xl px-5 sm:px-8">
       <div class="card-grad relative z-10 flex flex-col items-center justify-between gap-4 rounded-2xl px-6 py-5 text-center shadow-xl shadow-cog-purple/15 sm:flex-row sm:text-left">
         <p class="text-cog-ink">
-          <strong class="font-extrabold">Try Standard or Premium free for 7 days</strong>
+          <strong class="font-extrabold">Try Standard or Premium free for 14 days</strong>
           — no credit card. We set it up for you and email your login.
         </p>
-        <a href="/start?plan=standard" class="btn-grad !px-6 !py-3 text-sm">Start 7-day free trial →</a>
+        <a href="/start?plan=standard" class="btn-grad !px-6 !py-3 text-sm">Start 14-day free trial →</a>
       </div>
     </section>
 
@@ -310,7 +309,7 @@ const faqSchema = {
 
       <div class="mt-10 flex flex-wrap justify-center gap-3">
         <a href="/start?plan=free" class="btn-ghost">Get started free</a>
-        <a href="/start?plan=standard" class="btn-grad">Start 7-day free trial →</a>
+        <a href="/start?plan=standard" class="btn-grad">Start 14-day free trial →</a>
       </div>
     </section>
 
