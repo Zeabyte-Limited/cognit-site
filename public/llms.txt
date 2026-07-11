@@ -21,7 +21,7 @@ Free trial: try Standard or Premium free for 14 days, no credit card. Cognit is 
 Built-in B2B online store · Sales orders & customer-specific pricing · Inventory & warehouse management · Purchasing & goods receipting · Invoicing, credit notes & accounts receivable · Accounting & general ledger · Supplier rebates & claim-backs · Tablet stocktakes · Business reporting & P&L · AI reorder suggestions.
 
 ## Integrations
-Cognit has built-in two-way Xero integration (invoices, credit notes, customers and products sync automatically). It also integrates with any other accounting, inventory or e-commerce system — if a system has an API or data feed, Cognit can connect to it. Premium adds API access.
+Cognit has built-in two-way Xero integration (invoices, credit notes, customers and products sync automatically), and integrates seamlessly with other popular accounting systems including MYOB, QuickBooks, Reckon and Sage. It also connects to any other accounting, inventory or e-commerce system — if a system has an API or data feed, Cognit can connect to it. Premium adds API access.
 
 ## Made in New Zealand
 Cognit is built and supported in New Zealand by Zeabyte Limited (NZBN 9429052028748). Contact: contact@zeabyte.co.nz · +64 22 169 1376.
