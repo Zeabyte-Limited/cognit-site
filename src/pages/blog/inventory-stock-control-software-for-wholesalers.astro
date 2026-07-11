@@ -1,0 +1,178 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+const site = "https://cognitsystem.com";
+const slug = "inventory-stock-control-software-for-wholesalers";
+const url = `${site}/blog/${slug}/`;
+
+const title = "Inventory & Stock Control Software for Wholesalers | Cognit";
+const description =
+  "Why spreadsheets and disconnected stock systems cost wholesalers and distributors in New Zealand and Australia real money — and what to look for in inventory and stock control software that keeps every sale, purchase and stocktake in sync.";
+
+const faqs = [
+  {
+    q: "What is stock control software for wholesalers?",
+    a: "Stock control software tracks what you hold, where it sits and how it moves — stock on hand, reorder levels, bin or shelf locations, adjustments and write-offs. For a wholesaler it needs to be live and connected to sales and purchasing, not a separate spreadsheet that's updated after the fact.",
+  },
+  {
+    q: "Why do spreadsheets fail for inventory management?",
+    a: "A spreadsheet only knows what someone typed into it. It doesn't update when an online order is placed, a rep enters a sale, or a delivery is receipted, so the numbers drift from reality within days. Distributors end up overselling stock they don't have, or missing reorders because a count was never entered.",
+  },
+  {
+    q: "Does Cognit do stocktakes?",
+    a: "Yes. Cognit supports tablet stocktakes that your warehouse team can run from the floor, with a full audit trail of stock movements. Because inventory is part of the same system as sales and purchasing, stocktake adjustments update stock everywhere immediately — including your online store.",
+  },
+  {
+    q: "How does inventory link to reordering and rebates?",
+    a: "Cognit sets reorder levels with smart suggestions based on real stock movement, so purchasing knows what to buy and when. Because purchasing and inventory share the same data, supplier rebates and claim-backs can also be calculated automatically from what you've actually bought — see our guide on supplier rebates.",
+  },
+];
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "Inventory and stock control software for wholesalers",
+  description,
+  author: { "@type": "Organization", name: "Cognit System", url: site },
+  publisher: {
+    "@type": "Organization",
+    name: "Cognit System",
+    logo: { "@type": "ImageObject", url: `${site}/logo.png` },
+  },
+  datePublished: "2026-07-11",
+  dateModified: "2026-07-11",
+  mainEntityOfPage: { "@type": "WebPage", "@id": url },
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+---
+
+<Layout title={title} description={description} path={`/blog/${slug}`} schema={[articleSchema, faqSchema]}>
+  <Header />
+
+  <main class="bg-cog-stone text-cog-slate">
+    <!-- HERO (photographic) -->
+    <section class="orbs relative isolate overflow-hidden">
+      <img src="/images/warehouse-aisle.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" />
+      <div class="absolute inset-0 -z-10 bg-cog-ink/82"></div>
+      <div class="dotgrid absolute inset-0 -z-10 opacity-40"></div>
+      <div class="mx-auto max-w-3xl px-5 pt-20 pb-20 text-center sm:px-8 sm:pt-28 hero-rise">
+        <span class="chip mx-auto border border-white/15 text-slate-200">Insights</span>
+        <h1 class="mt-5 text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl">
+          Inventory and stock control software for wholesalers
+        </h1>
+        <p class="mt-4 text-lg text-slate-300">
+          Why disconnected stock systems quietly cost distributors money — and what
+          real-time inventory should actually look like.
+        </p>
+      </div>
+    </section>
+
+    <!-- BODY -->
+    <section class="mx-auto max-w-3xl px-5 pb-16 sm:px-8">
+      <article class="article">
+        <p>
+          Ask a wholesaler what keeps them up at night and stock is usually near the
+          top: overselling a line that's actually out, a stocktake that never quite
+          matches the shelf, or a warehouse team re-counting by hand because nobody
+          trusts the numbers on screen. Most of this comes down to one root cause —
+          stock is tracked somewhere separate from where sales and purchasing
+          actually happen.
+        </p>
+
+        <h2>Why disconnected stock systems fail</h2>
+        <p>
+          A lot of distributors run inventory in a spreadsheet, a standalone stock
+          app, or a warehouse system that doesn't talk to sales. Each one works fine
+          in isolation, but the moment an order is placed on the website, a rep keys
+          a sale, or a delivery lands, the spreadsheet doesn't know. The gap between
+          what the system says and what's actually on the shelf grows every day, and
+          it's your team that pays for it — with oversold orders, emergency
+          re-counts and customers told "sorry, that's actually out of stock" after
+          they've already ordered it.
+        </p>
+
+        <h2>What real-time inventory actually means</h2>
+        <p>
+          Real-time inventory isn't a nightly sync or an overnight batch job — it's
+          stock on hand that updates the instant something moves, wherever that
+          movement happens. In <a href="/features/inventory">Cognit's inventory
+          module</a>, every sale, purchase, stock adjustment and write-off updates
+          the same number, and that number is what your <a href="/ecommerce">online
+          store</a> shows customers too. There's no separate "web stock" figure to
+          keep in sync — it's one truth, everywhere at once.
+        </p>
+        <ul>
+          <li><strong>Live stock on hand</strong> — the number on the shelf, the number in the app and the number online always match</li>
+          <li><strong>Reorder levels with smart suggestions</strong> — purchasing knows what to buy and when, based on real movement, not gut feel</li>
+          <li><strong>Bin and shelf locations</strong> — so anyone in the warehouse can find stock fast, not just the person who's been there ten years</li>
+          <li><strong>Adjustments and write-offs</strong> — damages, shrinkage and corrections logged properly instead of quietly disappearing</li>
+          <li><strong>A full audit trail</strong> — every movement is traceable back to the order, purchase or stocktake that caused it</li>
+        </ul>
+
+        <h2>Tablet stocktakes your warehouse can actually run</h2>
+        <p>
+          Stocktakes are where most stock systems fall down — either they don't
+          support them at all, or they mean printing sheets, counting by hand and
+          keying everything back in days later, by which point the count is already
+          out of date. Cognit supports tablet stocktakes your warehouse team runs
+          straight from the floor, and because inventory sits inside the same system
+          as sales and purchasing, an adjustment updates stock everywhere the moment
+          it's confirmed — including what customers see on your online store.
+        </p>
+
+        <h2>Stock control feeds everything else</h2>
+        <p>
+          Accurate stock isn't just a warehouse problem — it's what the rest of the
+          business runs on. <a href="/features/purchasing">Purchasing</a> needs
+          correct stock to know what to buy. <a href="/features/rebates">Rebates and
+          claim-backs</a> are calculated from real purchase data, so they're only as
+          good as the stock and purchasing figures underneath them — see our guide on
+          <a href="/blog/supplier-rebates-and-claim-backs-software">stopping rebate
+          losses</a>. And <a href="/features/reporting">reporting</a> like stock
+          valuation and margin only means something if the stock number it's built on
+          is real.
+        </p>
+
+        <h2>Signs it's time to fix your stock control</h2>
+        <ul>
+          <li>You oversell products that show as "in stock" online or in the system</li>
+          <li>Stocktakes take days and the count still doesn't match what's on the shelf</li>
+          <li>Nobody fully trusts the stock numbers, so people double-check by walking the warehouse</li>
+          <li>Reordering is a guess, or based on who remembers to check</li>
+          <li>Your online store shows different stock to what your warehouse actually has</li>
+        </ul>
+        <p>
+          If any of that sounds familiar, the fix usually isn't a better spreadsheet
+          — it's putting stock, sales and purchasing on one connected system. That's
+          also the moment to think about consolidating other disconnected tools; we
+          cover the broader approach in
+          <a href="/blog/replace-multiple-business-systems-with-one-erp">replacing
+          multiple systems with one ERP</a>. See <a href="/pricing">pricing</a> or
+          <a href="/start">start a free trial</a> to see real-time inventory running
+          against your own products.
+        </p>
+
+        <h2>Frequently asked questions</h2>
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </article>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
