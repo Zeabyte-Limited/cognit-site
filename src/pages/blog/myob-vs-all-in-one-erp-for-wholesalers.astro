@@ -1,0 +1,176 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+const site = "https://cognitsystem.com";
+const slug = "myob-vs-all-in-one-erp-for-wholesalers";
+const url = `${site}/blog/${slug}/`;
+
+const title = "MYOB or an All-in-One ERP? What Australian Wholesalers Need to Know | Cognit";
+const description =
+  "MYOB is solid at the books, but it was never built to run B2B ordering, real-time stock or customer-specific wholesale pricing. Here's how to tell whether MYOB alone is still enough, or whether it's time for an all-in-one ERP — and how Cognit fits either way.";
+
+const faqs = [
+  {
+    q: "Can MYOB run a wholesale or distribution business on its own?",
+    a: "MYOB is built for accounting — invoicing, GST/BAS and the books — and it does that well. It wasn't built for B2B e-commerce, live multi-location stock, customer-specific wholesale pricing or supplier rebate tracking, so most wholesalers end up bolting on separate tools for those jobs, then re-keying between systems by hand.",
+  },
+  {
+    q: "Do I have to give up MYOB to use Cognit?",
+    a: "No. Cognit integrates seamlessly with MYOB, syncing the financial side automatically so your accountant keeps working in the software they know. Cognit also has its own full general ledger, so if you'd rather run accounts in one place, you can move onto Cognit's ledger and retire MYOB entirely. Both options are supported.",
+  },
+  {
+    q: "What does Cognit do that MYOB doesn't?",
+    a: "Cognit adds a built-in B2B online store, live inventory shared across every sales channel, customer-specific and group pricing, purchasing with goods receipting, automatic supplier rebate calculation and reporting — all on one system, with MYOB (or Cognit's own ledger) handling the accounting underneath.",
+  },
+  {
+    q: "Is Cognit available in Australia?",
+    a: "Yes. Cognit is built for wholesale distributors, manufacturers and food and beverage suppliers across both New Zealand and Australia, with pricing in NZD and a 14-day free trial. It integrates with MYOB, Xero, QuickBooks, Reckon, Sage and other accounting systems your accountant already uses.",
+  },
+];
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "MYOB or an all-in-one ERP? What Australian wholesalers need to know",
+  description,
+  author: { "@type": "Organization", name: "Cognit System", url: site },
+  publisher: {
+    "@type": "Organization",
+    name: "Cognit System",
+    logo: { "@type": "ImageObject", url: `${site}/logo.png` },
+  },
+  datePublished: "2026-07-12",
+  dateModified: "2026-07-12",
+  mainEntityOfPage: { "@type": "WebPage", "@id": url },
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+---
+
+<Layout title={title} description={description} path={`/blog/${slug}`} schema={[articleSchema, faqSchema]}>
+  <Header />
+
+  <main class="bg-cog-stone text-cog-slate">
+    <!-- HERO (photographic) -->
+    <section class="orbs relative isolate overflow-hidden">
+      <img src="/images/logistics-truck.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" />
+      <div class="absolute inset-0 -z-10 bg-cog-ink/82"></div>
+      <div class="dotgrid absolute inset-0 -z-10 opacity-40"></div>
+      <div class="mx-auto max-w-3xl px-5 pt-20 pb-20 text-center sm:px-8 sm:pt-28 hero-rise">
+        <span class="chip mx-auto border border-white/15 text-slate-200">Insights</span>
+        <h1 class="mt-5 text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl">
+          MYOB or an all-in-one ERP? What Australian wholesalers need to know
+        </h1>
+        <p class="mt-4 text-lg text-slate-300">
+          MYOB is solid at the books — but it was never built to run B2B ordering,
+          live stock or wholesale pricing. Here's how to tell if it's still enough.
+        </p>
+      </div>
+    </section>
+
+    <!-- BODY -->
+    <section class="mx-auto max-w-3xl px-5 pb-16 sm:px-8">
+      <article class="article">
+        <p>
+          Most Australian wholesalers and distributors already run MYOB, and for the
+          job it was built for — invoicing, GST/BAS, payroll and the books — it does
+          the job well. The trouble usually isn't MYOB itself. It's everything a
+          product business needs around it: customers ordering online, stock that's
+          right across every channel, different pricing for every account and
+          supplier rebates that don't fall through the cracks. MYOB was never built
+          to do any of that, so it ends up as one tool in a growing patchwork.
+        </p>
+
+        <h2>What MYOB is genuinely good at</h2>
+        <p>
+          It's worth being fair to MYOB: it's a mature, well-supported accounting
+          package, and plenty of accountants and bookkeepers in Australia know it
+          inside out. If all you need is to invoice customers and lodge your BAS, it
+          does that reliably. The gap only shows up once you're running a wholesale
+          operation on top of it.
+        </p>
+
+        <h2>Where the patchwork starts</h2>
+        <p>
+          Ask a wholesaler running MYOB alone how orders actually reach them, and the
+          answer is usually phone, email or a rep on the road — because MYOB has no
+          B2B storefront for customers to order from directly. Stock is tracked
+          separately, so someone has to keep an eye on what's actually on the shelf
+          versus what a spreadsheet says. Every trade account has its own pricing,
+          managed by hand. And supplier rebates get claimed — or missed — based on
+          whoever remembered to check this month. Each gap gets patched with another
+          tool, another login, another thing to keep in sync.
+        </p>
+
+        <h2>What an all-in-one ERP adds</h2>
+        <p>
+          <a href="/what-is-an-erp">An all-in-one ERP</a> like Cognit isn't a
+          replacement for accounting discipline — it's everything a wholesale
+          business runs day to day, built as one connected system instead of a
+          patchwork:
+        </p>
+        <ul>
+          <li><strong>A built-in <a href="/ecommerce">B2B online store</a></strong> — customers log in, see their own pricing and order 24/7, with orders flowing straight through to stock and invoicing</li>
+          <li><strong>Live <a href="/features/inventory">inventory</a></strong> — one true stock number across the store, staff order entry and the warehouse, not a nightly sync</li>
+          <li><strong>Customer &amp; group <a href="/features/sales">pricing</a></strong> — set once, applied everywhere an order is placed</li>
+          <li><strong><a href="/features/purchasing">Purchasing</a> and goods receipting</strong> — know what's on order and what's landed</li>
+          <li><strong><a href="/features/rebates">Rebate and claim-back tracking</a></strong> — calculated automatically from what you've actually bought, not a spreadsheet someone updates when they remember</li>
+        </ul>
+        <p>
+          See our guide on <a href="/blog/supplier-rebates-and-claim-backs-software">
+          stopping rebate losses</a> for how much a missed claim can quietly cost.
+        </p>
+
+        <h2>Where MYOB fits into the picture</h2>
+        <p>
+          This isn't an either/or choice. Cognit integrates seamlessly with MYOB, so
+          your accountant keeps working in the software they already trust while you
+          run sales, stock and the store in Cognit — nothing gets re-typed between
+          the two. If you'd rather run accounts in one place entirely, Cognit also
+          has a real general ledger of its own — chart of accounts, journals, trial
+          balance and balance sheet — so you can retire MYOB once you're ready. Both
+          paths are common; see our guide on
+          <a href="/blog/do-i-still-need-xero-with-an-erp">whether you still need
+          separate accounting software once you have an ERP</a> for how that
+          decision plays out in practice.
+        </p>
+
+        <h2>Signs it's time to move beyond MYOB alone</h2>
+        <ul>
+          <li>Orders still come in by phone, email or text, and someone re-keys them into MYOB</li>
+          <li>Stock numbers in MYOB (or a side spreadsheet) don't match what's actually on the shelf</li>
+          <li>Customer pricing lives in someone's head, a price list, or a string of past invoices</li>
+          <li>Supplier rebates are tracked by hand, if they're tracked at all</li>
+          <li>You're paying for MYOB plus a separate inventory tool, a website and a CRM that don't talk to each other</li>
+        </ul>
+        <p>
+          If that sounds familiar, the fix isn't switching accounting packages — it's
+          putting ordering, stock, pricing and rebates on one connected system, with
+          your accounting either inside it or synced cleanly alongside it. See
+          <a href="/pricing">pricing</a> or <a href="/start">start a 14-day free
+          trial</a> to see it running against your own products and customers.
+        </p>
+
+        <h2>Frequently asked questions</h2>
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </article>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
