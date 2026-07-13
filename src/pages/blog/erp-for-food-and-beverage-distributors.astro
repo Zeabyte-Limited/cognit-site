@@ -1,0 +1,181 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+const site = "https://cognitsystem.com";
+const slug = "erp-for-food-and-beverage-distributors";
+const url = `${site}/blog/${slug}/`;
+
+const title = "ERP for Food & Beverage Distributors: What to Look For (NZ & AU) | Cognit";
+const description =
+  "Food and beverage distributors run on short shelf life, tight margins and customers who order at all hours. Here's what an ERP actually needs to handle that job — and where generic accounting software falls short.";
+
+const faqs = [
+  {
+    q: "Why do food and beverage distributors need a different ERP to other wholesalers?",
+    a: "The fundamentals are similar, but food and beverage adds pressure points generic ERPs weren't built for: stock that loses value fast if it sits, reps and delivery runs to keep straight, customer-specific pricing across cafés, retailers and hospitality accounts, and supplier rebates that are easy to miss on high-volume, low-margin lines. An ERP built around those pressures saves far more time than one you have to work around.",
+  },
+  {
+    q: "Can Cognit handle multiple branches or depots?",
+    a: "Yes. Cognit runs several branches or depots on one platform with a real general ledger underneath, so stock, sales and profit roll up across the whole business in real time, while each branch still works from its own local view of stock and orders.",
+  },
+  {
+    q: "Do my customers need to download an app to order?",
+    a: "No. Cognit's B2B store is a branded web storefront your customers log into from any browser — no app to install. They see their own pricing, reorder from saved pantries and place orders 24/7, and every order flows straight through to stock, picking and invoicing.",
+  },
+  {
+    q: "Is Cognit available for food and beverage distributors in Australia as well as New Zealand?",
+    a: "Yes. Cognit is built for wholesale distributors, manufacturers and food and beverage suppliers across both New Zealand and Australia, with a 14-day free trial and NZ-based support. It integrates with Xero, MYOB, QuickBooks and other accounting systems.",
+  },
+];
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "ERP for food and beverage distributors: what to look for",
+  description,
+  author: { "@type": "Organization", name: "Cognit System", url: site },
+  publisher: {
+    "@type": "Organization",
+    name: "Cognit System",
+    logo: { "@type": "ImageObject", url: `${site}/logo.png` },
+  },
+  datePublished: "2026-07-13",
+  dateModified: "2026-07-13",
+  mainEntityOfPage: { "@type": "WebPage", "@id": url },
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+---
+
+<Layout title={title} description={description} path={`/blog/${slug}`} schema={[articleSchema, faqSchema]}>
+  <Header />
+
+  <main class="bg-cog-stone text-cog-slate">
+    <!-- HERO (photographic) -->
+    <section class="orbs relative isolate overflow-hidden">
+      <img src="/images/hero-warehouse-dark.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" />
+      <div class="absolute inset-0 -z-10 bg-cog-ink/82"></div>
+      <div class="dotgrid absolute inset-0 -z-10 opacity-40"></div>
+      <div class="mx-auto max-w-3xl px-5 pt-20 pb-20 text-center sm:px-8 sm:pt-28 hero-rise">
+        <span class="chip mx-auto border border-white/15 text-slate-200">Insights</span>
+        <h1 class="mt-5 text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl">
+          ERP for food and beverage distributors: what to look for
+        </h1>
+        <p class="mt-4 text-lg text-slate-300">
+          Short shelf life, tight margins and customers who order at all hours —
+          here's what actually matters when you're choosing a system to run it on.
+        </p>
+      </div>
+    </section>
+
+    <!-- BODY -->
+    <section class="mx-auto max-w-3xl px-5 pb-16 sm:px-8">
+      <article class="article">
+        <p>
+          Food and beverage distribution runs at a different pace to most wholesale.
+          Stock that sits too long loses value. Cafés, retailers and hospitality
+          accounts each want their own pricing and their own ordering rhythm. Reps
+          are on the road, drivers have runs to finish, and every high-volume,
+          low-margin line has to move fast to be worth carrying at all. A lot of
+          distributors are still running that business on accounting software plus a
+          spreadsheet or two — and it works, right up until it doesn't.
+        </p>
+
+        <h2>Stock that reflects what's really on the shelf</h2>
+        <p>
+          In food and beverage, a stock number that's wrong isn't just an
+          inconvenience — it's an oversold order to a café that needed it this
+          morning, or good stock sitting unsold because the system said there wasn't
+          any. What you need is <a href="/features/inventory">one live stock
+          count</a> that drops the moment an order lands, whether it came from a rep,
+          the warehouse floor or your online store, so nothing gets promised twice.
+          Our guide on <a href="/blog/inventory-stock-control-software-for-wholesalers">
+          inventory and stock control for wholesalers</a> covers what real-time stock
+          should actually look like.
+        </p>
+
+        <h2>Pricing that holds for every account, every channel</h2>
+        <p>
+          A café, an independent retailer and a hospitality chain buying the same
+          product will often be on three different deals — and every one of those
+          prices needs to be right whether the order comes in from a rep's tablet, a
+          phone call or your online store. Set <a href="/features/sales">customer
+          and group pricing</a> once and it should apply everywhere automatically,
+          rather than living in someone's head or a price list that's a version or
+          two out of date.
+        </p>
+
+        <h2>A store that takes orders while you're closed</h2>
+        <p>
+          Hospitality and retail buyers don't all order between nine and five — a
+          café placing a top-up order at 6am or a restaurant reordering after close
+          shouldn't have to wait for someone to pick up the phone. A built-in
+          <a href="/ecommerce">B2B online store</a> lets customers log in, see their
+          own pricing, reorder from a saved pantry in a couple of taps and place the
+          order whenever suits them, with everything flowing straight through to
+          stock and invoicing — no re-keying required.
+        </p>
+
+        <h2>Reps, routes and rebates, all on the same data</h2>
+        <p>
+          Reps on the road need to place orders against the same live stock and
+          pricing your customers see online, not a version that's a day behind.
+          Drivers need their runs without someone in the office re-typing a picking
+          list. And on high-volume lines, supplier rebates and claim-backs are easy
+          to under-claim if they're tracked by hand — see
+          <a href="/blog/supplier-rebates-and-claim-backs-software">how to stop
+          losing money on supplier rebates</a> for how much that quietly costs.
+          <a href="/features/purchasing">Purchasing and goods receipting</a> should
+          sit on the same system too, so what's on order and what's landed is never
+          a guess.
+        </p>
+
+        <h2>One picture across every branch or depot</h2>
+        <p>
+          Plenty of food and beverage distributors run more than one depot or
+          branch, each with its own local stock and run sheets. The system underneath
+          still needs to roll all of that up into one true picture — sales, stock and
+          margin across the whole business — without head office having to
+          reconcile several sets of numbers by hand at month end.
+        </p>
+
+        <h2>What this looks like put together</h2>
+        <p>
+          This is exactly the job <a href="/industries/food-distribution">Cognit's
+          food distribution setup</a> is built around: live inventory, customer and
+          group pricing, a built-in B2B store, reps and routes, automatic rebate
+          tracking and multi-branch reporting, all sharing the same data instead of
+          syncing between separate tools. Cognit also has a real general ledger of
+          its own and syncs two-way with Xero, so your accountant keeps working the
+          way they already do.
+        </p>
+        <p>
+          If your team is still juggling a phone, a spreadsheet and an accounting
+          package to run a food or beverage distribution business, see
+          <a href="/pricing">pricing</a> or <a href="/start">start a 14-day free
+          trial</a> to see it running against your own products and customers.
+        </p>
+
+        <h2>Frequently asked questions</h2>
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </article>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
