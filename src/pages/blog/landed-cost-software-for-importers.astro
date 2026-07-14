@@ -1,0 +1,186 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+const site = "https://cognitsystem.com";
+const slug = "landed-cost-software-for-importers";
+const url = `${site}/blog/${slug}/`;
+
+const title = "Landed Cost Software for Importers & Distributors (NZ & AU) | Cognit";
+const description =
+  "If you're pricing off the supplier invoice, you're pricing wrong. Here's how freight, duty, exchange rate and handling actually change your unit cost — and how landed cost software keeps your margin honest.";
+
+const faqs = [
+  {
+    q: "What is landed cost?",
+    a: "Landed cost is the true cost of a product once it's actually on your shelf — the supplier price plus freight, customs duty, GST or import taxes where applicable, currency conversion and any local handling or cartage. It's almost always higher than the number on the supplier invoice, sometimes by a lot.",
+  },
+  {
+    q: "Why can't I just price off the supplier invoice?",
+    a: "Because the supplier invoice is only one part of what a product actually costs you. Freight and duty can add anywhere from a few percent to well over the item's ex-works price, and exchange rate movement changes it again between order and payment. Price off the invoice alone and you're often selling below true cost without realising it until margin reporting tells you months later.",
+  },
+  {
+    q: "How does Cognit calculate landed cost?",
+    a: "Cognit's purchasing module lets you receipt goods against a purchase order and capture the real costs that come with landing stock — not just the supplier price. That landed figure is what feeds inventory valuation, margin reporting and pricing, so every number downstream reflects what stock actually cost you, not just what the supplier billed you.",
+  },
+  {
+    q: "Does this work if I import in USD, EUR or another currency?",
+    a: "Yes. Cognit handles multi-currency purchasing, so exchange rate movement is captured as part of the transaction rather than reconciled separately at month end. Combined with Cognit's own general ledger — or a two-way Xero sync if you prefer running your books there — your landed cost and your accounts stay in step.",
+  },
+  {
+    q: "Is Cognit suitable for importers who also sell wholesale to trade customers?",
+    a: "Yes — that's exactly the business Cognit is built for. Purchasing and landed cost sit on the same platform as inventory, a built-in B2B online store, supplier rebates and claim-backs, and real accounting, so stock that's just landed can be selling to trade customers the same day, at a price that reflects what it actually cost to bring in.",
+  },
+];
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "Landed cost software for importers and distributors",
+  description,
+  author: { "@type": "Organization", name: "Cognit System", url: site },
+  publisher: {
+    "@type": "Organization",
+    name: "Cognit System",
+    logo: { "@type": "ImageObject", url: `${site}/logo.png` },
+  },
+  datePublished: "2026-07-14",
+  dateModified: "2026-07-14",
+  mainEntityOfPage: { "@type": "WebPage", "@id": url },
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+---
+
+<Layout title={title} description={description} path={`/blog/${slug}`} schema={[articleSchema, faqSchema]}>
+  <Header />
+
+  <main class="bg-cog-stone text-cog-slate">
+    <!-- HERO (photographic) -->
+    <section class="orbs relative isolate overflow-hidden">
+      <img src="/images/hero-port-night.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" />
+      <div class="absolute inset-0 -z-10 bg-cog-ink/82"></div>
+      <div class="dotgrid absolute inset-0 -z-10 opacity-40"></div>
+      <div class="mx-auto max-w-3xl px-5 pt-20 pb-20 text-center sm:px-8 sm:pt-28 hero-rise">
+        <span class="chip mx-auto border border-white/15 text-slate-200">Insights</span>
+        <h1 class="mt-5 text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl">
+          Landed cost software for importers and distributors
+        </h1>
+        <p class="mt-4 text-lg text-slate-300">
+          If you're pricing off the supplier invoice, you're pricing wrong. Here's
+          what actually changes your unit cost — and how to stop losing margin to it.
+        </p>
+      </div>
+    </section>
+
+    <!-- BODY -->
+    <section class="mx-auto max-w-3xl px-5 pb-16 sm:px-8">
+      <article class="article">
+        <p>
+          Ask most importers what a product costs and they'll quote the supplier
+          invoice. Ask their accountant, three months later, why margin came in
+          lower than expected, and the answer is usually the same thing: freight,
+          duty, exchange rate and handling never made it into the price. None of
+          those costs are small, and none of them show up on the supplier's
+          invoice — which means if that's the only number you're pricing from,
+          you're pricing wrong before the container's even landed.
+        </p>
+
+        <h2>What actually sits between the invoice and the shelf</h2>
+        <p>
+          The supplier price is the starting point, not the answer. Between an
+          order being placed and stock being sellable, several costs stack on
+          top of it:
+        </p>
+        <ul>
+          <li><strong>Freight</strong> — sea or air freight, which can vary significantly by season and route, and rarely maps neatly to a per-unit cost without doing the maths</li>
+          <li><strong>Customs duty and import taxes</strong> — set by product category and country of origin, and easy to under- or overestimate if you're not tracking it against actual purchases</li>
+          <li><strong>Exchange rate movement</strong> — the NZD or AUD rate on the day you placed the order is rarely the rate on the day you paid, and that gap changes your real cost every time</li>
+          <li><strong>Local handling and cartage</strong> — customs clearance, wharfage, cartage from port to warehouse and any storage while goods clear</li>
+        </ul>
+        <p>
+          Add those together and it's common for landed cost to sit well above the
+          ex-works or FOB price on the supplier invoice — sometimes by a wide
+          margin, and it moves shipment to shipment. Price off the invoice alone
+          and that gap comes straight out of your margin, quietly, until a
+          <a href="/features/reporting">margin report</a> eventually shows you the
+          damage.
+        </p>
+
+        <h2>Why this usually only shows up too late</h2>
+        <p>
+          The reason landed cost problems go unnoticed for so long is that
+          purchasing, freight and accounts usually live in separate places — a
+          purchase order in one system, a freight invoice in email, duty on a
+          customs statement, and the real cost only pieced together by finance at
+          month end, if at all. By the time anyone spots that a line has been
+          selling under true cost, it's often been that way for months and
+          several more containers of the same stock have landed at the same
+          wrong price.
+        </p>
+
+        <h2>What landed cost software should actually do</h2>
+        <p>
+          The fix isn't a better spreadsheet — it's capturing landed cost as part
+          of the same process as <a href="/features/purchasing">purchasing and
+          goods receipting</a>, so the real cost is attached to stock the moment
+          it arrives, not reconciled afterwards:
+        </p>
+        <ul>
+          <li>Purchase orders and goods receipting on one system, so freight, duty and handling can be captured against the stock they belong to</li>
+          <li>A landed cost that feeds straight into <a href="/features/inventory">inventory valuation</a>, not a separate number kept on the side</li>
+          <li>Multi-currency purchasing, so exchange rate movement is captured as it happens rather than reconciled at month end</li>
+          <li>Pricing and margin reporting built on the landed figure, so what you charge reflects what stock actually cost</li>
+        </ul>
+
+        <h2>Landed cost, then sell-through, on one system</h2>
+        <p>
+          For importers who sell on to trade customers, getting landed cost right
+          matters even more, because it feeds directly into what you can safely
+          charge through your <a href="/ecommerce">B2B online store</a> and
+          your reps. Cognit brings purchasing and goods receipting, inventory,
+          the built-in store, <a href="/features/rebates">supplier rebates and
+          claim-backs</a> and real accounting onto one platform, so stock that's
+          just cleared customs can be priced correctly and selling to trade
+          customers the same day — see how it comes together on our
+          <a href="/industries/importers">ERP for importers and distributors</a>
+          page.
+        </p>
+        <p>
+          Cognit also has its own general ledger and syncs two-way with Xero, so
+          landed cost, purchasing and your accounts stay in step whichever way
+          your books are run.
+        </p>
+
+        <h2>Getting your landed cost under control</h2>
+        <p>
+          If margin has been drifting and nobody's quite sure why, landed cost is
+          one of the first places to look — particularly on imported lines with
+          long freight routes or duty-heavy categories. See
+          <a href="/pricing">pricing</a> or <a href="/start">start a 14-day free
+          trial</a> to see landed cost, purchasing and margin reporting running
+          against your own products.
+        </p>
+
+        <h2>Frequently asked questions</h2>
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </article>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
