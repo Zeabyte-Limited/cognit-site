@@ -1,0 +1,184 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+const site = "https://cognitsystem.com";
+const slug = "customer-specific-pricing-for-wholesalers";
+const url = `${site}/blog/${slug}/`;
+
+const title = "Customer-Specific Pricing for Wholesale Distributors (NZ & AU) | Cognit";
+const description =
+  "Your best customers get a better price — but if that price lives in someone's head or a spreadsheet, you're one order away from a mistake. How customer-specific pricing and price lists should actually work.";
+
+const faqs = [
+  {
+    q: "What is customer-specific pricing?",
+    a: "Customer-specific pricing means different trade customers can be charged different prices for the same product — a volume buyer might get a lower rate than a one-off customer, or a customer group like 'hospitality' might sit on its own price list entirely. It reflects the reality of wholesale trading, where price is usually negotiated per relationship, not fixed for everyone.",
+  },
+  {
+    q: "How do most distributors manage this today?",
+    a: "Often it's a mix of a rep's memory, a note in a spreadsheet, and whatever price was charged last time. That works until the rep is away, a new staff member takes the order, or a customer disputes an invoice — at which point nobody can say with confidence what the agreed price actually was.",
+  },
+  {
+    q: "How does Cognit handle customer-specific pricing?",
+    a: "Cognit lets you set pricing per customer or per customer group, and build price lists that apply automatically — to staff order entry and to the customer's own login on your B2B online store. Whoever places the order, and however it's placed, the right price applies without anyone needing to remember it.",
+  },
+  {
+    q: "Does this work through the online store as well as over the phone?",
+    a: "Yes. Because pricing sits in the same system as the store, a customer logged into their account sees their own price on every product — not a generic list price they then have to query. Staff entering an order on their behalf see exactly the same figure.",
+  },
+  {
+    q: "Can pricing change without disrupting current orders or invoices?",
+    a: "Yes. Update a customer's pricing or move them to a different price list and it applies going forward, while past orders and invoices keep the price they were placed at. Nothing needs to be manually corrected or reissued.",
+  },
+];
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "Customer-specific pricing for wholesale distributors",
+  description,
+  author: { "@type": "Organization", name: "Cognit System", url: site },
+  publisher: {
+    "@type": "Organization",
+    name: "Cognit System",
+    logo: { "@type": "ImageObject", url: `${site}/logo.png` },
+  },
+  datePublished: "2026-07-15",
+  dateModified: "2026-07-15",
+  mainEntityOfPage: { "@type": "WebPage", "@id": url },
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+---
+
+<Layout title={title} description={description} path={`/blog/${slug}`} schema={[articleSchema, faqSchema]}>
+  <Header />
+
+  <main class="bg-cog-stone text-cog-slate">
+    <!-- HERO (photographic) -->
+    <section class="orbs relative isolate overflow-hidden">
+      <img src="/images/food-distribution.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" />
+      <div class="absolute inset-0 -z-10 bg-cog-ink/82"></div>
+      <div class="dotgrid absolute inset-0 -z-10 opacity-40"></div>
+      <div class="mx-auto max-w-3xl px-5 pt-20 pb-20 text-center sm:px-8 sm:pt-28 hero-rise">
+        <span class="chip mx-auto border border-white/15 text-slate-200">Insights</span>
+        <h1 class="mt-5 text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl">
+          Customer-specific pricing for wholesale distributors
+        </h1>
+        <p class="mt-4 text-lg text-slate-300">
+          Your best customers get a better price. If that price only lives in a
+          rep's head or a spreadsheet, you're one order away from getting it wrong.
+        </p>
+      </div>
+    </section>
+
+    <!-- BODY -->
+    <section class="mx-auto max-w-3xl px-5 pb-16 sm:px-8">
+      <article class="article">
+        <p>
+          Ask any wholesale distributor whether every customer pays the same
+          price and the answer is almost always no. Volume buyers negotiate a
+          better rate. Long-standing accounts get loyalty pricing. A hospitality
+          group might sit on an entirely different price list to a corner-store
+          customer. That's normal, sensible trading — the problem is where that
+          pricing actually lives once it's agreed.
+        </p>
+
+        <h2>Where negotiated pricing usually goes to die</h2>
+        <p>
+          In a lot of distribution businesses, agreed pricing exists in three
+          places at once: a rep's memory, a note in a spreadsheet somewhere, and
+          whatever was charged on the last invoice. None of those are reliable
+          on their own, and they drift apart from each other over time. A price
+          gets updated in the spreadsheet but not communicated to the rep. A new
+          staff member takes an order and quotes the list price because that's
+          all they can see. A customer queries an invoice and nobody can point
+          to where the "real" price is actually recorded.
+        </p>
+        <p>
+          Multiply that across dozens or hundreds of trade accounts and it's not
+          a one-off mistake — it's a slow, steady leak. Undercharge a loyal
+          customer and it comes straight out of margin. Overcharge them by
+          mistake and it's a disputed invoice, a credit note, and a dent in the
+          relationship you were trying to protect with the discount in the
+          first place.
+        </p>
+
+        <h2>What customer-specific pricing should actually look like</h2>
+        <p>
+          The fix isn't a better spreadsheet or a longer note in the CRM — it's
+          pricing that lives in the same system that takes the order, so it
+          applies automatically no matter who places it or how:
+        </p>
+        <ul>
+          <li>Pricing set per customer, or per customer group, so a whole tier of trade accounts can be managed at once</li>
+          <li>Price lists that apply automatically to <a href="/features/sales">staff order entry</a> — no rep needs to remember or look anything up</li>
+          <li>The same pricing showing up automatically on the customer's own login to your <a href="/ecommerce">B2B online store</a>, so what they see is what they should pay</li>
+          <li>Pricing changes that apply going forward without disturbing past orders or invoices already issued</li>
+        </ul>
+        <p>
+          Done this way, "what does this customer pay" stops being a question
+          anyone has to answer from memory — it's just what the system shows,
+          every time, to whoever's placing the order.
+        </p>
+
+        <h2>Why this matters more once you're selling online</h2>
+        <p>
+          Customer-specific pricing gets more important, not less, once trade
+          customers start ordering through a <a href="/ecommerce">B2B online
+          store</a> rather than through a rep. Online, there's no one to quietly
+          apply the right price at the point of sale — the system either shows
+          the customer their correct price, or it shows them a generic one and
+          creates a support query, a phone call, or an order placed at the wrong
+          rate. Getting pricing right in the platform is what makes self-service
+          ordering actually trustworthy for customers who are used to a
+          negotiated rate.
+        </p>
+
+        <h2>Pricing, orders and invoicing on one system</h2>
+        <p>
+          Cognit lets you set pricing per customer or customer group and build
+          price lists that apply automatically — to staff taking orders and to
+          customers ordering through their own storefront login. Because
+          pricing, <a href="/features/sales">sales</a> and
+          <a href="/features/invoicing">invoicing</a> all sit on the same
+          platform, the price agreed is the price on the order and the price on
+          the invoice, with nothing to reconcile afterwards. It's also connected
+          to <a href="/features/customers">customer records and groups</a>, so
+          moving a customer onto a new pricing tier is a one-off change, not a
+          hunt through every place their old price might be written down.
+        </p>
+
+        <h2>Getting your pricing under control</h2>
+        <p>
+          If your negotiated pricing currently lives in more than one place —
+          or in someone's head — it's worth fixing before the next disputed
+          invoice or the next order quoted at the wrong rate. See
+          <a href="/pricing">pricing</a> or <a href="/start">start a 14-day free
+          trial</a> to see customer-specific pricing and price lists running
+          against your own customers and products.
+        </p>
+
+        <h2>Frequently asked questions</h2>
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </article>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
