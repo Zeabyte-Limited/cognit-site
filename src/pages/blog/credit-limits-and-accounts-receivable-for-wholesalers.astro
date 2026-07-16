@@ -1,0 +1,185 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+const site = "https://cognitsystem.com";
+const slug = "credit-limits-and-accounts-receivable-for-wholesalers";
+const url = `${site}/blog/${slug}/`;
+
+const title = "Credit Limits & Accounts Receivable for Wholesale Distributors (NZ & AU) | Cognit";
+const description =
+  "Trade credit is normal in wholesale distribution — bad debt from ignoring credit limits isn't. How to enforce credit limits and trade terms automatically, on every order, without a rep having to be the bad guy.";
+
+const faqs = [
+  {
+    q: "What is credit control for a wholesale distributor?",
+    a: "Credit control is the discipline of only shipping goods a customer can actually pay for — setting a credit limit and trade terms per customer, tracking their outstanding balance in real time, and stopping or flagging new orders once they're over their limit or overdue. Done well, it protects cash flow without distributors having to chase debt after the fact.",
+  },
+  {
+    q: "How do most distributors manage credit limits today?",
+    a: "Often informally — a rough credit limit noted somewhere, an aged debtor report run periodically in the accounting system, and a rep or office manager expected to remember which accounts are running late. It works until a rep under pressure to hit a sales target ships an order anyway, or nobody checks the debtor list before the order goes out.",
+  },
+  {
+    q: "How does Cognit enforce credit limits automatically?",
+    a: "Cognit tracks each customer's credit limit, trade terms and live outstanding balance as part of their customer record. When a new order would push a customer over their limit, or their account is overdue, Cognit flags or holds the order automatically at the point of sale — before it's picked, packed or shipped — rather than relying on someone remembering to check.",
+  },
+  {
+    q: "Does this work for orders placed through the B2B online store as well as by reps?",
+    a: "Yes. Because credit control sits in the same system as ordering, invoicing and the store, a customer over their limit sees the same hold whether they're ordering through their own login on your B2B online store or the order is being entered by a rep — there's no separate check to remember to run.",
+  },
+  {
+    q: "Can trade terms differ by customer — 7-day, 20th of the month, COD?",
+    a: "Yes. Terms are set per customer or customer group, so a long-standing account on 20th-of-the-month terms, a newer account on strict 7-day terms, and a customer who's moved to cash-on-delivery can all be managed correctly on the same system, with ageing and overdue status calculated against each customer's actual terms rather than one generic rule.",
+  },
+];
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "Credit limits and accounts receivable for wholesale distributors",
+  description,
+  author: { "@type": "Organization", name: "Cognit System", url: site },
+  publisher: {
+    "@type": "Organization",
+    name: "Cognit System",
+    logo: { "@type": "ImageObject", url: `${site}/logo.png` },
+  },
+  datePublished: "2026-07-16",
+  dateModified: "2026-07-16",
+  mainEntityOfPage: { "@type": "WebPage", "@id": url },
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+---
+
+<Layout title={title} description={description} path={`/blog/${slug}`} schema={[articleSchema, faqSchema]}>
+  <Header />
+
+  <main class="bg-cog-stone text-cog-slate">
+    <!-- HERO (photographic) -->
+    <section class="orbs relative isolate overflow-hidden">
+      <img src="/images/hero-highway-night.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" />
+      <div class="absolute inset-0 -z-10 bg-cog-ink/82"></div>
+      <div class="dotgrid absolute inset-0 -z-10 opacity-40"></div>
+      <div class="mx-auto max-w-3xl px-5 pt-20 pb-20 text-center sm:px-8 sm:pt-28 hero-rise">
+        <span class="chip mx-auto border border-white/15 text-slate-200">Insights</span>
+        <h1 class="mt-5 text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl">
+          Credit control for wholesale distributors
+        </h1>
+        <p class="mt-4 text-lg text-slate-300">
+          Trade credit is normal. Shipping to a customer who's already over their
+          limit shouldn't be — here's how to stop it happening by accident.
+        </p>
+      </div>
+    </section>
+
+    <!-- BODY -->
+    <section class="mx-auto max-w-3xl px-5 pb-16 sm:px-8">
+      <article class="article">
+        <p>
+          Trade credit is how wholesale distribution works — customers order now
+          and pay on terms, whether that's 7 days, 20th of the month, or
+          whatever's been agreed. That's not the risk. The risk is shipping
+          another order to a customer who's already over their limit or weeks
+          overdue, because nobody caught it before the truck left. That's not
+          bad luck, it's a process gap, and it comes straight out of cash flow.
+        </p>
+
+        <h2>Where credit control quietly breaks down</h2>
+        <p>
+          In a lot of distribution businesses, credit limits exist as a rough
+          idea rather than an enforced rule. Maybe there's a number noted
+          against the customer somewhere, or an aged debtor report the office
+          runs every week or two. But the order itself — the moment stock
+          actually leaves the warehouse — often happens somewhere else
+          entirely, with no link back to that report. A rep focused on hitting
+          a sales target takes the order anyway. A new staff member processing
+          a phone order has no way to know the account is on hold. By the time
+          finance flags it, the stock's gone and the invoice just joins a
+          growing pile of aged debt.
+        </p>
+        <p>
+          None of this is because anyone's being careless — it's because credit
+          limit, order entry and the debtor ledger live in different places,
+          checked at different times, by different people.
+        </p>
+
+        <h2>What credit control should actually look like</h2>
+        <p>
+          The fix isn't chasing debt harder after the fact — it's stopping the
+          order before it becomes a debt problem, automatically, wherever the
+          order comes in:
+        </p>
+        <ul>
+          <li>A credit limit and trade terms set per customer, or per customer group, reflecting what's actually been agreed</li>
+          <li>Live outstanding balance checked at the point of sale in <a href="/features/sales">order entry</a> — not from a report that's already a few days old</li>
+          <li>Orders that push a customer over their limit, or accounts that are overdue, flagged or held automatically before picking and shipping</li>
+          <li>The same check applied consistently whether the order comes from a rep, the office, or the customer's own login</li>
+        </ul>
+        <p>
+          Done this way, staying within trade terms stops depending on someone
+          remembering to check — it's just how the system behaves, every time,
+          for every order.
+        </p>
+
+        <h2>Why this matters more once you're selling online</h2>
+        <p>
+          Credit control gets more important, not less, once customers can
+          order for themselves through a <a href="/ecommerce">B2B online
+          store</a>. There's no rep in the loop to quietly hold back an order
+          from an account that's run over its limit — the system either
+          enforces the credit rule itself, or the order goes through anyway
+          and finance finds out on the next aged debtor run. Getting credit
+          control built into the ordering process is what makes self-service
+          ordering safe to open up to trade customers in the first place.
+        </p>
+
+        <h2>Credit control, invoicing and the ledger on one system</h2>
+        <p>
+          Cognit tracks credit limits and trade terms on each
+          <a href="/features/customers">customer record</a>, alongside their
+          live outstanding balance, and applies that automatically at
+          <a href="/features/sales">order entry</a> — including orders placed
+          through a customer's own store login. Because <a href="/features/invoicing">invoicing</a>
+          and the debtor ledger sit on the same platform as ordering, an
+          overdue account or a limit breach is caught before stock moves, not
+          discovered afterwards on a <a href="/features/reporting">report</a>.
+          It's the same joined-up approach we take to running a
+          <a href="/industries/wholesale-distribution">wholesale distribution
+          business</a> on one system rather than several that don't talk to
+          each other.
+        </p>
+
+        <h2>Getting your credit control under control</h2>
+        <p>
+          If aged debt has been creeping up, or you've had a "how did we ship
+          that" moment recently, it's worth checking whether credit limits are
+          actually enforced at the point of order — or just noted somewhere
+          and hoped for. See <a href="/pricing">pricing</a> or
+          <a href="/start">start a 14-day free trial</a> to see credit limits,
+          trade terms and live debtor balances running against your own
+          customers.
+        </p>
+
+        <h2>Frequently asked questions</h2>
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </article>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
