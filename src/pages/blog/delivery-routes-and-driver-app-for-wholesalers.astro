@@ -1,0 +1,189 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+const site = "https://cognitsystem.com";
+const slug = "delivery-routes-and-driver-app-for-wholesalers";
+const url = `${site}/blog/${slug}/`;
+
+const title = "Delivery Route Planning & Driver App for Wholesale Distributors (NZ & AU) | Cognit";
+const description =
+  "Running your own delivery runs? Here's how to get orders, routes and proof of delivery off paper and a group chat and onto one system your drivers, warehouse and office all see the same way.";
+
+const faqs = [
+  {
+    q: "Do wholesale distributors need delivery route software, or is a spreadsheet enough?",
+    a: "A spreadsheet can hold a run list, but it can't update itself when an order is added or cancelled after the run is planned, and it doesn't tell the driver what's actually on the truck. Delivery route software that's connected to live orders and stock keeps the run sheet correct right up until the driver leaves, rather than being a snapshot from whenever it was last printed.",
+  },
+  {
+    q: "How does Cognit organise delivery routes?",
+    a: "Customers are assigned to a delivery route as part of their customer record, so orders roll up onto the right run automatically. Office staff can see every route's orders for the day in one place, and drivers see only the stops and orders assigned to them.",
+  },
+  {
+    q: "Does the driver need a special device or app to install?",
+    a: "Drivers use Cognit's driver view from a phone or tablet in a browser — no separate app to install or keep updated. It shows their assigned route, the orders and quantities for each stop, and lets them work through the run in order.",
+  },
+  {
+    q: "Does this replace our couriers, or is it just for our own fleet?",
+    a: "It's built for distributors running their own delivery fleet or driver team — organising who's delivering what, on which run, from live orders. If you also use couriers for some orders, those can still be invoiced and tracked through Cognit; the route and driver view is specifically for runs you're operating yourself.",
+  },
+  {
+    q: "Does a delivery run update stock and invoicing automatically?",
+    a: "Yes. Because routes are built from real orders in the same system as stock, sales and invoicing, there's no separate delivery spreadsheet to reconcile afterwards — the order a driver delivers is the same order that already adjusted stock and is ready to invoice.",
+  },
+];
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "Delivery route planning and driver app for wholesale distributors",
+  description,
+  author: { "@type": "Organization", name: "Cognit System", url: site },
+  publisher: {
+    "@type": "Organization",
+    name: "Cognit System",
+    logo: { "@type": "ImageObject", url: `${site}/logo.png` },
+  },
+  datePublished: "2026-07-17",
+  dateModified: "2026-07-17",
+  mainEntityOfPage: { "@type": "WebPage", "@id": url },
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+---
+
+<Layout title={title} description={description} path={`/blog/${slug}`} schema={[articleSchema, faqSchema]}>
+  <Header />
+
+  <main class="bg-cog-stone text-cog-slate">
+    <!-- HERO (photographic) -->
+    <section class="orbs relative isolate overflow-hidden">
+      <img src="/images/logistics-truck.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" />
+      <div class="absolute inset-0 -z-10 bg-cog-ink/82"></div>
+      <div class="dotgrid absolute inset-0 -z-10 opacity-40"></div>
+      <div class="mx-auto max-w-3xl px-5 pt-20 pb-20 text-center sm:px-8 sm:pt-28 hero-rise">
+        <span class="chip mx-auto border border-white/15 text-slate-200">Insights</span>
+        <h1 class="mt-5 text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl">
+          Delivery routes and a driver app for wholesale distributors
+        </h1>
+        <p class="mt-4 text-lg text-slate-300">
+          If your run sheet is a printout and your driver updates come through a
+          group chat, here's what running delivery on the same system as your
+          orders actually looks like.
+        </p>
+      </div>
+    </section>
+
+    <!-- BODY -->
+    <section class="mx-auto max-w-3xl px-5 pb-16 sm:px-8">
+      <article class="article">
+        <p>
+          Plenty of wholesale distributors run their own trucks rather than
+          handing every order to a courier — it's cheaper at volume, and it
+          means a driver who knows the customers and the run. The trouble is
+          how that run usually gets organised: a printed pick and delivery
+          list, last-minute changes texted to a driver mid-route, and a
+          delivery that isn't confirmed until someone remembers to mention it
+          back at the office. It works, but it depends on people remembering
+          things a system should just know.
+        </p>
+
+        <h2>Where the paper run sheet starts to crack</h2>
+        <p>
+          A printed run sheet is correct the moment it's printed and steadily
+          less correct after that. An order added after cut-off, a customer
+          who calls to cancel, a substitution because a line's out of stock —
+          none of that reaches the driver unless someone chases them down or
+          sends a text. Multiply that across several drivers and routes and
+          the office is spending real time each morning just making sure
+          everyone has the right list, on top of actually planning it.
+        </p>
+        <p>
+          And because the run sheet lives outside the order system, closing
+          the loop afterwards means someone cross-checking what was actually
+          delivered against what was invoiced — another manual step, and
+          another place small mistakes creep in.
+        </p>
+
+        <h2>What delivery routing should actually look like</h2>
+        <p>
+          The fix isn't a fancier spreadsheet — it's routes and drivers living
+          in the same system as the order itself:
+        </p>
+        <ul>
+          <li>Customers assigned to a delivery route as part of their <a href="/features/customers">customer record</a>, so new orders roll onto the right run automatically</li>
+          <li>Office staff see every route's orders for the day in one place, not a separate list per driver to keep in sync</li>
+          <li>Drivers work from their own view on a phone or tablet — their route, their stops, their orders — with no separate app to install</li>
+          <li>A change to an order — added, cancelled, substituted — shows up on the run because it's the same order, not a copy of it</li>
+        </ul>
+        <p>
+          Run this way, the driver's list is never a snapshot from whenever it
+          was printed — it reflects what's actually been ordered, right up
+          until they leave.
+        </p>
+
+        <h2>Delivery that's already connected to stock and invoicing</h2>
+        <p>
+          Because the order a driver delivers is the same order that already
+          adjusted <a href="/features/inventory">stock</a> at the point of
+          sale, there's nothing to reconcile afterwards — no separate delivery
+          log to match back against invoices. Once a run is delivered, those
+          orders are sitting ready to invoice in <a href="/features/invoicing">invoicing</a>,
+          rather than waiting on a driver's paperwork to make it back to the
+          office.
+        </p>
+
+        <h2>Why this matters more as the fleet grows</h2>
+        <p>
+          One driver and a short list of regulars is manageable on paper.
+          Several drivers, multiple routes and orders coming in from reps, the
+          office and a <a href="/ecommerce">B2B online store</a> all at once
+          is a different problem — and it's exactly where a shared, live view
+          of routes and orders stops being a nice-to-have and starts being
+          the difference between a smooth morning and a chaotic one.
+        </p>
+
+        <h2>Routes, orders and stock on one system</h2>
+        <p>
+          Cognit assigns customers to delivery routes on their
+          <a href="/features/customers">customer record</a>, gives drivers
+          their own view of their run, and keeps it all connected to the same
+          <a href="/features/sales">orders</a>, stock and invoicing your office
+          already works from — no separate delivery spreadsheet, no re-typed
+          run sheet. It's the same approach we take across
+          <a href="/industries/wholesale-distribution">wholesale distribution</a>
+          more broadly: one system, rather than several that don't talk to
+          each other.
+        </p>
+
+        <h2>Getting your delivery runs off paper</h2>
+        <p>
+          If your mornings involve printing run sheets and hoping every
+          last-minute change reaches the right driver, it's worth seeing what
+          a connected route and driver view looks like against your own
+          customers and orders. See <a href="/pricing">pricing</a> or
+          <a href="/start">start a 14-day free trial</a> to try it out.
+        </p>
+
+        <h2>Frequently asked questions</h2>
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </article>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

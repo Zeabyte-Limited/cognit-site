@@ -20,3 +20,4 @@ runs don't repeat a topic. Newest entries at the bottom.
 | 2026-07-14 | landed-cost-software-for-importers | Landed cost software for importers and distributors |
 | 2026-07-15 | customer-specific-pricing-for-wholesalers | Customer-specific pricing for wholesale distributors |
 | 2026-07-16 | credit-limits-and-accounts-receivable-for-wholesalers | Credit limits and accounts receivable for wholesale distributors |
+| 2026-07-17 | delivery-routes-and-driver-app-for-wholesalers | Delivery route planning and driver app for wholesale distributors |
