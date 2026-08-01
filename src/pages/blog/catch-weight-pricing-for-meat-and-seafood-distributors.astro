@@ -1,0 +1,193 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+const site = "https://cognitsystem.com";
+const slug = "catch-weight-pricing-for-meat-and-seafood-distributors";
+const url = `${site}/blog/${slug}/`;
+
+const title = "Catch-Weight Pricing & Invoicing for NZ Meat & Seafood Distributors | Cognit";
+const description =
+  "A carton of lamb racks or a bin of fillets never weighs exactly what the label says. Here's why catch-weight products break ordinary order and invoicing systems — and how catch-weight pricing should actually work.";
+
+const faqs = [
+  {
+    q: "What is catch-weight, and why does it break normal ordering software?",
+    a: "Catch-weight is when the actual weight of a unit — a carton, a bin, a side of meat, a tray of fillets — varies from item to item, even though it's ordered and often priced by a fixed unit like a carton or a case. Most ordering and invoicing software assumes one unit always weighs the same, so it can only invoice what was ordered, not what was actually picked, packed and shipped. That forces distributors into manual weight sheets and invoice corrections after the fact.",
+  },
+  {
+    q: "Does Cognit have catch-weight pricing built in already?",
+    a: "Catch-weight is exactly the kind of requirement we build into a distributor's system rather than sell as a generic checkbox feature — because how it needs to work differs by product, supplier and customer agreement. Tell us how your catch-weight products are ordered, weighed and invoiced today, and we'll build that logic into your Cognit system so ordering, stock and invoicing all use the real weight.",
+  },
+  {
+    q: "Can customers still order by carton or case, even if they're invoiced on actual weight?",
+    a: "Yes — that's the point. A customer can order in the units that make sense to them (cartons, cases, bins), while your system captures the actual weight at pick or pack and invoices on that real figure, with the ordered quantity and the invoiced weight both visible and reconciled, not fought over after delivery.",
+  },
+  {
+    q: "How does catch-weight affect stock and margin reporting?",
+    a: "If stock is only tracked by carton or case count, your on-hand figures and your margin are both slightly wrong, and the gap grows with volume. Tracking actual weight through stock, sales and invoicing means on-hand quantities and margin reporting reflect what you really moved and were really paid for, not a nominal average.",
+  },
+  {
+    q: "Is this relevant outside meat and seafood?",
+    a: "Any product sold in variable-weight units has the same problem — cheese, produce, some bakery and butchery lines. If your business invoices customers on a weight that's rarely the same twice, catch-weight handling is worth building into your system regardless of which food category you're in.",
+  },
+];
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "Catch-weight pricing and invoicing for meat and seafood distributors",
+  description,
+  author: { "@type": "Organization", name: "Cognit System", url: site },
+  publisher: {
+    "@type": "Organization",
+    name: "Cognit System",
+    logo: { "@type": "ImageObject", url: `${site}/logo.png` },
+  },
+  datePublished: "2026-08-01",
+  dateModified: "2026-08-01",
+  mainEntityOfPage: { "@type": "WebPage", "@id": url },
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+---
+
+<Layout title={title} description={description} path={`/blog/${slug}`} schema={[articleSchema, faqSchema]}>
+  <Header />
+
+  <main class="bg-cog-stone text-cog-slate">
+    <!-- HERO (photographic) -->
+    <section class="orbs relative isolate overflow-hidden">
+      <img src="/images/food-distribution.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" />
+      <div class="absolute inset-0 -z-10 bg-cog-ink/82"></div>
+      <div class="dotgrid absolute inset-0 -z-10 opacity-40"></div>
+      <div class="mx-auto max-w-3xl px-5 pt-20 pb-20 text-center sm:px-8 sm:pt-28 hero-rise">
+        <span class="chip mx-auto border border-white/15 text-slate-200">Insights</span>
+        <h1 class="mt-5 text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl">
+          Catch-weight pricing for meat and seafood distributors
+        </h1>
+        <p class="mt-4 text-lg text-slate-300">
+          A carton of lamb racks never weighs exactly what the label says.
+          Here's why that breaks ordinary ordering software — and what
+          catch-weight pricing should actually look like.
+        </p>
+      </div>
+    </section>
+
+    <!-- BODY -->
+    <section class="mx-auto max-w-3xl px-5 pb-16 sm:px-8">
+      <article class="article">
+        <p>
+          Order a carton of lamb racks, a bin of snapper fillets or a case of
+          cheese wheels and the label might say one thing, but the scale at
+          the other end says another. That's catch-weight — products sold in
+          a nominal unit like a carton or a case, where the real weight
+          varies every single time. It's completely normal in meat, seafood
+          and some produce and dairy lines. The problem is that most ordering
+          and invoicing software was never built to handle it, so distributors
+          end up bolting a manual weight sheet onto a system that assumes
+          every carton weighs the same.
+        </p>
+
+        <h2>Where catch-weight breaks a normal order-to-invoice flow</h2>
+        <p>
+          A standard order system multiplies quantity by unit price and calls
+          it done — ten cartons at a fixed carton price, invoice generated.
+          Catch-weight products don't work that way: the customer might order
+          ten cartons, but what actually gets picked, packed and shipped is
+          ten cartons at ten slightly different weights, and the agreed price
+          is per kilogram, not per carton. If the system can't capture the
+          real weight against the order, someone ends up re-keying invoices
+          from a handwritten weight sheet, or — worse — invoicing the nominal
+          weight and quietly under- or over-charging on every single line.
+        </p>
+        <p>
+          That gap shows up in three places at once: the customer's invoice
+          doesn't match what they actually received, stock on hand drifts
+          away from what's really in the chiller, and margin reporting is
+          built on a weight that was never real to begin with.
+        </p>
+
+        <h2>What catch-weight pricing should actually look like</h2>
+        <p>
+          Fixing this isn't about a generic "catch-weight" toggle — it's
+          about the actual weight flowing through the same system as the
+          order, from pick to invoice:
+        </p>
+        <ul>
+          <li>Customers order in whatever unit makes sense to them — carton, case, bin — without needing to know the exact weight up front</li>
+          <li>The real weight is captured at pick or pack, against that specific order line, not estimated afterwards</li>
+          <li>Invoicing uses the actual captured weight and the agreed <a href="/features/sales">price</a>, so the invoice reflects what was really shipped</li>
+          <li><a href="/features/inventory">Stock on hand</a> is adjusted by real weight moved, not a nominal carton count</li>
+        </ul>
+        <p>
+          Done this way, "what do we invoice this customer" stops depending
+          on a weight sheet someone has to chase down after the truck's
+          already left, and margin reporting reflects what actually moved
+          rather than a rounded-off average.
+        </p>
+
+        <h2>Why this compounds at volume</h2>
+        <p>
+          A handful of catch-weight cartons a week is a manageable manual
+          correction. Hundreds of cartons a day, across dozens of customers
+          each with their own <a href="/blog/customer-specific-pricing-for-wholesalers">agreed pricing</a>,
+          is a different problem entirely — and it's exactly where small,
+          unnoticed gaps between nominal and actual weight add up to a real
+          margin leak, invoice disputes, and
+          <a href="/blog/inventory-stock-control-software-for-wholesalers">stock counts</a>
+          nobody quite trusts. It's the same pattern we see across
+          <a href="/blog/erp-for-food-and-beverage-distributors">food and beverage distribution</a>
+          generally — the pressure points are specific to the category, but
+          the fix is the same: real data flowing through one system instead
+          of being reconstructed by hand afterwards.
+        </p>
+
+        <h2>Built into your system, not a bolt-on module</h2>
+        <p>
+          Catch-weight handling isn't something we sell as an off-the-shelf
+          feature, because how it needs to work varies by product, supplier
+          agreement and customer — some businesses invoice strictly on actual
+          weight, others round to agreed bands, others handle it differently
+          again by product line. Tell us how your catch-weight products are
+          ordered, weighed and invoiced today, and we build that logic into
+          your Cognit system so it works with your real
+          <a href="/features/sales">pricing</a>,
+          <a href="/features/inventory">stock</a> and
+          <a href="/features/invoicing">invoicing</a> — the same approach we
+          take for <a href="/industries/food-distribution">food distribution</a>
+          more broadly: tell us your problem, we build it into your system.
+        </p>
+
+        <h2>Getting catch-weight off the weight sheet</h2>
+        <p>
+          If your invoices for meat, seafood or other variable-weight lines
+          still depend on a handwritten weight sheet making it back to the
+          office, it's worth talking through how that should actually flow
+          through your system. See <a href="/pricing">pricing</a> or
+          <a href="/contact">get in touch</a> to talk through your catch-weight
+          products specifically.
+        </p>
+
+        <h2>Frequently asked questions</h2>
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </article>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
