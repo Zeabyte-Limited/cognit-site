@@ -1,0 +1,196 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+const site = "https://cognitsystem.com";
+const slug = "batch-lot-traceability-food-distributors";
+const url = `${site}/blog/${slug}/`;
+
+const title = "Batch & Lot Traceability for NZ Food Distributors: Getting Recall-Ready | Cognit";
+const description =
+  "If a supplier issues a recall on one batch, can you name every customer who received it in minutes — not days? What batch and lot traceability actually requires, and how to build it into your system instead of a spreadsheet.";
+
+const faqs = [
+  {
+    q: "What is batch and lot traceability, and why does it matter for food distributors?",
+    a: "Batch (or lot) traceability means every unit of stock you receive, store and ship is linked back to the specific batch it came from — so if a supplier or MPI issues a recall on one batch, you can immediately identify which stock is affected and which customers received it. Without it, a recall means manually cross-referencing purchase records, stock movements and sales history by hand, under time pressure, while affected product may still be moving through your business.",
+  },
+  {
+    q: "Does Cognit have batch and lot traceability built in already?",
+    a: "Traceability requirements vary a lot by distributor — some need lot numbers tracked through purchasing, stock and sales; others also need expiry dates, supplier certificates or country-of-origin data attached at the batch level. Rather than sell a generic traceability module, we build it around how your business actually receives, stores and ships stock. Tell us your problem and we build it into your Cognit system.",
+  },
+  {
+    q: "Do we need full traceability if we're not currently required to have it?",
+    a: "Even without a regulatory or contractual requirement today, many larger customers — supermarkets, foodservice distributors, exporters — increasingly ask suppliers to demonstrate traceability as a condition of doing business. Building it in before it's demanded avoids a scramble later, and in the meantime it also makes any recall, quality issue or stock discrepancy far faster to resolve.",
+  },
+  {
+    q: "How does batch traceability connect to stock and invoicing?",
+    a: "To be useful in a real recall, batch or lot numbers need to be captured once at goods-in and then carried automatically through stock movements, picking and the sales invoice — not tracked separately in a spreadsheet that has to be reconciled against the system afterwards. That way a batch lookup and a customer lookup are the same query, run against live data.",
+  },
+  {
+    q: "How fast should a real recall trace be?",
+    a: "In a genuine recall, the standard most large customers and regulators expect is being able to identify affected stock and the customers it went to within hours, not days. That speed only comes from batch data living in the same system as your orders and invoices — a paper trail assembled after the fact is too slow by the time it matters.",
+  },
+];
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "Batch and lot traceability for NZ food distributors: getting recall-ready",
+  description,
+  author: { "@type": "Organization", name: "Cognit System", url: site },
+  publisher: {
+    "@type": "Organization",
+    name: "Cognit System",
+    logo: { "@type": "ImageObject", url: `${site}/logo.png` },
+  },
+  datePublished: "2026-08-02",
+  dateModified: "2026-08-02",
+  mainEntityOfPage: { "@type": "WebPage", "@id": url },
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+---
+
+<Layout title={title} description={description} path={`/blog/${slug}`} schema={[articleSchema, faqSchema]}>
+  <Header />
+
+  <main class="bg-cog-stone text-cog-slate">
+    <!-- HERO (photographic) -->
+    <section class="orbs relative isolate overflow-hidden">
+      <img src="/images/food-distribution.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" />
+      <div class="absolute inset-0 -z-10 bg-cog-ink/82"></div>
+      <div class="dotgrid absolute inset-0 -z-10 opacity-40"></div>
+      <div class="mx-auto max-w-3xl px-5 pt-20 pb-20 text-center sm:px-8 sm:pt-28 hero-rise">
+        <span class="chip mx-auto border border-white/15 text-slate-200">Insights</span>
+        <h1 class="mt-5 text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl">
+          Batch and lot traceability for food distributors
+        </h1>
+        <p class="mt-4 text-lg text-slate-300">
+          If a supplier recalls one batch tomorrow, could you name every
+          customer who received it within the hour? Here's what real
+          traceability requires — and why a spreadsheet isn't it.
+        </p>
+      </div>
+    </section>
+
+    <!-- BODY -->
+    <section class="mx-auto max-w-3xl px-5 pb-16 sm:px-8">
+      <article class="article">
+        <p>
+          Every food distributor plans to never need a recall. Few plan for
+          what actually happens on the day one lands anyway — a supplier
+          calls about a contaminated batch, or MPI issues a notice, and
+          suddenly someone has an hour or two to answer a simple-sounding
+          question: which of our stock is affected, and which customers did
+          it go to? If the answer lives in purchase records, a warehouse
+          whiteboard and sales history that all have to be cross-referenced
+          by hand, that "hour or two" turns into a very long day — with
+          product potentially still moving while you work it out.
+        </p>
+
+        <h2>Why traceability breaks down without a system behind it</h2>
+        <p>
+          Most distributors already record a supplier and a received date
+          against stock. Far fewer capture the actual batch or lot number at
+          goods-in and then carry it through every stock movement, pick and
+          invoice that follows. Without that thread, a recall means going
+          back to paper delivery dockets or supplier invoices to work out
+          which batch is which, then manually checking which sales orders
+          drew from that stock — a process that's slow, error-prone under
+          pressure, and impossible to prove to a regulator or a nervous
+          customer after the fact.
+        </p>
+        <p>
+          It's the same underlying problem we see across
+          <a href="/blog/erp-for-food-and-beverage-distributors">food and beverage distribution</a>:
+          data that's real at the moment it's created — a batch number
+          scanned in at goods-in, a weight captured at
+          <a href="/blog/catch-weight-pricing-for-meat-and-seafood-distributors">pack</a> —
+          becomes unreliable the moment it's copied into a second system or a
+          spreadsheet, because the two stop matching the instant either one
+          is updated on its own.
+        </p>
+
+        <h2>What real batch and lot traceability should look like</h2>
+        <p>
+          Traceability that actually holds up under pressure isn't a
+          separate compliance exercise bolted on afterwards — it's the same
+          batch number flowing through the same system as everything else:
+        </p>
+        <ul>
+          <li>The batch or lot number is captured once, at goods-in, against that specific <a href="/features/purchasing">purchase</a></li>
+          <li><a href="/features/inventory">Stock on hand</a> carries the batch number through every movement — receiving, put-away, picking — not just a total quantity</li>
+          <li>Each sales line and invoice records which batch was actually shipped, not just which product</li>
+          <li>A lookup runs both directions: batch → every customer it went to, or customer/order → every batch they received</li>
+        </ul>
+        <p>
+          Built this way, "which customers received batch X" is a query
+          against live data, not a research project — and it's just as
+          useful for a routine quality query or a supplier dispute as it is
+          for an actual recall.
+        </p>
+
+        <h2>Why bigger customers expect it, even without a recall</h2>
+        <p>
+          Supermarkets, foodservice distributors and exporters increasingly
+          treat traceability as table stakes for supplying them at all — not
+          because they expect a recall, but because it's the difference
+          between a supplier they can trust with a problem and one they
+          can't. That's exactly the kind of requirement that shows up as a
+          condition in a bigger contract, not a nice-to-have — and it's much
+          cheaper to have built in already than to scramble for it once a
+          customer asks. It sits alongside the same set of expectations we
+          see through <a href="/industries/food-distribution">food distribution</a>
+          generally: real
+          <a href="/blog/inventory-stock-control-software-for-wholesalers">stock control</a>,
+          accurate
+          <a href="/blog/customer-specific-pricing-for-wholesalers">customer pricing</a>,
+          and now, increasingly, proof of where every batch has gone.
+        </p>
+
+        <h2>Built around how your business actually receives and ships stock</h2>
+        <p>
+          How traceability needs to work differs by distributor — some only
+          need a lot number carried through to invoice, others also need
+          expiry dates, supplier certificates or country-of-origin recorded
+          at the batch level, or traceability that extends to raw ingredients
+          used in a produced item. Rather than sell a generic traceability
+          checkbox, we build the logic around how your goods-in,
+          <a href="/features/inventory">stock</a> and
+          <a href="/features/invoicing">invoicing</a> actually work today.
+          Tell us your problem and we build it into your Cognit system.
+        </p>
+
+        <h2>Getting recall-ready before you have to be</h2>
+        <p>
+          If a batch lookup today means someone digging through paper
+          dockets and hoping the sales history lines up, it's worth talking
+          through what traceability should look like in your system before
+          you're doing it under pressure. See <a href="/pricing">pricing</a>
+          or <a href="/contact">get in touch</a> to talk through how your
+          business receives and ships stock specifically.
+        </p>
+
+        <h2>Frequently asked questions</h2>
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </article>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
