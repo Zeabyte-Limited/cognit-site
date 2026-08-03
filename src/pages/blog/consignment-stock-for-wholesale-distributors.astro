@@ -1,0 +1,193 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+const site = "https://cognitsystem.com";
+const slug = "consignment-stock-for-wholesale-distributors";
+const url = `${site}/blog/${slug}/`;
+
+const title = "Consignment Stock Software for NZ & AU Wholesale Distributors | Cognit";
+const description =
+  "Stock sitting on a customer's shelf that you still own, invoiced only when it sells. Why consignment and sale-or-return arrangements break ordinary stock systems — and how consignment stock should actually be tracked.";
+
+const faqs = [
+  {
+    q: "What is consignment stock, and why is it hard to manage?",
+    a: "Consignment (or sale-or-return) stock is stock you deliver to a customer's premises that you still own and are still liable for — the customer only pays once it actually sells or is used, and unsold stock can come back to you. It's hard to manage because it has to be tracked as your stock, in someone else's location, invoiced on a different trigger to a normal sale, which most ordering and stock systems simply weren't built to do.",
+  },
+  {
+    q: "Does Cognit have consignment stock handling built in already?",
+    a: "Consignment arrangements vary a lot between distributors — some invoice on a customer's periodic sell-through report, others on a physical count, others only once stock is used in production. Rather than force one generic consignment model on every business, we build the logic around how your consignment agreements actually work. Tell us your problem and we build it into your Cognit system.",
+  },
+  {
+    q: "How is consignment stock different from a normal sale on trade terms?",
+    a: "On a normal sale, ownership and the invoice trigger both happen at dispatch — you ship it, you invoice it, it's the customer's stock and their risk from that point. On consignment, ownership stays with you after delivery, so the invoice can't be raised at dispatch — it has to wait for a genuine trigger like a sale, a usage report or a stocktake, and unsold stock can be returned rather than owed for.",
+  },
+  {
+    q: "How does consignment stock affect inventory and margin reporting?",
+    a: "If consigned stock isn't tracked separately from stock in your own warehouse, your on-hand figures overstate what's actually available to sell elsewhere, and your margin reporting is distorted by stock that hasn't generated revenue yet. Tracking it by location — your warehouse versus each consignment customer — keeps both figures accurate and shows exactly how much value is sitting with each customer at any time.",
+  },
+  {
+    q: "Can consignment and normal wholesale ordering run on the same system?",
+    a: "Yes — that's the point of building it in rather than running consignment on a separate spreadsheet. The same customer can be a normal trade account for some products and a consignment arrangement for others, with stock, invoicing and reporting all reflecting the right rules for each, on one system rather than two.",
+  },
+];
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "Consignment stock software for wholesale distributors",
+  description,
+  author: { "@type": "Organization", name: "Cognit System", url: site },
+  publisher: {
+    "@type": "Organization",
+    name: "Cognit System",
+    logo: { "@type": "ImageObject", url: `${site}/logo.png` },
+  },
+  datePublished: "2026-08-03",
+  dateModified: "2026-08-03",
+  mainEntityOfPage: { "@type": "WebPage", "@id": url },
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+---
+
+<Layout title={title} description={description} path={`/blog/${slug}`} schema={[articleSchema, faqSchema]}>
+  <Header />
+
+  <main class="bg-cog-stone text-cog-slate">
+    <!-- HERO (photographic) -->
+    <section class="orbs relative isolate overflow-hidden">
+      <img src="/images/warehouse-aisle.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" />
+      <div class="absolute inset-0 -z-10 bg-cog-ink/82"></div>
+      <div class="dotgrid absolute inset-0 -z-10 opacity-40"></div>
+      <div class="mx-auto max-w-3xl px-5 pt-20 pb-20 text-center sm:px-8 sm:pt-28 hero-rise">
+        <span class="chip mx-auto border border-white/15 text-slate-200">Insights</span>
+        <h1 class="mt-5 text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl">
+          Consignment stock for wholesale distributors
+        </h1>
+        <p class="mt-4 text-lg text-slate-300">
+          Stock sitting on a customer's shelf that you still own, invoiced
+          only once it sells. Here's why consignment breaks ordinary stock
+          systems — and what tracking it properly should look like.
+        </p>
+      </div>
+    </section>
+
+    <!-- BODY -->
+    <section class="mx-auto max-w-3xl px-5 pb-16 sm:px-8">
+      <article class="article">
+        <p>
+          Consignment — sometimes called sale-or-return — is common across
+          NZ and Australian wholesale: a distributor places stock at a
+          customer's site, the customer only pays once it sells or is used,
+          and whatever doesn't move can come back. It's a normal way to win
+          shelf space or get a customer comfortable with a new line. The
+          problem is that most stock and invoicing systems assume ownership
+          and payment both happen at dispatch — so consignment ends up
+          tracked on a spreadsheet next to a system that has no idea that
+          stock is still yours.
+        </p>
+
+        <h2>Where consignment stock quietly goes wrong</h2>
+        <p>
+          Once stock leaves the warehouse under a normal sale, most systems
+          consider the job done — it's off the books, invoiced, and the
+          customer's problem from there. Consignment stock doesn't behave
+          like that. It's gone from your shelf but not from your ownership,
+          it's still your liability if it's damaged or expires, and there's
+          no invoice to raise until a separate event happens — a sell-through
+          report, a physical count, or stock actually being used. Without a
+          system built to track that distinction, distributors end up
+          keeping consignment stock on a side spreadsheet, chasing customers
+          for sell-through numbers manually, and often losing track of
+          exactly how much stock — and how much value — is sitting where.
+        </p>
+        <p>
+          That gap shows up at stocktake first: a warehouse count that looks
+          right can hide consigned stock nobody's tracking separately, so
+          on-hand figures either overstate what's actually available to sell
+          elsewhere, or consigned stock quietly gets missed off the books
+          altogether.
+        </p>
+
+        <h2>What consignment stock tracking should actually look like</h2>
+        <p>
+          Fixing this isn't about running a second system alongside your
+          main one — it's about consigned stock being visible in the same
+          place as everything else, just tagged by location and ownership:
+        </p>
+        <ul>
+          <li>Stock delivered on consignment is tracked as your <a href="/features/inventory">stock</a>, at the customer's location, not written off as sold</li>
+          <li>The invoice trigger matches the real agreement — a sell-through report, a periodic count, or usage — not the delivery date</li>
+          <li>Unsold or returned consignment stock comes back into your own stock on hand automatically, not by manual adjustment</li>
+          <li>Reporting shows exactly how much consigned stock — and how much value — is sitting with each customer at any time</li>
+        </ul>
+        <p>
+          Built this way, "how much of our stock is actually with this
+          customer right now" is a live answer, not a question that sends
+          someone digging through delivery dockets and a separate
+          spreadsheet.
+        </p>
+
+        <h2>Why this matters more as consignment volume grows</h2>
+        <p>
+          A handful of consignment accounts is manageable by hand. Dozens of
+          customers, each with their own reporting cadence and their own mix
+          of consignment and normal trade lines, is a different problem —
+          and it's exactly where untracked consigned stock turns into
+          write-offs at stocktake, disputes over what a customer actually
+          sold, and <a href="/blog/customer-specific-pricing-for-wholesalers">pricing</a>
+          that's hard to reconcile when the same customer buys some lines
+          outright and holds others on consignment. It's the same pattern
+          behind <a href="/blog/inventory-stock-control-software-for-wholesalers">stock
+          control</a> generally — the moment stock data is split across a
+          system and a spreadsheet, the two stop matching.
+        </p>
+
+        <h2>Built around how your consignment agreements actually work</h2>
+        <p>
+          Consignment terms differ by distributor and even by customer —
+          some invoice on a monthly sell-through report, others on a
+          physical count at the customer's site, others only once stock is
+          drawn into production. Rather than force every business into one
+          generic consignment model, we build the invoicing trigger, stock
+          rules and reporting around how your agreements actually work,
+          alongside your existing <a href="/features/sales">sales</a>,
+          <a href="/features/inventory">inventory</a> and
+          <a href="/features/invoicing">invoicing</a>. Tell us your problem
+          and we build it into your Cognit system.
+        </p>
+
+        <h2>Getting consignment stock off the spreadsheet</h2>
+        <p>
+          If consigned stock currently lives in a separate tracker that
+          someone has to reconcile against sell-through reports by hand,
+          it's worth talking through how it should actually flow through
+          your system. See <a href="/pricing">pricing</a> or
+          <a href="/contact">get in touch</a> to talk through your
+          consignment or sale-or-return arrangements specifically.
+        </p>
+
+        <h2>Frequently asked questions</h2>
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </article>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
