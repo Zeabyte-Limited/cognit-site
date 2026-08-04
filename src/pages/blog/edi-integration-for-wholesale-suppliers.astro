@@ -1,0 +1,202 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+const site = "https://cognitsystem.com";
+const slug = "edi-integration-for-wholesale-suppliers";
+const url = `${site}/blog/${slug}/`;
+
+const title = "EDI Order Integration for NZ & AU Wholesale Suppliers | Cognit";
+const description =
+  "Supermarket groups, big-box retailers and large distributors increasingly require suppliers to trade electronically — EDI purchase orders, invoices and ASNs, on their terms. What that actually involves, and how to connect it to your ordering and stock system instead of re-keying it by hand.";
+
+const faqs = [
+  {
+    q: "What is EDI, and why do large retailers require it from suppliers?",
+    a: "EDI (Electronic Data Interchange) is the automated exchange of trading documents — purchase orders, invoices, advance shipping notices (ASNs) — directly between a retailer's system and a supplier's system, in a fixed structured format, without anyone re-typing them. Large retailers and distribution groups push for it because it removes manual order entry and data-entry errors on their side at scale, across hundreds of suppliers. For a supplier, it's increasingly a condition of being an approved account rather than an optional convenience.",
+  },
+  {
+    q: "Does Cognit come with EDI connections to specific retailers already built in?",
+    a: "Every large trading partner runs its own EDI or B2B portal setup, with its own document formats, connection method and compliance rules, and those requirements change over time. Rather than claim a fixed list of pre-built retailer connections, we build the specific EDI or portal integration your trading partners require directly into your Cognit system — tell us which accounts you need to connect to and we build it around their requirements.",
+  },
+  {
+    q: "What happens if we don't automate EDI and just keep re-keying orders manually?",
+    a: "It's workable at low volume, but it scales badly and it's risky. Every manually re-typed order is a chance for a wrong quantity, a wrong product code or a missed order line, and large accounts often penalise suppliers financially for order or delivery inaccuracies. Beyond a handful of large accounts, manual re-keying also becomes a real staffing cost — someone effectively doing the retailer's data entry for them, on top of their own job.",
+  },
+  {
+    q: "Can EDI orders flow straight into normal stock and dispatch, or do they need separate handling?",
+    a: "They should flow into exactly the same stock, picking and invoicing process as any other order — that's the point of connecting EDI to your system rather than treating it as a side channel. An incoming EDI purchase order should check stock, generate a pick, and produce the ASN and invoice the retailer expects, using the same product, pricing and stock data as your website or phone orders.",
+  },
+  {
+    q: "Is EDI only relevant for suppliers to supermarkets, or does it apply more broadly?",
+    a: "Supermarket and grocery groups are the most common driver, but the same requirement shows up with big-box retail, large hospitality and foodservice distributors, and government or corporate procurement panels — anywhere a large buyer standardises how its suppliers submit orders and invoices. If a major account has ever sent you a compliance pack alongside a purchase order, that's usually EDI or a supplier portal requirement in disguise.",
+  },
+];
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "EDI order integration for wholesale suppliers",
+  description,
+  author: { "@type": "Organization", name: "Cognit System", url: site },
+  publisher: {
+    "@type": "Organization",
+    name: "Cognit System",
+    logo: { "@type": "ImageObject", url: `${site}/logo.png` },
+  },
+  datePublished: "2026-08-04",
+  dateModified: "2026-08-04",
+  mainEntityOfPage: { "@type": "WebPage", "@id": url },
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+---
+
+<Layout title={title} description={description} path={`/blog/${slug}`} schema={[articleSchema, faqSchema]}>
+  <Header />
+
+  <main class="bg-cog-stone text-cog-slate">
+    <!-- HERO (photographic) -->
+    <section class="orbs relative isolate overflow-hidden">
+      <img src="/images/warehouse-worker.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" />
+      <div class="absolute inset-0 -z-10 bg-cog-ink/82"></div>
+      <div class="dotgrid absolute inset-0 -z-10 opacity-40"></div>
+      <div class="mx-auto max-w-3xl px-5 pt-20 pb-20 text-center sm:px-8 sm:pt-28 hero-rise">
+        <span class="chip mx-auto border border-white/15 text-slate-200">Insights</span>
+        <h1 class="mt-5 text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl">
+          EDI order integration for wholesale suppliers
+        </h1>
+        <p class="mt-4 text-lg text-slate-300">
+          Big accounts increasingly want to trade electronically, on their
+          terms. Here's what EDI actually asks of a supplier — and how to
+          connect it to your system instead of re-keying it by hand.
+        </p>
+      </div>
+    </section>
+
+    <!-- BODY -->
+    <section class="mx-auto max-w-3xl px-5 pb-16 sm:px-8">
+      <article class="article">
+        <p>
+          It usually starts with a compliance pack. A supermarket group,
+          a big-box retailer or a large foodservice distributor approves you
+          as a supplier, and alongside the trading terms comes a requirement
+          to send and receive orders, invoices and shipping notices
+          electronically — in their format, through their connection. That's
+          EDI: a structured, automated exchange of trading documents between
+          two systems, with no manual re-typing on either side. For the
+          retailer it's standard practice across hundreds of suppliers. For
+          a wholesaler seeing it for the first time, it can look like a wall
+          of technical requirements attached to what should have been a
+          straightforward new account.
+        </p>
+
+        <h2>Why suppliers end up re-keying EDI orders by hand</h2>
+        <p>
+          Most wholesale ordering and stock systems were built around a
+          website, a phone call or a rep taking an order — not around
+          receiving a machine-readable purchase order from another
+          company's system. So when a large account starts sending EDI
+          orders, the order often lands as an email, a portal download or a
+          file a retailer's system pushes out, and someone on staff opens
+          it and re-types the lines into the wholesaler's own system by
+          hand. It works, but every re-keyed order is a chance to get a
+          quantity, a product code or a delivery date wrong — and large
+          accounts frequently charge suppliers back financially for order
+          and delivery inaccuracies, on top of the staff time spent typing
+          orders a computer already produced correctly once.
+        </p>
+        <p>
+          It also doesn't scale. One large account re-keyed by hand is a
+          nuisance. Several, each with its own format, its own cut-off times
+          and its own compliance rules for advance shipping notices (ASNs)
+          and invoices, turns into a job in itself — and it's exactly the
+          kind of manual, error-prone work that large accounts are trying to
+          eliminate by requiring EDI in the first place.
+        </p>
+
+        <h2>What EDI integration should actually connect to</h2>
+        <p>
+          The value of EDI isn't the file format — it's what happens to the
+          order once it arrives. Done properly, an incoming EDI purchase
+          order should flow straight into the same process as any other
+          order on the system:
+        </p>
+        <ul>
+          <li>The order lines match against your own product codes and pricing, not a manual lookup against the retailer's item numbers</li>
+          <li>Stock is checked and allocated the same way as a website or phone order, against the same live <a href="/features/inventory">inventory</a></li>
+          <li>Picking, packing and dispatch run through your normal warehouse process, so the ASN reflects what was actually shipped</li>
+          <li>The invoice is generated and sent back electronically in the format the account requires, without a second round of manual data entry</li>
+        </ul>
+        <p>
+          That's the difference between EDI as a compliance box-tick — a
+          file exchanged and then keyed in anyway — and EDI as an actual
+          reduction in manual work, where an order arrives and moves through
+          <a href="/features/sales">sales</a>,
+          <a href="/features/inventory">stock</a> and
+          <a href="/features/invoicing">invoicing</a> without anyone retyping
+          it.
+        </p>
+
+        <h2>Where it gets harder: multiple large accounts, different rules</h2>
+        <p>
+          Every large trading partner runs its own version of EDI or its own
+          supplier portal, with its own document formats, connection method,
+          labelling and ASN requirements, and its own penalties for getting
+          it wrong. A wholesaler supplying two or three such accounts is
+          often juggling two or three different sets of rules on top of
+          normal <a href="/blog/delivery-routes-and-driver-app-for-wholesalers">delivery
+          and dispatch</a> — and for food and perishable suppliers, the ASN
+          and any batch information usually has to line up with the same
+          <a href="/blog/batch-lot-traceability-food-distributors">batch and lot
+          traceability</a> data used for a recall, not a separate record kept
+          just for that one account.
+        </p>
+
+        <h2>Built around the accounts you actually need to connect to</h2>
+        <p>
+          There's no single universal EDI standard every retailer uses the
+          same way, so a generic, pre-built connection rarely matches what a
+          specific trading partner actually requires — and their
+          requirements can change. Rather than force your business through
+          a fixed integration, we build the specific EDI or portal
+          connection your large accounts require directly into your Cognit
+          system, so orders, ASNs and invoices flow through your normal
+          stock and dispatch process instead of sitting in a separate tool
+          someone re-keys from. Tell us which accounts you need to connect
+          to and we build it around their requirements.
+        </p>
+
+        <h2>Getting off manual re-keying</h2>
+        <p>
+          If a large account already has you re-typing EDI orders by hand,
+          or you're about to take on an account that requires it, it's worth
+          working out what that connection should actually look like before
+          the compliance pack becomes a permanent staffing cost. See
+          <a href="/pricing">pricing</a> or
+          <a href="/contact">get in touch</a> to talk through the specific
+          accounts and formats you need to trade with.
+        </p>
+
+        <h2>Frequently asked questions</h2>
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </article>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

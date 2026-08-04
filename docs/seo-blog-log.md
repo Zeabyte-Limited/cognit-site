@@ -24,3 +24,4 @@ runs don't repeat a topic. Newest entries at the bottom.
 | 2026-08-01 | catch-weight-pricing-for-meat-and-seafood-distributors | Catch-weight pricing and invoicing for meat and seafood distributors |
 | 2026-08-02 | batch-lot-traceability-food-distributors | Batch and lot traceability for NZ food distributors: getting recall-ready |
 | 2026-08-03 | consignment-stock-for-wholesale-distributors | Consignment stock software for NZ & AU wholesale distributors |
+| 2026-08-04 | edi-integration-for-wholesale-suppliers | EDI order integration for NZ & AU wholesale suppliers trading with large retail accounts |
