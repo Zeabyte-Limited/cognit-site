@@ -1,0 +1,198 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+const site = "https://cognitsystem.com";
+const slug = "sales-rep-ordering-app-for-wholesalers";
+const url = `${site}/blog/${slug}/`;
+
+const title = "Sales Rep Ordering App for NZ & AU Wholesale Distributors | Cognit";
+const description =
+  "If your reps still write orders on a pad or text them through at the end of the day, stock, pricing and invoicing are all running a day behind. What a real rep ordering app should do, and how to build it on your actual stock and pricing data.";
+
+const faqs = [
+  {
+    q: "What is a sales rep ordering app, and how is it different from a driver app?",
+    a: "A sales rep ordering app is a mobile tool a rep uses on a customer visit to build and submit an order on the spot, against live stock and that customer's actual pricing — not a general order form. It's a different job from a delivery driver app, which is about running today's routes and confirming what was actually dropped off. A rep app is about winning and capturing the order in the first place, before it ever reaches a warehouse or a truck.",
+  },
+  {
+    q: "Does Cognit come with a rep ordering app already built?",
+    a: "What reps need on the road varies by business — some need full catalogue browsing and photos for a face-to-face pitch, others mainly need fast reorder from a customer's last few orders, and some need to work offline in areas with patchy coverage. Rather than force every rep into one fixed app, we build the rep ordering tool around how your team actually sells, on your Cognit stock and pricing data. Tell us how your reps work and we build it in.",
+  },
+  {
+    q: "What happens if reps keep taking orders on paper or by text instead?",
+    a: "It's workable at a very small scale, but it costs you in two places. First, speed — an order written on a pad or texted through doesn't hit stock or the customer's account until someone in the office keys it in, often hours later, by which point the stock the rep promised may already be gone. Second, accuracy — pricing, discounts and product codes get re-typed from handwriting or a text message, which is exactly where wrong prices and wrong quantities creep in.",
+  },
+  {
+    q: "Can a rep app show the customer's actual price and account status, not just a generic price list?",
+    a: "That's the point of connecting it to your live system rather than running it as a separate tool. A rep on a visit should see the same customer-specific pricing, current stock availability and credit or account status that would apply if the customer ordered through your B2B portal or rang the office directly — so what the rep promises in front of the customer is what actually happens on the order.",
+  },
+  {
+    q: "Does an order taken on a rep app still need to be checked or re-entered by the office?",
+    a: "It shouldn't. An order submitted on a rep app should flow straight into the same order, stock and invoicing process as any other channel — checked against live stock and the customer's account automatically, the same way a website or phone order would be. If someone in the office still has to review and re-key every rep order before it's real, the app has only moved the paperwork onto a screen rather than removed it.",
+  },
+];
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "Sales rep ordering app for wholesale distributors",
+  description,
+  author: { "@type": "Organization", name: "Cognit System", url: site },
+  publisher: {
+    "@type": "Organization",
+    name: "Cognit System",
+    logo: { "@type": "ImageObject", url: `${site}/logo.png` },
+  },
+  datePublished: "2026-08-05",
+  dateModified: "2026-08-05",
+  mainEntityOfPage: { "@type": "WebPage", "@id": url },
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+---
+
+<Layout title={title} description={description} path={`/blog/${slug}`} schema={[articleSchema, faqSchema]}>
+  <Header />
+
+  <main class="bg-cog-stone text-cog-slate">
+    <!-- HERO (photographic) -->
+    <section class="orbs relative isolate overflow-hidden">
+      <img src="/images/warehouse-worker.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" />
+      <div class="absolute inset-0 -z-10 bg-cog-ink/82"></div>
+      <div class="dotgrid absolute inset-0 -z-10 opacity-40"></div>
+      <div class="mx-auto max-w-3xl px-5 pt-20 pb-20 text-center sm:px-8 sm:pt-28 hero-rise">
+        <span class="chip mx-auto border border-white/15 text-slate-200">Insights</span>
+        <h1 class="mt-5 text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl">
+          A sales rep ordering app for wholesale distributors
+        </h1>
+        <p class="mt-4 text-lg text-slate-300">
+          If a rep's order doesn't hit stock or the customer's account until
+          someone keys it in back at the office, you're selling on
+          yesterday's numbers. Here's what a real rep ordering app should do.
+        </p>
+      </div>
+    </section>
+
+    <!-- BODY -->
+    <section class="mx-auto max-w-3xl px-5 pb-16 sm:px-8">
+      <article class="article">
+        <p>
+          Most wholesale and distribution businesses in NZ and Australia
+          still have at least one rep who wins orders the old way — a
+          face-to-face visit, a written order on a pad, or a list of items
+          texted through at the end of the round. It works, in the sense
+          that the order eventually gets there. What it doesn't do is reflect
+          reality at the moment the customer actually commits: the stock the
+          rep just promised, the price that customer is actually on, and
+          whether their account is in good enough standing to take the order
+          at all.
+        </p>
+
+        <h2>Why paper and text orders cost more than they look like they do</h2>
+        <p>
+          A handwritten or texted order has to be read, interpreted and
+          typed into the system by someone else, usually hours after the
+          visit happened. That gap creates two separate problems. The first
+          is speed — stock the rep saw as available that morning may be gone
+          by the time the order is keyed in that evening, and the customer
+          finds out on a back-order rather than at the point of sale. The
+          second is accuracy — product codes, quantities and negotiated
+          pricing all get re-typed from handwriting or a text thread, which
+          is exactly the kind of manual step where a wrong price or a wrong
+          quantity slips through unnoticed.
+        </p>
+        <p>
+          It also puts the rep in an awkward position with the customer.
+          If pricing only lives in a spreadsheet back at the office, or in
+          the rep's memory of what they quoted last time, the rep is
+          effectively promising something they can't actually confirm on the
+          spot — the same underlying gap we see with
+          <a href="/blog/customer-specific-pricing-for-wholesalers">customer-specific
+          pricing</a> that only lives in a rep's head or a price list nobody
+          else can see.
+        </p>
+
+        <h2>What a rep ordering app should actually show, on the spot</h2>
+        <p>
+          The value of a rep app isn't the form — it's what it's connected
+          to. Used well, it should give a rep exactly what they'd have if
+          they rang the office and asked, but live and in front of the
+          customer:
+        </p>
+        <ul>
+          <li>That specific customer's own pricing and any active deals, from <a href="/features/sales">sales</a> — not a generic list</li>
+          <li>Real stock availability from the same <a href="/features/inventory">inventory</a> the warehouse is picking against, not a figure from last week</li>
+          <li>The customer's account and credit status, so a rep isn't the one finding out an order should have been declined</li>
+          <li>A fast way to reorder from that customer's usual lines, for the visits that are mostly repeat business</li>
+        </ul>
+        <p>
+          Submitted this way, the order doesn't need re-keying — it lands in
+          the same place a website or phone order would, ready to be
+          checked, picked and invoiced through normal
+          <a href="/features/invoicing">invoicing</a>, the same way we've
+          argued <a href="/blog/edi-integration-for-wholesale-suppliers">EDI
+          orders</a> should flow straight into stock and dispatch rather than
+          sitting in a separate tool someone re-types from.
+        </p>
+
+        <h2>Where it matters most: multiple reps, wide territories</h2>
+        <p>
+          One rep working a small patch can get away with a notepad. It
+          stops working once there are several reps, each carrying their own
+          customer relationships and pricing history, often out of mobile
+          coverage for parts of the day. Without a shared, live source of
+          stock and pricing, two reps can unknowingly promise the same tight
+          stock to two different customers, or quote two different prices to
+          the same account depending on who visited last. A rep app that
+          works offline and syncs the moment coverage returns avoids both —
+          and keeps every rep working off the same numbers as the warehouse
+          and the office, not their own local copy of last month's price
+          list.
+        </p>
+
+        <h2>Built around how your reps actually sell</h2>
+        <p>
+          Some sales teams need full catalogue browsing and product photos
+          for a proper face-to-face pitch. Others are mostly fast reorder
+          from a regular round, where speed matters more than a rich
+          catalogue. Some need to work reliably with no signal for half the
+          day. Rather than force your reps into one fixed app, we build the
+          rep ordering tool around how your team actually sells, on your
+          Cognit stock and pricing data — tell us how your reps work today
+          and we build it into your system.
+        </p>
+
+        <h2>Getting reps off the notepad</h2>
+        <p>
+          If orders still depend on a rep's handwriting or a text message
+          making it back to the office intact, it's worth working out what a
+          proper rep ordering app should look like for your team before the
+          next stock-out or pricing mistake happens in front of a customer.
+          See <a href="/pricing">pricing</a> or
+          <a href="/contact">get in touch</a> to talk through how your sales
+          team actually works on the road.
+        </p>
+
+        <h2>Frequently asked questions</h2>
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </article>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
