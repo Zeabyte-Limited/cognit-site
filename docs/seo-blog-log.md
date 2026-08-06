@@ -26,3 +26,4 @@ runs don't repeat a topic. Newest entries at the bottom.
 | 2026-08-03 | consignment-stock-for-wholesale-distributors | Consignment stock software for NZ & AU wholesale distributors |
 | 2026-08-04 | edi-integration-for-wholesale-suppliers | EDI order integration for NZ & AU wholesale suppliers trading with large retail accounts |
 | 2026-08-05 | sales-rep-ordering-app-for-wholesalers | Sales rep ordering app for wholesale distributors — live stock/pricing on the road vs paper or text orders |
+| 2026-08-06 | unit-of-measure-conversions-for-wholesale-distributors | Unit of measure conversions (pallet, case, carton, each) for NZ & AU wholesale distributors |

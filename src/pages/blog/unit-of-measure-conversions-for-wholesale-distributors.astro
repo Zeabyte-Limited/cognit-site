@@ -1,0 +1,198 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+const site = "https://cognitsystem.com";
+const slug = "unit-of-measure-conversions-for-wholesale-distributors";
+const url = `${site}/blog/${slug}/`;
+
+const title = "Unit of Measure Conversions (Pallet, Case, Each) for NZ & AU Wholesalers | Cognit";
+const description =
+  "You buy by the pallet, hold stock by the case, and sell by the carton or the each — sometimes all three to the same customer. What breaks when software only tracks one unit, and what proper unit-of-measure conversion should look like.";
+
+const faqs = [
+  {
+    q: "What does 'unit of measure conversion' actually mean for a wholesaler?",
+    a: "It means the same product can be bought, stored and sold in different quantities — a pallet from the supplier, a case in the warehouse, a carton or single each to the customer — and the system converts cleanly between them so stock, cost and price all stay correct no matter which unit an order or a purchase is written in. Without it, someone has to work out the maths by hand every time a case size or pack size differs from what was purchased.",
+  },
+  {
+    q: "Does Cognit come with unit-of-measure conversions already set up for our products?",
+    a: "Pack sizes, case quantities and pallet configurations vary hugely between suppliers and product ranges, so there's no single generic setup that fits every wholesaler. We build the unit-of-measure structure around your actual products and how your customers order — cases, cartons, eaches, pallets, or a mix depending on the line — directly into your Cognit system. Tell us how your products are packed and sold and we build it in.",
+  },
+  {
+    q: "What goes wrong if stock is only tracked in one unit?",
+    a: "Two things, usually. First, stock accuracy — if you buy in pallets of 40 cases but only track cases, a partial pallet receipt or a broken case sale throws the count out until someone corrects it manually. Second, pricing and margin — if cost is recorded per pallet but you sell by the carton, someone has to divide it out correctly every time, and if the case size changes between suppliers or over time, that manual calculation is exactly where margin quietly leaks away.",
+  },
+  {
+    q: "Can the same customer order some lines by the case and others as single eaches?",
+    a: "Yes — that's normal in wholesale, especially where slow-moving or high-value lines are sold as eaches and fast-moving staples go out by the carton or case. The point of building it into the system rather than working around it is that stock, pricing and invoicing all reflect the unit actually ordered, on every line, without anyone converting quantities by hand before it's keyed in.",
+  },
+  {
+    q: "Does this affect purchase orders too, or just sales?",
+    a: "Both, and that's where it matters most. A purchase order raised in pallets, received into stock by the case, and then sold out by the carton or each is three different units on one product's journey through the business. If those conversions aren't handled automatically end to end — purchasing through to invoicing — a mismatch anywhere in that chain either overstates stock that isn't really there or understates what's actually on the shelf.",
+  },
+];
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "Unit of measure conversions for wholesale distributors",
+  description,
+  author: { "@type": "Organization", name: "Cognit System", url: site },
+  publisher: {
+    "@type": "Organization",
+    name: "Cognit System",
+    logo: { "@type": "ImageObject", url: `${site}/logo.png` },
+  },
+  datePublished: "2026-08-06",
+  dateModified: "2026-08-06",
+  mainEntityOfPage: { "@type": "WebPage", "@id": url },
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+---
+
+<Layout title={title} description={description} path={`/blog/${slug}`} schema={[articleSchema, faqSchema]}>
+  <Header />
+
+  <main class="bg-cog-stone text-cog-slate">
+    <!-- HERO (photographic) -->
+    <section class="orbs relative isolate overflow-hidden">
+      <img src="/images/warehouse-shelves.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" />
+      <div class="absolute inset-0 -z-10 bg-cog-ink/82"></div>
+      <div class="dotgrid absolute inset-0 -z-10 opacity-40"></div>
+      <div class="mx-auto max-w-3xl px-5 pt-20 pb-20 text-center sm:px-8 sm:pt-28 hero-rise">
+        <span class="chip mx-auto border border-white/15 text-slate-200">Insights</span>
+        <h1 class="mt-5 text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl">
+          Unit of measure conversions for wholesale distributors
+        </h1>
+        <p class="mt-4 text-lg text-slate-300">
+          Buy by the pallet, hold by the case, sell by the carton or the
+          each — on the same product, sometimes to the same customer. What
+          breaks when software only tracks one unit.
+        </p>
+      </div>
+    </section>
+
+    <!-- BODY -->
+    <section class="mx-auto max-w-3xl px-5 pb-16 sm:px-8">
+      <article class="article">
+        <p>
+          Almost no wholesale or distribution business deals in a single
+          unit. A supplier ships by the pallet. The warehouse counts and
+          shelves stock by the case. A big customer orders by the carton,
+          while a smaller account or a top-up order wants single eaches.
+          One product, one journey through the business, three or four
+          different units along the way — and if the system only really
+          understands one of them, someone is doing the conversion maths by
+          hand at every step, on every line, for every order.
+        </p>
+
+        <h2>Where the maths quietly goes wrong</h2>
+        <p>
+          Pack sizes aren't fixed. A supplier might ship 40 cases to a
+          pallet this quarter and 36 next quarter after a packaging change.
+          A case might hold 12 units of one product and 24 of another in the
+          same range. When conversions live in someone's head, a
+          spreadsheet, or get re-typed on every purchase order and sales
+          order, that's exactly where errors creep in — a case size assumed
+          rather than checked, a partial pallet received as a full one, a
+          carton price divided by the wrong count. Individually small, but
+          multiplied across hundreds of order lines a week, it adds up to
+          real stock inaccuracy and real margin loss.
+        </p>
+        <p>
+          It also shows up as a stock discrepancy nobody can quite explain.
+          If purchasing records stock in pallets but the warehouse picks and
+          counts in cases, a stocktake done in one unit and a system total
+          held in another will drift apart over time, the same drift we've
+          seen cause real problems with
+          <a href="/blog/inventory-stock-control-software-for-wholesalers">stock
+          control</a> generally — except here the cause isn't a missed
+          movement, it's a unit mismatch nobody built a clean conversion
+          for.
+        </p>
+
+        <h2>What proper conversion should actually do</h2>
+        <p>
+          The goal isn't to force everyone onto one unit — that's not how
+          wholesale trading actually works. It's to let each part of the
+          business use the unit that makes sense for it, while the system
+          converts cleanly underneath:
+        </p>
+        <ul>
+          <li>Purchase orders raised in the supplier's unit — pallet or case — through <a href="/features/purchasing">purchasing</a>, converting automatically into stock-holding units on receipt</li>
+          <li>Stock in <a href="/features/inventory">inventory</a> tracked accurately in whatever base unit the warehouse actually counts in, with pallet and case quantities always derivable from it, not held as a separate, driftable number</li>
+          <li>Sales orders and the online store taking each customer's preferred unit — case, carton or each — through <a href="/features/sales">sales</a>, without a rep or office staff converting it themselves before keying it in</li>
+          <li>Cost and price calculated correctly per unit sold, however the pallet or case cost was originally purchased, so margin doesn't get quietly distorted by a conversion done in someone's head</li>
+        </ul>
+        <p>
+          Done this way, a pallet landing from a supplier, a case picked off
+          the shelf and a single each sold to a customer are all the same
+          product moving through one accurate record — not three separate
+          numbers someone has to keep reconciling. It's the same
+          straight-through principle we've argued for with
+          <a href="/blog/edi-integration-for-wholesale-suppliers">EDI orders</a>
+          and <a href="/blog/catch-weight-pricing-for-meat-and-seafood-distributors">catch-weight
+          products</a>: convert once, automatically, at the point the
+          numbers enter the system, not manually every time they're used.
+        </p>
+
+        <h2>Where it gets harder: mixed units on the same order</h2>
+        <p>
+          It's rarely as simple as "we buy in pallets and sell in cartons."
+          A single order can mix units on different lines — cartons of one
+          product, single eaches of another, a broken case of a third
+          because the customer only wants half of what a full case holds.
+          Add <a href="/blog/customer-specific-pricing-for-wholesalers">customer-specific
+          pricing</a> on top, where the same product might be priced per
+          case for one account and per each for another, and a system that
+          can't handle mixed units cleanly forces staff to either restrict
+          what customers can order or manually work out every conversion
+          before an order can even be entered.
+        </p>
+
+        <h2>Built around how your products are actually packed</h2>
+        <p>
+          Pack sizes, case quantities and pallet configurations differ by
+          supplier, by product range, and sometimes by season. Rather than
+          fit your business into a fixed set of units, we build the unit
+          conversion structure around your actual products and how your
+          customers order — into your Cognit purchasing, stock and sales
+          data. Tell us how your products are packed and priced and we
+          build it into your system.
+        </p>
+
+        <h2>Getting the units right, once</h2>
+        <p>
+          If stock counts never quite match what a stocktake finds, or
+          margin looks thinner than it should once cartons and eaches are
+          accounted for, it's worth checking whether the real cause is a
+          unit-of-measure conversion nobody set up properly. See
+          <a href="/pricing">pricing</a> or
+          <a href="/contact">get in touch</a> to talk through how your
+          products are packed, bought and sold.
+        </p>
+
+        <h2>Frequently asked questions</h2>
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </article>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
