@@ -1,0 +1,201 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+const site = "https://cognitsystem.com";
+const slug = "fefo-expiry-date-stock-rotation-food-distributors";
+const url = `${site}/blog/${slug}/`;
+
+const title = "FEFO Expiry-Date Stock Rotation for NZ & AU Food Distributors | Cognit";
+const description =
+  "If pickers grab whatever's closest instead of whatever expires soonest, you're writing off stock that should have sold. What first-expired-first-out (FEFO) picking actually requires, and how to build it into your system instead of relying on staff memory.";
+
+const faqs = [
+  {
+    q: "What is FEFO, and how is it different from FIFO?",
+    a: "FIFO (first-in-first-out) picks whichever stock arrived first. FEFO (first-expired-first-out) picks whichever stock expires soonest — which is usually the same batch, but not always. A late delivery, a supplier with a shorter shelf life, or stock rotated in from a second location can all mean the oldest stock isn't the one closest to its use-by date. For perishable goods, FEFO is what actually protects you from write-offs; FIFO is only a proxy for it.",
+  },
+  {
+    q: "Does Cognit have FEFO picking built in already?",
+    a: "How FEFO needs to run differs by distributor — some need it enforced strictly at pick with a hard block on newer stock, others need it as a strong recommendation a picker can override with a reason, and some only need it applied to a subset of short-shelf-life lines. Rather than sell one fixed picking rule, we build FEFO logic around how your warehouse actually operates. Tell us your problem and we build it into your Cognit system.",
+  },
+  {
+    q: "Why does FEFO break down without a system behind it?",
+    a: "FEFO relies on knowing the expiry date of every unit of stock at the moment it's picked — not just its batch or received date. If expiry dates live on a supplier docket or a handwritten shelf label instead of against the stock record itself, a picker has no way to compare options and defaults to whatever's easiest to reach. The rule only works when the system already knows the answer and simply won't offer the wrong stock first.",
+  },
+  {
+    q: "How much does poor stock rotation actually cost a distributor?",
+    a: "It shows up as write-offs, credits and discounted clearance sales on stock that expired before it sold — plus the slower, harder-to-see cost of customer complaints when short-dated stock does go out the door. For distributors carrying real volumes of perishable or short-shelf-life lines, that wastage is usually a bigger number than expected once it's tracked properly, because it's normally absorbed quietly rather than reported as a single line item.",
+  },
+  {
+    q: "Can FEFO work alongside batch and lot traceability?",
+    a: "Yes — they're complementary, not the same thing. Batch traceability answers 'which customers received this batch' after the fact, typically for a recall. FEFO uses the same expiry and batch data proactively, at the point of picking, to stop short-dated stock sitting unsold in the first place. Distributors that need one usually benefit from having both running off the same stock record.",
+  },
+];
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "FEFO expiry-date stock rotation for NZ and AU food distributors",
+  description,
+  author: { "@type": "Organization", name: "Cognit System", url: site },
+  publisher: {
+    "@type": "Organization",
+    name: "Cognit System",
+    logo: { "@type": "ImageObject", url: `${site}/logo.png` },
+  },
+  datePublished: "2026-08-07",
+  dateModified: "2026-08-07",
+  mainEntityOfPage: { "@type": "WebPage", "@id": url },
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+---
+
+<Layout title={title} description={description} path={`/blog/${slug}`} schema={[articleSchema, faqSchema]}>
+  <Header />
+
+  <main class="bg-cog-stone text-cog-slate">
+    <!-- HERO (photographic) -->
+    <section class="orbs relative isolate overflow-hidden">
+      <img src="/images/food-distribution.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" />
+      <div class="absolute inset-0 -z-10 bg-cog-ink/82"></div>
+      <div class="dotgrid absolute inset-0 -z-10 opacity-40"></div>
+      <div class="mx-auto max-w-3xl px-5 pt-20 pb-20 text-center sm:px-8 sm:pt-28 hero-rise">
+        <span class="chip mx-auto border border-white/15 text-slate-200">Insights</span>
+        <h1 class="mt-5 text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl">
+          FEFO stock rotation for food distributors
+        </h1>
+        <p class="mt-4 text-lg text-slate-300">
+          Nearest to the door isn't always closest to expiry. What
+          first-expired-first-out picking actually requires — and why relying
+          on pickers to remember it doesn't work at volume.
+        </p>
+      </div>
+    </section>
+
+    <!-- BODY -->
+    <section class="mx-auto max-w-3xl px-5 pb-16 sm:px-8">
+      <article class="article">
+        <p>
+          Most warehouses assume they're already doing first-in-first-out —
+          pick the oldest stock, keep it moving, nothing sits long enough to
+          expire. In practice, what actually happens at the pick face is
+          simpler and less reliable: pickers grab whatever's easiest to
+          reach, closest to the front of the shelf, or on top of the pallet.
+          For long-life dry goods that's a minor inefficiency. For anything
+          with a real use-by or best-before date, it's how perfectly good
+          stock quietly turns into a write-off — not because anyone did
+          anything wrong, but because nothing in the process actually
+          compared expiry dates before the pick was made.
+        </p>
+
+        <h2>Why FEFO isn't quite the same as FIFO</h2>
+        <p>
+          FIFO — first-in-first-out — is the easy version: whatever arrived
+          first should leave first. It's a reasonable proxy for expiry order
+          most of the time, because stock usually arrives in the order its
+          shelf life started. But it isn't always true. A supplier can
+          deliver a batch with a shorter remaining shelf life than stock
+          already on hand. Stock transferred in from another site can be
+          older in system terms but closer to its use-by date than what's
+          already on the shelf. FEFO — first-expired-first-out — picks on the
+          actual expiry date, which is the number that determines whether
+          that stock sells or gets written off, not the date it happened to
+          arrive.
+        </p>
+        <p>
+          The distinction matters most for exactly the products where the
+          margin for error is smallest — short-shelf-life
+          <a href="/blog/erp-for-food-and-beverage-distributors">food and beverage</a>
+          lines, and anything already carrying
+          <a href="/blog/batch-lot-traceability-food-distributors">batch or lot</a>
+          data that a use-by date can be attached to.
+        </p>
+
+        <h2>Why it breaks down without a system behind it</h2>
+        <p>
+          FEFO only works if a picker can compare expiry dates before
+          choosing what to pick — and that comparison has to be trivial, not
+          something they stop to work out under pressure with a truck waiting
+          at the dock. If expiry dates live on the supplier's delivery docket,
+          a handwritten shelf label, or aren't captured at all beyond "best
+          before roughly this month," there's no comparison to make. The
+          picker takes the nearest carton, and the batch with three days left
+          on it stays on the shelf until it's someone's job to notice — often
+          after it's too late to sell.
+        </p>
+        <ul>
+          <li>Expiry date is captured once, at goods-in, against the specific batch received into <a href="/features/inventory">stock</a></li>
+          <li>Every location holding that product shows which batch is closest to expiry, not just total quantity on hand</li>
+          <li>Picking is directed to the shortest-dated available stock first — as a hard rule, a default with an override, or a flag on pick lists, depending on how strict a line needs to be</li>
+          <li>Stock approaching its cutoff is visible before it becomes a write-off, not after</li>
+        </ul>
+        <p>
+          Built this way, FEFO stops being a policy on a wall poster and
+          becomes the path of least resistance — the easiest stock to pick is
+          also the correct one to pick.
+        </p>
+
+        <h2>What poor rotation actually costs</h2>
+        <p>
+          The direct cost is the write-off — stock that expired unsold and
+          has to be scrapped, discounted to clear, or credited back. The
+          quieter cost is what happens when short-dated stock does go out
+          the door instead: a customer receiving product with days left on
+          it, a complaint, or in the worst case a batch that shouldn't have
+          shipped at all. Both are symptoms of the same gap — nobody, and
+          nothing, compared expiry dates before the pick happened. For
+          distributors running real volumes of perishable lines, that
+          wastage is usually absorbed quietly into cost of goods rather than
+          tracked as its own number, which is exactly why it tends to be
+          bigger than expected once someone actually measures it.
+        </p>
+
+        <h2>Built around how your warehouse actually picks</h2>
+        <p>
+          How strictly FEFO needs to be enforced varies a lot by distributor
+          and even by product line. Some businesses need it as a hard block —
+          a picker physically can't select newer stock while shorter-dated
+          stock of the same item is available. Others need it as a strong
+          default a picker can override with a reason, for cases like a
+          customer specifically requesting a longer-dated batch. Some only
+          need it applied to a handful of high-risk, short-shelf-life lines
+          rather than the whole catalogue. Rather than force one fixed rule
+          on every product, we build FEFO logic around how your goods-in,
+          <a href="/features/inventory">stock</a> and picking actually work.
+          Tell us your problem and we build it into your Cognit system.
+        </p>
+
+        <h2>Stop finding out at write-off time</h2>
+        <p>
+          If the first time anyone notices a batch is close to expiry is when
+          it's already too late to sell, it's worth talking through what
+          expiry-driven picking should look like against your actual stock
+          and warehouse layout. See <a href="/pricing">pricing</a> or
+          <a href="/contact">get in touch</a> to talk through your product
+          range and shelf-life requirements specifically.
+        </p>
+
+        <h2>Frequently asked questions</h2>
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </article>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
