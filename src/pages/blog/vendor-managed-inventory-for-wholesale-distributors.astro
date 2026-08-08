@@ -1,0 +1,187 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+const site = "https://cognitsystem.com";
+const slug = "vendor-managed-inventory-for-wholesale-distributors";
+const url = `${site}/blog/${slug}/`;
+
+const title = "Vendor-Managed Inventory (VMI) for NZ & AU Wholesale Distributors | Cognit";
+const description =
+  "A large account wants you to own their reorder decision — restock their shelf or store before they run out, without them raising a PO. What vendor-managed inventory actually requires from your stock and ordering system, and how to build it without a spreadsheet in the middle.";
+
+const faqs = [
+  {
+    q: "What is vendor-managed inventory (VMI), in practice?",
+    a: "VMI flips the normal ordering relationship. Instead of the customer deciding what to reorder and raising a purchase order, the supplier monitors the customer's stock levels or sell-through and decides when and how much to replenish — then generates the order, delivery and invoice themselves. It's common with large retail, foodservice and hospitality accounts that want fewer stockouts on their side and are willing to hand the reorder decision to a trusted supplier in exchange for it.",
+  },
+  {
+    q: "Does Cognit come with VMI built in already?",
+    a: "Every VMI arrangement is negotiated between the supplier and that specific account — what stock data you get, how often, what triggers a replenishment order and how it's invoiced all vary. Rather than force one fixed VMI model, we build the specific arrangement your account requires into your Cognit system — tell us the terms you've agreed and we build it around them.",
+  },
+  {
+    q: "How is VMI different from consignment stock?",
+    a: "They're often combined but they answer different questions. Consignment is about ownership and invoicing timing — stock sits at the customer's site, you still own it, and it's only invoiced once it sells. VMI is about who makes the reorder decision — you monitor their stock and decide when to replenish, regardless of whose stock it legally is. A lot of real-world VMI deals are also consignment deals, but a distributor can run VMI on stock it invoices immediately on delivery, too.",
+  },
+  {
+    q: "What data do we actually need from the customer to run VMI properly?",
+    a: "At minimum, current stock-on-hand or sell-through figures at whatever interval the account is willing to share them — daily EPOS feeds, a weekly count, or a minimum/maximum shelf level you agree up front and someone checks on a visit. The more current and structured that data is, the more the replenishment decision can be driven directly off it rather than off a rep's guess on a store visit.",
+  },
+  {
+    q: "What happens if we get a VMI replenishment order wrong?",
+    a: "Under-supply causes the stockout VMI was meant to prevent, which is exactly what damages the account relationship. Over-supply ties up your stock and cash sitting on someone else's shelf, and for short-shelf-life lines it can turn into a write-off before it ever sells through. Both failure modes come from the same root cause — replenishment decisions made on stale or incomplete stock data instead of what's actually on the shelf right now.",
+  },
+];
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "Vendor-managed inventory (VMI) for wholesale distributors",
+  description,
+  author: { "@type": "Organization", name: "Cognit System", url: site },
+  publisher: {
+    "@type": "Organization",
+    name: "Cognit System",
+    logo: { "@type": "ImageObject", url: `${site}/logo.png` },
+  },
+  datePublished: "2026-08-08",
+  dateModified: "2026-08-08",
+  mainEntityOfPage: { "@type": "WebPage", "@id": url },
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+---
+
+<Layout title={title} description={description} path={`/blog/${slug}`} schema={[articleSchema, faqSchema]}>
+  <Header />
+
+  <main class="bg-cog-stone text-cog-slate">
+    <!-- HERO (photographic) -->
+    <section class="orbs relative isolate overflow-hidden">
+      <img src="/images/warehouse-aisle.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" />
+      <div class="absolute inset-0 -z-10 bg-cog-ink/82"></div>
+      <div class="dotgrid absolute inset-0 -z-10 opacity-40"></div>
+      <div class="mx-auto max-w-3xl px-5 pt-20 pb-20 text-center sm:px-8 sm:pt-28 hero-rise">
+        <span class="chip mx-auto border border-white/15 text-slate-200">Insights</span>
+        <h1 class="mt-5 text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl">
+          Vendor-managed inventory for wholesale distributors
+        </h1>
+        <p class="mt-4 text-lg text-slate-300">
+          A large account wants you to decide when they get restocked, not the
+          other way round. What VMI actually asks of your stock and ordering
+          system — and why a spreadsheet in the middle doesn't survive contact
+          with it.
+        </p>
+      </div>
+    </section>
+
+    <!-- BODY -->
+    <section class="mx-auto max-w-3xl px-5 pb-16 sm:px-8">
+      <article class="article">
+        <p>
+          It usually comes up as a condition of winning or keeping a large
+          account: instead of them raising a purchase order when they notice
+          they're running low, they want you to watch their stock and
+          replenish it before that happens. That's vendor-managed inventory —
+          the reorder decision moves from the customer's side of the
+          relationship to yours. For the account, it means fewer stockouts and
+          less admin. For the distributor, it means taking on a
+          responsibility that ordinary sales-order processing was never built
+          to carry.
+        </p>
+
+        <h2>Why VMI breaks an ordinary order-taking process</h2>
+        <p>
+          Normal wholesale ordering assumes the customer starts the
+          transaction — they place an order, you fulfil it. VMI reverses that:
+          you have to know their stock position, decide when it's low enough
+          to act on, work out how much to send, and generate the order
+          yourself, often without anyone on their side even seeing a
+          requisition. A rep's memory, a phone call to check "how are you
+          doing for stock", or a spreadsheet someone updates after a site
+          visit can just about carry one account. It falls over fast with
+          two or three, because there's no shared record of what each
+          account's current stock position actually is, and every
+          replenishment decision has to be reconstructed from scratch by
+          whoever happens to be looking at it that day.
+        </p>
+
+        <h2>What a VMI arrangement actually needs to run on</h2>
+        <p>
+          Whatever form the agreement takes, the mechanics underneath it are
+          the same shape:
+        </p>
+        <ul>
+          <li>A record of each VMI account's current stock position — sourced from an EPOS feed, a scheduled count, or a minimum/maximum shelf level agreed up front, whatever the account is actually willing to share</li>
+          <li>A trigger that flags when a location needs replenishing, against the terms agreed for that specific account, not a one-size-fits-all rule applied everywhere</li>
+          <li>A replenishment order generated against real <a href="/features/inventory">stock on hand</a>, using that account's agreed <a href="/blog/customer-specific-pricing-for-wholesalers">pricing</a>, without someone re-deciding quantities from memory</li>
+          <li>Delivery and invoicing that follow the terms agreed for that account — invoiced on delivery, or on sell-through if the arrangement is also run as <a href="/blog/consignment-stock-for-wholesale-distributors">consignment</a></li>
+        </ul>
+        <p>
+          Done this way, VMI runs off the same stock and order data as every
+          other account on the system — it's a different trigger for creating
+          an order, not a separate process bolted on beside it.
+        </p>
+
+        <h2>Where it gets harder: multiple accounts, different rules</h2>
+        <p>
+          Every VMI account tends to negotiate its own terms — its own
+          reporting method, its own min/max levels, its own delivery
+          frequency and its own invoicing basis. A distributor running VMI
+          for two or three large accounts is really running two or three
+          different arrangements in parallel, each needing its own trigger
+          logic layered over the same underlying stock record, on top of
+          normal <a href="/blog/delivery-routes-and-driver-app-for-wholesalers">delivery
+          and route planning</a>. For short-shelf-life stock, the
+          replenishment decision also has to respect the same
+          <a href="/blog/fefo-expiry-date-stock-rotation-food-distributors">expiry-date
+          rotation</a> rules as everything else moving through the warehouse —
+          restocking a shelf with the wrong-dated batch just moves the
+          write-off from your warehouse to theirs.
+        </p>
+
+        <h2>Built around the terms you've actually agreed</h2>
+        <p>
+          There's no single standard way VMI works — what triggers a
+          replenishment, how stock data reaches you, and how it's invoiced
+          are all negotiated per account, and a generic tool rarely matches
+          what a specific customer actually requires. Rather than force your
+          business into one fixed model, we build the VMI arrangement your
+          account has agreed directly into your Cognit system, running off
+          the same stock, pricing and delivery data as every other order.
+          Tell us the terms you've agreed and we build it around them.
+        </p>
+
+        <h2>Get the reorder decision off a spreadsheet</h2>
+        <p>
+          If you're already running VMI for an account on a rep's memory or a
+          manually updated spreadsheet, or you're about to take one on, it's
+          worth working out what the replenishment logic should actually look
+          like before a stockout — or an over-supply write-off — becomes the
+          thing that costs you the account. See <a href="/pricing">pricing</a>
+          or <a href="/contact">get in touch</a> to talk through the specific
+          accounts and terms involved.
+        </p>
+
+        <h2>Frequently asked questions</h2>
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </article>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
