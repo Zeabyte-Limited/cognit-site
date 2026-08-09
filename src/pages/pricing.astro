@@ -3,13 +3,21 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 
+// PRICING IS A SINGLE SOURCE OF TRUTH. These numbers must stay identical to
+// PLAN_META in the Cognit app (api/helpers/moduleAccess.helper.js) and to the
+// plan block on zeabyte.co.nz/cognit. Owner-decided 2026-08-09.
+//
+// RULE: only list a feature a client could actually use on the day they sign up.
+// Anything still being built belongs in `roadmap` below — never in a plan's
+// tick-list. (AI invoice reading is built but has never been switched on for a
+// real client, so it lives on the roadmap, not in Premium.)
 const plans = [
   {
     name: "Free trial",
     slug: "trial",
     price: "0",
     unit: "for 14 days",
-    tagline: "Try the whole system — every feature unlocked — free for 14 days.",
+    tagline: "Try the whole system — every module unlocked — free for 14 days.",
     cta: "Start free trial",
     href: "/start?plan=trial",
     popular: false,
@@ -25,26 +33,28 @@ const plans = [
   {
     name: "Standard",
     slug: "standard",
-    price: "899",
+    price: "750",
     unit: "NZD / month",
     tagline: "A B2B online store with your products and customers — take orders online.",
     cta: "Start free trial",
     href: "/start?plan=standard",
     popular: false,
     features: [
-      "Built-in B2B online store",
+      "Branded B2B online store",
       "Your product catalogue",
       "Your customer accounts",
       "Online order management & history",
-      "Multiple users",
+      "Lost-sale capture",
+      "Core sales reports",
+      "Multiple staff logins",
       "NZ-based support",
     ],
-    footnote: "Inventory, purchasing, accounting and the rest are on Premium.",
+    footnote: "Inventory, purchasing, invoicing and accounting are on Premium.",
   },
   {
     name: "Premium",
     slug: "premium",
-    price: "1,999",
+    price: "1,500",
     unit: "NZD / month",
     tagline: "The complete ERP — run your whole operation in one system.",
     cta: "Start free trial",
@@ -52,73 +62,90 @@ const plans = [
     popular: true,
     features: [
       "Everything in Standard, plus:",
-      "Inventory & warehouse management",
+      "Inventory, stock control & stocktakes",
       "Purchasing, goods receipting & supplier bills",
-      "Accounting & general ledger",
-      "Invoicing, statements & customer pricing",
+      "Invoicing, credit notes & customer statements",
+      "Customer-specific & contract pricing",
+      "Quotes with margin guardrails",
+      "Pick sheets & proof of delivery",
       "Supplier rebates & claim-backs",
-      "Quotes, pick sheets & missed opportunities",
-      "Xero integration",
-      "Advanced reporting & P&L",
+      "Accounting & general ledger",
+      "Full reporting suite — 25 reports",
+      "Sends invoices & credit notes to Xero",
     ],
   },
   {
     name: "Enterprise",
     slug: "enterprise",
-    price: "3,999",
-    unit: "NZD / month · custom quote",
-    tagline: "For multi-branch operations that want AI, intelligence and a bespoke fit.",
+    price: "Let's talk",
+    custom: true,
+    unit: "quoted per project",
+    tagline: "For multi-branch operations that need the system shaped around them.",
     cta: "Talk to our team",
     href: "/contact",
     popular: false,
     features: [
       "Everything in Premium, plus:",
+      "Multi-branch & multi-warehouse",
+      "Per-user permissions",
       "API access & data export",
-      "One-click Backup & Restore",
-      "AI invoice processing — reads supplier invoices & books stock in",
-      "Rep intelligence / Customer 360",
-      "Multi-branch & multi-location",
-      "Per-user granular permissions",
-      "Dedicated infrastructure & SLA",
-      "White-glove onboarding & a dedicated account manager",
+      "One-click backup & restore",
+      "Custom modules built for your business",
+      "Priority support, direct to the team who built it",
     ],
+    footnote: "Priced on what you need built — not a fixed monthly bundle.",
   },
 ];
 
-// 'free' column = the 14-day Trial (everything unlocked). 's' = Standard (online
-// store + products + customers only). 'p' = Premium (full ERP). Enterprise adds
-// AI invoice processing, rep intelligence, multi-branch & permissions on top.
+// 's' = Standard, 'p' = Premium, 'e' = Enterprise. The 14-day free trial
+// unlocks every row below, so it doesn't need its own column.
+// Every row here maps to a module that exists and works today — see
+// MODULE_TIER in the app. Nothing aspirational belongs in this table.
 const compare = [
-  { f: "Built-in B2B online store", free: true, s: true, p: true },
-  { f: "Online order management", free: true, s: true, p: true },
-  { f: "Order history", free: true, s: true, p: true },
-  { f: "Product catalogue", free: "Unlimited", s: "Unlimited", p: "Unlimited" },
-  { f: "Customer accounts", free: "Unlimited", s: "Unlimited", p: "Unlimited" },
-  { f: "User logins", free: "Multiple", s: "Multiple", p: "Multiple" },
-  { f: "Inventory & warehouse", free: true, s: false, p: true },
-  { f: "Purchasing, goods receipts & supplier bills", free: true, s: false, p: true },
-  { f: "Invoicing, statements & customer pricing", free: true, s: false, p: true },
-  { f: "Accounting & general ledger", free: true, s: false, p: true },
-  { f: "Supplier rebates & claim-backs", free: true, s: false, p: true },
-  { f: "Quotes & pick sheets", free: true, s: false, p: true },
-  { f: "Advanced reporting & P&L", free: true, s: false, p: true },
-  { f: "Xero integration", free: true, s: false, p: true },
-  { f: "One-click Backup & Restore", free: true, s: false, p: "Enterprise" },
-  { f: "AI invoice processing", free: true, s: false, p: "Enterprise" },
-  { f: "Rep intelligence / Customer 360", free: true, s: false, p: "Enterprise" },
-  { f: "Multi-branch & multi-location", free: true, s: false, p: "Enterprise" },
-  { f: "Per-user granular permissions", free: true, s: false, p: "Enterprise" },
-  { f: "Support", free: "Full", s: "NZ-based", p: "Priority" },
+  { f: "Branded B2B online store", s: true, p: true, e: true },
+  { f: "Online order management & history", s: true, p: true, e: true },
+  { f: "Product catalogue", s: "Unlimited", p: "Unlimited", e: "Unlimited" },
+  { f: "Customer accounts", s: "Unlimited", p: "Unlimited", e: "Unlimited" },
+  { f: "Staff logins", s: "Multiple", p: "Multiple", e: "Multiple" },
+  { f: "Lost-sale capture (missed opportunities)", s: true, p: true, e: true },
+  { f: "Reporting", s: "Core sales", p: "Full suite", e: "Full suite" },
+  { f: "Inventory, stock control & stocktakes", s: false, p: true, e: true },
+  { f: "Purchasing, goods receipts & supplier bills", s: false, p: true, e: true },
+  { f: "Invoicing, credit notes & customer statements", s: false, p: true, e: true },
+  { f: "Customer-specific & contract pricing", s: false, p: true, e: true },
+  { f: "Quotes with margin guardrails", s: false, p: true, e: true },
+  { f: "Pick sheets & proof of delivery", s: false, p: true, e: true },
+  { f: "Supplier rebates & claim-backs", s: false, p: true, e: true },
+  { f: "Accounting & general ledger", s: false, p: true, e: true },
+  { f: "Aged receivables, aged payables & GST reports", s: false, p: true, e: true },
+  { f: "Sends invoices & credit notes to Xero", s: false, p: true, e: true },
+  { f: "Customer 360 / rep insights", s: false, p: true, e: true },
+  { f: "Multi-branch & multi-warehouse", s: false, p: false, e: true },
+  { f: "Per-user permissions", s: false, p: false, e: true },
+  { f: "API access & data export", s: false, p: false, e: true },
+  { f: "One-click backup & restore", s: false, p: false, e: true },
+  { f: "Custom modules built for you", s: false, p: false, e: true },
+  { f: "Support", s: "NZ-based", p: "Priority", e: "Priority + direct" },
+];
+
+// IN DEVELOPMENT — deliberately kept OUT of every plan above. Never move an
+// item from here into a plan tick-list until a real client is using it.
+const roadmap = [
+  { t: "Buyer & driver mobile apps", d: "Native iOS & Android — reorder on the phone, and run-sheets with photo proof of delivery for drivers." },
+  { t: "AI supplier-invoice reading", d: "A supplier invoice arrives by email, gets matched to the purchase order and books the stock in." },
+  { t: "Two-way Xero sync", d: "Today Cognit sends invoices and credit notes to Xero. Pulling payments back the other way is next." },
+  { t: "More accounting integrations", d: "Beyond Xero — MYOB and others, driven by what our clients actually use." },
+  { t: "Pay by card online", d: "Card payment on the store and self-service subscription billing." },
 ];
 
 const faqs = [
   {
     q: "How does the free trial work?",
-    a: "You start with a 14-day free trial of the whole system — every feature unlocked, loaded with data and set up for you, no credit card. At the end of the 14 days you pick the plan that fits: Standard for a B2B online store with your products and customers, Premium for the full ERP, or Enterprise for AI, multi-branch and more.",
+    a: "You start with a 14-day free trial of the whole system — every module unlocked, loaded with data and set up for you, no credit card. At the end of the 14 days you pick the plan that fits: Standard for a B2B online store with your products and customers, Premium for the full ERP, or Enterprise if you need multi-branch, per-user permissions or modules built specifically for your business.",
   },
   {
     q: "What happens after the 14 days?",
-    a: "On Standard or Premium you get the full system free for 14 days. Near the end of your trial we'll check in. If Cognit is working for you, you continue on your chosen plan; if it isn't the right fit, you simply stop — there's no lock-in and nothing to cancel if you never started paying.",
+    a: "Near the end of your trial we'll check in. If Cognit is working for you, you continue on your chosen plan; if it isn't the right fit, you simply stop — there's no lock-in and nothing to cancel if you never started paying.",
   },
   {
     q: "Do I need a credit card?",
@@ -126,11 +153,19 @@ const faqs = [
   },
   {
     q: "Can I change plans?",
-    a: "Any time. Start Standard for a B2B online store with your products and customers, step up to Premium for the full ERP (inventory, purchasing, accounting, invoicing, rebates, reporting), and to Enterprise for AI invoice processing, rep intelligence, multi-branch and per-user permissions. Every module is already built into Cognit, so changing plan is a setting we switch on — not another project. You can move down again too. No lock-in, cancel anytime.",
+    a: "Any time. Start on Standard for a B2B online store with your products and customers, and step up to Premium for the full ERP — inventory, purchasing, invoicing, customer pricing, quotes, pick sheets, rebates, accounting and the full reporting suite. Those modules are already built into Cognit, so moving up is a setting we switch on rather than another project. You can move back down too. No lock-in, cancel anytime.",
+  },
+  {
+    q: "What is Cognit still working on?",
+    a: "We'd rather tell you up front than oversell. Being built right now: native buyer and driver mobile apps; AI reading of supplier invoices; a two-way Xero sync (today Cognit sends invoices and credit notes to Xero, it doesn't pull back); integrations with accounting systems beyond Xero; and online card payment. None of these are included in a plan today — when they ship, they're included free for clients on the plan they land in. If one of them is critical to you now, talk to us: building it with you is exactly what Zeabyte does.",
+  },
+  {
+    q: "What if Cognit doesn't do something I need?",
+    a: "Tell us. Cognit is built and maintained by Zeabyte, a New Zealand software company — we build the missing piece into your system rather than telling you to change how you work. That's what the Enterprise plan is: your own modules, quoted on what you actually need.",
   },
   {
     q: "Is my data mine?",
-    a: "Always. Your customers, products, orders, invoices and accounts are yours. You can export your records to Excel or PDF whenever you like, and if you ever leave, you take your data with you. On paid plans your data can also run on your own server.",
+    a: "Always. Your customers, products, orders, invoices and accounts are yours. You can export your records to Excel or PDF whenever you like, and if you ever leave, you take your data with you. Every client runs on their own private server.",
   },
 ];
 
@@ -139,7 +174,7 @@ const offerSchema = {
   "@type": "Product",
   name: "Cognit ERP",
   description:
-    "Cognit is an all-in-one cloud ERP with a built-in B2B e-commerce online store. Start free, or try Standard or Premium free for 14 days — sales, inventory, purchasing, accounting, invoicing, rebates and reporting in one system.",
+    "Cognit is an all-in-one cloud ERP with a built-in B2B e-commerce online store. Try the whole system free for 14 days — sales, inventory, purchasing, accounting, invoicing, rebates and reporting in one system.",
   brand: { "@type": "Brand", name: "Cognit" },
   offers: [
     {
@@ -147,27 +182,35 @@ const offerSchema = {
       name: "Free trial",
       price: "0",
       priceCurrency: "NZD",
-      description: "A 14-day free trial of the entire system — every feature unlocked, no credit card. After 14 days, choose Standard, Premium or Enterprise to continue.",
+      description: "A 14-day free trial of the entire system — every module unlocked, no credit card. After 14 days, choose Standard, Premium or Enterprise to continue.",
       availability: "https://schema.org/InStock",
       url: "https://cognitsystem.com/pricing/",
     },
     {
       "@type": "Offer",
       name: "Standard",
-      price: "899",
+      price: "750",
       priceCurrency: "NZD",
-      description: "Per month, after a 14-day free trial. A B2B online store with your products and customers — online order management & history, multiple users, NZ-based support. Inventory, purchasing and accounting are on Premium.",
+      description: "Per month, after a 14-day free trial. A branded B2B online store with your products and customers — online order management & history, lost-sale capture, core sales reports, multiple staff logins and NZ-based support. Inventory, purchasing, invoicing and accounting are on Premium.",
       availability: "https://schema.org/InStock",
       url: "https://cognitsystem.com/pricing/",
     },
     {
       "@type": "Offer",
       name: "Premium",
-      price: "1999",
+      price: "1500",
       priceCurrency: "NZD",
-      description: "Per month, with a 14-day free trial. Everything in Standard plus accounting & general ledger, supplier rebates & claim-backs, advanced reporting & P&L, Xero & other integrations, API access, AI reorder suggestions, priority support and guided onboarding.",
+      description: "Per month, after a 14-day free trial. Everything in Standard plus inventory and stocktakes, purchasing and supplier bills, invoicing, credit notes and customer statements, customer-specific pricing, quotes, pick sheets, supplier rebates and claim-backs, accounting and general ledger, the full 25-report suite, and automatic sending of invoices and credit notes to Xero.",
       availability: "https://schema.org/InStock",
       url: "https://cognitsystem.com/pricing/",
+    },
+    {
+      "@type": "Offer",
+      name: "Enterprise",
+      priceCurrency: "NZD",
+      description: "Quoted per project. Everything in Premium plus multi-branch and multi-warehouse, per-user permissions, API access and data export, one-click backup and restore, and custom modules built for your business.",
+      availability: "https://schema.org/InStock",
+      url: "https://cognitsystem.com/contact/",
     },
   ],
 };
@@ -185,7 +228,7 @@ const faqSchema = {
 
 <Layout
   title="Cognit Pricing — 14-Day Free Trial, then Standard, Premium & Enterprise"
-  description="Cognit pricing: a 14-day free trial of the whole system, plus paid plans Standard (NZD $899/mo) and Premium (NZD $1,999/mo) — each with a 14-day free trial, no credit card. No lock-in. Setup, data migration and training included on paid plans."
+  description="Cognit pricing: a 14-day free trial of the whole system, then Standard (NZD $750/mo) for a B2B online store or Premium (NZD $1,500/mo) for the full ERP. Enterprise is quoted per project. No credit card, no lock-in. Setup, data migration and training included."
   path="/pricing"
   schema={[offerSchema, faqSchema]}
 >
@@ -206,9 +249,9 @@ const faqSchema = {
           <span class="text-gradient-bright"> the whole system.</span>
         </h1>
         <p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-slate-300 sm:text-xl">
-          Get your own built-in B2B online store free, forever — or try the full
-          Standard or Premium system free for 14 days, no credit card. We set it up
-          for you and email your login.
+          Try the whole system free for 14 days — no credit card. We set it up for
+          you and email your login. Then it's $750/month for a B2B online store, or
+          $1,500/month for the full ERP.
         </p>
       </div>
     </section>
@@ -275,41 +318,85 @@ const faqSchema = {
       <div class="mb-12 max-w-2xl">
         <span class="chip bg-cog-sky text-cog-blue-700">Compare plans</span>
         <h2 class="mt-5 text-3xl font-extrabold tracking-tight text-cog-ink sm:text-4xl">What's in each plan</h2>
-        <p class="mt-4 text-lg text-cog-slate">Start with a free online store, then switch on inventory, accounting and the advanced modules as you grow.</p>
+        <p class="mt-4 text-lg text-cog-slate">
+          Start with the online store, then switch on inventory, invoicing and accounting as you
+          grow. Every row below works in Cognit today — the 14-day free trial unlocks all of it.
+        </p>
       </div>
 
-      <div class="card-hairline overflow-hidden rounded-3xl">
-        <div class="grid grid-cols-[1.6fr_0.8fr_0.8fr_0.8fr] bg-cog-ink text-white">
-          <div class="px-4 py-4 text-sm font-bold sm:px-7">Feature</div>
-          <div class="px-2 py-4 text-center text-sm font-bold text-slate-200">Trial</div>
-          <div class="px-2 py-4 text-center text-sm font-bold text-cog-teal">Standard</div>
-          <div class="px-2 py-4 text-center text-sm font-bold text-slate-200">Premium</div>
-        </div>
-        {compare.map((row, i) => (
-          <div class={"grid grid-cols-[1.6fr_0.8fr_0.8fr_0.8fr] " + (i % 2 === 0 ? "bg-white" : "bg-cog-stone")}>
-            <div class="px-4 py-4 text-sm font-medium text-cog-ink sm:px-7">{row.f}</div>
-            <div class="px-2 py-4 text-center text-sm">
-              {row.free === true ? <span class="font-bold text-cog-teal">✓</span>
-                : row.free === false ? <span class="text-slate-300">—</span>
-                : <span class="text-xs font-medium text-cog-slate">{row.free}</span>}
-            </div>
-            <div class="px-2 py-4 text-center text-sm">
-              {row.s === true ? <span class="font-bold text-cog-teal">✓</span>
-                : row.s === false ? <span class="text-slate-300">—</span>
-                : <span class="text-xs font-medium text-cog-slate">{row.s}</span>}
-            </div>
-            <div class="px-2 py-4 text-center text-sm">
-              {row.p === true ? <span class="font-bold text-cog-teal">✓</span>
-                : row.p === false ? <span class="text-slate-300">—</span>
-                : <span class="text-xs font-medium text-cog-slate">{row.p}</span>}
-            </div>
+      <div class="card-hairline overflow-x-auto rounded-3xl">
+        <div class="min-w-[38rem]">
+          <div class="grid grid-cols-[1.9fr_0.8fr_0.8fr_0.9fr] bg-cog-ink text-white">
+            <div class="px-4 py-4 text-sm font-bold sm:px-7">Feature</div>
+            <div class="px-2 py-4 text-center text-sm font-bold text-slate-200">Standard</div>
+            <div class="px-2 py-4 text-center text-sm font-bold text-cog-teal">Premium</div>
+            <div class="px-2 py-4 text-center text-sm font-bold text-slate-200">Enterprise</div>
           </div>
-        ))}
+          {compare.map((row, i) => (
+            <div class={"grid grid-cols-[1.9fr_0.8fr_0.8fr_0.9fr] " + (i % 2 === 0 ? "bg-white" : "bg-cog-stone")}>
+              <div class="px-4 py-4 text-sm font-medium text-cog-ink sm:px-7">{row.f}</div>
+              <div class="px-2 py-4 text-center text-sm">
+                {row.s === true ? <span class="font-bold text-cog-teal">✓</span>
+                  : row.s === false ? <span class="text-slate-300">—</span>
+                  : <span class="text-xs font-medium text-cog-slate">{row.s}</span>}
+              </div>
+              <div class="px-2 py-4 text-center text-sm">
+                {row.p === true ? <span class="font-bold text-cog-teal">✓</span>
+                  : row.p === false ? <span class="text-slate-300">—</span>
+                  : <span class="text-xs font-medium text-cog-slate">{row.p}</span>}
+              </div>
+              <div class="px-2 py-4 text-center text-sm">
+                {row.e === true ? <span class="font-bold text-cog-teal">✓</span>
+                  : row.e === false ? <span class="text-slate-300">—</span>
+                  : <span class="text-xs font-medium text-cog-slate">{row.e}</span>}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
 
       <div class="mt-10 flex flex-wrap justify-center gap-3">
-        <a href="/start?plan=free" class="btn-ghost">Get started free</a>
+        <a href="/contact" class="btn-ghost">Book a demo</a>
         <a href="/start?plan=standard" class="btn-grad">Start 14-day free trial →</a>
+      </div>
+    </section>
+
+    <!-- BUILDING NEXT (roadmap — deliberately outside every plan) -->
+    <section class="mx-auto max-w-5xl px-5 pb-8 sm:px-8">
+      <div class="card-hairline rounded-3xl bg-white p-8 sm:p-10">
+        <div class="flex flex-wrap items-center gap-3">
+          <span class="chip bg-cog-sky text-cog-blue-700">Building next</span>
+          <span class="text-xs font-semibold uppercase tracking-wider text-slate-400">
+            In development — not included in any plan today
+          </span>
+        </div>
+        <h2 class="mt-5 text-2xl font-extrabold tracking-tight text-cog-ink sm:text-3xl">
+          What we're working on — and what we won't pretend we have yet
+        </h2>
+        <p class="mt-4 max-w-2xl leading-relaxed text-cog-slate">
+          Plenty of software gets sold on a demo of something that isn't finished. We'd rather
+          show you the line. Everything in the plans above works today. Everything below is
+          genuinely still being built.
+        </p>
+        <ul class="mt-8 grid gap-4 sm:grid-cols-2">
+          {roadmap.map((r) => (
+            <li class="rounded-2xl border border-black/5 bg-cog-stone p-5">
+              <div class="flex items-start gap-3">
+                <span class="mt-1 flex-none text-slate-400">◷</span>
+                <div>
+                  <div class="text-sm font-bold text-cog-ink">{r.t}</div>
+                  <p class="mt-1.5 text-sm leading-relaxed text-cog-slate">{r.d}</p>
+                </div>
+              </div>
+            </li>
+          ))}
+        </ul>
+        <p class="mt-8 border-t border-black/5 pt-6 text-sm leading-relaxed text-cog-slate">
+          <strong class="font-bold text-cog-ink">When these ship, they're included free</strong> for
+          clients on the plan they land in — no upgrade fee, no new project. And if one of them
+          is critical to you right now, <a href="/contact" class="font-semibold text-cog-blue-700 underline decoration-cog-blue-700/30 underline-offset-2">talk to us</a> —
+          building it with you is exactly what Zeabyte does.
+        </p>
       </div>
     </section>
 

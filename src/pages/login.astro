@@ -1,0 +1,99 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout
+  title="Log in to Cognit — Your Business, One System"
+  description="Log in to your Cognit system. Enter your work email or your workspace name and we'll take you straight to your company's own Cognit."
+  path="/login"
+>
+  <Header />
+
+  <main class="bg-cog-stone text-cog-slate">
+    <section class="orbs relative isolate overflow-hidden">
+      <div class="dotgrid absolute inset-0 -z-10 opacity-40"></div>
+      <div class="mx-auto flex min-h-[70vh] max-w-6xl items-center justify-center px-5 py-20 sm:px-8">
+        <div class="glass w-full max-w-md rounded-3xl bg-white/85 p-8 shadow-xl sm:p-10">
+          <span class="chip">
+            <span class="h-2 w-2 rounded-full bg-cog-teal"></span> Log in
+          </span>
+          <h1 class="mt-5 text-3xl font-extrabold leading-tight tracking-tight text-cog-ink">
+            Open your Cognit
+          </h1>
+          <p class="mt-3 text-[15px] leading-relaxed text-cog-slate">
+            Every Cognit customer runs on their own private system. Enter your
+            <b>work email</b> (or your workspace name) and we'll take you to yours.
+          </p>
+
+          <form id="login-router" class="mt-7">
+            <label for="workspace" class="text-[13px] font-semibold text-cog-ink">Work email or workspace</label>
+            <input
+              id="workspace"
+              name="workspace"
+              type="text"
+              required
+              autocomplete="email"
+              placeholder="you@yourcompany.co.nz"
+              class="mt-2 w-full rounded-xl border border-black/10 bg-white px-4 py-3 text-[15px] text-cog-ink outline-none transition focus:border-cog-purple focus:ring-2 focus:ring-cog-purple/20"
+            />
+            <p id="router-error" class="mt-3 hidden text-[13.5px] leading-relaxed text-red-600"></p>
+            <button type="submit" class="btn-grad mt-5 w-full !py-3 text-[15px]">Continue →</button>
+          </form>
+
+          <p class="mt-6 border-t border-black/5 pt-5 text-[13.5px] leading-relaxed text-cog-slate">
+            Not a customer yet? <a href="/contact" class="font-semibold text-cog-purple hover:underline">Book a demo</a>
+            or <a href="/start" class="font-semibold text-cog-purple hover:underline">start free</a>.
+            Trouble logging in? <a href="/support" class="font-semibold text-cog-purple hover:underline">Contact support</a>.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<script is:inline>
+  // Front-door router: maps a work-email domain (or a typed workspace name)
+  // to that customer's own Cognit system. Updated as part of provisioning a
+  // new tenant — see cognit repo docs/NOBULL-PROMOTE-CHECKLIST.md ritual.
+  const TENANTS = {
+    // work-email domain            → that company's Cognit address
+    "nobullfoodservice.co.nz": "https://nobull.cognitsystem.com",
+    "zeabyte.co.nz": "https://app.cognitsystem.com", // internal / demo
+  };
+  const WORKSPACES = {
+    // typed workspace name → address (kept in step with TENANTS)
+    "nobull": "https://nobull.cognitsystem.com",
+    "demo": "https://app.cognitsystem.com",
+  };
+
+  const form = document.getElementById("login-router");
+  const input = document.getElementById("workspace");
+  const err = document.getElementById("router-error");
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    err.classList.add("hidden");
+    const raw = (input.value || "").trim().toLowerCase();
+    let target = null;
+
+    if (raw.includes("@")) {
+      const domain = raw.split("@").pop();
+      target = TENANTS[domain] || null;
+    } else if (raw) {
+      const name = raw.replace(/[^a-z0-9-]/g, "");
+      target = WORKSPACES[name] || null;
+    }
+
+    if (target) {
+      window.location.href = target + "/sign-in";
+    } else {
+      err.textContent =
+        "We couldn't match that to a Cognit workspace. Check the spelling, use your work email address, or ask your administrator for your company's Cognit address.";
+      err.classList.remove("hidden");
+    }
+  });
+</script>
