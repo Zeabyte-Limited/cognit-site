@@ -1,9 +1,12 @@
 ---
-// Cognit is a platform — it connects to your whole stack. Xero is just one of
-// many integrations; this section is about breadth, not any single provider.
+// HONESTY RULE (see cognit/docs/WHAT-COGNIT-ACTUALLY-HAS.md):
+// Xero is the ONLY integration that ships inside Cognit today. The logos below
+// are systems we're asked to connect to and build as part of a client project —
+// they are NOT shipped connectors, and the copy must never imply they are.
+// Zeabyte has genuinely built Accredo and Attaché integrations for NZ clients.
 const categories = [
-  "Accounting", "Payments", "E-commerce", "Shipping & couriers",
-  "Bank feeds", "CRM & marketing", "Spreadsheets", "Custom API",
+  "Accounting", "ERP", "Payments", "E-commerce",
+  "Shipping & couriers", "Warehouse", "CRM", "Custom API",
 ];
 // Only real logo files (in /public/logos) — no placeholder letter badges.
 const systems = [
@@ -43,13 +46,14 @@ const chip = "border-white/12 bg-white/5 text-slate-100 backdrop-blur";
   <div class="mx-auto max-w-3xl px-5 pt-24 pb-8 text-center sm:px-8">
     <span class="chip brand-gradient text-white">One platform, fully connected</span>
     <h2 class="mt-5 text-3xl font-extrabold tracking-tight sm:text-5xl">
-      Runs on its own.<br /><span class="text-gradient-bright">Connects to everything.</span>
+      Runs on its own.<br /><span class="text-gradient-bright">Connects to what you run.</span>
     </h2>
     <p class="mx-auto mt-5 max-w-xl text-lg text-slate-300">
-      Cognit is a complete system on its own — but it plugs into your whole stack.
-      Accounting, payments, e-commerce, shipping, bank feeds and more — a growing
-      library of integrations, with new ones added all the time. If a system has an
-      API or a data feed, Cognit connects to it.
+      Cognit is a complete system on its own. <strong class="text-white">Xero is built in</strong> —
+      connect it in about 30 seconds and your invoices flow across automatically.
+      Anything else below we <strong class="text-white">build as part of your project</strong>:
+      connecting systems that were never meant to talk is what Zeabyte has done for
+      New Zealand distributors for over a decade.
     </p>
     <div class="mt-7 flex flex-wrap items-center justify-center gap-2">
       {categories.map((c) => (
@@ -73,6 +77,10 @@ const chip = "border-white/12 bg-white/5 text-slate-100 backdrop-blur";
         </div>
       </div>
     ))}
-    <p class="pt-3 text-center text-sm text-slate-400">Run something else? If it has an API or a data feed, we'll connect it.</p>
+    <p class="mx-auto max-w-2xl pt-3 text-center text-sm text-slate-400">
+      Built into Cognit today: <span class="font-semibold text-slate-200">Xero</span>.
+      Everything else above is an integration we build for you — tell us what you run
+      and we'll say straight away whether it's ready or a build.
+    </p>
   </div>
 </section>

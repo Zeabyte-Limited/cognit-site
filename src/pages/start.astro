@@ -3,25 +3,19 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 
-const planChips = [
-  { slug: "free", name: "Free", sub: "$0 forever" },
-  { slug: "standard", name: "Standard", sub: "$899/mo · 14-day trial" },
-  { slug: "premium", name: "Premium", sub: "$1,999/mo · 14-day trial" },
-];
-
 const benefits = [
-  { e: "⚡", t: "Live in days", s: "We set Cognit up for you and email your login." },
-  { e: "💳", t: "No credit card", s: "Try Standard or Premium free for 14 days." },
+  { e: "👁️", t: "See the real system", s: "Not a slide deck — the actual product, loaded with data that looks like yours." },
+  { e: "⚡", t: "Live in weeks", s: "We load your products and customers and set Cognit up for you." },
   { e: "🇳🇿", t: "NZ-based support", s: "Real people who know food & wholesale." },
-  { e: "🔒", t: "Your data is yours", s: "Export anytime. Runs on your own server on paid plans." },
+  { e: "🔒", t: "Your data is yours", s: "Export anytime. Every client runs on their own private server." },
 ];
 
 const webPageSchema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  name: "Start your 14-day free trial of Cognit",
+  name: "Get started with Cognit",
   description:
-    "Start with Cognit free — your own built-in B2B online store, or a 14-day free trial of the full Standard or Premium system. No credit card. We set it up for you and email your login.",
+    "Tell us how your business operates and we'll show you the real Cognit system, loaded with data that looks like yours — then scope what it would cost for your operation.",
   url: "https://cognitsystem.com/start/",
   isPartOf: { "@id": "https://cognitsystem.com/#website" },
   about: { "@id": "https://cognitsystem.com/#software" },
@@ -29,8 +23,8 @@ const webPageSchema = {
 ---
 
 <Layout
-  title="Start Free — Get Started With Cognit (14-Day Free Trial)"
-  description="Start your 14-day free trial of Cognit — no credit card. Get your own built-in B2B online store free, or try the full Standard or Premium system. We set it up for you and email your login. No lock-in, NZ-based support."
+  title="Get Started With Cognit — See the Real System | Cognit NZ"
+  description="Tell us how your business operates and we'll show you the real Cognit system, loaded with data that looks like yours — then scope what it would cost for your operation. NZ-based, built for wholesale and food distribution."
   path="/start"
   schema={webPageSchema}
 >
@@ -47,15 +41,16 @@ const webPageSchema = {
         <!-- LEFT: pitch + trust -->
         <div class="hero-rise">
           <span class="chip border border-white/15 text-slate-200">
-            <span class="h-2 w-2 rounded-full bg-cog-teal"></span> 14-day free trial · no credit card
+            <span class="h-2 w-2 rounded-full bg-cog-teal"></span> See the real system · no obligation
           </span>
           <h1 class="mt-7 text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl">
-            Start your <span class="text-gradient-bright">14-day free trial.</span>
+            Let's see if it <span class="text-gradient-bright">fits your business.</span>
           </h1>
           <p class="mt-5 max-w-md text-lg leading-relaxed text-slate-300">
-            Tell us a little about your business and we'll set Cognit up for you —
-            then email your login. Try Standard or Premium free for 14 days, no card,
-            or start on the free plan and grow from there.
+            Tell us how you operate — what you sell, how orders reach you, what you're
+            running now — and we'll walk you through the real system, loaded with data
+            that looks like yours. Then we'll scope what it would cost for your
+            operation, honestly and early.
           </p>
 
           <div class="mt-9 grid gap-3 sm:grid-cols-2">
@@ -79,25 +74,12 @@ const webPageSchema = {
         <div class="card-grad rounded-3xl p-7 sm:p-9">
           <form id="start-form" action="/api/lead" method="POST" class="space-y-5">
             <input type="hidden" name="source" value="cognitsystem.com/start" />
-            <input type="hidden" id="plan" name="plan" value="standard" />
+            <input type="hidden" id="plan" name="plan" value="enquiry" />
             <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off" />
 
-            <!-- PLAN PICKER -->
-            <div>
-              <span class="block text-sm font-semibold text-cog-ink">Choose your plan</span>
-              <div id="plan-chips" class="mt-2 grid grid-cols-3 gap-2">
-                {planChips.map((c) => (
-                  <button
-                    type="button"
-                    data-plan={c.slug}
-                    class="plan-chip rounded-xl border border-slate-300 bg-white px-2 py-3 text-center transition hover:border-cog-blue"
-                  >
-                    <span class="block text-sm font-bold text-cog-ink">{c.name}</span>
-                    <span class="mt-0.5 block text-[11px] font-medium text-slate-500">{c.sub}</span>
-                  </button>
-                ))}
-              </div>
-            </div>
+            <p class="text-sm leading-relaxed text-cog-slate">
+              A real person reads every one of these — usually the same day.
+            </p>
 
             <div class="grid gap-5 sm:grid-cols-2">
               <div>
@@ -124,12 +106,12 @@ const webPageSchema = {
             </div>
 
             <button type="submit" class="btn-grad w-full !py-4 text-base">
-              Start free →
+              Send enquiry →
             </button>
-            <p class="text-center text-xs text-slate-400">No lock-in. Cancel anytime. Setup, data migration &amp; training included on paid plans.</p>
+            <p class="text-center text-xs text-slate-400">No obligation, no lock-in. Setup, data migration &amp; training are included when you come on board.</p>
 
             <div id="start-success" class="hidden rounded-xl border border-green-200 bg-green-50 p-5 text-center text-sm font-medium text-green-800">
-              🎉 You're in — we're setting up your Cognit now and will email your login details within one business day.
+              🎉 Got it — we'll be in touch within one business day to arrange a walkthrough.
             </div>
           </form>
         </div>
@@ -142,26 +124,6 @@ const webPageSchema = {
   <script is:inline>
     (function () {
       const form = document.getElementById("start-form");
-      const planInput = document.getElementById("plan");
-      const chips = Array.from(document.querySelectorAll(".plan-chip"));
-      const onClasses = ["border-cog-blue", "ring-2", "ring-blue-100", "bg-cog-sky"];
-
-      function select(slug) {
-        if (!chips.some((c) => c.dataset.plan === slug)) slug = "standard";
-        planInput.value = slug;
-        chips.forEach((c) => {
-          const on = c.dataset.plan === slug;
-          onClasses.forEach((cl) => c.classList.toggle(cl, on));
-        });
-        const btn = form.querySelector('button[type="submit"]');
-        if (btn) btn.textContent = slug === "free" ? "Get started free →" : "Start 14-day free trial →";
-      }
-
-      // Preselect from ?plan= query param.
-      const params = new URLSearchParams(window.location.search);
-      select((params.get("plan") || "standard").toLowerCase());
-
-      chips.forEach((c) => c.addEventListener("click", () => select(c.dataset.plan)));
 
       // Submit — mirrors LeadForm: POST JSON, mailto fallback.
       form?.addEventListener("submit", async (e) => {
@@ -170,14 +132,14 @@ const webPageSchema = {
         const data = new FormData(form);
         let sent = false;
         const payload = Object.fromEntries(data.entries());
-        // Record the signup in Cognit Control (fire-and-forget; emails the owner with the plan).
+        // Record the enquiry in Cognit Control (fire-and-forget; emails the owner).
         try {
           fetch("https://api.cognitsystem.co.nz/api/control/ingest/signup", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
               name: payload.name, email: payload.email, company: payload.company,
-              phone: payload.phone, plan: payload.plan || "trial", source: "trial-signup",
+              phone: payload.phone, plan: "enquiry", source: "website-enquiry",
               message: payload.message || "",
             }),
           }).catch(() => {});
@@ -192,10 +154,9 @@ const webPageSchema = {
         } catch (err) { /* fall through to mailto */ }
         if (!sent) {
           const subject = encodeURIComponent(
-            "Cognit free trial signup (" + (data.get("plan") || "") + ") — " + (data.get("company") || "website signup")
+            "Cognit website enquiry — " + (data.get("company") || "website enquiry")
           );
           const body = encodeURIComponent(
-            "Plan: " + (data.get("plan") || "") +
             "\nName: " + (data.get("name") || "") +
             "\nCompany: " + (data.get("company") || "") +
             "\nEmail: " + (data.get("email") || "") +

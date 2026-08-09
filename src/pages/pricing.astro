@@ -3,217 +3,160 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 
-// PRICING IS A SINGLE SOURCE OF TRUTH. These numbers must stay identical to
-// PLAN_META in the Cognit app (api/helpers/moduleAccess.helper.js) and to the
-// plan block on zeabyte.co.nz/cognit. Owner-decided 2026-08-09.
+// ─────────────────────────────────────────────────────────────────────────────
+// NO PRICING, NO PLANS, NO FREE TRIAL ON THIS SITE. Owner decision, 2026-08-09.
+// We are not ready to commit to public price points or packaged tiers, and we
+// will not advertise a trial we don't run. This page does exactly two things:
+// lists what the system genuinely does today, and lists what is still being
+// built. Pricing is scoped per client and discussed in person.
 //
-// RULE: only list a feature a client could actually use on the day they sign up.
-// Anything still being built belongs in `roadmap` below — never in a plan's
-// tick-list. (AI invoice reading is built but has never been switched on for a
-// real client, so it lives on the roadmap, not in Premium.)
-const plans = [
+// Everything in `has` below must exist in the product TODAY and be verified
+// against the code. Anything else belongs in `roadmap`.
+// Source of truth: cognit/docs/WHAT-COGNIT-ACTUALLY-HAS.md
+// ─────────────────────────────────────────────────────────────────────────────
+
+const has = [
   {
-    name: "Free trial",
-    slug: "trial",
-    price: "0",
-    unit: "for 14 days",
-    tagline: "Try the whole system — every module unlocked — free for 14 days.",
-    cta: "Start free trial",
-    href: "/start?plan=trial",
-    popular: false,
-    features: [
-      "Everything unlocked for 14 days",
-      "The full ERP + built-in online store",
-      "Loaded with your data, set up for you",
-      "No credit card to start",
-      "Choose a plan when you're ready",
-    ],
-    footnote: "When you're ready, pick the plan that fits — Standard, Premium or Enterprise.",
-  },
-  {
-    name: "Standard",
-    slug: "standard",
-    price: "750",
-    unit: "NZD / month",
-    tagline: "A B2B online store with your products and customers — take orders online.",
-    cta: "Start free trial",
-    href: "/start?plan=standard",
-    popular: false,
-    features: [
-      "Branded B2B online store",
-      "Your product catalogue",
-      "Your customer accounts",
-      "Online order management & history",
-      "Lost-sale capture",
-      "Core sales reports",
-      "Multiple staff logins",
-      "NZ-based support",
-    ],
-    footnote: "Inventory, purchasing, invoicing and accounting are on Premium.",
-  },
-  {
-    name: "Premium",
-    slug: "premium",
-    price: "1,500",
-    unit: "NZD / month",
-    tagline: "The complete ERP — run your whole operation in one system.",
-    cta: "Start free trial",
-    href: "/start?plan=premium",
-    popular: true,
-    features: [
-      "Everything in Standard, plus:",
-      "Inventory, stock control & stocktakes",
-      "Purchasing, goods receipting & supplier bills",
-      "Invoicing, credit notes & customer statements",
-      "Customer-specific & contract pricing",
-      "Quotes with margin guardrails",
-      "Pick sheets & proof of delivery",
-      "Supplier rebates & claim-backs",
-      "Accounting & general ledger",
-      "Full reporting suite — 25 reports",
-      "Sends invoices & credit notes to Xero",
+    icon: "🛒",
+    t: "Sales & the online store",
+    items: [
+      "Branded B2B online store, white-labelled to your brand",
+      "Customer log-in accounts — each customer sees their own catalogue and prices",
+      "Order management and full order history",
+      "Keyboard-driven order screen built for fast telesales",
+      "Customer-specific and contract pricing, per customer or per group",
+      "Credit limits and pay-on-account terms",
+      "Quotes with live per-line margin guardrails, quote PDF, convert to an order",
+      "Customer statements — aged, branded PDF, emailed to the customer",
+      "Customer 360 — spend change, lapsed products, who to call",
+      "Delivery routes, driver run-sheets and proof of delivery",
+      "Keep your existing product and customer codes when you migrate",
     ],
   },
   {
-    name: "Enterprise",
-    slug: "enterprise",
-    price: "Let's talk",
-    custom: true,
-    unit: "quoted per project",
-    tagline: "For multi-branch operations that need the system shaped around them.",
-    cta: "Talk to our team",
-    href: "/contact",
-    popular: false,
-    features: [
-      "Everything in Premium, plus:",
-      "Multi-branch & multi-warehouse",
-      "Per-user permissions",
-      "API access & data export",
-      "One-click backup & restore",
-      "Custom modules built for your business",
-      "Priority support, direct to the team who built it",
+    icon: "📦",
+    t: "Inventory & warehouse",
+    items: [
+      "Stock on hand, movement ledger, adjustments and write-offs",
+      "Bins and shelf locations",
+      "Tablet stocktakes — scan to count, with variance review",
+      "Reorder levels and a reorder report",
+      "Units of measure — a base stock unit plus alternate pack sizes",
+      "Pick sheets sorted by bin walk path, printable",
+      "Branch transfers, multi-branch and multi-warehouse",
     ],
-    footnote: "Priced on what you need built — not a fixed monthly bundle.",
+  },
+  {
+    icon: "🧾",
+    t: "Purchasing & accounts payable",
+    items: [
+      "Purchase orders, with PO PDFs emailed to suppliers",
+      "Goods receipting, full and short",
+      "Supplier records and spend",
+      "Supplier bills — record what you owe and mark them paid",
+      "Aged payables and supplier statements",
+      "Supplier credits and debit notes, posted to the ledger",
+    ],
+  },
+  {
+    icon: "📊",
+    t: "Money & accounting",
+    items: [
+      "Invoicing and sales credit notes",
+      "Aged receivables",
+      "A real general ledger — chart of accounts, journals, trial balance, balance sheet, P&L",
+      "Automatic GL posting as you trade",
+      "GST summary",
+      "Supplier rebates & claim-backs — per-sale claim-backs, buy-N-get-M bonus stock, volume tiers, auto-accrued from sales and receipts, with a monthly claim report and claim batches",
+    ],
+  },
+  {
+    icon: "📈",
+    t: "Reporting",
+    items: [
+      "30 reports, all downloadable to Excel",
+      "Sales by customer, product, route, category and month",
+      "Gross profit by customer and by product",
+      "Stock valuation and stock movement ledger",
+      "P&L summary and P&L by month",
+      "Aged receivables, aged payables and GST summary",
+      "Invoice, credit note and goods-receipt registers",
+      "Customer activity and lapsed-customer reporting",
+    ],
+  },
+  {
+    icon: "🔐",
+    t: "Platform",
+    items: [
+      "Your own private server and your own database — not shared",
+      "Automatic daily backups, plus one-click backup download and restore",
+      "Per-user permissions — control exactly what each staff member can see and do",
+      "API access — your own key and a read-only API to pull your data into other systems",
+      "CSV import and export of products, customers and orders",
+      "Guided setup wizard — company details, staff, product and customer import, go live",
+      "In-app help on every page",
+    ],
+  },
+  {
+    icon: "🔗",
+    t: "Accounting connection",
+    items: [
+      "Xero connects in about 30 seconds and is included",
+      "Invoices, credit notes, customers and products are sent across automatically, with a status badge and auto-retry",
+      "This connection runs one way today — Cognit feeds your accounting system; nothing is pulled back",
+      "Running MYOB, Accredo, Attaché or something else? We build that connection as part of your project",
+    ],
   },
 ];
 
-// 's' = Standard, 'p' = Premium, 'e' = Enterprise. The 14-day free trial
-// unlocks every row below, so it doesn't need its own column.
-// Every row here maps to a module that exists and works today — see
-// MODULE_TIER in the app. Nothing aspirational belongs in this table.
-const compare = [
-  { f: "Branded B2B online store", s: true, p: true, e: true },
-  { f: "Online order management & history", s: true, p: true, e: true },
-  { f: "Product catalogue", s: "Unlimited", p: "Unlimited", e: "Unlimited" },
-  { f: "Customer accounts", s: "Unlimited", p: "Unlimited", e: "Unlimited" },
-  { f: "Staff logins", s: "Multiple", p: "Multiple", e: "Multiple" },
-  { f: "Lost-sale capture (missed opportunities)", s: true, p: true, e: true },
-  { f: "Reporting", s: "Core sales", p: "Full suite", e: "Full suite" },
-  { f: "Inventory, stock control & stocktakes", s: false, p: true, e: true },
-  { f: "Purchasing, goods receipts & supplier bills", s: false, p: true, e: true },
-  { f: "Invoicing, credit notes & customer statements", s: false, p: true, e: true },
-  { f: "Customer-specific & contract pricing", s: false, p: true, e: true },
-  { f: "Quotes with margin guardrails", s: false, p: true, e: true },
-  { f: "Pick sheets & proof of delivery", s: false, p: true, e: true },
-  { f: "Supplier rebates & claim-backs", s: false, p: true, e: true },
-  { f: "Accounting & general ledger", s: false, p: true, e: true },
-  { f: "Aged receivables, aged payables & GST reports", s: false, p: true, e: true },
-  { f: "Sends invoices & credit notes to Xero", s: false, p: true, e: true },
-  { f: "Customer 360 / rep insights", s: false, p: true, e: true },
-  { f: "Multi-branch & multi-warehouse", s: false, p: false, e: true },
-  { f: "Per-user permissions", s: false, p: false, e: true },
-  { f: "API access & data export", s: false, p: false, e: true },
-  { f: "One-click backup & restore", s: false, p: false, e: true },
-  { f: "Custom modules built for you", s: false, p: false, e: true },
-  { f: "Support", s: "NZ-based", p: "Priority", e: "Priority + direct" },
-];
-
-// IN DEVELOPMENT — deliberately kept OUT of every plan above. Never move an
-// item from here into a plan tick-list until a real client is using it.
+// STILL BEING BUILT. Never move an item from here into the `has` list above
+// until a real client is genuinely using it.
 const roadmap = [
-  { t: "Buyer & driver mobile apps", d: "Native iOS & Android — reorder on the phone, and run-sheets with photo proof of delivery for drivers." },
+  { t: "Buyer & driver mobile apps", d: "Native iOS and Android — reorder on the phone, and run-sheets with photo proof of delivery for drivers." },
   { t: "AI supplier-invoice reading", d: "A supplier invoice arrives by email, gets matched to the purchase order and books the stock in." },
-  { t: "Two-way Xero sync", d: "Today Cognit sends invoices and credit notes to Xero. Pulling payments back the other way is next." },
-  { t: "More accounting integrations", d: "Beyond Xero — MYOB and others, driven by what our clients actually use." },
-  { t: "Pay by card online", d: "Card payment on the store and self-service subscription billing." },
+  { t: "Two-way accounting sync", d: "Today Cognit sends invoices and credit notes out. Pulling payments and reconciliation back the other way is next." },
+  { t: "More accounting connections", d: "Beyond Xero — MYOB and others, driven by what our clients actually run." },
+  { t: "Pay by card online", d: "Card payment on the store." },
+];
+
+// Things people in this industry ask for that Cognit genuinely does NOT do.
+// Being straight about these up front costs us nothing and saves everyone a
+// wasted sales cycle.
+const notYet = [
+  "Landed-cost apportionment across freight and duty",
+  "Multi-currency purchasing",
+  "Catch-weight",
+  "Lot and expiry tracking",
+  "Consignment stock",
+  "EDI",
 ];
 
 const faqs = [
   {
-    q: "How does the free trial work?",
-    a: "You start with a 14-day free trial of the whole system — every module unlocked, loaded with data and set up for you, no credit card. At the end of the 14 days you pick the plan that fits: Standard for a B2B online store with your products and customers, Premium for the full ERP, or Enterprise if you need multi-branch, per-user permissions or modules built specifically for your business.",
+    q: "What does Cognit cost?",
+    a: "Please contact us for pricing. There's no price list, because there's no one-size package — what you pay depends on what you actually need running, how much of your data we migrate, and whether we're building anything specific for your business. Tell us how you operate and we'll put a real number in front of you rather than a starting-from figure that changes later.",
   },
   {
-    q: "What happens after the 14 days?",
-    a: "Near the end of your trial we'll check in. If Cognit is working for you, you continue on your chosen plan; if it isn't the right fit, you simply stop — there's no lock-in and nothing to cancel if you never started paying.",
-  },
-  {
-    q: "Do I need a credit card?",
-    a: "No. You can start your 14-day free trial without entering any card details. We set Cognit up for you and email your login — you only arrange payment if you decide to continue on a paid plan after the trial.",
-  },
-  {
-    q: "Can I change plans?",
-    a: "Any time. Start on Standard for a B2B online store with your products and customers, and step up to Premium for the full ERP — inventory, purchasing, invoicing, customer pricing, quotes, pick sheets, rebates, accounting and the full reporting suite. Those modules are already built into Cognit, so moving up is a setting we switch on rather than another project. You can move back down too. No lock-in, cancel anytime.",
-  },
-  {
-    q: "What is Cognit still working on?",
-    a: "We'd rather tell you up front than oversell. Being built right now: native buyer and driver mobile apps; AI reading of supplier invoices; a two-way Xero sync (today Cognit sends invoices and credit notes to Xero, it doesn't pull back); integrations with accounting systems beyond Xero; and online card payment. None of these are included in a plan today — when they ship, they're included free for clients on the plan they land in. If one of them is critical to you now, talk to us: building it with you is exactly what Zeabyte does.",
+    q: "Why don't you publish prices?",
+    a: "Because we'd rather quote you honestly than advertise a number we'd have to renegotiate once we understand your business. Distribution businesses vary enormously — a two-branch importer and a single-site foodservice wholesaler need different things. We'll be direct about cost early in the conversation; you won't have to sit through three meetings to find out.",
   },
   {
     q: "What if Cognit doesn't do something I need?",
-    a: "Tell us. Cognit is built and maintained by Zeabyte, a New Zealand software company — we build the missing piece into your system rather than telling you to change how you work. That's what the Enterprise plan is: your own modules, quoted on what you actually need.",
+    a: "Tell us, and we'll be straight about whether it exists, whether it's on the roadmap, or whether it's a build. Cognit is made and maintained by Zeabyte, a New Zealand software company — building the missing piece into your system is our actual business, not an exception we make reluctantly.",
+  },
+  {
+    q: "How do I know what's real and what's coming?",
+    a: "That's what this page is for. Everything under \"What the system does today\" is running in the product right now. Everything under \"What we're building\" genuinely isn't finished yet, and we've listed the things we don't do at all. We'd rather lose a deal on the truth than win one on a demo of something that doesn't exist.",
   },
   {
     q: "Is my data mine?",
     a: "Always. Your customers, products, orders, invoices and accounts are yours. You can export your records to Excel or PDF whenever you like, and if you ever leave, you take your data with you. Every client runs on their own private server.",
   },
+  {
+    q: "How long does it take to get running?",
+    a: "Weeks, not the year an enterprise ERP rollout takes. We load your products and customers, set the system up for you, walk your team through it and stay close while you go live. The exact timeline depends on how much data is coming across and whether anything is being built for you.",
+  },
 ];
-
-const offerSchema = {
-  "@context": "https://schema.org",
-  "@type": "Product",
-  name: "Cognit ERP",
-  description:
-    "Cognit is an all-in-one cloud ERP with a built-in B2B e-commerce online store. Try the whole system free for 14 days — sales, inventory, purchasing, accounting, invoicing, rebates and reporting in one system.",
-  brand: { "@type": "Brand", name: "Cognit" },
-  offers: [
-    {
-      "@type": "Offer",
-      name: "Free trial",
-      price: "0",
-      priceCurrency: "NZD",
-      description: "A 14-day free trial of the entire system — every module unlocked, no credit card. After 14 days, choose Standard, Premium or Enterprise to continue.",
-      availability: "https://schema.org/InStock",
-      url: "https://cognitsystem.com/pricing/",
-    },
-    {
-      "@type": "Offer",
-      name: "Standard",
-      price: "750",
-      priceCurrency: "NZD",
-      description: "Per month, after a 14-day free trial. A branded B2B online store with your products and customers — online order management & history, lost-sale capture, core sales reports, multiple staff logins and NZ-based support. Inventory, purchasing, invoicing and accounting are on Premium.",
-      availability: "https://schema.org/InStock",
-      url: "https://cognitsystem.com/pricing/",
-    },
-    {
-      "@type": "Offer",
-      name: "Premium",
-      price: "1500",
-      priceCurrency: "NZD",
-      description: "Per month, after a 14-day free trial. Everything in Standard plus inventory and stocktakes, purchasing and supplier bills, invoicing, credit notes and customer statements, customer-specific pricing, quotes, pick sheets, supplier rebates and claim-backs, accounting and general ledger, the full 25-report suite, and automatic sending of invoices and credit notes to Xero.",
-      availability: "https://schema.org/InStock",
-      url: "https://cognitsystem.com/pricing/",
-    },
-    {
-      "@type": "Offer",
-      name: "Enterprise",
-      priceCurrency: "NZD",
-      description: "Quoted per project. Everything in Premium plus multi-branch and multi-warehouse, per-user permissions, API access and data export, one-click backup and restore, and custom modules built for your business.",
-      availability: "https://schema.org/InStock",
-      url: "https://cognitsystem.com/contact/",
-    },
-  ],
-};
 
 const faqSchema = {
   "@context": "https://schema.org",
@@ -227,156 +170,88 @@ const faqSchema = {
 ---
 
 <Layout
-  title="Cognit Pricing — 14-Day Free Trial, then Standard, Premium & Enterprise"
-  description="Cognit pricing: a 14-day free trial of the whole system, then Standard (NZD $750/mo) for a B2B online store or Premium (NZD $1,500/mo) for the full ERP. Enterprise is quoted per project. No credit card, no lock-in. Setup, data migration and training included."
+  title="What Cognit Does — and What We're Still Building | Cognit NZ"
+  description="An honest list of what the Cognit ERP does today — sales, the built-in B2B online store, inventory, purchasing, invoicing, accounting, rebates and 30 reports — plus what's still being built and what it doesn't do. No price list: please contact us for pricing, scoped to what your business actually needs. Built in New Zealand."
   path="/pricing"
-  schema={[offerSchema, faqSchema]}
+  schema={faqSchema}
 >
   <Header />
 
   <main class="bg-cog-stone text-cog-slate">
-    <!-- HERO (photographic) -->
+    <!-- HERO -->
     <section class="orbs relative isolate overflow-hidden">
       <img src="/images/hero-cranes-night.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" />
       <div class="absolute inset-0 -z-10 bg-cog-ink/82"></div>
       <div class="dotgrid absolute inset-0 -z-10 opacity-40"></div>
       <div class="mx-auto max-w-5xl px-5 pb-20 pt-20 text-center sm:px-8 sm:pt-28 hero-rise">
         <span class="chip mx-auto border border-white/15 text-slate-200">
-          <span class="h-2 w-2 rounded-full bg-cog-teal"></span> Start free · upgrade when you're ready
+          <span class="h-2 w-2 rounded-full bg-cog-teal"></span> What's real · what's coming
         </span>
         <h1 class="mx-auto mt-7 max-w-4xl text-[2.6rem] font-extrabold leading-[1.05] tracking-tight text-white sm:text-6xl">
-          Start free. Grow into
-          <span class="text-gradient-bright"> the whole system.</span>
+          Everything the system does.
+          <span class="text-gradient-bright"> Nothing it doesn't.</span>
         </h1>
         <p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-slate-300 sm:text-xl">
-          Try the whole system free for 14 days — no credit card. We set it up for
-          you and email your login. Then it's $750/month for a B2B online store, or
-          $1,500/month for the full ERP.
+          Below is what Cognit genuinely does today, what we're still building, and
+          what it doesn't do at all. There's no price list — what you pay depends on
+          what you actually need running, so
+          <strong class="font-semibold text-white">please contact us for pricing</strong>.
         </p>
+        <div class="mt-9 flex flex-wrap items-center justify-center gap-3">
+          <a href="/contact" class="btn-grad">Book a demo</a>
+          <a href="#roadmap" class="btn-ghost !border-white/30 !text-white">See what's coming →</a>
+        </div>
       </div>
     </section>
 
-    <!-- 14-DAY TRIAL BANNER -->
-    <section class="mx-auto -mt-10 max-w-5xl px-5 sm:px-8">
-      <div class="card-grad relative z-10 flex flex-col items-center justify-between gap-4 rounded-2xl px-6 py-5 text-center shadow-xl shadow-cog-purple/15 sm:flex-row sm:text-left">
-        <p class="text-cog-ink">
-          <strong class="font-extrabold">Try Standard or Premium free for 14 days</strong>
-          — no credit card. We set it up for you and email your login.
+    <!-- WHAT IT DOES TODAY -->
+    <section class="mx-auto max-w-6xl px-5 py-20 sm:px-8">
+      <div class="mb-12 max-w-2xl">
+        <span class="chip bg-cog-sky text-cog-blue-700">Available now</span>
+        <h2 class="mt-5 text-3xl font-extrabold tracking-tight text-cog-ink sm:text-4xl">
+          What the system does today
+        </h2>
+        <p class="mt-4 text-lg text-cog-slate">
+          Every line below is running in the product right now. If it isn't on this
+          list, we won't tell you it's there.
         </p>
-        <a href="/start?plan=standard" class="btn-grad !px-6 !py-3 text-sm">Start 14-day free trial →</a>
       </div>
-    </section>
 
-    <!-- PLAN CARDS -->
-    <section class="mx-auto max-w-6xl px-5 pb-12 pt-16 sm:px-8">
-      <div class="grid items-start gap-5 sm:grid-cols-2 lg:grid-cols-4">
-        {plans.map((plan) => (
-          <div class={"card-hover relative flex flex-col rounded-3xl p-8 " + (plan.popular ? "card-grad shadow-xl shadow-cog-purple/15 lg:-mt-4 lg:pb-10" : "card-hairline")}>
-            {plan.popular && (
-              <span class="brand-gradient absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-white shadow-lg shadow-cog-purple/30">
-                Most popular
-              </span>
-            )}
-            <h2 class="text-xl font-extrabold tracking-tight text-cog-ink">{plan.name}</h2>
-            <p class="mt-2 min-h-[3.5rem] text-sm leading-relaxed text-cog-slate">{plan.tagline}</p>
-            <div class="mt-5 flex items-end gap-1.5">
-              {plan.custom ? (
-                <span class="text-4xl font-extrabold tracking-tight text-cog-ink">{plan.price}</span>
-              ) : (
-                <span class="text-5xl font-extrabold tracking-tight text-cog-ink">${plan.price}</span>
-              )}
-              <span class="mb-1.5 text-sm font-medium text-slate-500">{plan.unit}</span>
+      <div class="grid gap-5 lg:grid-cols-2">
+        {has.map((g) => (
+          <div class="card-hairline rounded-3xl bg-white p-7 sm:p-8">
+            <div class="flex items-center gap-3">
+              <span class="text-2xl">{g.icon}</span>
+              <h3 class="text-lg font-extrabold tracking-tight text-cog-ink">{g.t}</h3>
             </div>
-            {plan.trial && (
-              <p class="mt-2 text-sm font-semibold text-cog-teal-600">{plan.trial}</p>
-            )}
-            <a href={plan.href} class={"mt-6 " + (plan.popular ? "btn-grad" : "btn-ghost")}>
-              {plan.cta}
-            </a>
-            <ul class="mt-7 space-y-3 text-sm text-cog-slate">
-              {plan.features.map((f, i) => (
-                <li class={"flex gap-3 " + (i === 0 && f.includes("Everything in") ? "font-semibold text-cog-ink" : "")}>
-                  <span class="mt-0.5 flex-none text-cog-teal">✓</span>
-                  {f}
+            <ul class="mt-5 space-y-2.5 text-sm leading-relaxed text-cog-slate">
+              {g.items.map((i) => (
+                <li class="flex gap-3">
+                  <span class="mt-0.5 flex-none font-bold text-cog-teal">✓</span>{i}
                 </li>
               ))}
             </ul>
-            {plan.footnote && (
-              <p class="mt-6 border-t border-black/5 pt-4 text-xs leading-relaxed text-slate-400">{plan.footnote}</p>
-            )}
           </div>
         ))}
       </div>
-
-      <p class="mt-10 text-center text-sm font-medium text-slate-500">
-        No lock-in. Cancel anytime. Setup, data migration &amp; training included on paid plans.
-      </p>
     </section>
 
-    <!-- COMPARE TABLE -->
-    <section class="mx-auto max-w-5xl px-5 py-24 sm:px-8">
-      <div class="mb-12 max-w-2xl">
-        <span class="chip bg-cog-sky text-cog-blue-700">Compare plans</span>
-        <h2 class="mt-5 text-3xl font-extrabold tracking-tight text-cog-ink sm:text-4xl">What's in each plan</h2>
-        <p class="mt-4 text-lg text-cog-slate">
-          Start with the online store, then switch on inventory, invoicing and accounting as you
-          grow. Every row below works in Cognit today — the 14-day free trial unlocks all of it.
-        </p>
-      </div>
-
-      <div class="card-hairline overflow-x-auto rounded-3xl">
-        <div class="min-w-[38rem]">
-          <div class="grid grid-cols-[1.9fr_0.8fr_0.8fr_0.9fr] bg-cog-ink text-white">
-            <div class="px-4 py-4 text-sm font-bold sm:px-7">Feature</div>
-            <div class="px-2 py-4 text-center text-sm font-bold text-slate-200">Standard</div>
-            <div class="px-2 py-4 text-center text-sm font-bold text-cog-teal">Premium</div>
-            <div class="px-2 py-4 text-center text-sm font-bold text-slate-200">Enterprise</div>
-          </div>
-          {compare.map((row, i) => (
-            <div class={"grid grid-cols-[1.9fr_0.8fr_0.8fr_0.9fr] " + (i % 2 === 0 ? "bg-white" : "bg-cog-stone")}>
-              <div class="px-4 py-4 text-sm font-medium text-cog-ink sm:px-7">{row.f}</div>
-              <div class="px-2 py-4 text-center text-sm">
-                {row.s === true ? <span class="font-bold text-cog-teal">✓</span>
-                  : row.s === false ? <span class="text-slate-300">—</span>
-                  : <span class="text-xs font-medium text-cog-slate">{row.s}</span>}
-              </div>
-              <div class="px-2 py-4 text-center text-sm">
-                {row.p === true ? <span class="font-bold text-cog-teal">✓</span>
-                  : row.p === false ? <span class="text-slate-300">—</span>
-                  : <span class="text-xs font-medium text-cog-slate">{row.p}</span>}
-              </div>
-              <div class="px-2 py-4 text-center text-sm">
-                {row.e === true ? <span class="font-bold text-cog-teal">✓</span>
-                  : row.e === false ? <span class="text-slate-300">—</span>
-                  : <span class="text-xs font-medium text-cog-slate">{row.e}</span>}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <div class="mt-10 flex flex-wrap justify-center gap-3">
-        <a href="/contact" class="btn-ghost">Book a demo</a>
-        <a href="/start?plan=standard" class="btn-grad">Start 14-day free trial →</a>
-      </div>
-    </section>
-
-    <!-- BUILDING NEXT (roadmap — deliberately outside every plan) -->
-    <section class="mx-auto max-w-5xl px-5 pb-8 sm:px-8">
+    <!-- BUILDING NEXT -->
+    <section id="roadmap" class="mx-auto max-w-5xl px-5 pb-8 sm:px-8">
       <div class="card-hairline rounded-3xl bg-white p-8 sm:p-10">
         <div class="flex flex-wrap items-center gap-3">
           <span class="chip bg-cog-sky text-cog-blue-700">Building next</span>
           <span class="text-xs font-semibold uppercase tracking-wider text-slate-400">
-            In development — not included in any plan today
+            In development — not available today
           </span>
         </div>
         <h2 class="mt-5 text-2xl font-extrabold tracking-tight text-cog-ink sm:text-3xl">
           What we're working on — and what we won't pretend we have yet
         </h2>
         <p class="mt-4 max-w-2xl leading-relaxed text-cog-slate">
-          Plenty of software gets sold on a demo of something that isn't finished. We'd rather
-          show you the line. Everything in the plans above works today. Everything below is
-          genuinely still being built.
+          Plenty of software gets sold on a demo of something that isn't finished.
+          We'd rather show you the line. Everything above works today. Everything
+          here is genuinely still being built.
         </p>
         <ul class="mt-8 grid gap-4 sm:grid-cols-2">
           {roadmap.map((r) => (
@@ -391,48 +266,65 @@ const faqSchema = {
             </li>
           ))}
         </ul>
-        <p class="mt-8 border-t border-black/5 pt-6 text-sm leading-relaxed text-cog-slate">
-          <strong class="font-bold text-cog-ink">When these ship, they're included free</strong> for
-          clients on the plan they land in — no upgrade fee, no new project. And if one of them
-          is critical to you right now, <a href="/contact" class="font-semibold text-cog-blue-700 underline decoration-cog-blue-700/30 underline-offset-2">talk to us</a> —
-          building it with you is exactly what Zeabyte does.
-        </p>
-      </div>
-    </section>
 
-    <!-- VALUE BAND -->
-    <section class="px-4 py-10 sm:px-8">
-      <div class="orbs relative mx-auto max-w-6xl overflow-hidden rounded-[2rem] bg-cog-ink px-6 py-16 text-center text-white sm:px-12">
-        <div class="dotgrid absolute inset-0 opacity-50"></div>
-        <div class="relative">
-          <h2 class="mx-auto max-w-2xl text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl">
-            One subscription replaces a <span class="text-gradient-bright">shelf full of tools.</span>
-          </h2>
-          <p class="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-slate-300">
-            Think about what you pay today for a website, an ordering plugin, an inventory
-            tool, accounting software, a reporting add-on — plus the time lost re-keying
-            between them. Cognit is one price for all of it, working as a single system.
+        <div class="mt-8 border-t border-black/5 pt-7">
+          <h3 class="text-sm font-extrabold uppercase tracking-wider text-slate-400">
+            And things we don't do at all
+          </h3>
+          <p class="mt-3 max-w-2xl text-sm leading-relaxed text-cog-slate">
+            Common asks in this industry that aren't in Cognit. If one of these is
+            how your business runs, say so early — we'll tell you honestly whether
+            it's a build or a bad fit.
           </p>
-          <div class="mt-10 grid gap-3 sm:grid-cols-4">
-            {[
-              { t: "Online store", e: "🛒" },
-              { t: "Inventory & purchasing", e: "📦" },
-              { t: "Accounting & ledger", e: "📊" },
-              { t: "Reporting & insights", e: "📈" },
-            ].map((x) => (
-              <div class="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur">
-                <div class="text-2xl">{x.e}</div>
-                <div class="mt-2 text-sm font-semibold text-white">{x.t}</div>
-              </div>
+          <div class="mt-4 flex flex-wrap gap-2">
+            {notYet.map((n) => (
+              <span class="rounded-full border border-black/5 bg-cog-stone px-3.5 py-1.5 text-xs font-medium text-slate-500">{n}</span>
             ))}
           </div>
         </div>
       </div>
     </section>
 
+    <!-- HOW PRICING WORKS -->
+    <section class="px-4 py-16 sm:px-8">
+      <div class="orbs relative mx-auto max-w-6xl overflow-hidden rounded-[2rem] bg-cog-ink px-6 py-16 text-center text-white sm:px-12">
+        <div class="dotgrid absolute inset-0 opacity-50"></div>
+        <div class="relative">
+          <span class="chip mx-auto border border-white/15 text-slate-200">How pricing works</span>
+          <h2 class="mx-auto mt-6 max-w-2xl text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl">
+            Contact us for pricing — <span class="text-gradient-bright">we quote on what you need.</span>
+          </h2>
+          <p class="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-slate-300">
+            There's no price list here, and that's deliberate. A two-branch importer
+            and a single-site foodservice wholesaler need different things, and a
+            starting-from number that changes once we understand your business helps
+            nobody. Tell us how you operate — what you sell, how orders reach you,
+            what you're running now — and we'll put a real figure in front of you
+            early, not after three meetings.
+          </p>
+          <div class="mt-10 grid gap-3 text-left sm:grid-cols-3">
+            {[
+              { n: "1", t: "Tell us how you operate", b: "A conversation, not a scripted demo. What you sell, how orders arrive, what's broken." },
+              { n: "2", t: "We show you the real system", b: "Loaded with data that looks like yours, so you can see the parts that matter to you." },
+              { n: "3", t: "You get a real number", b: "Scoped to what you'll actually use, including anything we'd build for you." },
+            ].map((s) => (
+              <div class="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur">
+                <div class="brand-gradient flex h-8 w-8 items-center justify-center rounded-lg text-sm font-extrabold text-white">{s.n}</div>
+                <div class="mt-4 text-sm font-bold text-white">{s.t}</div>
+                <p class="mt-2 text-sm leading-relaxed text-slate-300">{s.b}</p>
+              </div>
+            ))}
+          </div>
+          <div class="mt-10 flex flex-wrap items-center justify-center gap-3">
+            <a href="/contact" class="btn-grad">Talk to us</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- FAQ -->
-    <section class="mx-auto max-w-3xl px-5 py-24 sm:px-8">
-      <h2 class="text-center text-3xl font-extrabold tracking-tight text-cog-ink sm:text-4xl">Pricing questions, answered</h2>
+    <section class="mx-auto max-w-3xl px-5 pb-24 sm:px-8">
+      <h2 class="text-center text-3xl font-extrabold tracking-tight text-cog-ink sm:text-4xl">Questions, answered straight</h2>
       <div class="mt-10 space-y-3">
         {faqs.map((f) => (
           <details class="card-hairline group rounded-2xl p-6 open:shadow-md">

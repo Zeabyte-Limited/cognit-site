@@ -21,16 +21,16 @@ const faqs = [
     a: "Because the supplier invoice is only one part of what a product actually costs you. Freight and duty can add anywhere from a few percent to well over the item's ex-works price, and exchange rate movement changes it again between order and payment. Price off the invoice alone and you're often selling below true cost without realising it until margin reporting tells you months later.",
   },
   {
-    q: "How does Cognit calculate landed cost?",
-    a: "Cognit's purchasing module lets you receipt goods against a purchase order and capture the real costs that come with landing stock — not just the supplier price. That landed figure is what feeds inventory valuation, margin reporting and pricing, so every number downstream reflects what stock actually cost you, not just what the supplier billed you.",
+    q: "Does Cognit do landed cost?",
+    a: "Not out of the box today, and we would rather say so than let you find out later. Cognit handles purchase orders, goods receipting, stock valuation and margin reporting, which is the foundation landed cost sits on — but apportioning freight, duty and handling across a shipment is a module we build for importers as part of an Enterprise engagement. If landed cost is the reason you are looking, tell us early and we will scope it properly rather than pretend it is a switch we flip.",
   },
   {
-    q: "Does this work if I import in USD, EUR or another currency?",
-    a: "Yes. Cognit handles multi-currency purchasing, so exchange rate movement is captured as part of the transaction rather than reconciled separately at month end. Combined with Cognit's own general ledger — or a two-way Xero sync if you prefer running your books there — your landed cost and your accounts stay in step.",
+    q: "Does Cognit handle multi-currency purchasing?",
+    a: "Not today — Cognit trades in a single currency. Multi-currency purchasing is one of the things we build for importers as custom work, and it is a common enough request that it may well become part of the core product. Ask us and we will give you a straight answer on scope and timing rather than a maybe.",
   },
   {
     q: "Is Cognit suitable for importers who also sell wholesale to trade customers?",
-    a: "Yes — that's exactly the business Cognit is built for. Purchasing and landed cost sit on the same platform as inventory, a built-in B2B online store, supplier rebates and claim-backs, and real accounting, so stock that's just landed can be selling to trade customers the same day, at a price that reflects what it actually cost to bring in.",
+    a: "Yes — that's exactly the business Cognit is built for. Purchasing and goods receipting sit on the same platform as inventory, a built-in B2B online store, supplier rebates and claim-backs, and real accounting, so stock that's just landed can be selling to trade customers the same day. Landed-cost apportionment and multi-currency are the two pieces we would build on top for an importer, and we would quote them up front.",
   },
 ];
 
@@ -133,12 +133,12 @@ const faqSchema = {
           The fix isn't a better spreadsheet — it's capturing landed cost as part
           of the same process as <a href="/features/purchasing">purchasing and
           goods receipting</a>, so the real cost is attached to stock the moment
-          it arrives, not reconciled afterwards:
+          it arrives, not reconciled afterwards. What to insist on:
         </p>
         <ul>
           <li>Purchase orders and goods receipting on one system, so freight, duty and handling can be captured against the stock they belong to</li>
           <li>A landed cost that feeds straight into <a href="/features/inventory">inventory valuation</a>, not a separate number kept on the side</li>
-          <li>Multi-currency purchasing, so exchange rate movement is captured as it happens rather than reconciled at month end</li>
+          <li>Multi-currency purchasing, so exchange rate movement is captured as it happens rather than reconciled at month end (a build, not a setting, in most systems — including ours)</li>
           <li>Pricing and margin reporting built on the landed figure, so what you charge reflects what stock actually cost</li>
         </ul>
 
@@ -150,13 +150,21 @@ const faqSchema = {
           your reps. Cognit brings purchasing and goods receipting, inventory,
           the built-in store, <a href="/features/rebates">supplier rebates and
           claim-backs</a> and real accounting onto one platform, so stock that's
-          just cleared customs can be priced correctly and selling to trade
-          customers the same day — see how it comes together on our
+          just cleared customs can be selling to trade customers the same day —
+          see how it comes together on our
           <a href="/industries/importers">ERP for importers and distributors</a>
           page.
         </p>
         <p>
-          Cognit also has its own general ledger and syncs two-way with Xero, so
+          <strong>Being straight with you:</strong> landed-cost apportionment and
+          multi-currency purchasing are not in Cognit today. They are modules we
+          build for importers as part of an
+          <a href="/pricing">Enterprise engagement</a> — which is Zeabyte's actual
+          business, and why we would rather scope it with you than sell you a tick
+          in a feature list that turns out to be a spreadsheet.
+        </p>
+        <p>
+          Cognit also has its own general ledger and sends your invoices and credit notes straight to Xero, so
           landed cost, purchasing and your accounts stay in step whichever way
           your books are run.
         </p>
@@ -166,9 +174,9 @@ const faqSchema = {
           If margin has been drifting and nobody's quite sure why, landed cost is
           one of the first places to look — particularly on imported lines with
           long freight routes or duty-heavy categories. See
-          <a href="/pricing">pricing</a> or <a href="/start">start a 14-day free
-          trial</a> to see landed cost, purchasing and margin reporting running
-          against your own products.
+          <a href="/pricing">pricing</a> or <a href="/contact">book a demo</a> to run purchasing, stock valuation and margin reporting against
+          your own products, and <a href="/contact">talk to us</a> about what a
+          landed-cost module would look like for your shipments.
         </p>
 
         <h2>Frequently asked questions</h2>

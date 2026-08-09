@@ -30,19 +30,19 @@ const faqs = [
   },
   {
     q: "Can Cognit replace my current accounting or ERP system?",
-    a: "Yes. Cognit has a real general ledger underneath everything — chart of accounts, journals, trial balance, balance sheet and automatic GL posting — so it can run your accounts on its own. Many businesses use Cognit to replace a patchwork of separate systems. And if you'd rather keep the accounting software you already have, Cognit integrates seamlessly with it — built-in two-way Xero integration, plus MYOB, QuickBooks, Reckon, Sage and other popular accounting systems.",
+    a: "Yes. Cognit has a real general ledger underneath everything — chart of accounts, journals, trial balance, balance sheet and automatic GL posting — so it can run your accounts on its own. You can use Cognit to replace a patchwork of separate systems. And if you'd rather keep Xero, it's built in — your invoices and credit notes are sent across automatically. Running a different accounting package? We build that connection as part of your project.",
   },
   {
     q: "Does Cognit integrate with Xero?",
-    a: "Yes. Cognit has built-in two-way Xero integration, syncing invoices, credit notes, customers and products automatically. It also integrates with other popular accounting systems — MYOB, QuickBooks, Reckon, Sage and more — as well as inventory and e-commerce tools. If a system has an API or data feed, Cognit can connect to it.",
+    a: "Yes. Cognit has built-in Xero integration — connect it in about 30 seconds and your invoices, credit notes, customers and products are sent to Xero automatically. Xero is the integration that ships with Cognit today. Anything else with an API or a data feed we build as part of your project — that's Zeabyte's core business.",
   },
   {
     q: "Who is Cognit for?",
-    a: "Cognit is built for wholesalers, distributors, importers and product-based businesses that take orders, hold stock and want their website, inventory and accounts working as one system. It is proven in food and wholesale distribution across New Zealand and Australia.",
+    a: "Cognit is built for wholesalers, distributors, importers and product-based businesses that take orders, hold stock and want their website, inventory and accounts working as one system. It is live with its first food-distribution client in New Zealand, and built on the decade Zeabyte has spent building distribution software for New Zealand businesses.",
   },
   {
     q: "How much does Cognit cost?",
-    a: "Cognit has four plans. Free ($0/month, forever) gives you a built-in B2B online store and order management for up to 100 products and 25 customers. Standard is NZD $899/month and adds the full operations ERP — inventory, purchasing, invoicing, customer pricing, stocktakes and reporting. Premium is NZD $1,999/month and adds accounting and general ledger, supplier rebates, Xero and other integrations, API access, mobile apps, rep intelligence, one-click backup & restore and priority support. Enterprise (NZD $3,999/month — custom quote, talk to our team) adds multi-branch, per-user permissions, dedicated infrastructure and white-glove support. Standard and Premium come with a 14-day free trial — no credit card required.",
+    a: "There's no price list, because there's no one-size package. What you pay depends on how much of the system you run, how much of your data we migrate, and whether we're building anything specific for your business — a two-branch importer and a single-site foodservice wholesaler need very different things. Tell us how you operate and we'll put a real figure in front of you early, rather than a starting-from number that changes once we understand you. See /pricing for exactly what the system does today and what we're still building.",
   },
 ];
 
@@ -55,7 +55,7 @@ const faqSchema = {
 
 <Layout
   title="Cognit — The All-in-One ERP With a Built-In Online Store | NZ"
-  description="Cognit is the all-in-one cloud ERP you run your whole company on — sales, a built-in B2B online store, inventory, purchasing, accounting, invoicing and reporting in one system. Connects to your whole stack. Free plan + 14-day trial. Built in New Zealand."
+  description="Cognit is the all-in-one cloud ERP you run your whole company on — sales, a built-in B2B online store, inventory, purchasing, accounting, invoicing and reporting in one system. Connects to your whole stack. We publish what it does today and what we’re still building. Built in New Zealand."
   schema={faqSchema}
 >
   <Header />
@@ -84,10 +84,10 @@ const faqSchema = {
           accounting and business operations system.
         </p>
         <div class="mt-9 flex flex-wrap items-center justify-center gap-3 lg:justify-start">
-          <a href="/start" class="btn-grad">Start free</a>
+          <a href="/contact" class="btn-grad">Book a demo</a>
           <a href="/platform" class="btn-ghost !border-white/30 !text-white">See how it works →</a>
         </div>
-        <p class="mt-4 text-sm font-medium text-slate-300">14-day free trial · no credit card</p>
+        <p class="mt-4 text-sm font-medium text-slate-300">See the real system · no obligation</p>
         <div class="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-slate-300 lg:justify-start">
           <span>✓ Built-in online store</span>
           <span>✓ Real accounting &amp; GL</span>
@@ -305,9 +305,9 @@ const faqSchema = {
           </div>
           <div class="grid gap-3 sm:grid-cols-2">
             {[
-              { icon: "🔮", t: "AI reorder suggestions" },
-              { icon: "⭐", t: "Automatic rebate claims" },
-              { icon: "🧾", t: "Auto invoice posting" },
+              { icon: "⭐", t: "Rebates that accrue themselves" },
+              { icon: "🧾", t: "Invoices posted to the ledger" },
+              { icon: "🔔", t: "Reorder alerts at your levels" },
               { icon: "📊", t: "Real-time P&L" },
             ].map((x) => (
               <div class="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur">
@@ -325,14 +325,14 @@ const faqSchema = {
 
     <!-- PRICING TEASER -->
     <section class="mx-auto max-w-4xl px-5 py-24 text-center sm:px-8">
-      <span class="chip bg-cog-sky text-cog-blue-700">Simple pricing</span>
-      <h2 class="mt-5 text-3xl font-extrabold tracking-tight text-cog-ink sm:text-5xl">Start free. Grow into the whole system.</h2>
-      <p class="mx-auto mt-5 max-w-xl text-lg text-cog-slate">Get your own built-in online store <strong class="text-cog-ink">free, forever</strong> — or try the full system from <strong class="text-cog-ink">$899/month</strong> free for 14 days, no credit card. Setup, training and NZ support included.</p>
+      <span class="chip bg-cog-sky text-cog-blue-700">Straight answers</span>
+      <h2 class="mt-5 text-3xl font-extrabold tracking-tight text-cog-ink sm:text-5xl">Everything it does. Nothing it doesn't.</h2>
+      <p class="mx-auto mt-5 max-w-xl text-lg text-cog-slate">We publish what the system does today, what we're still building, and what it doesn't do at all. What you pay depends on what you actually need running — so we scope it with you rather than selling a package. Setup, data migration, training and NZ support included.</p>
       <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
-        <a href="/start" class="btn-grad">Start free</a>
-        <a href="/pricing" class="btn-ghost">See pricing</a>
+        <a href="/contact" class="btn-grad">Book a demo</a>
+        <a href="/pricing" class="btn-ghost">See what's included</a>
       </div>
-      <p class="mt-4 text-sm font-medium text-slate-500">14-day free trial · no credit card · no lock-in</p>
+      <p class="mt-4 text-sm font-medium text-slate-500">See the real system · no obligation</p>
     </section>
 
     <!-- FAQ -->

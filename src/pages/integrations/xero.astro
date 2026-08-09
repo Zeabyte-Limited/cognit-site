@@ -16,7 +16,7 @@ const options = [
     chip: "Option A",
     t: "Keep Xero — Cognit feeds it",
     b: "Love Xero? Keep it. Cognit becomes the system your whole team works in — orders, the online store, stock and invoicing — and every invoice, credit note, customer and product flows into Xero automatically. Your accountant carries on exactly as they do today, just without the re-keying.",
-    points: ["Two-way sync, always current", "No double entry, ever", "Your accountant keeps Xero"],
+    points: ["Sent automatically, as you trade", "No double entry, ever", "Your accountant keeps Xero"],
   },
   {
     icon: "🏦",
@@ -36,19 +36,19 @@ const steps = [
 const faqs = [
   {
     q: "Does Cognit sync with Xero?",
-    a: "Yes. Cognit has built-in, two-way Xero integration. Invoices, credit notes, customers and products sync automatically between Cognit and Xero, so you never re-key the same information and your accounts always match your sales.",
+    a: "Yes. Cognit has built-in Xero integration. Invoices, credit notes, customers and products are sent from Cognit to Xero automatically, so you never re-key the same information and your accounts always match your sales.",
   },
   {
-    q: "What syncs to Xero?",
-    a: "Four core records sync both ways: invoices, credit notes, customers and products. Raise an invoice or a credit note in Cognit and it lands in Xero automatically; add or change a customer or product and both sides stay consistent. No exports, no copy-paste, no double entry.",
+    q: "What gets sent to Xero?",
+    a: "Four core records: invoices, credit notes, customers and products. Raise an invoice or a credit note in Cognit and it lands in Xero automatically, and your customers and products are pushed across so the two sides line up. No exports, no copy-paste, no double entry.",
   },
   {
     q: "Do I still need Xero?",
-    a: "No — but you can keep it if you want to. Cognit has a real general ledger underneath everything, so it can run your accounts on its own. Many businesses use Cognit as their single system. If you'd rather keep Xero, Cognit simply syncs to it automatically — the choice stays yours.",
+    a: "No — but you can keep it if you want to. Cognit has a real general ledger underneath everything, so it can run your accounts on its own. If you'd rather keep Xero, Cognit sends your invoices and credit notes to it automatically — the choice stays yours.",
   },
   {
-    q: "Is the Xero integration two-way?",
-    a: "Yes. Cognit's Xero sync runs both ways, so changes flow in both directions and the two systems stay aligned in near real time. It's not a fragile nightly export or a one-way bolt-on — the numbers your team sees and the numbers your accountant sees are always the same.",
+    q: "Does anything come back from Xero into Cognit?",
+    a: "Not yet — and we'd rather say so plainly. Today the connection runs one way: Cognit sends invoices, credit notes, customers and products to Xero as you trade, so nothing is ever re-keyed. Pulling payments and reconciliation back from Xero into Cognit is on our roadmap. If you need that now, talk to us — building it is exactly what Zeabyte does.",
   },
 ];
 
@@ -65,7 +65,7 @@ const faqSchema = {
 
 <Layout
   title="Cognit Xero Integration | ERP That Syncs With Xero — NZ"
-  description="Cognit is the all-in-one ERP that syncs with Xero — built-in two-way sync of invoices, credit notes, customers and products. Keep Xero or run accounting inside Cognit's real general ledger. No double entry. Built in New Zealand. Book a demo."
+  description="Cognit is the all-in-one ERP that connects to Xero — invoices, credit notes, customers and products are sent to Xero automatically as you trade. Keep Xero or run accounting inside Cognit's real general ledger. No double entry. Built in New Zealand. Book a demo."
   path="/integrations/xero"
   schema={faqSchema}
 >
@@ -87,28 +87,29 @@ const faqSchema = {
         </h1>
         <p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-slate-300">
           Cognit runs your whole business — online store, sales, stock and invoicing —
-          and keeps <strong class="text-white">Xero in step automatically</strong>. Built-in
-          <strong class="text-white"> two-way sync</strong> of invoices, credit notes,
-          customers and products. No exports. No double entry.
+          and keeps <strong class="text-white">Xero fed automatically</strong>. Invoices,
+          credit notes, customers and products are
+          <strong class="text-white"> sent straight across</strong> as you trade.
+          No exports. No double entry.
         </p>
         <div class="mt-9 flex flex-wrap items-center justify-center gap-3">
           <a href="/contact" class="btn-grad">Book a demo</a>
           <a href="#syncs" class="btn-ghost !border-white/30 !text-white">See what syncs →</a>
         </div>
         <div class="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-slate-300">
-          <span class="flex items-center gap-2"><span class="text-cog-teal">✓</span> Built-in two-way sync</span>
+          <span class="flex items-center gap-2"><span class="text-cog-teal">✓</span> Built-in, automatic</span>
           <span class="flex items-center gap-2"><span class="text-cog-teal">✓</span> Keep Xero or run books in Cognit</span>
           <span class="flex items-center gap-2"><span class="text-cog-teal">✓</span> No re-keying, ever</span>
         </div>
       </div>
     </section>
 
-    <!-- WHAT SYNCS TWO-WAY -->
+    <!-- WHAT GETS SENT TO XERO -->
     <section id="syncs" class="mx-auto max-w-6xl px-5 py-20 sm:px-8">
       <div class="mx-auto max-w-2xl text-center">
-        <span class="chip bg-cog-sky text-cog-blue-700">Built-in two-way sync</span>
+        <span class="chip bg-cog-sky text-cog-blue-700">Built-in Xero connection</span>
         <h2 class="mt-5 text-3xl font-extrabold tracking-tight text-cog-ink sm:text-4xl">
-          What syncs between Cognit and Xero — <span class="text-gradient">both ways.</span>
+          What Cognit sends to Xero — <span class="text-gradient">automatically.</span>
         </h2>
         <p class="mt-4 text-lg text-cog-slate">
           Four core records stay aligned automatically, so the numbers your team sees

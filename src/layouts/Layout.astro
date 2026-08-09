@@ -12,7 +12,7 @@ interface Props {
 
 const {
   title = "Cognit — The All-in-One ERP With a Built-In Online Store",
-  description = "Cognit is an all-in-one cloud ERP that runs your whole company — sales, a built-in B2B e-commerce store, inventory, purchasing, accounting, invoicing and reporting in one system. Connects to the tools you already use, with a free plan and a 14-day trial. Built in New Zealand for wholesalers, distributors and product businesses.",
+  description = "Cognit is an all-in-one cloud ERP that runs your whole company — sales, a built-in B2B e-commerce store, inventory, purchasing, accounting, invoicing and reporting in one system. Connects to the tools you already use. We publish what it does, what we’re building, and what it doesn’t do. Built in New Zealand for wholesalers, distributors and product businesses.",
   path = "/",
   schema,
 } = Astro.props;
@@ -65,16 +65,13 @@ const appSchema = {
     "Supplier rebates & claim-backs",
     "Tablet stocktakes",
     "Business reporting & P&L",
-    "AI reorder suggestions",
+    "Reorder alerts",
     "Xero integration",
     "Role-based access control",
   ],
-  offers: [
-    { "@type": "Offer", name: "Free", price: "0", priceCurrency: "NZD", description: "Free forever. Built-in B2B online store, order management, up to 100 products and 25 customer accounts, 1 user." },
-    { "@type": "Offer", name: "Standard", price: "899", priceCurrency: "NZD", description: "Per month with a 14-day free trial, no credit card. All-in-one ERP: built-in online store plus inventory, purchasing, invoicing, reporting and NZ support." },
-    { "@type": "Offer", name: "Premium", price: "1999", priceCurrency: "NZD", description: "Per month with a 14-day free trial. Everything in Standard plus accounting & general ledger, rebates, integrations, API access, AI reorder and priority support." },
-    { "@type": "Offer", name: "Enterprise", price: "3999", priceCurrency: "NZD", description: "Per month, custom quote — talk to our team. Everything in Premium plus AI invoice processing, rep intelligence, multi-branch, per-user permissions, dedicated infrastructure & SLA and a dedicated account manager." },
-  ],
+  // NO `offers` BLOCK. We publish no prices and run no plans or free trial —
+  // owner decision 2026-08-09. Pricing is scoped per client, so there is nothing
+  // truthful to put here. Do not re-add Offer entries without a real price list.
 };
 
 const websiteSchema = {
