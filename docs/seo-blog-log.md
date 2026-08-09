@@ -29,3 +29,4 @@ runs don't repeat a topic. Newest entries at the bottom.
 | 2026-08-06 | unit-of-measure-conversions-for-wholesale-distributors | Unit of measure conversions (pallet, case, carton, each) for NZ & AU wholesale distributors |
 | 2026-08-07 | fefo-expiry-date-stock-rotation-food-distributors | FEFO (first-expired-first-out) expiry-date stock rotation for NZ & AU food distributors |
 | 2026-08-08 | vendor-managed-inventory-for-wholesale-distributors | Vendor-managed inventory (VMI) for NZ & AU wholesale distributors |
+| 2026-08-09 | returns-and-credit-notes-for-wholesale-distributors | Returns, credit notes and restocking for NZ & AU wholesale distributors |

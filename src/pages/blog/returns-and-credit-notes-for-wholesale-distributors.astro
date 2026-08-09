@@ -1,0 +1,199 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+const site = "https://cognitsystem.com";
+const slug = "returns-and-credit-notes-for-wholesale-distributors";
+const url = `${site}/blog/${slug}/`;
+
+const title = "Returns & Credit Notes for NZ & AU Wholesale Distributors | Cognit";
+const description =
+  "A customer sends back a pallet — is it resalable, short-dated, or a write-off? What handling returns, credit notes and restocking properly requires from a wholesale distributor's stock and accounts, and why most businesses still run it on paper.";
+
+const faqs = [
+  {
+    q: "What counts as a \"return\" for a wholesale distributor, and why does it need its own process?",
+    a: "Wrong item picked, damaged on delivery, short-dated stock a customer won't take, or a straightforward over-order — each is a return, and each needs the same three things sorted out correctly: whether the stock is resalable, what the customer is owed, and a record that ties both back to the original order. Treated as one-off admin instead of a defined process, distributors end up with credit notes that don't match what physically came back, and stock that's neither properly on the shelf nor properly written off.",
+  },
+  {
+    q: "Does Cognit generate credit notes automatically for returns?",
+    a: "The trigger and the terms are specific to your business — some distributors credit on collection, some on inspection, some only above a certain value. Rather than force one fixed returns workflow, we build the credit note process into your Cognit system around the rules you actually use, tied to the original invoice so there's no separate reconciliation step to get wrong.",
+  },
+  {
+    q: "Does returned stock go straight back into stock on hand?",
+    a: "Not automatically, and it shouldn't. A return needs a resalable/not-resalable decision before it affects stock on hand — putting damaged or compromised stock straight back on the shelf just moves the problem to the next customer who orders it. Cognit's stock adjustments record that decision explicitly, so what's actually sellable is what the system — and your online store — shows.",
+  },
+  {
+    q: "What about short shelf-life or food stock — can it always go back into stock?",
+    a: "Only if it genuinely still has saleable shelf life left, and only if you can trust the batch or lot it came from. That's where returns depend on the same traceability as the rest of the warehouse — see our guide on batch and lot traceability. Stock that's too close to expiry to sell on needs to be written off, not quietly returned to the same shelf under FEFO rotation.",
+  },
+  {
+    q: "Does a returned-stock credit note flow through to Xero automatically?",
+    a: "Yes, in the same direction as everything else. Cognit sends invoices, credit notes, customers and products to Xero as you trade — that includes credit notes raised against returns. It's a one-way push from Cognit to Xero, so your books reflect the return without anyone re-keying it.",
+  },
+];
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "Returns and credit notes for wholesale distributors",
+  description,
+  author: { "@type": "Organization", name: "Cognit System", url: site },
+  publisher: {
+    "@type": "Organization",
+    name: "Cognit System",
+    logo: { "@type": "ImageObject", url: `${site}/logo.png` },
+  },
+  datePublished: "2026-08-09",
+  dateModified: "2026-08-09",
+  mainEntityOfPage: { "@type": "WebPage", "@id": url },
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+---
+
+<Layout title={title} description={description} path={`/blog/${slug}`} schema={[articleSchema, faqSchema]}>
+  <Header />
+
+  <main class="bg-cog-stone text-cog-slate">
+    <!-- HERO (photographic) -->
+    <section class="orbs relative isolate overflow-hidden">
+      <img src="/images/warehouse-worker.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" />
+      <div class="absolute inset-0 -z-10 bg-cog-ink/82"></div>
+      <div class="dotgrid absolute inset-0 -z-10 opacity-40"></div>
+      <div class="mx-auto max-w-3xl px-5 pt-20 pb-20 text-center sm:px-8 sm:pt-28 hero-rise">
+        <span class="chip mx-auto border border-white/15 text-slate-200">Insights</span>
+        <h1 class="mt-5 text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl">
+          Returns and credit notes for wholesale distributors
+        </h1>
+        <p class="mt-4 text-lg text-slate-300">
+          A pallet comes back damaged, short-dated, or just wrong. What
+          handling it properly actually requires from your stock and your
+          accounts — and why most distributors still run it on a docket and
+          a phone call.
+        </p>
+      </div>
+    </section>
+
+    <!-- BODY -->
+    <section class="mx-auto max-w-3xl px-5 pb-16 sm:px-8">
+      <article class="article">
+        <p>
+          Every distributor gets stock back — a wrong pick, damage in
+          transit, a customer who over-ordered, or short-dated stock they
+          won't accept. It's rarely the volume that causes the problem; it's
+          that returns sit outside the normal order flow, so they get
+          handled however whoever's on the loading dock that day decides to
+          handle them. The stock goes somewhere, a credit gets promised, and
+          a week later nobody can say for certain whether the customer's
+          account, the stock count, or the driver's memory is the one that's
+          right.
+        </p>
+
+        <h2>Why ad hoc returns quietly cost money</h2>
+        <p>
+          A return that isn't recorded against the original order creates
+          three separate risks at once. The stock might sit in limbo — not
+          on the shelf, not written off, just missing from the count until
+          the next stocktake turns up a variance nobody can explain. The
+          credit might get promised verbally and never actually raised,
+          which the customer notices on their next statement even if you
+          don't. Or the stock gets put straight back into
+          <a href="/features/inventory">stock on hand</a> without anyone
+          checking whether it's actually still resalable, which just delays
+          the write-off to whoever orders it next.
+        </p>
+
+        <h2>What a proper returns process actually needs</h2>
+        <p>
+          Whatever your specific policy, the mechanics underneath a return
+          are the same:
+        </p>
+        <ul>
+          <li>A record that ties the return back to the original invoice and order line, not a fresh line item nobody can trace</li>
+          <li>A resalable / not-resalable decision made before stock is adjusted — not assumed</li>
+          <li>A credit note raised against the terms you actually run — full credit, restocking fee, exchange only, whatever the case requires</li>
+          <li>A stock adjustment that reflects the real outcome — back on the shelf, quarantined, or written off — logged the same way as any other <a href="/blog/inventory-stock-control-software-for-wholesalers">stock movement</a></li>
+        </ul>
+        <p>
+          Run this way, a return isn't a separate process bolted onto the
+          side of the business — it's the same order and stock data
+          everything else runs on, just moving in the other direction.
+        </p>
+
+        <h2>Where it gets harder: short shelf-life stock</h2>
+        <p>
+          For food and beverage distributors, a return isn't just a
+          resalable/not-resalable call — it's a resalable-by-when call.
+          Stock that's genuinely undamaged can still be too close to expiry
+          to put back into general circulation, and putting it back on the
+          shelf under normal <a href="/blog/fefo-expiry-date-stock-rotation-food-distributors">FEFO
+          rotation</a> only works if the system actually knows which batch
+          it came from. That's the same traceability that matters for a
+          recall — see our guide on
+          <a href="/blog/batch-lot-traceability-food-distributors">batch and
+          lot traceability</a> — applied in reverse, on the way back in
+          rather than the way out.
+        </p>
+
+        <h2>Returns still have to reach your accounts</h2>
+        <p>
+          A credit note that only exists in your ERP isn't finished — it
+          needs to reach the customer's account and your books the same way
+          a normal invoice does. Cognit sends invoices, credit notes,
+          customers and products to Xero as you trade, which covers credit
+          notes raised against returns the same as any other credit note —
+          see <a href="/blog/do-i-still-need-xero-with-an-erp">do I still
+          need Xero if I have an ERP?</a> It's a one-way push from Cognit to
+          Xero, so the return shows up correctly without anyone re-entering
+          it, and it still counts against the customer's
+          <a href="/blog/credit-limits-and-accounts-receivable-for-wholesalers">credit
+          limit and trade terms</a> the way it should.
+        </p>
+
+        <h2>Built around the returns policy you actually run</h2>
+        <p>
+          Restocking fees, who authorises a credit, whether damaged stock
+          needs a photo before it's accepted back — every distributor's
+          returns policy is a little different, and a generic "process a
+          return" button rarely matches what a business actually requires.
+          Rather than force your team into someone else's workflow, we build
+          the returns and credit note process your business runs into your
+          Cognit system, tied to the same stock, orders and accounts as
+          everything else. Tell us how returns work today and we build it
+          properly around that.
+        </p>
+
+        <h2>Stop reconstructing returns after the fact</h2>
+        <p>
+          If returns in your business currently mean a driver's note, a
+          verbal promise of credit, and a stocktake variance nobody can
+          fully explain, it's worth working out what the process should
+          actually look like before it costs you a customer relationship or
+          a write-off you didn't see coming. See <a href="/pricing">pricing</a>
+          or <a href="/contact">get in touch</a> to talk through how returns
+          run in your business today.
+        </p>
+
+        <h2>Frequently asked questions</h2>
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </article>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
