@@ -146,7 +146,7 @@ const faqs = [
   },
   {
     q: "How do I know what's real and what's coming?",
-    a: "That's what this page is for. Everything under \"What the system does today\" is running in the product right now. Everything under \"What we're building\" genuinely isn't finished yet, and we've listed the things we don't do at all. We'd rather lose a deal on the truth than win one on a demo of something that doesn't exist.",
+    a: "That's what this page is for. Everything under \"What the system does today\" is running in the product right now, what's under \"What's coming next\" is still in development, and we've listed what the system doesn't cover. You'll always know which is which before you talk to us.",
   },
   {
     q: "Is my data mine?",
@@ -192,8 +192,8 @@ const faqSchema = {
           <span class="text-gradient-bright"> Nothing it doesn't.</span>
         </h1>
         <p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-slate-300 sm:text-xl">
-          Below is what Cognit genuinely does today, what we're still building, and
-          what it doesn't do at all. There's no price list — what you pay depends on
+          Below is what Cognit does today, what's coming next, and what it doesn't
+          cover. There's no price list — what you pay depends on
           what you actually need running, so
           <strong class="font-semibold text-white">please contact us for pricing</strong>.
         </p>
@@ -240,18 +240,17 @@ const faqSchema = {
     <section id="roadmap" class="mx-auto max-w-5xl px-5 pb-8 sm:px-8">
       <div class="card-hairline rounded-3xl bg-white p-8 sm:p-10">
         <div class="flex flex-wrap items-center gap-3">
-          <span class="chip bg-cog-sky text-cog-blue-700">Building next</span>
+          <span class="chip bg-cog-sky text-cog-blue-700">Coming soon</span>
           <span class="text-xs font-semibold uppercase tracking-wider text-slate-400">
-            In development — not available today
+            In development
           </span>
         </div>
         <h2 class="mt-5 text-2xl font-extrabold tracking-tight text-cog-ink sm:text-3xl">
-          What we're working on — and what we won't pretend we have yet
+          What's coming next
         </h2>
         <p class="mt-4 max-w-2xl leading-relaxed text-cog-slate">
-          Plenty of software gets sold on a demo of something that isn't finished.
-          We'd rather show you the line. Everything above works today. Everything
-          here is genuinely still being built.
+          A few things we're building at the moment. They're not part of the
+          system today — we'll let you know as they land.
         </p>
         <ul class="mt-8 grid gap-4 sm:grid-cols-2">
           {roadmap.map((r) => (
@@ -269,12 +268,12 @@ const faqSchema = {
 
         <div class="mt-8 border-t border-black/5 pt-7">
           <h3 class="text-sm font-extrabold uppercase tracking-wider text-slate-400">
-            And things we don't do at all
+            Not currently in the system
           </h3>
           <p class="mt-3 max-w-2xl text-sm leading-relaxed text-cog-slate">
-            Common asks in this industry that aren't in Cognit. If one of these is
-            how your business runs, say so early — we'll tell you honestly whether
-            it's a build or a bad fit.
+            Common asks in this industry that Cognit doesn't cover today. If one of
+            these is central to how you work, mention it early and we'll talk through
+            the options.
           </p>
           <div class="mt-4 flex flex-wrap gap-2">
             {notYet.map((n) => (
