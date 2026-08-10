@@ -1,0 +1,206 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+const site = "https://cognitsystem.com";
+const slug = "backorder-management-for-wholesale-distributors";
+const url = `${site}/blog/${slug}/`;
+
+const title = "Backorder Management for NZ & AU Wholesale Distributors | Cognit";
+const description =
+  "An order comes in for more than you've got on hand — do you ship what's there, hold the whole thing, or split it and invoice twice? What handling backorders properly requires from your stock, orders and accounts, and why 'we'll sort it when it lands' quietly costs distributors sales.";
+
+const faqs = [
+  {
+    q: "What actually counts as a backorder, and why does it need its own process?",
+    a: "A backorder is any order line you can't fully fill from stock on hand right now, but the customer still wants — as opposed to an out-of-stock line you cancel outright. The distinction matters because a backorder is a promise: you're telling the customer that stock is coming and they'll get it, which means it has to be tracked against both the original order and the incoming supplier stock, not just noted on a docket and remembered by whoever took the call.",
+  },
+  {
+    q: "Should we ship what's available now and backorder the rest, or hold the whole order?",
+    a: "It depends on the customer and the product — a supermarket account often wants a complete order or nothing, while a café that's simply out of one line would rather have the rest today. There's no single right answer, which is exactly why it shouldn't be a judgement call made fresh by whoever's packing that day. We build the split-or-hold rule your business actually runs — by customer, by product category, or by order value — into your Cognit system, so packing staff follow a consistent policy instead of guessing.",
+  },
+  {
+    q: "Does splitting an order into a partial shipment and a backorder cause double the invoicing work?",
+    a: "It can, if the system doesn't handle partial fulfilment as a first-class case. Cognit tracks what's shipped now against the original order line and what's still owing, and sends the invoice for what actually went out the door to Xero — as a one-way push, the same as any other invoice — with the backorder remaining open against that customer's account until the rest ships and its own invoice follows. Nobody has to re-key the split or reconcile two paper dockets against one order afterwards.",
+  },
+  {
+    q: "How do we know which backorders to release first when supplier stock finally lands?",
+    a: "By default it should be oldest-order-first against whoever's actually waiting — but plenty of distributors also want to protect a large account's backorder ahead of a smaller one, or release by customer priority rather than strictly by date. That allocation rule is specific to how your business treats its accounts, so we build the release priority you actually want to run into the backorder queue, rather than leaving it to whoever gets to the incoming stock first.",
+  },
+  {
+    q: "Do backorders affect a customer's credit limit while they're still open?",
+    a: "They should, if the backorder is going to be invoiced once it ships — an open backorder is a sale that's already committed, even if the invoice hasn't been raised yet. Treating it as invisible to credit exposure just means the credit limit check that matters — see our guide on credit limits and accounts receivable — gets a false picture of what a customer actually owes once everything lands.",
+  },
+];
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "Backorder management for wholesale distributors",
+  description,
+  author: { "@type": "Organization", name: "Cognit System", url: site },
+  publisher: {
+    "@type": "Organization",
+    name: "Cognit System",
+    logo: { "@type": "ImageObject", url: `${site}/logo.png` },
+  },
+  datePublished: "2026-08-10",
+  dateModified: "2026-08-10",
+  mainEntityOfPage: { "@type": "WebPage", "@id": url },
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+---
+
+<Layout title={title} description={description} path={`/blog/${slug}`} schema={[articleSchema, faqSchema]}>
+  <Header />
+
+  <main class="bg-cog-stone text-cog-slate">
+    <!-- HERO (photographic) -->
+    <section class="orbs relative isolate overflow-hidden">
+      <img src="/images/logistics-truck.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" />
+      <div class="absolute inset-0 -z-10 bg-cog-ink/82"></div>
+      <div class="dotgrid absolute inset-0 -z-10 opacity-40"></div>
+      <div class="mx-auto max-w-3xl px-5 pt-20 pb-20 text-center sm:px-8 sm:pt-28 hero-rise">
+        <span class="chip mx-auto border border-white/15 text-slate-200">Insights</span>
+        <h1 class="mt-5 text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl">
+          Backorder management for wholesale distributors
+        </h1>
+        <p class="mt-4 text-lg text-slate-300">
+          An order comes in for more than you've got. Ship part of it now,
+          hold the rest, or hold the lot — and what actually has to happen to
+          stock, orders and invoicing so the promise doesn't get lost between
+          now and when the stock lands.
+        </p>
+      </div>
+    </section>
+
+    <!-- BODY -->
+    <section class="mx-auto max-w-3xl px-5 pb-16 sm:px-8">
+      <article class="article">
+        <p>
+          Every distributor runs short on something eventually — a supplier's
+          late, a line sells out faster than forecast, a big order lands the
+          same week as a delayed container. The stock isn't there, but the
+          customer still wants it, and telling them to reorder later isn't
+          really an option if you want to keep the account. That's a
+          backorder: a promise that the rest is coming, sitting on top of
+          whatever you can actually fulfil today. Handled well, it barely
+          registers. Handled on a sticky note and a rep's memory, it's how
+          distributors end up shipping the wrong quantity, invoicing twice by
+          accident, or simply forgetting a customer was ever owed stock at
+          all.
+        </p>
+
+        <h2>Why backorders quietly cost more than they should</h2>
+        <p>
+          The problem isn't that stock ran short — that happens to every
+          distributor. It's that a backorder sits outside the normal order
+          flow the moment it's created, so it only survives if someone keeps
+          actively tracking it. Left on a spreadsheet or a mental list, three
+          things tend to go wrong: the backorder gets forgotten until the
+          customer chases it, it gets released to the wrong customer when
+          stock finally lands because nobody applied a consistent priority,
+          or it ships and gets invoiced as if it were a fresh order — leaving
+          the original <a href="/blog/inventory-stock-control-software-for-wholesalers">stock
+          on hand</a> figures and the customer's account both slightly wrong
+          until someone notices.
+        </p>
+
+        <h2>What a proper backorder process actually needs</h2>
+        <p>
+          Whatever your specific rules, the mechanics underneath a backorder
+          are the same:
+        </p>
+        <ul>
+          <li>A record that ties the unfulfilled quantity back to the original order line, not a new order that loses the connection</li>
+          <li>A clear split-or-hold decision applied consistently — ship what's available now and backorder the rest, or hold the whole order — by customer or product, not by whoever's packing that day</li>
+          <li>A release priority for when supplier stock lands, so backorders get filled in the order your business actually wants, not just whoever's docket is on top of the pile</li>
+          <li>Invoicing that follows what's physically shipped, so a partial delivery raises a partial invoice and the backorder stays open for the balance — logged the same way as any other <a href="/blog/returns-and-credit-notes-for-wholesale-distributors">order and stock movement</a></li>
+        </ul>
+        <p>
+          Run this way, a backorder isn't a side process someone has to
+          remember to chase — it's the same order sitting partly fulfilled,
+          waiting on the same stock data as everything else.
+        </p>
+
+        <h2>Where it gets harder: multiple customers waiting on the same line</h2>
+        <p>
+          One backorder is easy to track. The real test is when a popular
+          line runs short and five customers are all waiting on the same
+          product at once — a courier delay, a manufacturer stockout, a
+          seasonal spike. Whoever decides how that stock gets allocated when
+          it finally arrives is making a call about which relationships
+          matter more, whether they mean to or not. For food and beverage
+          lines the allocation also has to respect
+          <a href="/blog/fefo-expiry-date-stock-rotation-food-distributors">FEFO
+          stock rotation</a> — the batch that lands first isn't necessarily
+          the one that should ship first if an older batch is already sitting
+          in the warehouse. And for anything sold by the pallet, case or
+          each on the same line, the backorder quantity has to survive the
+          same <a href="/blog/unit-of-measure-conversions-for-wholesale-distributors">unit-of-measure
+          conversions</a> as the original order, not get rounded to whatever's
+          convenient when it finally ships.
+        </p>
+
+        <h2>Backorders still have to reach your accounts</h2>
+        <p>
+          A partial shipment isn't finished once it leaves the warehouse — it
+          needs to be invoiced for exactly what went out, with the balance
+          still tracked against the customer. Cognit sends invoices, credit
+          notes, customers and products to Xero as you trade, which covers a
+          partial-shipment invoice the same as a normal one — see
+          <a href="/blog/do-i-still-need-xero-with-an-erp">do I still need
+          Xero if I have an ERP?</a> It's a one-way push from Cognit to Xero,
+          so the partial invoice shows up correctly and the open backorder
+          keeps counting against the customer's
+          <a href="/blog/credit-limits-and-accounts-receivable-for-wholesalers">credit
+          limit and trade terms</a> until the rest ships and is invoiced too.
+        </p>
+
+        <h2>Built around the backorder rules you actually run</h2>
+        <p>
+          Split-or-hold thresholds, which accounts get priority when stock is
+          tight, whether a backorder auto-cancels after a set number of days
+          — every distributor's backorder policy is a little different, and a
+          generic "backorder" flag rarely matches what a business actually
+          needs. Rather than force your team into someone else's rule set, we
+          build the backorder logic your business runs into your Cognit
+          system, tied to the same stock, orders and accounts as everything
+          else. Tell us how you want short-stock orders handled and we build
+          it properly around that.
+        </p>
+
+        <h2>Stop losing backorders to a spreadsheet</h2>
+        <p>
+          If backorders in your business currently mean a note stapled to a
+          picking slip and a hope that someone remembers to follow up when
+          stock lands, it's worth working out what the process should
+          actually look like before it costs you a customer who got tired of
+          chasing their own order. See <a href="/pricing">pricing</a> or
+          <a href="/contact">get in touch</a> to talk through how backorders
+          run in your business today.
+        </p>
+
+        <h2>Frequently asked questions</h2>
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </article>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

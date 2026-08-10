@@ -30,3 +30,4 @@ runs don't repeat a topic. Newest entries at the bottom.
 | 2026-08-07 | fefo-expiry-date-stock-rotation-food-distributors | FEFO (first-expired-first-out) expiry-date stock rotation for NZ & AU food distributors |
 | 2026-08-08 | vendor-managed-inventory-for-wholesale-distributors | Vendor-managed inventory (VMI) for NZ & AU wholesale distributors |
 | 2026-08-09 | returns-and-credit-notes-for-wholesale-distributors | Returns, credit notes and restocking for NZ & AU wholesale distributors |
+| 2026-08-10 | backorder-management-for-wholesale-distributors | Backorder management (split-or-hold, release priority, partial invoicing) for NZ & AU wholesale distributors |
