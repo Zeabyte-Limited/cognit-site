@@ -1,0 +1,207 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+const site = "https://cognitsystem.com";
+const slug = "goods-receipt-discrepancies-for-wholesale-distributors";
+const url = `${site}/blog/${slug}/`;
+
+const title = "Goods Receipt Discrepancies for NZ & AU Wholesale Distributors | Cognit";
+const description =
+  "The pallet count on the delivery doesn't match the purchase order — a case short, two extra cartons, or a carton crushed in transit. What handling short-shipped, over-shipped and damaged receipts properly requires from your purchasing and stock system, and why 'we'll sort it out with the supplier later' quietly costs distributors margin.";
+
+const faqs = [
+  {
+    q: "What counts as a goods receipt discrepancy?",
+    a: "Any difference between what a purchase order says is coming and what actually arrives on the dock — short-shipped (less than ordered), over-shipped (more than ordered), wrong product or pack size substituted without agreement, or stock that's physically damaged, short-dated or otherwise not sellable on arrival. Each needs a different resolution — a short delivery needs chasing or crediting, an over-delivery needs a decision on whether to keep or return it, damaged stock needs a supplier claim — so lumping them all into 'goods received, sort it out later' is exactly how the loss goes untracked.",
+  },
+  {
+    q: "Does Cognit support receiving less — or more — than a purchase order says?",
+    a: "Yes. Goods receipting in Cognit is full or short by design, so a receiver records exactly what physically landed against each PO line rather than being forced to tick the whole line as complete. What's actually received is what updates stock on hand and what a supplier bill gets checked against — the gap between ordered and received stays visible instead of being quietly rounded away.",
+  },
+  {
+    q: "How does a short delivery affect what we owe the supplier?",
+    a: "It should reduce it, not leave the full purchase order value sitting as a bill. Cognit records supplier bills against what was actually receipted, and supplier credits and debit notes for shortages or returns post straight to the ledger — so accounts payable reflects stock you actually hold, not stock a supplier said they sent. Chasing the outstanding balance of the order, or deciding to cancel it, is then a decision made against an accurate picture rather than a guess at invoice-matching time.",
+  },
+  {
+    q: "Who should decide whether to keep an over-delivery or send it back?",
+    a: "That depends on the product, the supplier relationship and whether you can actually sell the extra stock — which is exactly why it shouldn't be whoever signs for the delivery on the day. We build the over-delivery rule your business wants to run — auto-accept up to a set variance, or hold anything over quantity for a buyer's sign-off — into your Cognit system, so a driver isn't making a stock and cost decision on your behalf at the loading dock.",
+  },
+  {
+    q: "How do damaged or short-dated deliveries connect to supplier rebates and claim-backs?",
+    a: "The same way any other supplier claim does — a damaged or short-dated receipt is a cost the supplier should wear, not one that should sit quietly in your stock valuation until someone notices margin looks wrong. Recording it as a discrepancy at the point of receipt, rather than after it's been put away and mixed with good stock, is what makes the claim provable — see our guide on supplier rebates and claim-backs for how that claim then gets tracked through to resolution.",
+  },
+];
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "Goods receipt discrepancies for wholesale distributors",
+  description,
+  author: { "@type": "Organization", name: "Cognit System", url: site },
+  publisher: {
+    "@type": "Organization",
+    name: "Cognit System",
+    logo: { "@type": "ImageObject", url: `${site}/logo.png` },
+  },
+  datePublished: "2026-08-11",
+  dateModified: "2026-08-11",
+  mainEntityOfPage: { "@type": "WebPage", "@id": url },
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+---
+
+<Layout title={title} description={description} path={`/blog/${slug}`} schema={[articleSchema, faqSchema]}>
+  <Header />
+
+  <main class="bg-cog-stone text-cog-slate">
+    <!-- HERO (photographic) -->
+    <section class="orbs relative isolate overflow-hidden">
+      <img src="/images/warehouse-worker.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" />
+      <div class="absolute inset-0 -z-10 bg-cog-ink/82"></div>
+      <div class="dotgrid absolute inset-0 -z-10 opacity-40"></div>
+      <div class="mx-auto max-w-3xl px-5 pt-20 pb-20 text-center sm:px-8 sm:pt-28 hero-rise">
+        <span class="chip mx-auto border border-white/15 text-slate-200">Insights</span>
+        <h1 class="mt-5 text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl">
+          Goods receipt discrepancies for wholesale distributors
+        </h1>
+        <p class="mt-4 text-lg text-slate-300">
+          A case short, two cartons extra, or a pallet that arrived with the
+          corner crushed. What actually has to happen to a purchase order,
+          your stock and what you owe the supplier when what lands doesn't
+          match what you ordered.
+        </p>
+      </div>
+    </section>
+
+    <!-- BODY -->
+    <section class="mx-auto max-w-3xl px-5 pb-16 sm:px-8">
+      <article class="article">
+        <p>
+          Every distributor receives a delivery that doesn't quite match the
+          purchase order eventually — a supplier ships one case short, sends
+          two extra cartons of a slow-moving line, or a pallet turns up with
+          stock damaged from a rough transit. On paper it's a small
+          variance. In practice, if the person signing for the delivery just
+          waves it through against the PO, the business ends up paying for
+          stock it never received, holding stock it never ordered, or
+          quietly absorbing a supplier's damage as its own cost — and none
+          of it shows up until someone reconciles a supplier bill or
+          wonders why margin on a line looks wrong.
+        </p>
+
+        <h2>Why "we'll sort it out later" quietly costs margin</h2>
+        <p>
+          The problem isn't the discrepancy itself — deliveries run short or
+          arrive damaged at every distributor, no matter how good the
+          supplier. It's that a receipt only gets checked properly if
+          someone deliberately compares what physically landed against what
+          the purchase order says, line by line, at the moment it's
+          unloaded. Skip that step and three things go wrong quietly: a
+          short delivery gets receipted as complete and the supplier bill
+          goes through for stock you never got, an over-delivery sits in the
+          warehouse as stock nobody budgeted for or agreed to buy, or
+          damaged stock gets put away with good stock and shows up later as
+          a <a href="/blog/inventory-stock-control-software-for-wholesalers">stock
+          on hand</a> figure that doesn't match what's actually sellable.
+        </p>
+
+        <h2>What a proper goods receipt process actually needs</h2>
+        <p>
+          Whatever your specific supplier terms, the mechanics underneath a
+          discrepancy are the same:
+        </p>
+        <ul>
+          <li>Receiving recorded against each purchase order line as full or short — not a single tick that marks the whole PO as received</li>
+          <li>A place to record over-delivery, wrong product, or physical damage at the point of receipt, before it's put away and mixed in with good stock</li>
+          <li>A supplier bill checked against what was actually receipted, not the original order value, so accounts payable reflects stock you actually hold</li>
+          <li>Supplier credits and debit notes for shortages, damage or returns, posted to the ledger the same way as any other financial record — not a running note in someone's email</li>
+        </ul>
+        <p>
+          Run this way, a discrepancy isn't a problem someone has to catch by
+          noticing the numbers don't add up weeks later — it's visible the
+          moment the delivery is signed for, against the same stock and
+          purchasing data as everything else.
+        </p>
+
+        <h2>Where it gets harder: unit conversions and short-dated stock</h2>
+        <p>
+          A discrepancy rarely turns up in isolation. If a purchase order is
+          raised by the pallet but received into stock by the case, a "one
+          short" count can mean very different things depending on which
+          unit it's counted in — the same
+          <a href="/blog/unit-of-measure-conversions-for-wholesale-distributors">unit-of-measure
+          conversion</a> that applies to a sale has to apply consistently to
+          a receipt, or the shortage gets miscounted before anyone even
+          raises a claim. For food and beverage lines, a delivery can also
+          be discrepant in a way that has nothing to do with quantity — the
+          right count, but closer to its use-by date than agreed, which
+          needs the same
+          <a href="/blog/fefo-expiry-date-stock-rotation-food-distributors">expiry-date
+          discipline</a> as everything else moving through the warehouse to
+          even notice, let alone claim back.
+        </p>
+
+        <h2>Discrepancies are also a supplier accountability record</h2>
+        <p>
+          Recording a short delivery or damaged stock properly does more
+          than fix one purchase order — it's the evidence a business needs
+          to hold a supplier to account over time. A supplier who's
+          consistently a case short, or whose pallets keep arriving damaged,
+          is a pattern that's easy to miss on individual dockets and obvious
+          the moment discrepancies are logged against that supplier
+          consistently. That record is also what turns a one-off gripe into
+          a provable
+          <a href="/blog/supplier-rebates-and-claim-backs-software">supplier
+          claim or rebate</a> — you're pointing at receipted evidence, not
+          asking a supplier to take your word for it.
+        </p>
+
+        <h2>Built around the receiving rules you actually run</h2>
+        <p>
+          How much variance gets auto-accepted, who signs off an
+          over-delivery, whether damaged stock needs a photo before it's
+          claimed back — every distributor's receiving process is a little
+          different, and a generic "received: yes/no" flag rarely matches
+          what a warehouse actually needs. Rather than force your team into
+          someone else's rule set, we build the receiving and discrepancy
+          workflow your business runs into your Cognit system, tied to the
+          same purchasing, stock and supplier data as everything else. Tell
+          us how deliveries actually get checked in your warehouse and we
+          build it properly around that.
+        </p>
+
+        <h2>Stop absorbing supplier shortfalls as your own cost</h2>
+        <p>
+          If discrepancies in your business currently get sorted out by a
+          phone call to the supplier whenever someone happens to notice,
+          it's worth working out what receiving should actually look like
+          before another short delivery gets paid for in full. See
+          <a href="/pricing">pricing</a> or <a href="/contact">get in
+          touch</a> to talk through how receiving runs in your warehouse
+          today.
+        </p>
+
+        <h2>Frequently asked questions</h2>
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </article>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
