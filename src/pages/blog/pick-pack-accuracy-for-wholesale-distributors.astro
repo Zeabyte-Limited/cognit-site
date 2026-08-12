@@ -1,0 +1,202 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+const site = "https://cognitsystem.com";
+const slug = "pick-pack-accuracy-for-wholesale-distributors";
+const url = `${site}/blog/${slug}/`;
+
+const title = "Pick-Pack Accuracy for NZ & AU Wholesale Distributors | Cognit";
+const description =
+  "A customer gets nine cartons instead of ten, or the right quantity of the wrong product. What actually causes picking errors on a paper-and-memory warehouse floor, and what a pick-pack process needs to catch a mistake before it leaves the dock instead of after the customer calls.";
+
+const faqs = [
+  {
+    q: "What's actually going wrong when a picking error happens?",
+    a: "Almost never carelessness — it's a picker working off a paper pick list or a printed order, in a warehouse where several products look and sound alike, with no check between 'picked' and 'loaded on the truck' beyond someone eyeballing the pallet. A short pick, a wrong pack size, or the right product for the wrong customer all happen the same way: nothing stopped the error at the point it was made, so it only surfaces once the customer opens the delivery.",
+  },
+  {
+    q: "Does scanning actually reduce picking errors, or is that oversold?",
+    a: "Scanning helps because it turns 'did I pick the right thing' from a judgement call into a match-or-mismatch check the system makes itself — a barcode either matches the order line or it doesn't, at the moment of picking, not after the truck's left. It's not magic on its own; it only closes the gap if what's scanned is checked against the actual order and stock data live, rather than just logging that a scan happened somewhere.",
+  },
+  {
+    q: "How does pick-pack accuracy connect to what we invoice a customer?",
+    a: "Directly — an invoice should reflect what was actually picked and shipped, not what was originally ordered. If a line gets short-picked and nobody records it against the order, the customer either gets billed for stock they never received or the shortfall quietly becomes a backorder nobody tracked. We build picking and packing so what's confirmed at the dock is what flows through to the invoice and to stock on hand, the same way a partial shipment is handled in our guide on backorder management.",
+  },
+  {
+    q: "Can pick-pack accuracy work with FEFO and catch-weight products in the same warehouse?",
+    a: "It has to, because most food and beverage warehouses run all three at once — a picker choosing the wrong batch is as much an accuracy problem as picking the wrong product entirely. Whatever picking logic your business runs, we build it around your actual stock rules, including expiry-date discipline for FEFO lines and real captured weight for catch-weight lines, rather than a generic pick-and-tick that ignores both.",
+  },
+  {
+    q: "Is barcode scanning worth it for a smaller warehouse, or only at high volume?",
+    a: "It depends less on warehouse size than on how many similar-looking lines a picker has to tell apart and how much a mistake actually costs you — a wholesaler picking a handful of clearly distinct products a day has a different risk profile to one running hundreds of near-identical SKUs across multiple customers. There's no universal threshold, which is exactly why we build the picking workflow around what your warehouse actually stocks and how your team already works, rather than selling scanning as a one-size-fits-all upgrade.",
+  },
+];
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "Pick-pack accuracy for wholesale distributors",
+  description,
+  author: { "@type": "Organization", name: "Cognit System", url: site },
+  publisher: {
+    "@type": "Organization",
+    name: "Cognit System",
+    logo: { "@type": "ImageObject", url: `${site}/logo.png` },
+  },
+  datePublished: "2026-08-12",
+  dateModified: "2026-08-12",
+  mainEntityOfPage: { "@type": "WebPage", "@id": url },
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+---
+
+<Layout title={title} description={description} path={`/blog/${slug}`} schema={[articleSchema, faqSchema]}>
+  <Header />
+
+  <main class="bg-cog-stone text-cog-slate">
+    <!-- HERO (photographic) -->
+    <section class="orbs relative isolate overflow-hidden">
+      <img src="/images/warehouse-shelves.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" />
+      <div class="absolute inset-0 -z-10 bg-cog-ink/82"></div>
+      <div class="dotgrid absolute inset-0 -z-10 opacity-40"></div>
+      <div class="mx-auto max-w-3xl px-5 pt-20 pb-20 text-center sm:px-8 sm:pt-28 hero-rise">
+        <span class="chip mx-auto border border-white/15 text-slate-200">Insights</span>
+        <h1 class="mt-5 text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl">
+          Pick-pack accuracy for wholesale distributors
+        </h1>
+        <p class="mt-4 text-lg text-slate-300">
+          Nine cartons instead of ten, or the right quantity of the wrong
+          product. Why picking errors happen on a paper-and-memory warehouse
+          floor, and what actually has to change to catch one before the
+          truck leaves rather than after the customer calls.
+        </p>
+      </div>
+    </section>
+
+    <!-- BODY -->
+    <section class="mx-auto max-w-3xl px-5 pb-16 sm:px-8">
+      <article class="article">
+        <p>
+          Every warehouse has picking errors — the question is only whether
+          they get caught before or after the delivery leaves the dock. A
+          picker working off a printed order grabs the wrong pack size,
+          shorts a line without flagging it, or fills a big account's order
+          with stock meant for someone else's run. None of it is usually
+          carelessness. It's what happens when the only thing standing
+          between "picked correctly" and "picked wrong" is one person's
+          attention on a busy morning, with no check in between.
+        </p>
+
+        <h2>Why paper pick lists quietly cost more than they look like</h2>
+        <p>
+          A paper pick list or a printed order looks cheap because it costs
+          nothing to produce. What it actually costs shows up later: a
+          picking error that isn't caught until a customer calls to say
+          they're short a case, a credit note that has to be raised and
+          approved, a redelivery that eats the margin on that order twice
+          over, and — if it happens often enough to the same account — a
+          customer who starts double-checking every delivery because they've
+          learned they have to. None of that shows up on the pick list
+          itself. It shows up in
+          <a href="/blog/returns-and-credit-notes-for-wholesale-distributors">returns
+          and credit notes</a> a week later, once someone works out where it
+          went wrong.
+        </p>
+
+        <h2>What actually needs to happen at pick and pack</h2>
+        <p>
+          Whatever equipment your warehouse runs, the mechanics underneath
+          accurate picking are the same:
+        </p>
+        <ul>
+          <li>A pick list generated straight from the order, not re-typed or read off a separate printout, so what's picked and what was ordered are always the same data</li>
+          <li>A check at the point of picking — a scan, a confirmation, a count — that catches a mismatch before the carton is packed, not after it's on the truck</li>
+          <li>Short picks and substitutions recorded against the order line as they happen, so a partial fulfilment is visible immediately rather than discovered on delivery</li>
+          <li>What's actually picked and packed flowing straight through to the invoice and to <a href="/blog/inventory-stock-control-software-for-wholesalers">stock on hand</a>, instead of the original order quantity being assumed correct by default</li>
+        </ul>
+        <p>
+          Run this way, an error still happens occasionally — nobody
+          eliminates that entirely — but it gets caught at the bench, where
+          it costs a few minutes to fix, instead of at the customer's
+          loading dock, where it costs a credit note and some trust.
+        </p>
+
+        <h2>Where it gets harder: look-alike lines and multiple pickers</h2>
+        <p>
+          One picker, a handful of clearly different products, and accuracy
+          is rarely the problem. The risk climbs fast once a warehouse runs
+          dozens of near-identical SKUs — different pack sizes of the same
+          product, private-label lines that look the same as the branded
+          version, or multiple pickers working the same aisles for different
+          customers' orders at once. For food and beverage lines it compounds
+          further: picking the right product in the wrong batch is still a
+          picking error, which is exactly why
+          <a href="/blog/fefo-expiry-date-stock-rotation-food-distributors">FEFO
+          stock rotation</a> and picking accuracy have to work off the same
+          data rather than being treated as two separate disciplines. And on
+          anything sold by the pallet, case or each, a pick list has to carry
+          the same <a href="/blog/unit-of-measure-conversions-for-wholesale-distributors">unit-of-measure
+          conversions</a> as the order it came from, or "picked correctly"
+          and "matches what was ordered" quietly stop meaning the same thing.
+        </p>
+
+        <h2>Accuracy at pick is also accuracy in the accounts</h2>
+        <p>
+          A pick-pack error doesn't stay contained to the warehouse. If a
+          short pick isn't recorded, the invoice goes out for stock the
+          customer never got — Cognit sends invoices, credit notes and stock
+          movements to Xero as you trade, and that push is only as accurate
+          as what was actually confirmed at the dock. See
+          <a href="/blog/do-i-still-need-xero-with-an-erp">do I still need
+          Xero if I have an ERP?</a> for how that one-way push works. Get
+          picking wrong often enough and it's not just a warehouse problem —
+          it's a slow drift in stock accuracy and customer account balances
+          that someone eventually has to reconcile by hand.
+        </p>
+
+        <h2>Built around how your warehouse actually picks</h2>
+        <p>
+          Whether that means handheld scanners at every bench, a phone-based
+          app for a smaller team, or a simpler confirm-by-tapping-the-line
+          flow for a warehouse that isn't ready for full scanning yet, the
+          right level of check is the one your team will actually use every
+          shift. Tell us how your warehouse picks and packs orders today, and
+          we build the accuracy check that fits it into your Cognit system,
+          tied to the same orders, stock and invoicing as everything else —
+          rather than selling a generic scanning module that assumes every
+          warehouse works the same way.
+        </p>
+
+        <h2>Stop finding out about picking errors from the customer</h2>
+        <p>
+          If the first sign of a picking error in your business is usually a
+          customer on the phone, it's worth working out what should have
+          caught it at the bench instead. See <a href="/pricing">pricing</a>
+          or <a href="/contact">get in touch</a> to talk through how picking
+          and packing runs in your warehouse today.
+        </p>
+
+        <h2>Frequently asked questions</h2>
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </article>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
