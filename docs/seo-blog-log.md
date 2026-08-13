@@ -33,3 +33,4 @@ runs don't repeat a topic. Newest entries at the bottom.
 | 2026-08-10 | backorder-management-for-wholesale-distributors | Backorder management (split-or-hold, release priority, partial invoicing) for NZ & AU wholesale distributors |
 | 2026-08-11 | goods-receipt-discrepancies-for-wholesale-distributors | Goods receipt discrepancies — short-shipped, over-shipped and damaged deliveries against a PO — for NZ & AU wholesale distributors |
 | 2026-08-12 | pick-pack-accuracy-for-wholesale-distributors | Pick-pack accuracy — catching wrong-item and short-pick errors at the bench, scanning vs paper pick lists — for NZ & AU wholesale distributors |
+| 2026-08-13 | case-pack-and-moq-enforcement-for-wholesale-distributors | Case-pack and minimum order quantity (MOQ) enforcement — stopping odd quantities and under-value orders at the point of ordering, online store and rep alike — for NZ & AU wholesale distributors |

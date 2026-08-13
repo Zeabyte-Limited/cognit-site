@@ -1,0 +1,198 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+const site = "https://cognitsystem.com";
+const slug = "case-pack-and-moq-enforcement-for-wholesale-distributors";
+const url = `${site}/blog/${slug}/`;
+
+const title = "Case-Pack & MOQ Enforcement for NZ & AU Wholesale B2B Ordering | Cognit";
+const description =
+  "A customer orders 7 units of something sold in cases of 12, or places a $40 order that doesn't cover the drop cost. What actually goes wrong when an online ordering portal doesn't enforce case packs and minimum order quantities — and how to build the rule in without turning good customers away.";
+
+const faqs = [
+  {
+    q: "What actually breaks when case packs and MOQs aren't enforced online?",
+    a: "The order still gets placed — that's the problem. A customer keys in 7 when the product only ships in cases of 12, or places a single-line order too small to be worth a delivery run, and the order sits in the queue looking valid until someone in the office or the warehouse spots it. From there it's a phone call to the customer to round the quantity up, a case broken open to fill an odd number, or a delivery run out for less than it costs to make — none of which shows up until after the order's already in the system.",
+  },
+  {
+    q: "Isn't this just a warehouse problem, not an ordering one?",
+    a: "It starts as an ordering problem and becomes a warehouse one. If the rule only lives in a picker's head — 'we don't sell that one as a single' — it depends on whoever's on the bench that day catching it, and a new or rushed staff member won't. Enforcing the case pack or the MOQ at the point the order is placed, whether that's a rep keying it in or a customer on your B2B store, stops the bad order before it exists rather than relying on someone downstream to catch it.",
+  },
+  {
+    q: "Will strict MOQ rules just push small orders away and lose sales?",
+    a: "Only if the rule is applied the same way to every customer, which is rarely what a distributor actually wants. A long-standing account might reasonably get a lower minimum or a case-pack exception a brand-new one doesn't. That's exactly why we build the rule around your actual customer tiers and product ranges rather than one global setting — the same way we build customer-specific pricing — so the system enforces what you'd actually allow, not a blunt cutoff that treats every customer the same.",
+  },
+  {
+    q: "Does this apply to reps keying in phone orders too, or just the online store?",
+    a: "It has to apply everywhere an order can originate, or the rule isn't really a rule. A case-pack or MOQ check that only fires on the B2B store but not when a rep enters a phone order in the office just moves the same problem to a different entry point. We build the check into the order itself, so it applies the same way regardless of who's placing it or how.",
+  },
+  {
+    q: "How does this connect to picking and packing once the order's confirmed?",
+    a: "If an order is allowed through in a quantity that doesn't match how the product is actually packed, the problem lands back on the warehouse floor — a picker facing an order for 7 units of a 12-pack still has to decide whether to break a case, round up without asking, or hold the line and chase the customer. Catching the mismatch at the order stage is what keeps it from becoming a picking decision at all, which is the same principle behind getting pick-pack accuracy right in the first place.",
+  },
+];
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "Case-pack and minimum order quantity enforcement for wholesale distributors",
+  description,
+  author: { "@type": "Organization", name: "Cognit System", url: site },
+  publisher: {
+    "@type": "Organization",
+    name: "Cognit System",
+    logo: { "@type": "ImageObject", url: `${site}/logo.png` },
+  },
+  datePublished: "2026-08-13",
+  dateModified: "2026-08-13",
+  mainEntityOfPage: { "@type": "WebPage", "@id": url },
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+---
+
+<Layout title={title} description={description} path={`/blog/${slug}`} schema={[articleSchema, faqSchema]}>
+  <Header />
+
+  <main class="bg-cog-stone text-cog-slate">
+    <!-- HERO (photographic) -->
+    <section class="orbs relative isolate overflow-hidden">
+      <img src="/images/warehouse-shelves.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" />
+      <div class="absolute inset-0 -z-10 bg-cog-ink/82"></div>
+      <div class="dotgrid absolute inset-0 -z-10 opacity-40"></div>
+      <div class="mx-auto max-w-3xl px-5 pt-20 pb-20 text-center sm:px-8 sm:pt-28 hero-rise">
+        <span class="chip mx-auto border border-white/15 text-slate-200">Insights</span>
+        <h1 class="mt-5 text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl">
+          Case-pack and MOQ enforcement for wholesale distributors
+        </h1>
+        <p class="mt-4 text-lg text-slate-300">
+          A customer orders 7 when it only ships in cases of 12, or places an
+          order too small to be worth the drop. Why letting the order through
+          anyway is more expensive than saying no at the point it's placed.
+        </p>
+      </div>
+    </section>
+
+    <!-- BODY -->
+    <section class="mx-auto max-w-3xl px-5 pb-16 sm:px-8">
+      <article class="article">
+        <p>
+          Most products in wholesale and food distribution aren't actually
+          sold one at a time, whatever the order form allows. A product might
+          only leave the warehouse by the case, a supplier might only sell it
+          to you by the carton, or a delivery run might genuinely not be
+          worth making for anything under a certain order value. None of that
+          is negotiable after the fact — it's decided by how the product is
+          packed and what it costs to get a truck to a customer. The problem
+          is that most ordering systems, especially a B2B store bolted onto a
+          website, don't know any of it, so they take the order anyway and
+          leave someone else to sort out the mismatch.
+        </p>
+
+        <h2>Where the order breaks before it ever reaches the warehouse</h2>
+        <p>
+          It usually looks small in isolation. A customer types 7 into a
+          quantity field for a product that only comes in cases of 12. A new
+          account places a single-line order for two cartons because nobody
+          told them there's a practical minimum. A rep, trying to be helpful
+          on the phone, says yes to a quantity they shouldn't have. Each one
+          individually is a minor annoyance — a case gets broken open, a
+          delivery goes out under-loaded, someone rings the customer to
+          confirm what they actually meant. Multiplied across a week of
+          orders coming in from a website, a rep app and the phone all at
+          once, it's a steady leak of margin and staff time that never shows
+          up as a single line item anyone notices.
+        </p>
+
+        <h2>Why "the warehouse will catch it" doesn't hold up</h2>
+        <p>
+          Relying on someone downstream to catch a bad quantity assumes
+          they'll always know the rule, always have time to act on it, and
+          always be willing to push back on a customer's order. None of those
+          hold reliably. A new picker doesn't know which products are
+          case-locked and which aren't. A busy morning means a mismatched
+          order gets waved through rather than queried. And a picker facing
+          an order for 7 units of a 12-pack is put in exactly the position
+          our guide on <a href="/blog/pick-pack-accuracy-for-wholesale-distributors">pick-pack
+          accuracy</a> is about — deciding, under time pressure, whether to
+          break a case, round the quantity up unasked, or hold the order and
+          chase someone for an answer. That's a decision that shouldn't reach
+          the bench at all.
+        </p>
+
+        <h2>What enforcement should actually do</h2>
+        <p>
+          The point isn't to make ordering rigid — it's to make the rule
+          visible at the moment it matters, before the order exists rather
+          than after:
+        </p>
+        <ul>
+          <li>A case pack recorded against the product itself, so an order for a case-locked line rounds to or blocks on a valid quantity, on the online store and when a rep keys it in through <a href="/features/sales">sales</a>, not just one or the other</li>
+          <li>A minimum order value or quantity set per customer or per delivery zone where it genuinely reflects delivery cost, rather than one blanket figure applied to every account regardless of size or location</li>
+          <li>Exceptions that follow your actual customer tiers — a long-standing account that always orders oddly can be allowed to, while a new or casual buyer sees the rule applied properly, the same logic behind <a href="/blog/customer-specific-pricing-for-wholesalers">customer-specific pricing</a></li>
+          <li>The same rule enforced everywhere an order can start, so a phone order taken by a rep isn't a quiet backdoor around a limit the online store enforces strictly</li>
+        </ul>
+        <p>
+          Get that right and a mismatched quantity gets caught while the
+          customer is still placing the order — where it's a quick prompt to
+          round up or add a line — instead of after it's already a pick-pack
+          problem, a part-loaded delivery, or a call your office has to make.
+        </p>
+
+        <h2>It compounds with how the product is actually packed</h2>
+        <p>
+          Case-pack rules only work if they're built off the same numbers as
+          everything else the product touches — the same pallet, case and
+          each quantities covered in our guide on
+          <a href="/blog/unit-of-measure-conversions-for-wholesale-distributors">unit-of-measure
+          conversions</a>. A case pack rule that's set once and never updated
+          when a supplier changes their case size just becomes a second wrong
+          number for staff to work around, on top of the first.
+        </p>
+
+        <h2>Built around what actually ships from your warehouse</h2>
+        <p>
+          Which products are case-locked, which customers get an exception,
+          and what a delivery genuinely needs to cost to be worth running are
+          all specific to your business — there's no universal setting that
+          fits every wholesaler. Tell us how your products are packed and
+          which accounts should and shouldn't get flexibility, and we build
+          the enforcement into your ordering rules on
+          <a href="/features/ecommerce">your B2B store</a> and everywhere
+          else an order can be placed, rather than selling a generic minimum
+          that doesn't match how you actually trade.
+        </p>
+
+        <h2>Stop letting the wrong quantity through</h2>
+        <p>
+          If odd quantities and under-value orders are still getting caught
+          on the warehouse floor or by a phone call after the fact, it's
+          worth working out what the ordering step should have stopped
+          instead. See <a href="/pricing">pricing</a> or
+          <a href="/contact">get in touch</a> to talk through how your
+          products are packed and how your customers actually order.
+        </p>
+
+        <h2>Frequently asked questions</h2>
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </article>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
