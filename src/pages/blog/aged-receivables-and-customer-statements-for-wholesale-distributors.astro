@@ -1,0 +1,213 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+const site = "https://cognitsystem.com";
+const slug = "aged-receivables-and-customer-statements-for-wholesale-distributors";
+const url = `${site}/blog/${slug}/`;
+
+const title = "Aged Receivables & Customer Statements for NZ & AU Wholesalers | Cognit";
+const description =
+  "Chasing overdue trade debt off an aged debtor report that's already a week stale, then building a statement by hand. What proper aged receivables and customer statements should look like for a wholesale distributor.";
+
+const faqs = [
+  {
+    q: "What's the difference between credit limits and aged receivables?",
+    a: "Credit limits stop a new order going out to a customer who's already over their limit or overdue — it's prevention, enforced at the point of sale. Aged receivables is the other side: it's about what's already been invoiced and hasn't been paid, sorted by how overdue it is (current, 30, 60, 90+ days), so your office knows exactly who to chase and how hard.",
+  },
+  {
+    q: "What is a customer statement, and why would a customer want one?",
+    a: "A statement of account is the document you send a customer showing what they currently owe you — either every open invoice aged into current/30/60/90+ buckets, or a date-range activity statement with a running balance. Customers on trade terms often ask for one before they'll pay, especially larger accounts whose own accounts payable team reconciles against a statement rather than chasing individual invoices.",
+  },
+  {
+    q: "Why not just run this out of Xero or MYOB?",
+    a: "You can, if that's where your ledger genuinely lives. But if a distributor's real day-to-day picture of what a customer owes is built from orders and invoices raised in a separate ordering or ERP system, the accounting package is only ever as current as the last sync — and Cognit only sends invoices and credit notes to Xero, it doesn't pull anything back. Aged receivables and statements built off the same system that raised the invoice in the first place don't have that lag.",
+  },
+  {
+    q: "Can a statement cover a date range instead of just open invoices?",
+    a: "Yes — sometimes a customer's own accounts team wants to reconcile a specific period rather than just see what's currently outstanding. A date-range activity statement with a running balance covers that, alongside the standard aged-balance statement for a customer who just wants to know what they owe right now.",
+  },
+  {
+    q: "Does this replace someone in the office chasing debt by phone?",
+    a: "No — someone still has to make the call or send the reminder. What it removes is the manual work of pulling together which invoices are actually overdue and building a statement from scratch each time a customer asks for one, so whoever's chasing debt is working from an accurate list instead of guessing or exporting a spreadsheet first.",
+  },
+];
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "Aged receivables and customer statements for wholesale distributors",
+  description,
+  author: { "@type": "Organization", name: "Cognit System", url: site },
+  publisher: {
+    "@type": "Organization",
+    name: "Cognit System",
+    logo: { "@type": "ImageObject", url: `${site}/logo.png` },
+  },
+  datePublished: "2026-08-14",
+  dateModified: "2026-08-14",
+  mainEntityOfPage: { "@type": "WebPage", "@id": url },
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+---
+
+<Layout title={title} description={description} path={`/blog/${slug}`} schema={[articleSchema, faqSchema]}>
+  <Header />
+
+  <main class="bg-cog-stone text-cog-slate">
+    <!-- HERO (photographic) -->
+    <section class="orbs relative isolate overflow-hidden">
+      <img src="/images/hero-warehouse-dark.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" />
+      <div class="absolute inset-0 -z-10 bg-cog-ink/82"></div>
+      <div class="dotgrid absolute inset-0 -z-10 opacity-40"></div>
+      <div class="mx-auto max-w-3xl px-5 pt-20 pb-20 text-center sm:px-8 sm:pt-28 hero-rise">
+        <span class="chip mx-auto border border-white/15 text-slate-200">Insights</span>
+        <h1 class="mt-5 text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl">
+          Aged receivables and customer statements
+        </h1>
+        <p class="mt-4 text-lg text-slate-300">
+          Knowing who owes you money is one thing. Chasing it off a debtor
+          report that's already stale, then building a statement by hand
+          when a customer asks for one, is another.
+        </p>
+      </div>
+    </section>
+
+    <!-- BODY -->
+    <section class="mx-auto max-w-3xl px-5 pb-16 sm:px-8">
+      <article class="article">
+        <p>
+          Trade credit means a wholesale distributor is always carrying
+          debt — invoices raised and stock already shipped, waiting on
+          payment that might be 7 days, 20th-of-the-month, or whatever's
+          been agreed. That's normal. What isn't normal is finding out how
+          much of it is actually overdue by exporting a report nobody's
+          looked at in a week, or building a customer's statement from
+          scratch in a spreadsheet every time their accounts team asks for
+          one.
+        </p>
+
+        <h2>Two different problems that get lumped together</h2>
+        <p>
+          Credit control and aged receivables sound similar but solve
+          different problems. Credit control — covered in our guide on
+          <a href="/blog/credit-limits-and-accounts-receivable-for-wholesalers">credit
+          limits and accounts receivable</a> — stops a new order going out
+          to an account that's already over its limit. Aged receivables is
+          what happens after that: invoices that have already gone out and
+          haven't been paid, aged into current, 30, 60 and 90+ day buckets
+          so your office can see at a glance who's genuinely overdue versus
+          who's simply on longer terms. Get the first one wrong and you're
+          shipping into bad debt. Get the second one wrong and debt that's
+          already there just sits, uncollected, because nobody has an
+          accurate list of who to chase.
+        </p>
+
+        <h2>Where it usually goes wrong</h2>
+        <p>
+          In a lot of distribution businesses, the aged debtor list is a
+          report someone runs periodically out of the accounting package —
+          useful on the day it's run, stale a few days later once more
+          invoices and part-payments have gone through. Chasing debt off
+          that list means chasing the wrong number half the time. And when
+          a customer's accounts payable team rings up asking for a
+          statement before they'll process payment — which larger accounts
+          do routinely — someone has to stop and build one: pull the open
+          invoices, check what's actually still outstanding, format it into
+          something that looks like it came from a real business rather
+          than a spreadsheet export.
+        </p>
+
+        <h2>What this should actually look like</h2>
+        <p>
+          The fix isn't a better spreadsheet — it's the aged position and
+          the statement both coming straight off the same ledger that
+          raised the invoice in the first place:
+        </p>
+        <ul>
+          <li>An <a href="/features/reporting">aged receivables report</a> — debtor aging buckets, current/30/60/90+ — that reflects invoices and payments as they actually happen, not a snapshot from last week</li>
+          <li>A statement of account for any customer who owes money, built in seconds rather than assembled by hand — their open invoices aged into the same buckets</li>
+          <li>A date-range activity statement with a running balance for the customer whose own accounts team wants to reconcile a period rather than just see the current balance</li>
+          <li>A branded PDF, or the statement emailed straight to the customer, instead of a plain export that doesn't look like it came from your business</li>
+        </ul>
+        <p>
+          Done that way, whoever's chasing debt is working from a number
+          that's actually current, and a customer who asks for a statement
+          gets one immediately instead of waiting for someone to build it.
+        </p>
+
+        <h2>Why Xero on its own doesn't cover this cleanly</h2>
+        <p>
+          If orders, invoicing and customer records live in a separate
+          ordering or ERP system and only the invoice itself gets pushed
+          through to <a href="/blog/do-i-still-need-xero-with-an-erp">Xero</a>,
+          your aged receivables position is only as current as the last
+          sync — and it's a one-way trip. Cognit sends invoices and credit
+          notes to Xero; nothing about payment status or ageing comes
+          back automatically. Running aged receivables and statements off
+          the system where the invoice was actually raised, alongside your
+          own <a href="/features/accounting">general ledger</a>, closes
+          that gap rather than leaving your debtor position split across
+          two systems that don't fully talk to each other.
+        </p>
+
+        <h2>It compounds with returns and credit notes</h2>
+        <p>
+          An aged balance is only accurate if credit notes are reflected
+          against it as soon as they're raised, not weeks later once
+          someone's caught up on data entry. That's the same discipline
+          behind our guide on
+          <a href="/blog/returns-and-credit-notes-for-wholesale-distributors">returns
+          and credit notes</a> — a damaged pallet or a short-shipped line
+          that's been credited should drop straight off a customer's
+          outstanding balance, so the statement you send them isn't asking
+          for money they don't actually owe.
+        </p>
+
+        <h2>Built around how your business actually collects debt</h2>
+        <p>
+          Whether your customers expect a monthly statement as standard,
+          only ask for one when they're reconciling their own books, or
+          you mostly work off an aged debtor list internally, tell us how
+          collections actually run in your business and we build the
+          reporting and statement flow to match — on top of the same
+          <a href="/features/invoicing">invoicing</a> and
+          <a href="/features/customers">customer</a> records everything
+          else in Cognit already runs on, rather than a bolt-on that only
+          half reflects what's really outstanding.
+        </p>
+
+        <h2>Stop chasing debt off a stale number</h2>
+        <p>
+          If your aged debtor position is only ever as current as the last
+          time someone ran a report, or building a customer statement still
+          means a spreadsheet, it's worth seeing what an aged receivables
+          view and statement run straight off your live ledger actually
+          looks like. See <a href="/pricing">what's included</a> or
+          <a href="/contact">book a demo</a> to walk through it against your
+          own customers.
+        </p>
+
+        <h2>Frequently asked questions</h2>
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </article>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
