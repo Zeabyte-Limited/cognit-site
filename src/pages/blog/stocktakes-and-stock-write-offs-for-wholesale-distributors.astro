@@ -1,0 +1,215 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+const site = "https://cognitsystem.com";
+const slug = "stocktakes-and-stock-write-offs-for-wholesale-distributors";
+const url = `${site}/blog/${slug}/`;
+
+const title = "Stocktakes & Stock Write-Offs for NZ & AU Wholesale Distributors | Cognit";
+const description =
+  "Why the stock figure on screen and the stock on the shelf drift apart, what a proper cycle count vs full stocktake looks like, and how write-offs should flow through to stock valuation instead of quietly disappearing.";
+
+const faqs = [
+  {
+    q: "What's the difference between a cycle count and a full stocktake?",
+    a: "A full stocktake counts every product in the warehouse at once, usually a handful of times a year. A cycle count is smaller and constant — a bin, an aisle, or a category counted on a rolling basis so discrepancies get caught within days instead of building up silently for months between full counts. Most distributors need both: cycle counts to catch problems early, and a full stocktake periodically to true up everything at once.",
+  },
+  {
+    q: "Why does the system's stock figure drift from what's actually on the shelf?",
+    a: "Breakages that don't get logged, a pick that grabs the wrong carton, stock moved between bins without recording it, expired product pulled off the shelf and binned without a write-off — each one is small, but they compound. Without a clean way to log the discrepancy the moment it's found, the system figure keeps looking authoritative long after it's stopped being true.",
+  },
+  {
+    q: "Does a stocktake mean shutting the warehouse down for a day?",
+    a: "Not if it's run bin by bin. Counting on a tablet against live bin/shelf locations means one aisle can be counted and reconciled while the rest of the warehouse keeps picking and shipping normally, rather than stopping every order to count everything at once.",
+  },
+  {
+    q: "What happens to a write-off — does the stock just vanish from the system?",
+    a: "It shouldn't. A proper write-off is logged against the product with a reason — damaged, expired, short on count — so there's an audit trail of what was lost and why, and the value comes off stock valuation and flows through to the P&L instead of the gap just being absorbed silently into the next stocktake's variance.",
+  },
+  {
+    q: "How does stocktake accuracy affect purchasing?",
+    a: "Reorder levels and reorder suggestions are only as good as the stock figure they're based on. If the system thinks there's three weeks of cover on a line that's actually been quietly shrinking for months, a purchasing decision gets made on a number that was never right — usually discovered when the shelf runs out sooner than the system said it would.",
+  },
+];
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "Stocktakes and stock write-offs for wholesale distributors",
+  description,
+  author: { "@type": "Organization", name: "Cognit System", url: site },
+  publisher: {
+    "@type": "Organization",
+    name: "Cognit System",
+    logo: { "@type": "ImageObject", url: `${site}/logo.png` },
+  },
+  datePublished: "2026-08-15",
+  dateModified: "2026-08-15",
+  mainEntityOfPage: { "@type": "WebPage", "@id": url },
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+---
+
+<Layout title={title} description={description} path={`/blog/${slug}`} schema={[articleSchema, faqSchema]}>
+  <Header />
+
+  <main class="bg-cog-stone text-cog-slate">
+    <!-- HERO (photographic) -->
+    <section class="orbs relative isolate overflow-hidden">
+      <img src="/images/warehouse-aisle.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" />
+      <div class="absolute inset-0 -z-10 bg-cog-ink/82"></div>
+      <div class="dotgrid absolute inset-0 -z-10 opacity-40"></div>
+      <div class="mx-auto max-w-3xl px-5 pt-20 pb-20 text-center sm:px-8 sm:pt-28 hero-rise">
+        <span class="chip mx-auto border border-white/15 text-slate-200">Insights</span>
+        <h1 class="mt-5 text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl">
+          Stocktakes and stock write-offs
+        </h1>
+        <p class="mt-4 text-lg text-slate-300">
+          The number on screen says you've got forty cases. The shelf says
+          thirty-four. Someone has to find out which one's lying — and what
+          to do about the gap.
+        </p>
+      </div>
+    </section>
+
+    <!-- BODY -->
+    <section class="mx-auto max-w-3xl px-5 pb-16 sm:px-8">
+      <article class="article">
+        <p>
+          Every warehouse drifts. A carton gets dropped and quietly binned
+          instead of logged. A pick grabs the wrong product and nobody
+          notices until the count's out at both ends. Stock nearing its use-by
+          date gets pulled and thrown out without anyone recording why the
+          number just dropped by six. None of it is dishonest — it's just
+          what happens when the system's stock figure and the physical shelf
+          aren't reconciled often enough, or the reconciliation itself
+          doesn't leave a proper trail.
+        </p>
+
+        <p>
+          The real cost isn't the stock that's gone. It's that the number
+          everyone downstream trusts — what to reorder, what a line is worth
+          on the balance sheet, whether an order can actually be fulfilled —
+          keeps being calculated off a figure that stopped being true weeks
+          or months ago.
+        </p>
+
+        <h2>Full stocktake vs cycle count — you need both</h2>
+        <p>
+          A full stocktake counts everything in the warehouse at once,
+          usually a couple of times a year. It's thorough, but it's also the
+          point where every discrepancy that's built up since the last one
+          shows up all together, with no way to tell whether it happened
+          last week or four months ago. A cycle count is the opposite — a
+          bin, an aisle, or a category, counted on a rolling basis so
+          discrepancies get caught within days. Distributors who rely on the
+          full stocktake alone are really just finding out, twice a year,
+          how much has gone quietly wrong in between.
+        </p>
+
+        <h2>Where the drift actually comes from</h2>
+        <p>
+          It's rarely one big event — it's a pattern of small ones that
+          nobody stops to log:
+        </p>
+        <ul>
+          <li>A short-dated case pulled off the shelf and binned, with no write-off raised against it</li>
+          <li>A pick error on the warehouse floor that's never fed back into the count</li>
+          <li>Stock physically moved between bins without the system being told</li>
+          <li>Breakage during handling that gets swept up rather than recorded</li>
+        </ul>
+        <p>
+          Each one looks trivial on its own. Add them up across a few hundred
+          lines over a few months and the gap between what the system says
+          and what's actually on the shelf stops being trivial at all.
+        </p>
+
+        <h2>What this should actually look like</h2>
+        <p>
+          The fix isn't more frequent full stocktakes — it's counting and
+          reconciling the way the warehouse actually operates:
+        </p>
+        <ul>
+          <li>Tablet-based stocktakes counted against live <a href="/features/inventory">bin/shelf locations</a>, so one aisle can be reconciled while the rest of the warehouse keeps picking and shipping normally</li>
+          <li>A proper stock adjustment logged the moment a discrepancy is found — not batched up and guessed at during the next full count</li>
+          <li>Write-offs raised against the specific product with a reason (damaged, expired, short on count), so there's an audit trail of what was lost and why</li>
+          <li>Reorder levels and reorder suggestions that work off the true, current count — not a figure that's been quietly wrong for a while</li>
+          <li>The value of what's written off flowing through to <a href="/features/reporting">stock valuation</a> and the P&L, rather than disappearing into an unexplained variance</li>
+        </ul>
+        <p>
+          Done that way, a stocktake is a routine check that confirms the
+          number was right, not the one day a year everyone finds out how
+          wrong it's been.
+        </p>
+
+        <h2>It's connected to receiving and picking, not separate from them</h2>
+        <p>
+          Stock accuracy doesn't start or end at the stocktake. If goods come
+          in short or damaged against a purchase order and it isn't recorded
+          properly — covered in our guide on
+          <a href="/blog/goods-receipt-discrepancies-for-wholesale-distributors">goods
+          receipt discrepancies</a> — the count is wrong before it even hits
+          the shelf. And if picking errors on the way out the door aren't
+          caught, covered in
+          <a href="/blog/pick-pack-accuracy-for-wholesale-distributors">pick-pack
+          accuracy</a>, the count drifts again on the way out. Stocktakes and
+          write-offs are the safety net that catches whatever slips through
+          both — but they work best alongside accurate receiving and picking,
+          not instead of it.
+        </p>
+
+        <h2>Why this matters more than a spreadsheet count once a year</h2>
+        <p>
+          A distributor running <a href="/blog/inventory-stock-control-software-for-wholesalers">real-time
+          inventory</a> is making purchasing, pricing and fulfilment
+          decisions off the stock figure constantly, not just on stocktake
+          day. If that figure is only trustworthy for the few weeks after a
+          full count and drifts quietly the rest of the time, every decision
+          made in between is being made on a guess dressed up as a fact.
+        </p>
+
+        <h2>Built around how your warehouse actually counts stock</h2>
+        <p>
+          Whether you run tight weekly cycle counts on high-value lines, one
+          full stocktake a year, or something in between, tell us how your
+          warehouse actually operates and we build the counting, adjustment
+          and write-off process to match — on top of the same
+          <a href="/features/inventory">inventory</a> and stock records
+          everything else in Cognit already runs on, rather than a count
+          that happens off to the side in a spreadsheet.
+        </p>
+
+        <h2>Stop finding out on stocktake day</h2>
+        <p>
+          If the gap between what the system says and what's on the shelf
+          only ever gets found once or twice a year, it's worth seeing what
+          bin-level cycle counts and a proper write-off trail actually look
+          like against your own warehouse. See <a href="/pricing">what's
+          included</a> or <a href="/contact">book a demo</a> to walk through
+          it.
+        </p>
+
+        <h2>Frequently asked questions</h2>
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </article>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
