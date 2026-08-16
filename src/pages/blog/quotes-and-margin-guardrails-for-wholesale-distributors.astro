@@ -1,0 +1,198 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+const site = "https://cognitsystem.com";
+const slug = "quotes-and-margin-guardrails-for-wholesale-distributors";
+const url = `${site}/blog/${slug}/`;
+
+const title = "Quotes & Margin Guardrails for NZ & AU Wholesale Distributors | Cognit";
+const description =
+  "Why an ad-hoc quote is where wholesale margin actually leaks — no cost floor in view, no record of who approved the discount, and a won quote that gets re-keyed instead of turned straight into an order.";
+
+const faqs = [
+  {
+    q: "Isn't a quote just a lower-pressure version of a normal order?",
+    a: "In the software, no — and that's the problem when it's treated that way. An order is checked against stock, customer pricing and credit before it goes anywhere. A quote built in an email or a spreadsheet skips all of that: there's nothing stopping a rep from promising a price below cost, and no record afterwards of what was actually offered if the customer comes back arguing the number.",
+  },
+  {
+    q: "What does a margin guardrail actually do?",
+    a: "It shows the margin on each line as the quote is being built, against the customer's real cost price — not the list price — and flags it the moment a line falls below an acceptable floor. It doesn't have to block the quote outright; it can just make the discount visible before it's sent, instead of surfacing in a margin report weeks later when it can't be undone.",
+  },
+  {
+    q: "What happens when a customer accepts a quote — does it need to be re-keyed as an order?",
+    a: "It shouldn't. If the quote and the order run on the same product, pricing and customer records, a won quote converts straight into an order with the lines, quantities and agreed price carried over — instead of someone re-typing it from a PDF and hoping they copy the numbers correctly.",
+  },
+  {
+    q: "Do quotes expire?",
+    a: "They should, and the system should know it. Cost prices and stock positions move — a quote honoured six weeks after it was sent can be quietly unprofitable even if it looked fine on the day. A clear expiry date, and a re-check before a stale quote converts, stops an old price getting honoured on today's costs.",
+  },
+  {
+    q: "How does this relate to customer-specific pricing?",
+    a: "They're two sides of the same problem. Customer-specific pricing controls the price a customer normally sees on every order. A quote is what happens outside that — a one-off deal, a new prospect, a volume ask that doesn't fit the standard price list. Without margin visibility, a one-off quote is exactly where a rep is most likely to under-price, because there's no standard price list line to compare it against.",
+  },
+];
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "Quotes and margin guardrails for wholesale distributors",
+  description,
+  author: { "@type": "Organization", name: "Cognit System", url: site },
+  publisher: {
+    "@type": "Organization",
+    name: "Cognit System",
+    logo: { "@type": "ImageObject", url: `${site}/logo.png` },
+  },
+  datePublished: "2026-08-16",
+  dateModified: "2026-08-16",
+  mainEntityOfPage: { "@type": "WebPage", "@id": url },
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+---
+
+<Layout title={title} description={description} path={`/blog/${slug}`} schema={[articleSchema, faqSchema]}>
+  <Header />
+
+  <main class="bg-cog-stone text-cog-slate">
+    <!-- HERO (photographic) -->
+    <section class="orbs relative isolate overflow-hidden">
+      <img src="/images/warehouse-worker.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" />
+      <div class="absolute inset-0 -z-10 bg-cog-ink/82"></div>
+      <div class="dotgrid absolute inset-0 -z-10 opacity-40"></div>
+      <div class="mx-auto max-w-3xl px-5 pt-20 pb-20 text-center sm:px-8 sm:pt-28 hero-rise">
+        <span class="chip mx-auto border border-white/15 text-slate-200">Insights</span>
+        <h1 class="mt-5 text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl">
+          Quotes and margin guardrails
+        </h1>
+        <p class="mt-4 text-lg text-slate-300">
+          A rep wants to win the deal. Nothing in an email or a spreadsheet
+          stops them quoting a price that loses money to do it — until
+          someone finds out on the margin report, long after it's shipped.
+        </p>
+      </div>
+    </section>
+
+    <!-- BODY -->
+    <section class="mx-auto max-w-3xl px-5 pb-16 sm:px-8">
+      <article class="article">
+        <p>
+          Most of the pricing conversation in wholesale is about the
+          standard price list — what a customer normally pays, tier by
+          tier. But the deals that actually erode margin usually aren't on
+          the standard list at all. They're the one-off quotes: a new
+          prospect asking "what's your best price on a pallet of this," a
+          volume ask that doesn't fit any existing tier, a rep trying to
+          win a account back from a competitor. That's exactly where
+          margin leaks, because it's the one place nobody's watching the
+          number in real time.
+        </p>
+
+        <p>
+          A quote built in an email or a spreadsheet has no idea what the
+          product actually costs. The rep is working off memory, or the
+          list price, or whatever number felt generous enough to close the
+          deal. There's no floor stopping the price going below cost, and
+          no record afterwards of exactly what was offered and why — so
+          when the customer comes back next quarter expecting the same
+          number, nobody can say whether it was ever meant to be
+          repeatable.
+        </p>
+
+        <h2>What actually goes wrong with an unmanaged quote</h2>
+        <ul>
+          <li>A line quoted below cost, and nobody notices until it shows up as negative margin in a report weeks later — by then it's already been ordered, shipped and invoiced</li>
+          <li>No record of who approved the discount, or whether anyone did — it's just the number that made it into the email</li>
+          <li>A won quote gets re-typed into the order system by hand, and a digit or a line gets dropped or changed in the process</li>
+          <li>A quote sent six weeks ago gets honoured today, on costs that have since moved, because nothing flagged that it was stale</li>
+          <li>No visibility for whoever's managing pricing into how many quotes are going out, at what discount, or how many are actually converting</li>
+        </ul>
+
+        <h2>What a margin guardrail actually changes</h2>
+        <p>
+          The point isn't to stop reps discounting — trade pricing always
+          involves some negotiation. The point is making the margin
+          visible while the quote is still being built, not after it's
+          gone out the door:
+        </p>
+        <ul>
+          <li>Live per-line margin shown against the customer's actual cost price as the quote is put together, not the list price</li>
+          <li>A clear flag when a line drops below an acceptable floor, so a low-margin line is a decision someone makes on purpose rather than one that slips through</li>
+          <li>A quote that expires, so an old price doesn't get honoured against today's cost without a re-check</li>
+          <li>A won quote that converts straight into an order — same lines, same customer, same agreed price — instead of being re-keyed from a PDF</li>
+          <li>A record of every quote sent, what it discounted to, and whether it converted, so pricing decisions are visible instead of living in individual reps' inboxes</li>
+        </ul>
+        <p>
+          Done that way, the guardrail sits at the exact point the decision
+          is being made — not in a report that only tells you about the
+          damage after the invoice has already gone out.
+        </p>
+
+        <h2>Why this is a different problem to your price list</h2>
+        <p>
+          <a href="/blog/customer-specific-pricing-for-wholesalers">Customer-specific
+          pricing</a> handles the price a customer sees on every normal
+          order — tiered, negotiated, and enforced automatically at the
+          point of sale. A quote is what happens outside that structure:
+          a new prospect with no pricing history yet, a special volume ask,
+          a one-off deal a <a href="/blog/sales-rep-ordering-app-for-wholesalers">rep</a>
+          is trying to close on the spot. It's precisely because there's no
+          standing price list line to check it against that an unmanaged
+          quote is where the worst pricing decisions tend to happen.
+        </p>
+
+        <h2>It still has to end up as a real order</h2>
+        <p>
+          A quote that's won and then has to be manually re-typed into the
+          order system is a second chance for it to go wrong — a quantity
+          changed, a line missed, the agreed price not carried across
+          correctly. And a customer who's quoted a price today but
+          disputes it later needs an <a href="/blog/aged-receivables-and-customer-statements-for-wholesale-distributors">accounts
+          record</a> that matches what they were actually quoted, not a
+          rep's recollection of an email from six weeks ago.
+        </p>
+
+        <h2>Built around how your team actually quotes</h2>
+        <p>
+          Whether your reps are quoting off a price list with occasional
+          exceptions, or building bespoke deals for every new account, tell
+          us how quoting actually works in your business and we build the
+          margin visibility, expiry rules and approval steps to match — on
+          top of the same <a href="/features/sales">sales &amp; pricing</a>
+          records and cost data everything else in Cognit already runs on,
+          rather than a quote process that lives off to the side in email.
+        </p>
+
+        <h2>Stop finding out on the margin report</h2>
+        <p>
+          If the first time anyone sees a quoted price was too low is after
+          it's already been ordered and shipped, it's worth seeing what
+          margin visibility at the point of quoting actually looks like
+          against your own price book. See <a href="/pricing">what's
+          included</a> or <a href="/contact">book a demo</a> to walk
+          through it.
+        </p>
+
+        <h2>Frequently asked questions</h2>
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </article>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
