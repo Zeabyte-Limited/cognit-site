@@ -1,0 +1,213 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+const site = "https://cognitsystem.com";
+const slug = "reorder-points-and-stock-replenishment-for-wholesale-distributors";
+const url = `${site}/blog/${slug}/`;
+
+const title = "Reorder Points & Stock Replenishment for NZ & AU Wholesale Distributors | Cognit";
+const description =
+  "Deciding what to order from suppliers, and how much, shouldn't be a gut feeling or a Friday-afternoon walk around the warehouse. What a real reorder point needs — min/max levels, lead time and sales velocity — and why guessing costs distributors both stockouts and dead stock.";
+
+const faqs = [
+  {
+    q: "What's the difference between a reorder point and a stocktake?",
+    a: "A stocktake tells you what's actually on the shelf right now, corrected against what the system thinks you hold. A reorder point is forward-looking — it's the stock level that should trigger a purchase order before you run out, based on how fast a line sells and how long the supplier takes to deliver. You need an accurate stocktake for the reorder point to mean anything, but they answer two different questions: one is 'what do we have,' the other is 'when do we need to buy more.'",
+  },
+  {
+    q: "Isn't a simple minimum stock level enough?",
+    a: "It's a start, but a flat minimum ignores the two things that actually drive when you should reorder: how long the supplier takes to deliver, and how fast the line is currently selling. A minimum set once and left alone doesn't know that a supplier's lead time stretched from two weeks to five, or that a line's sales tripled after a promotion. A reorder point that accounts for lead time and recent velocity catches both — a flat number set six months ago catches neither.",
+  },
+  {
+    q: "How does this connect to purchase orders and goods receipt?",
+    a: "Directly — a reorder point that fires should generate a suggested purchase order against the right supplier, at the right pack size and cost, not just a warning that gets noticed a week later. And what you actually raise the PO for should reconcile against what lands, the same way any delivery does — see our guide on goods receipt discrepancies for what happens once the order those numbers.",
+  },
+  {
+    q: "What about seasonal or promotional demand spikes?",
+    a: "A reorder point based purely on a long-run average will always be a step behind a spike or a lull — it reacts once the average has already moved, by which point you've either stocked out or overbought. That's exactly the kind of business-specific rule we build in rather than force onto a generic formula: a seasonal uplift ahead of a known period, a manual override for a promotion, or a different reorder rule for a line you know is about to be discontinued.",
+  },
+  {
+    q: "Does this apply the same way to catch-weight or perishable stock?",
+    a: "The underlying logic is the same — don't run out, don't overbuy — but the consequence of getting it wrong is sharper. Overbuying a shelf-stable line ties up cash; overbuying a short-dated line turns into a write-off. For those, the reorder point has to work alongside FEFO rotation and expiry visibility, not just a stock-on-hand number, so what you're about to order accounts for stock that's about to expire before it can sell.",
+  },
+];
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "Reorder points and stock replenishment for wholesale distributors",
+  description,
+  author: { "@type": "Organization", name: "Cognit System", url: site },
+  publisher: {
+    "@type": "Organization",
+    name: "Cognit System",
+    logo: { "@type": "ImageObject", url: `${site}/logo.png` },
+  },
+  datePublished: "2026-08-17",
+  dateModified: "2026-08-17",
+  mainEntityOfPage: { "@type": "WebPage", "@id": url },
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+---
+
+<Layout title={title} description={description} path={`/blog/${slug}`} schema={[articleSchema, faqSchema]}>
+  <Header />
+
+  <main class="bg-cog-stone text-cog-slate">
+    <!-- HERO (photographic) -->
+    <section class="orbs relative isolate overflow-hidden">
+      <img src="/images/warehouse-shelves.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" />
+      <div class="absolute inset-0 -z-10 bg-cog-ink/82"></div>
+      <div class="dotgrid absolute inset-0 -z-10 opacity-40"></div>
+      <div class="mx-auto max-w-3xl px-5 pt-20 pb-20 text-center sm:px-8 sm:pt-28 hero-rise">
+        <span class="chip mx-auto border border-white/15 text-slate-200">Insights</span>
+        <h1 class="mt-5 text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl">
+          Reorder points and stock replenishment
+        </h1>
+        <p class="mt-4 text-lg text-slate-300">
+          Someone decides what to order from suppliers this week — usually
+          by walking the warehouse or eyeballing a spreadsheet. That's how
+          a business ends up both out of stock on its best sellers and
+          sitting on dead stock of everything else.
+        </p>
+      </div>
+    </section>
+
+    <!-- BODY -->
+    <section class="mx-auto max-w-3xl px-5 pb-16 sm:px-8">
+      <article class="article">
+        <p>
+          Most distributors have a solid handle on what happens once a
+          purchase order exists — receiving, checking it against the
+          delivery, paying the bill. What's far shakier is the decision
+          before that: what to order, and when. In a lot of businesses
+          that decision is still a Friday-afternoon walk around the
+          warehouse, or a buyer's memory of which lines "felt low" this
+          week — which means the business finds out it's short of a fast
+          mover the same day a customer orders it, and finds out it's
+          overstocked on a slow mover about six months later, when it's
+          quietly written off.
+        </p>
+
+        <h2>Why "reorder when it looks low" doesn't work</h2>
+        <p>
+          Eyeballing stock feels manageable when a warehouse holds fifty
+          lines. It falls apart well before a thousand, and it fails in
+          the same three ways every time:
+        </p>
+        <ul>
+          <li>A fast-moving line runs out between checks, and the order to replace it doesn't go in until it's already backordered a customer</li>
+          <li>A slow-moving line gets reordered anyway, because "it looked a bit low," and joins stock that was already sitting there too long</li>
+          <li>Nobody accounts for how long the supplier actually takes to deliver — so an order goes in with two weeks of stock left against a five-week lead time, and the gap becomes a stockout by the time it lands</li>
+          <li>A buyer leaves or goes on leave, and the informal knowledge of "what usually needs ordering" leaves with them</li>
+        </ul>
+
+        <h2>What a real reorder point actually needs</h2>
+        <p>
+          A reorder point that works is built from three numbers, not a
+          gut feel — and none of them is complicated on its own:
+        </p>
+        <ul>
+          <li>How fast the line is actually selling, based on recent sales — not a number set once when the product was first listed and never revisited</li>
+          <li>How long the supplier takes to deliver, from placing the order to it landing on the dock — the same lead time that varies supplier to supplier and season to season</li>
+          <li>A minimum stock level, or safety buffer, that covers demand during that lead time so a normal fluctuation in sales doesn't tip straight into a stockout</li>
+          <li>A suggested order quantity that's a sensible amount to buy — not just "enough to get back to minimum," but pack sizes and case quantities the supplier actually ships in</li>
+        </ul>
+        <p>
+          Put those together and a stock level crossing the reorder point
+          should generate a suggested purchase order automatically —
+          against the right supplier, at the right cost and pack size —
+          for a buyer to review and release, rather than a warning that
+          gets noticed once someone happens to be looking at that report.
+        </p>
+
+        <h2>Where it gets harder: multiple suppliers and moving lead times</h2>
+        <p>
+          The formula above assumes one supplier and a stable lead time,
+          and real wholesale purchasing rarely stays that tidy. The same
+          product might come from two suppliers at different costs and
+          lead times, one used as backup when the primary is out. A
+          supplier's lead time can stretch around a public holiday or a
+          shipping delay without anyone updating the number that drives
+          the reorder point — which is exactly how a business that "always
+          orders two weeks out" gets caught by a five-week wait it didn't
+          plan for. Reorder logic that doesn't track lead time per
+          supplier, and flag when it's drifted, quietly goes stale the
+          same way a minimum stock level set once does.
+        </p>
+
+        <h2>It still has to become a real purchase order</h2>
+        <p>
+          A reorder suggestion that a buyer has to manually retype into a
+          separate purchasing system is a second chance for the numbers to
+          drift before it's even placed. Run on the same data as
+          <a href="/blog/goods-receipt-discrepancies-for-wholesale-distributors">purchasing
+          and goods receipt</a>, a triggered reorder point should turn into
+          a purchase order a buyer can review and release with one
+          decision, and what lands against it reconciles the same way any
+          other delivery does — short, over, or on the money.
+        </p>
+
+        <h2>Different for perishable and catch-weight stock</h2>
+        <p>
+          For food and beverage lines, replenishment isn't just about not
+          running out — ordering too much of a short-dated line turns
+          straight into a write-off rather than dead cash sitting on a
+          shelf. A reorder point for those lines has to work alongside
+          <a href="/blog/fefo-expiry-date-stock-rotation-food-distributors">FEFO
+          rotation and expiry visibility</a>, and account for
+          <a href="/blog/catch-weight-pricing-for-meat-and-seafood-distributors">catch-weight</a>
+          variance in what actually arrives against what was ordered by
+          weight.
+        </p>
+
+        <h2>Built around how your business actually buys</h2>
+        <p>
+          Some lines need a strict formula. Others need a buyer's
+          judgement layered on top — a known seasonal spike, a
+          promotion coming up, a line about to be discontinued that
+          shouldn't reorder at all no matter what the formula says. Tell
+          us how buying decisions actually get made in your business and
+          we build the reorder rules, supplier-specific lead times and
+          override logic into your Cognit system, on top of the same
+          <a href="/features/purchasing">purchasing</a> and
+          <a href="/features/inventory">inventory</a> data everything else
+          already runs on — rather than a generic min/max formula that
+          doesn't match how your buyers actually work.
+        </p>
+
+        <h2>Stop finding out on the day the order comes in</h2>
+        <p>
+          If replenishment in your business currently runs on a walk
+          around the warehouse or a buyer's memory, it's worth seeing what
+          a proper reorder point looks like against your own sales
+          history and supplier lead times. See
+          <a href="/pricing">what's included</a> or
+          <a href="/contact">book a demo</a> to talk through how buying
+          decisions get made in your warehouse today.
+        </p>
+
+        <h2>Frequently asked questions</h2>
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </article>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
