@@ -1,0 +1,221 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+const site = "https://cognitsystem.com";
+const slug = "multi-location-stock-transfers-for-wholesale-distributors";
+const url = `${site}/blog/${slug}/`;
+
+const title = "Multi-Location Stock Visibility & Inter-Branch Transfers for Wholesalers | Cognit";
+const description =
+  "When stock sits across more than one warehouse or branch, 'ring the other depot and ask' isn't a stock system. What real multi-location visibility and a proper stock transfer need — and why stock in transit is the gap that catches most distributors out.";
+
+const faqs = [
+  {
+    q: "Isn't a phone call to the other branch good enough for a small operation?",
+    a: "It works right up until the person who'd normally answer that call is at lunch, on leave, or the branch has grown past the point where one person can eyeball the shelf and give an accurate answer on the spot. A phone call also only ever answers the question for the one product someone thought to ask about — it doesn't give a rep or a customer service team a reliable picture of what's actually available across every branch before they promise a delivery date.",
+  },
+  {
+    q: "What's the difference between a stock transfer and just treating it as a sale and a purchase between branches?",
+    a: "Running it as a sale-and-purchase pair works, but it's clumsy — it creates GST and invoicing noise for a movement that isn't really a trade, and it makes internal stock movements harder to tell apart from genuine sales when you're trying to read the numbers later. A proper stock transfer moves stock from one location's holding to another directly, at cost, with its own record — so the reason it moved is clear and it doesn't get counted as revenue it isn't.",
+  },
+  {
+    q: "Does stock in transit count as available when a rep or the online store is checking stock?",
+    a: "It shouldn't count as available at the destination until it's actually been received there — otherwise you can promise a customer stock that's sitting on a truck between branches rather than on a shelf ready to pick. It also shouldn't still show as available at the origin branch once it's left, or you end up double-counting the same units in two places at once. The safest position is to show it in a clear in-transit state that's neither, until someone at the receiving end actually books it in.",
+  },
+  {
+    q: "How does this connect to reorder points and purchasing?",
+    a: "Directly — if a reorder point at one branch only looks at that branch's own stock, you can end up ordering more from a supplier when the shortfall could have been covered by a transfer from a branch that's overstocked on the same line. Multi-location visibility should feed into the same purchasing decision covered in our guide on reorder points and stock replenishment, so a transfer gets considered before a fresh purchase order does.",
+  },
+  {
+    q: "Does this apply if we've only got a warehouse and one retail counter, not multiple full branches?",
+    a: "Yes — the same problem shows up at a smaller scale. Stock sitting in the warehouse that the counter can't see, or counter stock that isn't visible to whoever's picking online orders out the back, causes the same overselling and the same 'let me go check' delay as it does between two full branches. The fix is the same: one live stock figure per location, and a proper transfer record when stock moves between them.",
+  },
+];
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "Multi-location stock visibility and inter-branch transfers for wholesale distributors",
+  description,
+  author: { "@type": "Organization", name: "Cognit System", url: site },
+  publisher: {
+    "@type": "Organization",
+    name: "Cognit System",
+    logo: { "@type": "ImageObject", url: `${site}/logo.png` },
+  },
+  datePublished: "2026-08-18",
+  dateModified: "2026-08-18",
+  mainEntityOfPage: { "@type": "WebPage", "@id": url },
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+---
+
+<Layout title={title} description={description} path={`/blog/${slug}`} schema={[articleSchema, faqSchema]}>
+  <Header />
+
+  <main class="bg-cog-stone text-cog-slate">
+    <!-- HERO (photographic) -->
+    <section class="orbs relative isolate overflow-hidden">
+      <img src="/images/logistics-truck.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" />
+      <div class="absolute inset-0 -z-10 bg-cog-ink/82"></div>
+      <div class="dotgrid absolute inset-0 -z-10 opacity-40"></div>
+      <div class="mx-auto max-w-3xl px-5 pt-20 pb-20 text-center sm:px-8 sm:pt-28 hero-rise">
+        <span class="chip mx-auto border border-white/15 text-slate-200">Insights</span>
+        <h1 class="mt-5 text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl">
+          Multi-location stock visibility and inter-branch transfers
+        </h1>
+        <p class="mt-4 text-lg text-slate-300">
+          A customer asks for stock that's sold out at the branch taking the
+          call — but sitting untouched two hours up the road. Nobody finds
+          that out until someone thinks to ring around and ask.
+        </p>
+      </div>
+    </section>
+
+    <!-- BODY -->
+    <section class="mx-auto max-w-3xl px-5 pb-16 sm:px-8">
+      <article class="article">
+        <p>
+          Most wholesale and food distribution businesses in New Zealand and
+          Australia don't stay single-site for long. A second warehouse
+          opens to serve another region, a branch gets added after an
+          acquisition, or a business that started with one depot ends up
+          running stock out of a main warehouse and a satellite site closer
+          to a cluster of customers. What rarely gets rebuilt at the same
+          time is the stock system underneath it — so "how much have we got"
+          quietly turns from a number on a screen into a phone call to
+          whoever's standing near the shelf at the other location.
+        </p>
+
+        <p>
+          That gap doesn't show up as a dramatic failure. It shows up as
+          small, constant friction — a rep promising stock that isn't
+          actually there, a customer service call put on hold "while I check
+          with the warehouse," an online order accepted for a product that's
+          only in stock at a branch three days from the customer. None of it
+          looks like a system problem from the inside. It just looks like
+          the way the business has always run.
+        </p>
+
+        <h2>Why "ring the other branch" stops working</h2>
+        <p>
+          Calling around is manageable with two locations and a handful of
+          fast-moving lines. It breaks down for the same reasons every
+          informal stock process does once a business has any real scale:
+        </p>
+        <ul>
+          <li>Whoever would normally know the answer is at lunch, on the road, or has left the business — and the knowledge of "what's usually at that branch" leaves with them</li>
+          <li>A rep quotes stock and a delivery date off what they remember seeing last time they were at that branch, not what's actually there today</li>
+          <li>The online store shows one combined stock figure with no idea which branch it's actually sitting in, or whether it can reach the customer in time</li>
+          <li>Two branches both think they've got the last few units of a line, because neither one can see what the other has already promised to a customer</li>
+        </ul>
+
+        <h2>What real multi-location visibility actually needs</h2>
+        <p>
+          Multi-location stock isn't one total number split across sites —
+          it needs to be tracked and shown as what it actually is:
+        </p>
+        <ul>
+          <li>A live, separate stock-on-hand figure for every warehouse and branch, not one combined total that hides where a product actually sits</li>
+          <li>Visibility for reps, customer service and the online store into which specific location holds enough stock to fulfil an order — before a promise gets made to the customer</li>
+          <li>The ability to fulfil an order from whichever location makes sense — closest to the customer, or the one that actually has stock — rather than always defaulting to the branch that took the call</li>
+          <li>A proper stock transfer between locations, recorded as a transfer rather than a sale, so the reason stock moved is clear when you're reading the numbers later</li>
+        </ul>
+        <p>
+          Get that in place and a rep or a customer service team can answer
+          "have we got it" honestly and immediately, instead of putting a
+          customer on hold to go and ask.
+        </p>
+
+        <h2>The part that catches most businesses out: stock in transit</h2>
+        <p>
+          A transfer between branches usually isn't instant — it's on a
+          truck for a few hours or a day. What that stock counts as during
+          that window is exactly where most ad-hoc processes fall over.
+          Still shown as available at the sending branch, and it can get
+          sold twice. Already shown as available at the receiving branch
+          before it's actually arrived, and a customer gets promised
+          delivery on stock that's still on the road. The stock needs to sit
+          in a clear in-transit state — deducted from the origin the moment
+          it leaves, not yet added to the destination until someone there
+          actually books it in — so at every point in the journey exactly
+          one location's figure reflects reality.
+        </p>
+
+        <h2>It has to talk to purchasing, not sit apart from it</h2>
+        <p>
+          A shortfall at one branch and a surplus of the same line at
+          another is a transfer waiting to happen, not a fresh purchase
+          order waiting to be raised. If each branch's
+          <a href="/blog/reorder-points-and-stock-replenishment-for-wholesale-distributors">reorder
+          point</a> only looks at its own stock in isolation, the business
+          ends up buying more from a supplier while a nearby branch sits on
+          stock it doesn't need — tying up cash on both ends at once. A
+          reorder suggestion should account for stock available elsewhere in
+          the business before it ever reaches a supplier.
+        </p>
+
+        <h2>It only works if each location's count is actually right</h2>
+        <p>
+          Splitting stock across locations does no good if the figure at
+          each one is already drifting from what's on the shelf. Everything
+          covered in our guide on
+          <a href="/blog/stocktakes-and-stock-write-offs-for-wholesale-distributors">stocktakes
+          and stock write-offs</a> — cycle counts, logged discrepancies, a
+          proper audit trail — needs to run at every branch individually.
+          One accurate warehouse and one that's quietly wrong doesn't give
+          you a reliable multi-location picture; it just moves the "which
+          number do we trust" problem from between systems to between
+          branches.
+        </p>
+
+        <h2>Built around how your branches actually operate</h2>
+        <p>
+          Some businesses want every branch fulfilling for the customer
+          nearest to it. Others run one central warehouse and satellite
+          branches that only ever receive transfers, never buy direct from a
+          supplier. Some need a transfer signed off before it leaves;
+          others need it to move the moment it's raised. Tell us how stock
+          actually moves between your locations today and we build the
+          transfer rules, in-transit handling and location-level visibility
+          into your Cognit system on top of the same
+          <a href="/features/inventory">inventory</a> and
+          <a href="/features/purchasing">purchasing</a> data everything else
+          already runs on — rather than a generic multi-warehouse toggle
+          that doesn't match how your branches actually work together.
+        </p>
+
+        <h2>Stop finding out by phone call</h2>
+        <p>
+          If knowing what's where across your branches still depends on
+          someone picking up the phone and asking, it's worth seeing what
+          live, location-level stock visibility looks like against your own
+          warehouses. See <a href="/pricing">what's included</a> or
+          <a href="/contact">book a demo</a> to walk through how stock moves
+          between your sites today.
+        </p>
+
+        <h2>Frequently asked questions</h2>
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </article>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
