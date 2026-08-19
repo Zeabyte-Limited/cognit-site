@@ -1,0 +1,222 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+const site = "https://cognitsystem.com";
+const slug = "supplier-cost-price-increases-for-wholesale-distributors";
+const url = `${site}/blog/${slug}/`;
+
+const title = "Supplier Cost Price Increases: Keeping Sell Prices & Margin in Sync | Cognit";
+const description =
+  "A supplier's cost increase lands in an email or a new price list PDF — and the sell price on your system doesn't move. Every order in between quietly sells at a thinner margin, sometimes at a loss. What tracking a cost change through to sell price actually needs.";
+
+const faqs = [
+  {
+    q: "How would a system even know a supplier's cost has gone up?",
+    a: "Most of the time it starts the way it always has — an email, an updated price list PDF, or a phone call from the rep. What changes is what happens next: instead of that new cost sitting in someone's inbox until they get time to update prices, it gets entered against the supplier and product straight away, and everything downstream — margin on the price list, margin on a quote, margin on an order already in progress — reflects it immediately rather than whenever someone circles back to it.",
+  },
+  {
+    q: "We price on a fixed margin over cost. Shouldn't that already handle this?",
+    a: "It handles it in principle, but only if the sell price is actually recalculated when the cost changes — a lot of price lists are set once and then left alone, so the 'cost-plus' relationship is really just the price you started with plus whatever margin it happened to give you on day one. If cost is stored and sell price is derived from it with a live markup or margin rule, a cost increase should flow through automatically instead of needing someone to manually work out and re-enter every affected sell price.",
+  },
+  {
+    q: "What if we don't want to pass every cost increase straight on to customers?",
+    a: "That's a business decision, not a system one — and it's a different problem to not knowing the margin has moved. The system's job is to make the erosion visible the moment it happens, so someone can decide deliberately whether to absorb it, pass on all of it, or split the difference — rather than the decision getting made by default because nobody noticed the cost had changed at all.",
+  },
+  {
+    q: "How does this connect to the margin problem covered in your quotes article?",
+    a: "They're the same root cause showing up in two places. Our guide on quotes and margin guardrails covers margin leaking on a one-off quote priced against a cost that's already stale. This is the same stale-cost problem, but sitting underneath every order at the standard price list — not just the quotes a rep negotiates by hand.",
+  },
+  {
+    q: "Does this only matter for businesses with hundreds of suppliers?",
+    a: "It shows up fastest there, because more suppliers means more price changes landing every week and less chance anyone catches all of them by memory. But it costs a business just as much per unit with five suppliers and a handful of high-volume lines — a missed cost increase on your biggest-selling product erodes far more margin than the same miss spread across products nobody sells much of.",
+  },
+];
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "Supplier cost price increases: keeping sell prices and margin in sync for wholesale distributors",
+  description,
+  author: { "@type": "Organization", name: "Cognit System", url: site },
+  publisher: {
+    "@type": "Organization",
+    name: "Cognit System",
+    logo: { "@type": "ImageObject", url: `${site}/logo.png` },
+  },
+  datePublished: "2026-08-19",
+  dateModified: "2026-08-19",
+  mainEntityOfPage: { "@type": "WebPage", "@id": url },
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+---
+
+<Layout title={title} description={description} path={`/blog/${slug}`} schema={[articleSchema, faqSchema]}>
+  <Header />
+
+  <main class="bg-cog-stone text-cog-slate">
+    <!-- HERO (photographic) -->
+    <section class="orbs relative isolate overflow-hidden">
+      <img src="/images/hero-cranes-night.jpg" alt="" aria-hidden="true" class="absolute inset-0 -z-10 h-full w-full object-cover" />
+      <div class="absolute inset-0 -z-10 bg-cog-ink/82"></div>
+      <div class="dotgrid absolute inset-0 -z-10 opacity-40"></div>
+      <div class="mx-auto max-w-3xl px-5 pt-20 pb-20 text-center sm:px-8 sm:pt-28 hero-rise">
+        <span class="chip mx-auto border border-white/15 text-slate-200">Insights</span>
+        <h1 class="mt-5 text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl">
+          Supplier cost price increases and margin sync
+        </h1>
+        <p class="mt-4 text-lg text-slate-300">
+          A supplier's cost goes up on a Tuesday. The sell price on your
+          system moves three weeks later, whenever someone gets around to
+          it — and every order in between quietly sold thinner than it
+          should have.
+        </p>
+      </div>
+    </section>
+
+    <!-- BODY -->
+    <section class="mx-auto max-w-3xl px-5 pb-16 sm:px-8">
+      <article class="article">
+        <p>
+          Cost increases from suppliers are a fact of life for any New
+          Zealand or Australian wholesale or food distribution business —
+          freight, raw materials, exchange rates and a hundred other things
+          feed into what a supplier charges, and none of it is in your
+          control. What is in your control is how fast that change reaches
+          your own sell prices. For a lot of distributors, the honest answer
+          is: not fast enough, and not reliably.
+        </p>
+
+        <p>
+          The increase itself usually arrives the same way it always has —
+          an email from the account manager, an updated price list PDF, a
+          note in with the next delivery. Someone has to notice it, read it,
+          work out which products and which customers it affects, and go
+          and change the numbers. Until that happens, every order that goes
+          out the door is priced against a cost that's already wrong. Nobody
+          decided to sell at a thinner margin. It just happened, quietly,
+          because the gap between "the cost changed" and "the price
+          reflects it" was measured in weeks instead of minutes.
+        </p>
+
+        <h2>Why this erodes margin without anyone noticing</h2>
+        <p>
+          A single missed cost increase rarely looks like a problem on its
+          own — a few cents a unit doesn't set off any alarms. It adds up
+          because of how these things actually happen in a real business:
+        </p>
+        <ul>
+          <li>Cost increases arrive constantly and from every direction — dozens of suppliers, each on their own schedule, none of them waiting for a convenient time</li>
+          <li>The person who reads the supplier email and the person who updates the price list are often not the same person, and not always in a hurry to talk to each other</li>
+          <li>A price list update usually happens in a batch — someone sits down once a month and works through a backlog of notices — so most increases sit unactioned for weeks by default, not by exception</li>
+          <li>Nobody sees the total damage, because it's spread thinly across every order sold at the stale price rather than showing up as one number anyone would flag</li>
+        </ul>
+        <p>
+          By the time someone reconciles gross margin at month end and finds
+          it's softer than expected, the orders that caused it have long
+          since shipped, invoiced and been paid for. There's nothing left to
+          fix — only a number to explain.
+        </p>
+
+        <h2>What keeping cost and sell price in sync actually needs</h2>
+        <p>
+          Closing that gap isn't about pricing software in the abstract —
+          it's about a handful of specific things happening in order, every
+          time a cost changes:
+        </p>
+        <ul>
+          <li>The new <a href="/features/purchasing">cost price</a> gets recorded against the supplier and product the moment it's known, not batched up for a monthly review</li>
+          <li>Sell prices that are meant to hold a margin or markup over cost recalculate from the new cost automatically, instead of sitting at whatever number they were manually set to originally</li>
+          <li>Anyone about to quote or invoice at the old price sees the current margin against the current cost — not the margin the price list implied when it was last touched</li>
+          <li>A clear record of what changed and when, so a reviewer can see which lines moved, by how much, and whether the sell price actually followed</li>
+        </ul>
+
+        <h2>Cost-plus pricing only works if the "plus" is live</h2>
+        <p>
+          A lot of distributors already price on cost-plus in some form — a
+          standard markup, a target gross margin, a rule that's meant to
+          protect the business automatically. The trouble is that a
+          cost-plus rule applied once at the moment a product is set up
+          isn't cost-plus in any ongoing sense — it's a fixed price that
+          happened to be cost-plus on day one. If the sell price doesn't
+          move when the underlying cost does, the "plus" stops meaning
+          anything within a few cost changes, and the price list quietly
+          turns into a list of historical guesses.
+        </p>
+
+        <h2>Deciding whether to pass it on is still a business call</h2>
+        <p>
+          None of this means every supplier increase should flow straight
+          through to every customer the same day — some businesses hold a
+          price for a contracted period, some absorb small movements and
+          only reprice past a threshold, some want a chance to renegotiate
+          with the supplier first. That's a judgement call, and it should
+          stay one. What shouldn't be a judgement call is whether anyone
+          finds out the cost changed in the first place. The system's job is
+          to surface the change and the margin impact the moment it happens
+          — the decision on what to do with it is still yours to make.
+        </p>
+
+        <h2>It's the same leak as an unmanaged quote, one level up</h2>
+        <p>
+          This is close cousin to the problem covered in our guide on
+          <a href="/blog/quotes-and-margin-guardrails-for-wholesale-distributors">quotes
+          and margin guardrails</a> — margin disappearing because whoever's
+          pricing something can't see the current cost against it in the
+          moment. A quote is one order at a time, priced by a person. This
+          is the standard price list itself, sitting under every order that
+          doesn't get a special quote at all — which, for most distributors,
+          is most of them.
+        </p>
+
+        <h2>Built around how your pricing actually works</h2>
+        <p>
+          Some businesses run a flat markup across the board. Others set
+          different margin targets by product category, or hold certain
+          <a href="/blog/customer-specific-pricing-for-wholesalers">customer
+          price agreements</a> fixed regardless of cost movements for an
+          agreed period. Some want every cost change flagged for manual
+          sign-off before it touches a sell price; others want it to flow
+          straight through and only get reviewed after the fact. Tell us how
+          your business decides what to do when a supplier's cost moves, and
+          we build that rule into your Cognit system on top of the same
+          <a href="/features/purchasing">purchasing</a> and
+          <a href="/features/sales">sales</a> data everything else already
+          runs on — rather than a generic price-list import that still
+          leaves someone doing the maths by hand.
+        </p>
+
+        <h2>Stop finding out at month end</h2>
+        <p>
+          If the first time your business notices a supplier's cost
+          increase is a softer gross margin figure weeks later, it's worth
+          seeing what live cost-to-sell-price visibility looks like against
+          your own suppliers and price lists. See
+          <a href="/pricing">what's included</a> or
+          <a href="/contact">book a demo</a> to walk through how supplier
+          cost changes reach your prices today.
+        </p>
+
+        <h2>Frequently asked questions</h2>
+        {faqs.map((f) => (
+          <>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </>
+        ))}
+      </article>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
